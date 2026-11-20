@@ -4,12 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Leaf — A Café by Advanced Nature | Pune</title>
-  <meta name="description" content="Food . Art . Community — An eco-conscious industrial-art café in Hadapsar, Pune by Advanced Nature." />
+  <meta name="description" content="Food • Art • Community — An eco-conscious industrial-art café in Hadapsar, Pune by Advanced Nature." />
   
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,500&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,900&display=swap" rel="stylesheet">
   
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -23,13 +23,13 @@
         extend: {
           colors: {
             leafolive: '#556B2F',
-            forest: '#1E2F23',
-            moss: '#3F5826',
+            forest: '#1A281E',
+            moss: '#3B5224',
             sage: '#9EB384',
-            cream: '#F8F6F0',
-            sand: '#ECE8DC',
+            cream: '#F9F7F2',
+            sand: '#EFECE2',
             terracotta: '#C86D51',
-            charcoal: '#1A1C1A',
+            charcoal: '#181A18',
             swiggy: '#FC8019',
             zomato: '#E23744',
             district: '#6D17E8'
@@ -38,6 +38,10 @@
             logo: ['"Cinzel"', 'Georgia', 'serif'],
             serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
             sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          boxShadow: {
+            'editorial': '0 20px 50px -15px rgba(26, 40, 30, 0.08)',
+            'card': '0 4px 20px -2px rgba(26, 40, 30, 0.04)',
           }
         }
       }
@@ -50,30 +54,26 @@
       50% { transform: translateY(-12px) rotate(2.5deg); }
     }
     @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(18px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes scaleIn {
-      from { opacity: 0; transform: scale(0.96); }
-      to { opacity: 1; transform: scale(1); }
+      from { opacity: 0; transform: translateY(18px) scale(0.98); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
     }
 
     .animate-float-slow { animation: floatSlow 7.5s ease-in-out infinite; }
 
-    /* True Translucent Frosted Glass Top Bar */
+    /* Translucent Frosted Glass Top Bar */
     .glass-nav {
-      background: rgba(248, 246, 240, 0.58);
+      background: rgba(249, 247, 242, 0.55);
       backdrop-filter: blur(18px) saturate(165%);
       -webkit-backdrop-filter: blur(18px) saturate(165%);
       border: 1px solid rgba(255, 255, 255, 0.65);
-      box-shadow: 0 8px 30px -6px rgba(30, 47, 35, 0.08);
+      box-shadow: 0 8px 30px -6px rgba(26, 40, 30, 0.07);
     }
 
-    /* Editorial Scroll Reveal */
+    /* Senior-Grade Smooth Reveal Choreography */
     .reveal {
       opacity: 0;
       transform: translateY(24px);
-      transition: opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1), transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+      transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
     }
     .reveal.active {
       opacity: 1;
@@ -83,18 +83,21 @@
     .reveal-delay-2 { transition-delay: 0.2s; }
     .reveal-delay-3 { transition-delay: 0.3s; }
 
-    /* Subtle Paper Grain Texture */
+    /* Tactile Paper Grain Overlay */
     .bg-grain::before {
       content: "";
       position: fixed;
-      top: 0; left: 0; width: 100%; height: 100%;
+      inset: 0;
       pointer-events: none;
       z-index: 50;
-      opacity: 0.025;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+      opacity: 0.022;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
     }
 
-    /* Editorial Hairline Underline Hover */
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+    /* Active Nav Link Indicator */
     .nav-link {
       position: relative;
       padding-bottom: 2px;
@@ -102,28 +105,28 @@
     .nav-link::after {
       content: "";
       position: absolute;
-      left: 0; bottom: 0;
-      width: 100%; height: 1.5px;
+      bottom: -2px;
+      left: 50%;
+      width: 0;
+      height: 1.5px;
       background-color: #556B2F;
-      transform: scaleX(0);
-      transform-origin: right;
-      transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+      transition: width 0.3s ease, left 0.3s ease;
     }
-    .nav-link:hover::after {
-      transform: scaleX(1);
-      transform-origin: left;
+    .nav-link:hover::after,
+    .nav-link.active::after {
+      width: 100%;
+      left: 0;
     }
-
-    .no-scrollbar::-webkit-scrollbar { display: none; }
-    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
   </style>
 </head>
 <body class="bg-cream text-charcoal font-sans antialiased selection:bg-leafolive selection:text-white bg-grain overflow-x-hidden">
 
-  <!-- Top Navigation Bar (Translucent Frosted Glass) -->
+  <!-- Top Navigation Bar (Translucent Frosted Glass + Scroll Progress Hairline) -->
   <header id="navbar" class="fixed top-0 w-full z-40 transition-all duration-300 py-3 px-3 sm:px-6 md:px-10">
-    <div class="max-w-7xl mx-auto flex items-center justify-between gap-2 glass-nav rounded-full px-3.5 sm:px-6 py-2">
-      
+    <div class="max-w-7xl mx-auto relative overflow-hidden flex items-center justify-between gap-2 glass-nav rounded-full px-3.5 sm:px-6 py-2">
+      <!-- Subtle Scroll Progress Bar -->
+      <div id="scroll-progress" class="absolute bottom-0 left-0 h-[2px] bg-leafolive/75 transition-all duration-150" style="width: 0%;"></div>
+
       <!-- Brand Logo -->
       <a href="#" class="flex items-center gap-2.5 sm:gap-3 group shrink-0">
         <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-leafolive flex items-center justify-center shadow-sm transition-transform duration-500 group-hover:scale-105 shrink-0">
@@ -132,13 +135,13 @@
           </svg>
         </div>
         <div class="flex flex-col">
-          <span class="font-logo text-base sm:text-xl font-bold tracking-[0.14em] text-forest leading-none">LEAF</span>
+          <span class="font-logo text-base sm:text-xl font-bold tracking-[0.15em] text-forest leading-none">LEAF</span>
           <span class="text-[8px] sm:text-[9.5px] uppercase tracking-[0.16em] sm:tracking-[0.22em] text-leafolive font-semibold mt-1 whitespace-nowrap">FOOD &bull; ART &bull; COMMUNITY</span>
         </div>
       </a>
 
-      <!-- Desktop & Tablet Navigation Links -->
-      <nav class="hidden md:flex items-center gap-6 lg:gap-8 text-sm font-medium text-forest/90">
+      <!-- Desktop Navigation Links -->
+      <nav class="hidden md:flex items-center gap-7 lg:gap-9 text-sm font-medium text-forest/85">
         <a href="#highlights" class="nav-link hover:text-leafolive transition-colors">Highlights</a>
         <a href="#menu" class="nav-link hover:text-leafolive transition-colors">Menu</a>
         <a href="#space" class="nav-link hover:text-leafolive transition-colors">The Space</a>
@@ -212,25 +215,26 @@
 
   <!-- Editorial Hero Section -->
   <section class="relative pt-24 pb-12 sm:pt-28 sm:pb-16 md:pt-32 md:pb-20 px-4 sm:px-8 md:px-10 overflow-hidden">
-    <svg class="absolute top-20 right-[-50px] md:right-10 w-64 md:w-96 h-64 md:h-96 text-leafolive/10 animate-float-slow pointer-events-none" viewBox="0 0 200 200" fill="currentColor">
+    <!-- Ambient Botanical Watermark -->
+    <svg class="absolute top-16 right-[-60px] md:right-8 w-64 md:w-[26rem] h-64 md:h-[26rem] text-leafolive/[0.08] animate-float-slow pointer-events-none" viewBox="0 0 200 200" fill="currentColor">
       <path d="M100,15 C145,15 180,55 180,105 C180,155 135,185 100,185 C100,130 130,85 100,15 Z" />
       <path d="M95,35 C55,40 25,80 30,125 C35,165 75,185 98,185 C95,135 70,95 95,35 Z" opacity="0.6" />
     </svg>
 
-    <div class="max-w-7xl mx-auto w-full grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12 items-center relative z-10">
+    <div class="max-w-7xl mx-auto w-full grid grid-cols-1 md:grid-cols-12 gap-10 lg:gap-14 items-center relative z-10">
       <!-- Left Editorial Copy -->
       <div class="md:col-span-7 space-y-6">
-        <div class="inline-flex items-center gap-2.5 text-[11px] uppercase tracking-[0.26em] text-leafolive font-bold">
-          <span class="w-6 h-[1px] bg-leafolive/60"></span>
-          <span>Hadapsar Industrial Estate &bull; Pune</span>
+        <div class="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.24em] text-leafolive font-semibold">
+          <span class="w-6 h-[1.5px] bg-leafolive"></span>
+          <span>Hadapsar Industrial Estate, Pune</span>
         </div>
 
-        <h1 class="font-serif text-4xl sm:text-5xl lg:text-[4.25rem] font-semibold text-forest leading-[1.06] tracking-tight">
+        <h1 class="font-serif text-[2.75rem] sm:text-6xl lg:text-[4.5rem] font-semibold text-forest leading-[1.04] tracking-tight">
           Food, Art &amp; <span class="italic font-normal text-leafolive">Community</span> under handcrafted lanterns.
         </h1>
 
-        <p class="text-base sm:text-lg text-charcoal/75 max-w-xl leading-relaxed">
-          A café by <strong>Advanced Nature</strong>. Tucked inside Hadapsar Industrial Estate, experience upcycled industrial artistry, artisanal South Indian filter brews, and soulful global plates.
+        <p class="text-base sm:text-lg text-charcoal/75 max-w-xl leading-relaxed font-normal">
+          A café by <strong class="font-semibold text-forest">Advanced Nature</strong>. Experience upcycled industrial artistry, artisanal South Indian filter brews, and soulful global plates in a serene green sanctuary.
         </p>
 
         <div class="flex flex-wrap items-center gap-3.5 pt-2">
@@ -238,25 +242,25 @@
             <span>Find a Table</span>
             <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
           </button>
-          <a href="#menu" class="px-7 py-4 bg-white/85 hover:bg-white border border-forest/20 hover:border-forest/40 text-forest rounded-full font-medium text-sm sm:text-base transition-all duration-300 hover:-translate-y-0.5">
+          <a href="#menu" class="px-7 py-4 bg-white/90 hover:bg-white border border-forest/15 hover:border-forest/40 text-forest rounded-full font-medium text-sm sm:text-base transition-all duration-300 shadow-2xs">
             Explore Menu
           </a>
         </div>
       </div>
 
-      <!-- Right Architectural Photo Frame -->
+      <!-- Right Editorial Visual Frame -->
       <div class="md:col-span-5 relative flex justify-center">
-        <div class="relative rounded-[2.25rem] overflow-hidden shadow-2xl border-4 border-white aspect-[4/5] w-full max-w-sm lg:max-w-md bg-sand group">
+        <div class="relative rounded-[2.25rem] overflow-hidden shadow-editorial border-[5px] border-white aspect-[4/5] w-full max-w-sm lg:max-w-md bg-sand group">
           <img 
             src="assets/cafe-ceiling.webp" 
             onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=900&q=80';"
             alt="Leaf Café hanging sculptural lamps, mezzanine and rustic art" 
-            class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+            class="w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-105"
           />
-          <div class="absolute inset-0 bg-gradient-to-t from-forest/85 via-forest/15 to-transparent"></div>
+          <div class="absolute inset-0 bg-gradient-to-t from-forest/90 via-forest/20 to-transparent"></div>
           
           <!-- Official Circular Emblem Overlay -->
-          <div class="absolute top-4 right-4 w-28 h-28 lg:w-36 lg:h-36 rounded-full bg-leafolive shadow-xl border-2 border-white/25 flex flex-col items-center justify-center px-2 text-white text-center animate-float-slow">
+          <div class="absolute top-4 right-4 w-28 h-28 lg:w-36 lg:h-36 rounded-full bg-leafolive/95 backdrop-blur-xs shadow-xl border-2 border-white/30 flex flex-col items-center justify-center px-2 text-white text-center animate-float-slow">
             <div class="flex items-center gap-1.5">
               <svg viewBox="0 0 100 100" class="w-5 h-5 lg:w-7 lg:h-7 fill-current shrink-0">
                 <path d="M52,18 C72,18 85,32 85,50 C85,66 72,76 58,76 C47,76 39,68 39,58 C39,50 45,44 53,44 C59,44 64,49 64,55 C64,59 60,62 56,62 C53,62 51,60 51,57 C51,55 53,54 54,54 C53,52 49,53 48,57 C47,62 51,67 57,67 C65,67 71,60 71,52 C71,40 61,32 49,32 C34,32 23,44 23,60 C23,72 28,83 36,90 C32,78 33,63 40,51 C30,60 25,74 28,88 C18,78 14,62 18,46 C23,28 37,18 52,18 Z" />
@@ -267,8 +271,8 @@
             <span class="text-[5.8px] lg:text-[7px] text-white/85 mt-1 font-sans whitespace-nowrap">A café by Advanced Nature</span>
           </div>
 
-          <div class="absolute bottom-5 left-5 right-5 text-cream">
-            <p class="text-xs uppercase tracking-widest text-sage mb-1">Advanced Nature Studio</p>
+          <div class="absolute bottom-6 left-6 right-6 text-cream">
+            <p class="text-[11px] uppercase tracking-[0.2em] text-sage font-medium mb-1">Advanced Nature Studio</p>
             <p class="font-serif text-xl lg:text-2xl leading-snug">Sculptural lanterns, mezzanine loft &amp; soulful conversations.</p>
           </div>
         </div>
@@ -277,8 +281,8 @@
   </section>
 
   <!-- Google Rating & Diner Highlights Section -->
-  <section class="py-10 sm:py-12 px-4 sm:px-8 md:px-10 bg-white border-y border-forest/10">
-    <div class="max-w-6xl mx-auto rounded-3xl bg-cream/75 border border-leafolive/15 p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6 lg:gap-8 reveal">
+  <section class="py-10 sm:py-14 px-4 sm:px-8 md:px-10 bg-white border-y border-forest/[0.07]">
+    <div class="max-w-6xl mx-auto rounded-3xl bg-cream/80 border border-leafolive/15 p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6 lg:gap-8 reveal shadow-card">
       
       <!-- Score + Distribution -->
       <div class="flex items-center gap-5 shrink-0">
@@ -318,19 +322,19 @@
         </div>
       </div>
 
-      <!-- Verified Diner Quote Pills -->
+      <!-- Verified Diner Quote Cards -->
       <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 w-full md:w-auto flex-1 max-w-xl">
-        <div class="bg-white rounded-2xl p-3.5 border border-forest/10 shadow-2xs text-center sm:text-left hover:border-leafolive/30 transition-colors">
+        <div class="bg-white rounded-2xl p-4 border border-forest/[0.08] shadow-2xs text-center sm:text-left hover:border-leafolive/30 transition-colors">
           <p class="text-xs font-medium text-forest leading-relaxed">&ldquo;Unmatched aesthetic &amp; calm vibe&rdquo;</p>
-          <span class="text-[10px] text-leafolive font-semibold mt-1 block">Ambience &amp; Art</span>
+          <span class="text-[10px] text-leafolive font-semibold mt-1.5 block uppercase tracking-wider">Ambience &amp; Art</span>
         </div>
-        <div class="bg-white rounded-2xl p-3.5 border border-forest/10 shadow-2xs text-center sm:text-left hover:border-leafolive/30 transition-colors">
+        <div class="bg-white rounded-2xl p-4 border border-forest/[0.08] shadow-2xs text-center sm:text-left hover:border-leafolive/30 transition-colors">
           <p class="text-xs font-medium text-forest leading-relaxed">&ldquo;Best Filter Coffee &amp; Khao Suey&rdquo;</p>
-          <span class="text-[10px] text-leafolive font-semibold mt-1 block">Food &amp; Brews</span>
+          <span class="text-[10px] text-leafolive font-semibold mt-1.5 block uppercase tracking-wider">Food &amp; Brews</span>
         </div>
-        <div class="bg-white rounded-2xl p-3.5 border border-forest/10 shadow-2xs text-center sm:text-left hover:border-leafolive/30 transition-colors">
+        <div class="bg-white rounded-2xl p-4 border border-forest/[0.08] shadow-2xs text-center sm:text-left hover:border-leafolive/30 transition-colors">
           <p class="text-xs font-medium text-forest leading-relaxed">&ldquo;Hidden gem in Hadapsar&rdquo;</p>
-          <span class="text-[10px] text-leafolive font-semibold mt-1 block">Pune Diners</span>
+          <span class="text-[10px] text-leafolive font-semibold mt-1.5 block uppercase tracking-wider">Pune Diners</span>
         </div>
       </div>
 
@@ -345,70 +349,70 @@
   </section>
 
   <!-- Menu Highlights Section -->
-  <section id="highlights" class="py-16 sm:py-20 px-4 sm:px-8 md:px-10 bg-sand/60 border-b border-forest/10">
+  <section id="highlights" class="py-16 sm:py-24 px-4 sm:px-8 md:px-10 bg-sand/60 border-b border-forest/[0.07]">
     <div class="max-w-7xl mx-auto">
-      <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4 reveal">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4 reveal">
         <div>
           <span class="text-xs uppercase tracking-[0.25em] text-leafolive font-bold">Guest Favorites</span>
-          <h2 class="font-serif text-4xl sm:text-5xl font-semibold text-forest mt-1">Menu Highlights</h2>
+          <h2 class="font-serif text-4xl sm:text-5xl font-semibold text-forest mt-1.5">Menu Highlights</h2>
         </div>
-        <p class="text-sm text-charcoal/70 max-w-md">
-          Most-loved plates and signature South Indian filter brews from our kitchen.
+        <p class="text-sm text-charcoal/70 max-w-md leading-relaxed">
+          Most-loved plates and signature South Indian filter brews crafted fresh in our kitchen.
         </p>
       </div>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        <div class="bg-white rounded-3xl overflow-hidden border border-forest/10 shadow-sm hover:shadow-lg transition-all duration-500 hover:-translate-y-1 group reveal">
+        <div class="bg-white rounded-3xl overflow-hidden border border-forest/[0.08] shadow-card hover:shadow-editorial transition-all duration-300 hover:-translate-y-1 group reveal">
           <div class="aspect-[4/3] overflow-hidden relative">
-            <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=700&q=80" alt="Chipotle falafel sliders" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-            <span class="absolute top-3 left-3 bg-forest/90 backdrop-blur-xs text-white text-[10px] uppercase tracking-wider px-3 py-1 rounded-full">Slider &amp; Sandwiches</span>
+            <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=700&q=80" alt="Chipotle falafel sliders" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" />
+            <span class="absolute top-3 left-3 bg-forest/90 backdrop-blur-xs text-white text-[10px] uppercase tracking-wider px-3 py-1 rounded-full font-medium">Slider &amp; Sandwiches</span>
           </div>
           <div class="p-5">
-            <div class="flex justify-between items-baseline gap-2 mb-1.5">
+            <div class="flex justify-between items-baseline gap-2 mb-2">
               <h3 class="font-serif text-xl font-bold text-forest">Chipotle falafel sliders</h3>
-              <span class="font-semibold text-sm text-leafolive shrink-0">₹450</span>
+              <span class="font-semibold text-sm text-leafolive shrink-0 bg-leafolive/10 px-2.5 py-0.5 rounded-full">₹450</span>
             </div>
             <p class="text-xs text-charcoal/70 leading-relaxed">Mini chickpea patties, golden and crispy with fresh lettuce, ripe tomatoes, and creamy tahini sauce inside soft slider buns.</p>
           </div>
         </div>
 
-        <div class="bg-white rounded-3xl overflow-hidden border border-forest/10 shadow-sm hover:shadow-lg transition-all duration-500 hover:-translate-y-1 group reveal reveal-delay-1">
+        <div class="bg-white rounded-3xl overflow-hidden border border-forest/[0.08] shadow-card hover:shadow-editorial transition-all duration-300 hover:-translate-y-1 group reveal reveal-delay-1">
           <div class="aspect-[4/3] overflow-hidden relative">
-            <img src="https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=700&q=80" alt="Khao Suey" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-            <span class="absolute top-3 left-3 bg-forest/90 backdrop-blur-xs text-white text-[10px] uppercase tracking-wider px-3 py-1 rounded-full">Main Course</span>
+            <img src="https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=700&q=80" alt="Khao Suey" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" />
+            <span class="absolute top-3 left-3 bg-forest/90 backdrop-blur-xs text-white text-[10px] uppercase tracking-wider px-3 py-1 rounded-full font-medium">Main Course</span>
           </div>
           <div class="p-5">
-            <div class="flex justify-between items-baseline gap-2 mb-1.5">
+            <div class="flex justify-between items-baseline gap-2 mb-2">
               <h3 class="font-serif text-xl font-bold text-forest">Khao Suey</h3>
-              <span class="font-semibold text-sm text-leafolive shrink-0">₹350</span>
+              <span class="font-semibold text-sm text-leafolive shrink-0 bg-leafolive/10 px-2.5 py-0.5 rounded-full">₹350</span>
             </div>
             <p class="text-xs text-charcoal/70 leading-relaxed">A rice noodles-inspired one-bowl meal featuring noodles served in a fragrant coconut curry broth, infused with garlic, ginger, and lemongrass.</p>
           </div>
         </div>
 
-        <div class="bg-white rounded-3xl overflow-hidden border border-forest/10 shadow-sm hover:shadow-lg transition-all duration-500 hover:-translate-y-1 group reveal reveal-delay-2">
+        <div class="bg-white rounded-3xl overflow-hidden border border-forest/[0.08] shadow-card hover:shadow-editorial transition-all duration-300 hover:-translate-y-1 group reveal reveal-delay-2">
           <div class="aspect-[4/3] overflow-hidden relative">
-            <img src="https://images.unsplash.com/photo-1533134242443-d4fd215305ad?auto=format&fit=crop&w=700&q=80" alt="Lotus Biscoff Cheesecake" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-            <span class="absolute top-3 left-3 bg-terracotta text-white text-[10px] uppercase tracking-wider px-3 py-1 rounded-full">Signature Dessert</span>
+            <img src="https://images.unsplash.com/photo-1533134242443-d4fd215305ad?auto=format&fit=crop&w=700&q=80" alt="Lotus Biscoff Cheesecake" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" />
+            <span class="absolute top-3 left-3 bg-terracotta/95 backdrop-blur-xs text-white text-[10px] uppercase tracking-wider px-3 py-1 rounded-full font-medium">Signature Dessert</span>
           </div>
           <div class="p-5">
-            <div class="flex justify-between items-baseline gap-2 mb-1.5">
+            <div class="flex justify-between items-baseline gap-2 mb-2">
               <h3 class="font-serif text-xl font-bold text-forest">Lotus Biscoff Cheesecake</h3>
-              <span class="font-semibold text-sm text-leafolive shrink-0">₹319</span>
+              <span class="font-semibold text-sm text-leafolive shrink-0 bg-leafolive/10 px-2.5 py-0.5 rounded-full">₹319</span>
             </div>
             <p class="text-xs text-charcoal/70 leading-relaxed">A Biscoff biscuit base, topped with a velvety smooth cream cheese layer infused with cookie crumbs for crushed Lotus Biscoff cookies.</p>
           </div>
         </div>
 
-        <div class="bg-white rounded-3xl overflow-hidden border border-forest/10 shadow-sm hover:shadow-lg transition-all duration-500 hover:-translate-y-1 group reveal reveal-delay-3">
+        <div class="bg-white rounded-3xl overflow-hidden border border-forest/[0.08] shadow-card hover:shadow-editorial transition-all duration-300 hover:-translate-y-1 group reveal reveal-delay-3">
           <div class="aspect-[4/3] overflow-hidden relative">
-            <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=700&q=80" alt="Coconut Filter Cold Coffee" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-            <span class="absolute top-3 left-3 bg-leafolive text-white text-[10px] uppercase tracking-wider px-3 py-1 rounded-full">Tea &amp; Coffee</span>
+            <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=700&q=80" alt="Coconut Filter Cold Coffee" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" />
+            <span class="absolute top-3 left-3 bg-leafolive/95 backdrop-blur-xs text-white text-[10px] uppercase tracking-wider px-3 py-1 rounded-full font-medium">Tea &amp; Coffee</span>
           </div>
           <div class="p-5">
-            <div class="flex justify-between items-baseline gap-2 mb-1.5">
+            <div class="flex justify-between items-baseline gap-2 mb-2">
               <h3 class="font-serif text-xl font-bold text-forest">Coconut Filter Cold Coffee</h3>
-              <span class="font-semibold text-sm text-leafolive shrink-0">₹210</span>
+              <span class="font-semibold text-sm text-leafolive shrink-0 bg-leafolive/10 px-2.5 py-0.5 rounded-full">₹210</span>
             </div>
             <p class="text-xs text-charcoal/70 leading-relaxed">Authentic South Indian filter coffee decoction blended with chilled coconut notes for a smooth, refreshing finish.</p>
           </div>
@@ -434,12 +438,12 @@
             type="text" 
             id="menu-search" 
             placeholder="Search dishes, soups, filter coffee, desserts..." 
-            class="w-full pl-11 pr-4 py-3 rounded-full bg-white border border-forest/15 text-sm focus:outline-none focus:border-leafolive focus:ring-2 focus:ring-leafolive/15 shadow-sm transition-all"
+            class="w-full pl-11 pr-4 py-3.5 rounded-full bg-white border border-forest/15 text-sm focus:outline-none focus:border-leafolive focus:ring-2 focus:ring-leafolive/15 shadow-2xs transition-all"
           />
         </div>
 
         <div class="flex items-center justify-start md:justify-center gap-2 overflow-x-auto no-scrollbar pb-1" id="menu-tabs">
-          <button data-cat="soups" class="menu-tab active shrink-0 px-4 py-2 rounded-full text-xs sm:text-sm font-medium bg-forest text-white transition-all cursor-pointer">Soups</button>
+          <button data-cat="soups" class="menu-tab active shrink-0 px-4 py-2 rounded-full text-xs sm:text-sm font-medium bg-forest text-white shadow-2xs transition-all cursor-pointer">Soups</button>
           <button data-cat="sliders" class="menu-tab shrink-0 px-4 py-2 rounded-full text-xs sm:text-sm font-medium bg-sand text-forest hover:bg-leafolive/15 transition-all cursor-pointer">Slider &amp; Sandwiches</button>
           <button data-cat="mains" class="menu-tab shrink-0 px-4 py-2 rounded-full text-xs sm:text-sm font-medium bg-sand text-forest hover:bg-leafolive/15 transition-all cursor-pointer">Main Course</button>
           <button data-cat="salads" class="menu-tab shrink-0 px-4 py-2 rounded-full text-xs sm:text-sm font-medium bg-sand text-forest hover:bg-leafolive/15 transition-all cursor-pointer">Fresh Salads &amp; Bowls</button>
@@ -452,12 +456,9 @@
 
       <!-- Swipe Controls & Indicator Bar -->
       <div id="menu-swipe-controls" class="flex items-center justify-between mb-4 px-1">
-        <div class="flex items-center gap-3 text-xs text-charcoal/65 font-medium">
-          <div class="flex items-center gap-1.5">
-            <i data-lucide="move-horizontal" class="w-4 h-4 text-leafolive"></i>
-            <span id="menu-page-indicator">Swipe left or right &bull; 1 of 8</span>
-          </div>
-          <div id="menu-dots" class="hidden sm:flex items-center gap-1.5 pl-2 border-l border-forest/15"></div>
+        <div class="flex items-center gap-2 text-xs text-charcoal/65 font-medium">
+          <i data-lucide="move-horizontal" class="w-4 h-4 text-leafolive"></i>
+          <span id="menu-page-indicator">Swipe left or right &bull; 1 of 8</span>
         </div>
         <div class="flex items-center gap-2">
           <button id="menu-prev-btn" aria-label="Previous Menu Category" class="w-9 h-9 rounded-full bg-white hover:bg-forest hover:text-white border border-forest/15 flex items-center justify-center text-forest transition-colors shadow-2xs cursor-pointer">
@@ -479,70 +480,70 @@
     </div>
   </section>
 
-  <!-- Authentic Google Photos Gallery Section (Interactive Lightbox Enabled) -->
+  <!-- Authentic Google Photos Gallery Section (With Interactive Lightbox) -->
   <section id="space" class="py-16 sm:py-24 px-4 sm:px-8 md:px-10 bg-forest text-cream">
     <div class="max-w-7xl mx-auto">
-      <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6 reveal">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6 reveal">
         <div>
           <span class="text-xs uppercase tracking-[0.25em] text-sage font-bold">Advanced Nature Studio</span>
-          <h2 class="font-serif text-4xl sm:text-5xl font-semibold text-white mt-1">Inside Leaf Café</h2>
+          <h2 class="font-serif text-4xl sm:text-5xl font-semibold text-white mt-1.5">Inside Leaf Café</h2>
         </div>
-        <p class="text-sm text-cream/75 max-w-md">
-          Handcrafted sculptural lanterns, upcycled industrial columns, and warm terracotta dining tables.
+        <p class="text-sm text-cream/75 max-w-md leading-relaxed">
+          Handcrafted sculptural lanterns, upcycled industrial columns, and warm terracotta dining tables. Tap any photo to inspect full screen.
         </p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <button type="button" onclick="openLightbox(0)" class="text-left rounded-3xl overflow-hidden aspect-[3/4] relative group border border-white/10 reveal cursor-zoom-in focus:outline-none focus:ring-2 focus:ring-sage">
+        <button type="button" onclick="openLightbox('assets/cafe-ceiling.webp', 'Sculptural Canopy', 'Handcrafted Lotus & Lantern Ceiling')" class="text-left rounded-3xl overflow-hidden aspect-[3/4] relative group border border-white/10 reveal cursor-pointer focus:outline-none">
           <img 
             src="assets/cafe-ceiling.webp" 
             onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=800&q=80';"
             alt="Sculptural lotus-leaf hanging lamps and wooden mezzanine at Leaf Café" 
-            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
+            class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" 
           />
-          <div class="absolute top-4 right-4 w-9 h-9 rounded-full bg-black/40 backdrop-blur-xs text-white/90 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+          <div class="absolute top-4 right-4 w-9 h-9 rounded-full bg-black/40 backdrop-blur-xs text-white/90 flex items-center justify-center opacity-80 group-hover:opacity-100 transition-opacity">
             <i data-lucide="maximize-2" class="w-4 h-4"></i>
           </div>
-          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-6">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-transparent flex items-end p-6">
             <div>
-              <p class="text-[11px] uppercase tracking-widest text-sage">Sculptural Canopy</p>
-              <p class="font-serif text-2xl text-white">Handcrafted Lotus &amp; Lantern Ceiling</p>
+              <p class="text-[11px] uppercase tracking-widest text-sage font-medium">Sculptural Canopy</p>
+              <p class="font-serif text-2xl text-white mt-0.5">Handcrafted Lotus &amp; Lantern Ceiling</p>
             </div>
           </div>
         </button>
 
-        <button type="button" onclick="openLightbox(1)" class="text-left rounded-3xl overflow-hidden aspect-[3/4] relative group border border-white/10 reveal reveal-delay-1 cursor-zoom-in focus:outline-none focus:ring-2 focus:ring-sage">
+        <button type="button" onclick="openLightbox('assets/cafe-dining.webp', 'Artisan Dining', 'Upcycled Tables & Terracotta Glow')" class="text-left rounded-3xl overflow-hidden aspect-[3/4] relative group border border-white/10 reveal reveal-delay-1 cursor-pointer focus:outline-none">
           <img 
             src="assets/cafe-dining.webp" 
             onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1445116572660-236099ec97a0?auto=format&fit=crop&w=800&q=80';"
             alt="Warm pendant lamps and hand-painted dining tables at Leaf Café" 
-            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
+            class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" 
           />
-          <div class="absolute top-4 right-4 w-9 h-9 rounded-full bg-black/40 backdrop-blur-xs text-white/90 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+          <div class="absolute top-4 right-4 w-9 h-9 rounded-full bg-black/40 backdrop-blur-xs text-white/90 flex items-center justify-center opacity-80 group-hover:opacity-100 transition-opacity">
             <i data-lucide="maximize-2" class="w-4 h-4"></i>
           </div>
-          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-6">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-transparent flex items-end p-6">
             <div>
-              <p class="text-[11px] uppercase tracking-widest text-sage">Artisan Dining</p>
-              <p class="font-serif text-2xl text-white">Upcycled Tables &amp; Terracotta Glow</p>
+              <p class="text-[11px] uppercase tracking-widest text-sage font-medium">Artisan Dining</p>
+              <p class="font-serif text-2xl text-white mt-0.5">Upcycled Tables &amp; Terracotta Glow</p>
             </div>
           </div>
         </button>
 
-        <button type="button" onclick="openLightbox(2)" class="text-left rounded-3xl overflow-hidden aspect-[3/4] relative group border border-white/10 reveal reveal-delay-2 cursor-zoom-in focus:outline-none focus:ring-2 focus:ring-sage">
+        <button type="button" onclick="openLightbox('assets/cafe-mezzanine.webp', 'Mezzanine Loft', 'Community Art & Quiet Corners')" class="text-left rounded-3xl overflow-hidden aspect-[3/4] relative group border border-white/10 reveal reveal-delay-2 cursor-pointer focus:outline-none">
           <img 
             src="assets/cafe-mezzanine.webp" 
             onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=800&q=80';"
             alt="Mezzanine overhead view of Leaf Café Pune" 
-            class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
+            class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" 
           />
-          <div class="absolute top-4 right-4 w-9 h-9 rounded-full bg-black/40 backdrop-blur-xs text-white/90 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+          <div class="absolute top-4 right-4 w-9 h-9 rounded-full bg-black/40 backdrop-blur-xs text-white/90 flex items-center justify-center opacity-80 group-hover:opacity-100 transition-opacity">
             <i data-lucide="maximize-2" class="w-4 h-4"></i>
           </div>
-          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-6">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-transparent flex items-end p-6">
             <div>
-              <p class="text-[11px] uppercase tracking-widest text-sage">Mezzanine Loft</p>
-              <p class="font-serif text-2xl text-white">Community Art &amp; Quiet Corners</p>
+              <p class="text-[11px] uppercase tracking-widest text-sage font-medium">Mezzanine Loft</p>
+              <p class="font-serif text-2xl text-white mt-0.5">Community Art &amp; Quiet Corners</p>
             </div>
           </div>
         </button>
@@ -551,8 +552,8 @@
   </section>
 
   <!-- Direct Table Booking Banner -->
-  <section class="py-14 sm:py-16 px-4 sm:px-8 md:px-10 bg-sand/70 border-b border-forest/10">
-    <div class="max-w-6xl mx-auto rounded-[2rem] bg-white border border-leafolive/20 p-7 sm:p-10 flex flex-col lg:flex-row items-center justify-between gap-8 shadow-sm reveal">
+  <section class="py-14 sm:py-16 px-4 sm:px-8 md:px-10 bg-sand/70 border-b border-forest/[0.07]">
+    <div class="max-w-6xl mx-auto rounded-[2rem] bg-white border border-leafolive/20 p-7 sm:p-10 flex flex-col lg:flex-row items-center justify-between gap-8 shadow-card reveal">
       <div class="space-y-3 text-center lg:text-left max-w-lg">
         <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-leafolive/10 text-leafolive text-xs font-bold">
           <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
@@ -610,7 +611,7 @@
 
   <!-- Visit & Location -->
   <section id="visit" class="py-16 sm:py-20 px-4 sm:px-8 md:px-10">
-    <div class="max-w-7xl mx-auto bg-white rounded-[2.5rem] p-7 sm:p-12 border border-forest/10 shadow-sm reveal">
+    <div class="max-w-7xl mx-auto bg-white rounded-[2.5rem] p-7 sm:p-12 border border-forest/[0.08] shadow-card reveal">
       <div class="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-10 items-center">
         <div class="md:col-span-6 space-y-6">
           <span class="text-xs uppercase tracking-[0.25em] text-leafolive font-bold">Find Us in Pune</span>
@@ -699,25 +700,21 @@
     </div>
   </footer>
 
-  <!-- Studio Photo Lightbox Modal -->
+  <!-- Full-Screen Photo Lightbox Modal -->
   <div id="lightbox-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/85 backdrop-blur-md p-4">
-    <button onclick="closeLightbox()" aria-label="Close photo preview" class="absolute top-5 right-5 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors cursor-pointer">
-      <i data-lucide="x" class="w-5 h-5"></i>
-    </button>
-    <button onclick="stepLightbox(-1)" aria-label="Previous photo" class="absolute left-3 sm:left-6 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors cursor-pointer">
-      <i data-lucide="chevron-left" class="w-5 h-5"></i>
-    </button>
-    <button onclick="stepLightbox(1)" aria-label="Next photo" class="absolute right-3 sm:right-6 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors cursor-pointer">
-      <i data-lucide="chevron-right" class="w-5 h-5"></i>
-    </button>
-
-    <div class="max-w-xl w-full text-center space-y-4 animate-[scaleIn_0.25s_ease]">
-      <div class="rounded-3xl overflow-hidden border border-white/15 shadow-2xl bg-forest aspect-[3/4] max-h-[75vh] mx-auto">
-        <img id="lightbox-img" src="" alt="" class="w-full h-full object-cover" />
-      </div>
-      <div>
-        <p id="lightbox-kicker" class="text-[11px] uppercase tracking-[0.22em] text-sage font-semibold"></p>
-        <p id="lightbox-caption" class="font-serif text-2xl text-white mt-0.5"></p>
+    <div class="max-w-3xl w-full relative animate-[fadeUp_0.25s_ease]">
+      <button onclick="closeLightbox()" aria-label="Close photo preview" class="absolute -top-12 right-0 w-10 h-10 rounded-full bg-white/15 hover:bg-white/25 text-white flex items-center justify-center transition-colors cursor-pointer">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+      <div class="rounded-3xl overflow-hidden border border-white/15 bg-forest shadow-2xl">
+        <img id="lightbox-img" src="" alt="" class="w-full max-h-[75vh] object-contain bg-black" />
+        <div class="p-5 flex items-center justify-between text-cream">
+          <div>
+            <p id="lightbox-tag" class="text-[11px] uppercase tracking-widest text-sage font-semibold"></p>
+            <h4 id="lightbox-title" class="font-serif text-2xl text-white mt-0.5"></h4>
+          </div>
+          <span class="text-xs text-cream/60 hidden sm:inline">Leaf — Advanced Nature</span>
+        </div>
       </div>
     </div>
   </div>
@@ -933,33 +930,16 @@
     const emptyState = document.getElementById("menu-empty");
     const swipeControls = document.getElementById("menu-swipe-controls");
     const pageIndicator = document.getElementById("menu-page-indicator");
-    const menuDots = document.getElementById("menu-dots");
     const menuTabs = document.querySelectorAll(".menu-tab");
-
-    function renderDots(activeIdx) {
-      if (!menuDots) return;
-      menuDots.innerHTML = visibleSections.map((sec, idx) => `
-        <button type="button" aria-label="Go to ${sec.title}" onclick="goToCategoryIndex(${idx})" class="h-1.5 rounded-full transition-all cursor-pointer ${idx === activeIdx ? 'w-5 bg-leafolive' : 'w-1.5 bg-forest/20 hover:bg-forest/40'}"></button>
-      `).join("");
-    }
-
-    function goToCategoryIndex(idx) {
-      const targetSec = visibleSections[idx];
-      if (!targetSec) return;
-      const targetCard = document.getElementById(`menu-card-${targetSec.id}`);
-      if (targetCard) {
-        container.scrollTo({ left: targetCard.offsetLeft - container.offsetLeft, behavior: "smooth" });
-      }
-    }
 
     function setActiveTabByCat(catId) {
       menuTabs.forEach(t => {
         if (t.getAttribute("data-cat") === catId) {
-          t.classList.add("bg-forest", "text-white");
+          t.classList.add("bg-forest", "text-white", "shadow-2xs");
           t.classList.remove("bg-sand", "text-forest");
           t.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
         } else {
-          t.classList.remove("bg-forest", "text-white");
+          t.classList.remove("bg-forest", "text-white", "shadow-2xs");
           t.classList.add("bg-sand", "text-forest");
         }
       });
@@ -974,7 +954,6 @@
         Math.max(0, Math.round(container.scrollLeft / cardWidth))
       );
       pageIndicator.textContent = `Swipe left or right • ${currentIndex + 1} of ${visibleSections.length}`;
-      renderDots(currentIndex);
       setActiveTabByCat(visibleSections[currentIndex].id);
     }
 
@@ -993,16 +972,16 @@
 
         const sectionEl = document.createElement("div");
         sectionEl.id = `menu-card-${section.id}`;
-        sectionEl.className = "w-full shrink-0 snap-center bg-white/95 backdrop-blur-sm rounded-3xl p-5 sm:p-9 border border-forest/10 shadow-sm flex flex-col justify-between";
+        sectionEl.className = "w-full shrink-0 snap-center bg-white/95 backdrop-blur-sm rounded-3xl p-5 sm:p-9 border border-forest/[0.08] shadow-card flex flex-col justify-between";
 
         let itemsHtml = filteredItems.map(item => `
-          <div class="py-3.5 sm:py-4 border-b border-forest/10 last:border-b-0 flex flex-col sm:flex-row sm:items-baseline justify-between gap-1.5 sm:gap-4 group/item hover:bg-cream/50 -mx-2 px-2 rounded-xl transition-colors">
+          <div class="py-3.5 sm:py-4 border-b border-forest/[0.08] last:border-b-0 flex flex-col sm:flex-row sm:items-baseline justify-between gap-1.5 sm:gap-4 group/item hover:bg-cream/45 rounded-xl px-2 -mx-2 transition-colors">
             <div class="max-w-2xl">
               <h4 class="font-serif text-xl sm:text-2xl font-bold text-forest leading-snug group-hover/item:text-leafolive transition-colors">${item.name}</h4>
               ${item.desc ? `<p class="text-xs sm:text-sm text-charcoal/70 mt-1 leading-relaxed">${item.desc}</p>` : ""}
             </div>
             <div class="flex items-center gap-3 shrink-0">
-              <span class="hidden md:inline-block w-16 h-[1px] bg-forest/20"></span>
+              <span class="hidden md:inline-block w-16 h-[1px] bg-forest/15"></span>
               <span class="font-serif text-base sm:text-xl font-bold text-leafolive">${item.price}</span>
             </div>
           </div>
@@ -1010,12 +989,12 @@
 
         sectionEl.innerHTML = `
           <div>
-            <div class="flex items-center justify-between gap-3 mb-4 pb-3 border-b-2 border-leafolive/30">
+            <div class="flex items-center justify-between gap-3 mb-4 pb-3 border-b-2 border-leafolive/25">
               <div class="flex items-center gap-2.5">
                 <span class="w-2.5 h-2.5 rounded-full bg-leafolive shrink-0"></span>
                 <h3 class="font-logo text-base sm:text-xl font-bold tracking-[0.16em] text-forest">${section.title}</h3>
               </div>
-              <span class="text-[11px] font-medium text-charcoal/50">${filteredItems.length} items</span>
+              <span class="text-[11px] font-semibold text-leafolive bg-leafolive/10 px-2.5 py-0.5 rounded-full">${filteredItems.length} items</span>
             </div>
             <div class="divide-y divide-forest/5">
               ${itemsHtml}
@@ -1034,7 +1013,6 @@
         swipeControls.classList.remove("hidden");
         container.scrollTo({ left: 0, behavior: "auto" });
         pageIndicator.textContent = `Swipe left or right • 1 of ${visibleSections.length}`;
-        renderDots(0);
         setActiveTabByCat(visibleSections[0].id);
       }
     }
@@ -1082,82 +1060,24 @@
     renderMenu();
     lucide.createIcons();
 
-    // Gallery Lightbox Logic
-    const STUDIO_PHOTOS = [
-      {
-        src: "assets/cafe-ceiling.webp",
-        fallback: "https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=1000&q=85",
-        kicker: "Sculptural Canopy",
-        caption: "Handcrafted Lotus & Lantern Ceiling"
-      },
-      {
-        src: "assets/cafe-dining.webp",
-        fallback: "https://images.unsplash.com/photo-1445116572660-236099ec97a0?auto=format&fit=crop&w=1000&q=85",
-        kicker: "Artisan Dining",
-        caption: "Upcycled Tables & Terracotta Glow"
-      },
-      {
-        src: "assets/cafe-mezzanine.webp",
-        fallback: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1000&q=85",
-        kicker: "Mezzanine Loft",
-        caption: "Community Art & Quiet Corners"
+    // Top Scroll Progress Bar
+    const scrollProgress = document.getElementById("scroll-progress");
+    window.addEventListener("scroll", () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      if (docHeight > 0 && scrollProgress) {
+        const pct = Math.min(100, Math.max(0, (scrollTop / docHeight) * 100));
+        scrollProgress.style.width = `${pct}%`;
       }
-    ];
-    let currentPhotoIdx = 0;
-    const lightboxModal = document.getElementById("lightbox-modal");
-    const lightboxImg = document.getElementById("lightbox-img");
-    const lightboxKicker = document.getElementById("lightbox-kicker");
-    const lightboxCaption = document.getElementById("lightbox-caption");
-
-    function updateLightboxContent() {
-      const photo = STUDIO_PHOTOS[currentPhotoIdx];
-      lightboxImg.onerror = () => { lightboxImg.src = photo.fallback; };
-      lightboxImg.src = photo.src;
-      lightboxImg.alt = photo.caption;
-      lightboxKicker.textContent = photo.kicker;
-      lightboxCaption.textContent = photo.caption;
-    }
-
-    function openLightbox(idx) {
-      currentPhotoIdx = idx;
-      updateLightboxContent();
-      lightboxModal.classList.remove("hidden");
-      lightboxModal.classList.add("flex");
-    }
-
-    function closeLightbox() {
-      lightboxModal.classList.add("hidden");
-      lightboxModal.classList.remove("flex");
-    }
-
-    function stepLightbox(dir) {
-      currentPhotoIdx = (currentPhotoIdx + dir + STUDIO_PHOTOS.length) % STUDIO_PHOTOS.length;
-      updateLightboxContent();
-    }
-
-    lightboxModal.addEventListener("click", (e) => {
-      if (e.target === lightboxModal) closeLightbox();
-    });
-
-    document.addEventListener("keydown", (e) => {
-      if (!lightboxModal.classList.contains("hidden")) {
-        if (e.key === "Escape") closeLightbox();
-        if (e.key === "ArrowLeft") stepLightbox(-1);
-        if (e.key === "ArrowRight") stepLightbox(1);
-      }
-    });
+    }, { passive: true });
 
     // Mobile Popover Drawer Logic
     const mobileMenuBtn = document.getElementById("mobile-menu-btn");
     const closeDrawerBtn = document.getElementById("close-drawer-btn");
     const mobileDrawer = document.getElementById("mobile-drawer");
 
-    function openDrawer() {
-      mobileDrawer.classList.remove("hidden");
-    }
-    function closeDrawer() {
-      mobileDrawer.classList.add("hidden");
-    }
+    function openDrawer() { mobileDrawer.classList.remove("hidden"); }
+    function closeDrawer() { mobileDrawer.classList.add("hidden"); }
 
     mobileMenuBtn.addEventListener("click", openDrawer);
     closeDrawerBtn.addEventListener("click", closeDrawer);
@@ -1165,6 +1085,27 @@
       if (e.target === mobileDrawer) closeDrawer();
     });
     document.querySelectorAll(".mobile-link").forEach(l => l.addEventListener("click", closeDrawer));
+
+    // Photo Lightbox Modal Logic
+    const lightboxModal = document.getElementById("lightbox-modal");
+    const lightboxImg = document.getElementById("lightbox-img");
+    const lightboxTag = document.getElementById("lightbox-tag");
+    const lightboxTitle = document.getElementById("lightbox-title");
+
+    function openLightbox(src, tag, title) {
+      lightboxImg.src = src;
+      lightboxTag.textContent = tag;
+      lightboxTitle.textContent = title;
+      lightboxModal.classList.remove("hidden");
+      lightboxModal.classList.add("flex");
+    }
+    function closeLightbox() {
+      lightboxModal.classList.add("hidden");
+      lightboxModal.classList.remove("flex");
+    }
+    lightboxModal.addEventListener("click", (e) => {
+      if (e.target === lightboxModal) closeLightbox();
+    });
 
     // Find a Table Modal
     const tableModal = document.getElementById("table-modal");
