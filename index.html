@@ -1,1611 +1,1123 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <title>Conviction HR — Smart Hiring & Candidate Tracker</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LEAF — A Café by Advanced Nature | Hadapsar, Pune</title>
+  <meta name="description" content="Food • Art • Community — An eco-conscious industrial-art café and design studio in Hadapsar, Pune by Advanced Nature." />
+
+  <!-- Editorial & Monospace Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=IBM+Plex+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            paper: '#F6F3EB',
+            parchment: '#ECE6D8',
+            forest: '#17261C',
+            leafolive: '#4E632B',
+            sage: '#8FA376',
+            terracotta: '#B85D43',
+            ink: '#181A18',
+            swiggy: '#FC8019',
+            zomato: '#E23744',
+            district: '#6D17E8'
+          },
+          fontFamily: {
+            logo: ['"Cinzel"', 'Georgia', 'serif'],
+            serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            mono: ['"IBM Plex Mono"', 'monospace'],
+          }
+        }
+      }
+    }
+  </script>
+
   <style>
     :root {
-      --primary: #e11d48;
-      --primary-dark: #be123c;
-      --primary-soft: #fff1f2;
-      --primary-border: #fecdd3;
-      --secondary: #1e1b4b;
-      --accent: #059669;
-      --accent-soft: #ecfdf5;
-      --bg: #fffaf8;
-      --card: #ffffff;
-      --text: #1f2937;
-      --text-muted: #6b7280;
-      --border: #f1e4e6;
-      --shadow-sm: 0 2px 8px rgba(225, 29, 72, 0.06);
-      --shadow-md: 0 10px 25px -5px rgba(225, 29, 72, 0.12), 0 4px 10px -2px rgba(0, 0, 0, 0.04);
-      --radius-lg: 20px;
-      --radius-md: 14px;
-      --radius-sm: 10px;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Inter, Helvetica, Arial, sans-serif;
-      -webkit-tap-highlight-color: transparent;
+      --hairline: rgba(23, 38, 28, 0.14);
+      --hairline-light: rgba(246, 243, 235, 0.16);
     }
 
     body {
-      background-color: var(--bg);
-      color: var(--text);
-      padding-bottom: 92px;
-      line-height: 1.5;
-      overflow-x: hidden;
+      background-color: #F6F3EB;
+      color: #181A18;
     }
 
-    /* SVG Icon Alignment Safety */
-    svg.icon {
-      width: 18px;
-      height: 18px;
-      flex-shrink: 0;
-      stroke-width: 2.2;
-      stroke: currentColor;
-      fill: none;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-    }
-
-    svg.icon-sm {
-      width: 15px;
-      height: 15px;
-    }
-
-    svg.icon-lg {
-      width: 22px;
-      height: 22px;
-    }
-
-    /* Sticky App Header */
-    header {
-      background: rgba(255, 250, 248, 0.92);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-      position: sticky;
-      top: 0;
-      z-index: 60;
-      padding: 12px 16px;
-    }
-
-    .header-inner {
-      max-width: 720px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-    }
-
-    .brand-wrap {
-      display: flex;
-      align-items: center;
-      gap: 11px;
-    }
-
-    .brand-logo {
-      width: 40px;
-      height: 40px;
-      border-radius: 12px;
-      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-      color: #fff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 4px 12px rgba(225, 29, 72, 0.28);
-      flex-shrink: 0;
-    }
-
-    .brand-text h1 {
-      font-size: 1.15rem;
-      font-weight: 800;
-      color: var(--secondary);
-      letter-spacing: -0.4px;
-      line-height: 1.15;
-    }
-
-    .brand-text span {
-      font-size: 0.74rem;
-      color: var(--text-muted);
-      font-weight: 500;
-      display: block;
-    }
-
-    .header-actions {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .live-pill {
-      background: var(--primary-soft);
-      border: 1px solid var(--primary-border);
-      color: var(--primary-dark);
-      padding: 5px 10px;
-      border-radius: 999px;
-      font-size: 0.72rem;
-      font-weight: 700;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      white-space: nowrap;
-    }
-
-    .pulse-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: var(--primary);
-      animation: pulseRing 1.8s infinite;
-    }
-
-    @keyframes pulseRing {
-      0% { box-shadow: 0 0 0 0 rgba(225, 29, 72, 0.6); }
-      70% { box-shadow: 0 0 0 6px rgba(225, 29, 72, 0); }
-      100% { box-shadow: 0 0 0 0 rgba(225, 29, 72, 0); }
-    }
-
-    .menu-btn {
-      width: 40px;
-      height: 40px;
-      border-radius: 12px;
-      background: var(--card);
-      border: 1px solid var(--border);
-      color: var(--secondary);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      transition: transform 0.15s ease, background 0.15s ease;
-    }
-
-    .menu-btn:active {
-      transform: scale(0.94);
-      background: var(--primary-soft);
-    }
-
-    /* Slide-Out Hamburger Drawer */
-    .drawer-backdrop {
+    /* Tactile Rag-Paper Grain Overlay */
+    .paper-texture::before {
+      content: "";
       position: fixed;
       inset: 0;
-      background: rgba(30, 27, 75, 0.45);
-      backdrop-filter: blur(3px);
-      z-index: 120;
-      opacity: 0;
       pointer-events: none;
-      transition: opacity 0.25s ease;
+      z-index: 60;
+      opacity: 0.032;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
     }
 
+    /* Editorial Top Bar */
+    .editorial-header {
+      background: rgba(246, 243, 235, 0.82);
+      backdrop-filter: blur(18px) saturate(140%);
+      -webkit-backdrop-filter: blur(18px) saturate(140%);
+      border-bottom: 1px solid var(--hairline);
+    }
+
+    /* Slow Continuous Studio Seal Rotation */
+    @keyframes spinSlow {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    .animate-seal {
+      animation: spinSlow 28s linear infinite;
+    }
+
+    /* Staggered Architectural Reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(22px);
+      transition: opacity 0.85s cubic-bezier(0.16, 1, 0.3, 1), transform 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .delay-1 { transition-delay: 0.08s; }
+    .delay-2 { transition-delay: 0.16s; }
+    .delay-3 { transition-delay: 0.24s; }
+
+    /* Custom Underline Link */
+    .editorial-link {
+      position: relative;
+    }
+    .editorial-link::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -2px;
+      width: 100%;
+      height: 1px;
+      background: currentColor;
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .editorial-link:hover::after {
+      transform: scaleX(1);
+      transform-origin: left;
+    }
+
+    /* Slide-over Drawer Transitions */
+    .drawer-backdrop {
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.35s ease;
+    }
     .drawer-backdrop.open {
       opacity: 1;
       pointer-events: auto;
     }
-
     .drawer-panel {
-      position: fixed;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      width: 280px;
-      max-width: 82vw;
-      background: var(--card);
-      z-index: 130;
-      padding: 22px 18px;
       transform: translateX(100%);
-      transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
+      transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
     }
-
     .drawer-backdrop.open .drawer-panel {
       transform: translateX(0);
     }
 
-    .drawer-nav {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      margin-top: 20px;
-    }
-
-    .drawer-link {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 12px 14px;
-      border-radius: var(--radius-md);
-      background: transparent;
-      border: none;
-      color: var(--text);
-      font-size: 0.92rem;
-      font-weight: 600;
-      text-align: left;
-      cursor: pointer;
-      transition: background 0.15s ease, color 0.15s ease;
-    }
-
-    .drawer-link:hover, .drawer-link.active {
-      background: var(--primary-soft);
-      color: var(--primary);
-    }
-
-    /* Main Container */
-    main {
-      max-width: 720px;
-      margin: 0 auto;
-      padding: 16px 16px 24px;
-    }
-
-    .view {
-      display: none;
-    }
-
-    .view.active {
-      display: block;
-      animation: viewFade 0.28s cubic-bezier(0.22, 1, 0.36, 1);
-    }
-
-    @keyframes viewFade {
-      from { opacity: 0; transform: translateY(8px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    /* Warm Hero Banner */
-    .hero-card {
-      background: linear-gradient(135deg, #e11d48 0%, #9f1239 100%);
-      color: #fff;
-      border-radius: var(--radius-lg);
-      padding: 20px 18px;
-      margin-bottom: 16px;
-      box-shadow: var(--shadow-md);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero-card::after {
-      content: "";
-      position: absolute;
-      width: 140px;
-      height: 140px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.08);
-      top: -40px;
-      right: -30px;
-      pointer-events: none;
-    }
-
-    .hero-card h2 {
-      font-size: 1.22rem;
-      font-weight: 800;
-      letter-spacing: -0.3px;
-      margin-bottom: 6px;
-    }
-
-    .hero-card p {
-      font-size: 0.84rem;
-      opacity: 0.92;
-      margin-bottom: 14px;
-      max-width: 92%;
-    }
-
-    /* Quick Service Bar (PawsForPurpose Style) */
-    .service-bar {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
-      margin-bottom: 18px;
-    }
-
-    .service-tile {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
-      padding: 12px 8px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-      text-align: center;
-      cursor: pointer;
-      box-shadow: var(--shadow-sm);
-      transition: transform 0.16s ease, border-color 0.16s ease;
-    }
-
-    .service-tile:active {
-      transform: scale(0.96);
-    }
-
-    .service-icon-box {
-      width: 36px;
-      height: 36px;
-      border-radius: 10px;
-      background: var(--primary-soft);
-      color: var(--primary);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .service-tile span {
-      font-size: 0.75rem;
-      font-weight: 700;
-      color: var(--secondary);
-      line-height: 1.2;
-    }
-
-    /* Horizontal Category Chips */
-    .filter-scroll {
-      display: flex;
-      gap: 8px;
-      overflow-x: auto;
-      padding: 2px 2px 12px;
-      margin-bottom: 8px;
-      scrollbar-width: none;
-    }
-
-    .filter-scroll::-webkit-scrollbar {
-      display: none;
-    }
-
-    .chip {
-      background: var(--card);
-      border: 1.5px solid var(--border);
-      color: var(--text-muted);
-      padding: 8px 15px;
-      border-radius: 999px;
-      font-size: 0.8rem;
-      font-weight: 700;
-      white-space: nowrap;
-      cursor: pointer;
-      transition: all 0.18s ease;
-    }
-
-    .chip.active {
-      background: var(--secondary);
-      color: #fff;
-      border-color: var(--secondary);
-      box-shadow: 0 4px 10px rgba(30, 27, 75, 0.18);
-    }
-
-    /* Job & Candidate Cards */
-    .card {
-      background: var(--card);
-      border-radius: var(--radius-lg);
-      padding: 18px;
-      margin-bottom: 16px;
-      border: 1px solid var(--border);
-      box-shadow: var(--shadow-sm);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-      animation: cardPop 0.32s cubic-bezier(0.22, 1, 0.36, 1) backwards;
-    }
-
-    @keyframes cardPop {
-      from { opacity: 0; transform: translateY(10px) scale(0.985); }
-      to { opacity: 1; transform: translateY(0) scale(1); }
-    }
-
-    .job-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 12px;
-      margin-bottom: 10px;
-    }
-
-    .job-title {
-      font-size: 1.05rem;
-      font-weight: 800;
-      color: var(--secondary);
-      line-height: 1.3;
-    }
-
-    .job-sub {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      margin-top: 4px;
-    }
-
-    .salary-badge {
-      background: var(--accent-soft);
-      color: var(--accent);
-      border: 1px solid #a7f3d0;
-      font-size: 0.78rem;
-      font-weight: 800;
-      padding: 5px 10px;
-      border-radius: 10px;
-      white-space: nowrap;
-      flex-shrink: 0;
-    }
-
-    .pill-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin: 12px 0 16px;
-    }
-
-    .info-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      background: #f8fafc;
-      border: 1px solid #e2e8f0;
-      color: #475569;
-      padding: 5px 10px;
-      border-radius: 8px;
-      font-size: 0.76rem;
-      font-weight: 600;
-    }
-
-    .recruiter-tag {
-      background: var(--primary-soft);
-      border-color: var(--primary-border);
-      color: var(--primary-dark);
-    }
-
-    .card-actions {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 10px;
-      align-items: center;
-    }
-
-    /* Buttons */
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      padding: 12px 16px;
-      border-radius: var(--radius-md);
-      font-size: 0.88rem;
-      font-weight: 700;
-      border: none;
-      cursor: pointer;
-      transition: transform 0.14s ease, box-shadow 0.14s ease, background 0.14s ease;
-      text-decoration: none;
-      line-height: 1.2;
-    }
-
-    .btn:active {
-      transform: scale(0.97);
-    }
-
-    .btn-full {
-      width: 100%;
-    }
-
-    .btn-primary {
-      background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-      color: #fff;
-      box-shadow: 0 4px 12px rgba(225, 29, 72, 0.24);
-    }
-
-    .btn-secondary {
-      background: var(--secondary);
-      color: #fff;
-    }
-
-    .btn-whatsapp {
-      background: #16a34a;
-      color: #fff;
-    }
-
-    .btn-soft {
-      background: var(--primary-soft);
-      color: var(--primary-dark);
-      border: 1px solid var(--primary-border);
-    }
-
-    .btn-outline {
-      background: var(--card);
-      color: var(--text);
-      border: 1.5px solid var(--border);
-    }
-
-    .btn-icon-only {
-      width: 44px;
-      height: 44px;
-      padding: 0;
-      border-radius: var(--radius-md);
-      flex-shrink: 0;
-    }
-
-    .btn-sm {
-      padding: 8px 12px;
-      font-size: 0.78rem;
-      border-radius: var(--radius-sm);
-    }
-
-    /* Forms */
-    .form-group {
-      margin-bottom: 14px;
-    }
-
-    .form-row-2 {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-      margin-bottom: 14px;
-    }
-
-    label {
-      display: block;
-      font-size: 0.8rem;
-      font-weight: 700;
-      color: var(--secondary);
-      margin-bottom: 6px;
-    }
-
-    input, select {
-      width: 100%;
-      padding: 11px 13px;
-      border: 1.5px solid var(--border);
-      border-radius: var(--radius-sm);
-      font-size: 0.9rem;
-      background: #fff;
-      color: var(--text);
-      transition: border-color 0.15s ease, box-shadow 0.15s ease;
-    }
-
-    input:focus, select:focus {
-      outline: none;
-      border-color: var(--primary);
-      box-shadow: 0 0 0 3px rgba(225, 29, 72, 0.1);
-    }
-
-    /* Bottom Sheet Modal */
-    .modal-backdrop {
-      position: fixed;
-      inset: 0;
-      background: rgba(30, 27, 75, 0.55);
-      backdrop-filter: blur(4px);
-      display: flex;
-      align-items: flex-end;
-      justify-content: center;
-      z-index: 150;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.24s ease;
-    }
-
-    .modal-backdrop.open {
-      opacity: 1;
-      pointer-events: auto;
-    }
-
-    .modal-sheet {
-      background: var(--card);
-      width: 100%;
-      max-width: 640px;
-      max-height: 90vh;
-      overflow-y: auto;
-      border-radius: 24px 24px 0 0;
-      padding: 14px 18px 28px;
-      transform: translateY(100%);
-      transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
-    }
-
-    .modal-backdrop.open .modal-sheet {
-      transform: translateY(0);
-    }
-
-    .sheet-handle {
-      width: 40px;
-      height: 4px;
-      background: #e5e7eb;
-      border-radius: 999px;
-      margin: 0 auto 14px;
-    }
-
-    .modal-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 12px;
-      padding-bottom: 12px;
-      margin-bottom: 16px;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .close-circle {
-      width: 34px;
-      height: 34px;
-      border-radius: 50%;
-      border: none;
-      background: #f3f4f6;
-      color: var(--text);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      flex-shrink: 0;
-    }
-
-    /* Status Badges */
-    .status-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      padding: 4px 10px;
-      border-radius: 999px;
-      font-size: 0.74rem;
-      font-weight: 800;
-      white-space: nowrap;
-    }
-
-    .st-Applied { background: #eff6ff; color: #1d4ed8; }
-    .st-Shortlisted { background: #fef3c7; color: #b45309; }
-    .st-Interview { background: #f3e8ff; color: #7e22ce; }
-    .st-Selected { background: #dcfce7; color: #15803d; }
-    .st-Rejected { background: #fee2e2; color: #b91c1c; }
-
-    /* Recruiter Stats */
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
-      margin-bottom: 16px;
-    }
-
-    .stat-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
-      padding: 14px 10px;
-      text-align: center;
-      box-shadow: var(--shadow-sm);
-    }
-
-    .stat-val {
-      font-size: 1.4rem;
-      font-weight: 800;
-      color: var(--primary);
-      line-height: 1.1;
-    }
-
-    .stat-lbl {
-      font-size: 0.72rem;
-      color: var(--text-muted);
-      font-weight: 700;
-      margin-top: 4px;
-    }
-
-    /* Bottom Navigation Bar */
-    .bottom-nav {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: rgba(255, 255, 255, 0.96);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border-top: 1px solid var(--border);
-      display: flex;
-      justify-content: space-around;
-      padding: 8px 12px 12px;
-      z-index: 70;
-    }
-
-    .nav-btn {
-      flex: 1;
-      max-width: 120px;
-      background: none;
-      border: none;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 4px;
-      padding: 6px 8px;
-      border-radius: 12px;
-      color: var(--text-muted);
-      font-size: 0.72rem;
-      font-weight: 700;
-      cursor: pointer;
-      transition: all 0.18s ease;
-    }
-
-    .nav-btn.active {
-      color: var(--primary);
-      background: var(--primary-soft);
-    }
-
-    /* Receipt Box */
-    .receipt-card {
-      background: var(--accent-soft);
-      border: 1.5px dashed var(--accent);
-      border-radius: var(--radius-lg);
-      padding: 20px 16px;
-      text-align: center;
-      margin-bottom: 16px;
-    }
-
-    .ref-pill {
-      display: inline-block;
-      background: #fff;
-      color: var(--secondary);
-      border: 1px solid #a7f3d0;
-      font-size: 1.45rem;
-      font-weight: 900;
-      letter-spacing: 1px;
-      padding: 8px 20px;
-      border-radius: 12px;
-      margin: 10px 0;
-    }
-
-    .helper {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-    }
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
   </style>
 </head>
-<body>
+<body class="paper-texture font-sans antialiased selection:bg-forest selection:text-paper overflow-x-hidden">
 
-  <!-- TOP HEADER -->
-  <header>
-    <div class="header-inner">
-      <div class="brand-wrap">
-        <div class="brand-logo" aria-hidden="true">
-          <svg class="icon icon-lg" viewBox="0 0 24 24">
-            <path d="M12 2L3 7v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-9-5z"/>
-            <path d="M9 12l2 2 4-4"/>
+  <!-- Reading Progress Hairline -->
+  <div id="scroll-progress" class="fixed top-0 left-0 h-[2px] bg-leafolive z-50 w-0 transition-all duration-75"></div>
+
+  <!-- Full-Bleed Architectural Header -->
+  <header class="fixed top-0 inset-x-0 z-40 editorial-header">
+    <div class="max-w-[1380px] mx-auto px-4 sm:px-8 h-16 sm:h-20 flex items-center justify-between">
+      
+      <!-- Brand Mark -->
+      <a href="#" class="flex items-center gap-3.5 group">
+        <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-forest text-paper flex items-center justify-center transition-transform duration-500 group-hover:rotate-12">
+          <svg viewBox="0 0 100 100" class="w-5 h-5 sm:w-6 sm:h-6 fill-current">
+            <path d="M52,18 C72,18 85,32 85,50 C85,66 72,76 58,76 C47,76 39,68 39,58 C39,50 45,44 53,44 C59,44 64,49 64,55 C64,59 60,62 56,62 C53,62 51,60 51,57 C51,55 53,54 54,54 C53,52 49,53 48,57 C47,62 51,67 57,67 C65,67 71,60 71,52 C71,40 61,32 49,32 C34,32 23,44 23,60 C23,72 28,83 36,90 C32,78 33,63 40,51 C30,60 25,74 28,88 C18,78 14,62 18,46 C23,28 37,18 52,18 Z" />
           </svg>
         </div>
-        <div class="brand-text">
-          <h1>Conviction HR</h1>
-          <span>Careers &amp; Placement Desk</span>
+        <div>
+          <div class="flex items-center gap-2">
+            <span class="font-logo text-lg sm:text-xl font-bold tracking-[0.18em] text-forest leading-none">LEAF</span>
+            <span class="hidden sm:inline-block font-mono text-[10px] uppercase tracking-widest text-leafolive border border-leafolive/30 px-1.5 py-0.5">Plot 08</span>
+          </div>
+          <p class="font-mono text-[9px] uppercase tracking-[0.22em] text-ink/60 mt-1">Food &bull; Art &bull; Community</p>
         </div>
-      </div>
+      </a>
 
-      <div class="header-actions">
-        <div class="live-pill">
-          <span class="pulse-dot"></span>
-          <span>Hiring Now</span>
-        </div>
-        <button class="menu-btn" onclick="toggleDrawer(true)" aria-label="Open Menu">
-          <svg class="icon" viewBox="0 0 24 24">
-            <line x1="3" y1="6" x2="21" y2="6"/>
-            <line x1="3" y1="12" x2="21" y2="12"/>
-            <line x1="3" y1="18" x2="21" y2="18"/>
-          </svg>
+      <!-- Desktop Navigation -->
+      <nav class="hidden md:flex items-center gap-9 text-xs font-mono uppercase tracking-[0.16em] text-forest/85">
+        <a href="#curated" class="editorial-link hover:text-forest transition-colors">Curated Plates</a>
+        <a href="#menu" class="editorial-link hover:text-forest transition-colors">The Menu</a>
+        <a href="#space" class="editorial-link hover:text-forest transition-colors">The Studio</a>
+        <a href="#visit" class="editorial-link hover:text-forest transition-colors">Visit</a>
+        <button onclick="openFeedbackDrawer()" class="editorial-link hover:text-forest transition-colors cursor-pointer uppercase">Feedback</button>
+      </nav>
+
+      <!-- Actions -->
+      <div class="flex items-center gap-3">
+        <button onclick="openReserveDrawer()" class="hidden sm:inline-flex items-center gap-2.5 px-5 py-2.5 bg-forest hover:bg-leafolive text-paper font-mono text-[11px] uppercase tracking-[0.16em] transition-colors duration-300 cursor-pointer">
+          <span>Reserve Table</span>
+          <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+        </button>
+
+        <!-- Mobile Menu Trigger -->
+        <button id="mobile-menu-btn" aria-label="Open Navigation" class="md:hidden w-10 h-10 border border-forest/20 flex items-center justify-center text-forest hover:bg-forest hover:text-paper transition-colors cursor-pointer">
+          <i data-lucide="menu" class="w-4 h-4"></i>
         </button>
       </div>
     </div>
   </header>
 
-  <!-- HAMBURGER DRAWER -->
-  <div id="drawer-backdrop" class="drawer-backdrop" onclick="toggleDrawer(false)">
-    <aside class="drawer-panel" onclick="event.stopPropagation()">
+  <!-- Mobile Architectural Drawer -->
+  <div id="mobile-drawer" class="drawer-backdrop fixed inset-0 z-50 bg-ink/50 backdrop-blur-xs md:hidden flex justify-end">
+    <div class="drawer-panel w-full max-w-sm bg-forest text-paper h-full p-7 flex flex-col justify-between border-l border-paper/10">
       <div>
-        <div style="display:flex; justify-content:space-between; align-items:center; padding-bottom:14px; border-bottom:1px solid var(--border);">
-          <div>
-            <strong style="color:var(--secondary); font-size:1.05rem;">Conviction HR</strong>
-            <div class="helper">Fast-Track Placement Portal</div>
-          </div>
-          <button class="close-circle" onclick="toggleDrawer(false)" aria-label="Close Menu">
-            <svg class="icon icon-sm" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        <div class="flex items-center justify-between pb-6 border-b border-paper/15">
+          <span class="font-mono text-xs uppercase tracking-[0.22em] text-sage">Navigation &bull; Pune</span>
+          <button id="close-drawer-btn" aria-label="Close Menu" class="w-9 h-9 border border-paper/20 flex items-center justify-center text-paper hover:bg-paper hover:text-forest transition-colors cursor-pointer">
+            <i data-lucide="x" class="w-4 h-4"></i>
           </button>
         </div>
 
-        <nav class="drawer-nav">
-          <button class="drawer-link" onclick="drawerNavigate('jobs')">
-            <svg class="icon" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
-            <span>Browse Live Openings</span>
-          </button>
-          <button class="drawer-link" onclick="drawerNavigate('track')">
-            <svg class="icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-            <span>Track Interview Status</span>
-          </button>
-          <button class="drawer-link" onclick="drawerNavigate('recruiter')">
-            <svg class="icon" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-            <span>Recruiter Staff Portal</span>
+        <nav class="flex flex-col divide-y divide-paper/10 mt-4">
+          <a href="#curated" class="mobile-link py-4 flex items-baseline justify-between group">
+            <span class="font-serif text-3xl text-paper group-hover:italic group-hover:text-sage transition-all">Curated Plates</span>
+            <span class="font-mono text-[11px] text-sage">01</span>
+          </a>
+          <a href="#menu" class="mobile-link py-4 flex items-baseline justify-between group">
+            <span class="font-serif text-3xl text-paper group-hover:italic group-hover:text-sage transition-all">Full Café Menu</span>
+            <span class="font-mono text-[11px] text-sage">02</span>
+          </a>
+          <a href="#space" class="mobile-link py-4 flex items-baseline justify-between group">
+            <span class="font-serif text-3xl text-paper group-hover:italic group-hover:text-sage transition-all">The Studio Space</span>
+            <span class="font-mono text-[11px] text-sage">03</span>
+          </a>
+          <a href="#visit" class="mobile-link py-4 flex items-baseline justify-between group">
+            <span class="font-serif text-3xl text-paper group-hover:italic group-hover:text-sage transition-all">Location &amp; Hours</span>
+            <span class="font-mono text-[11px] text-sage">04</span>
+          </a>
+          <button onclick="closeMobileDrawer(); openFeedbackDrawer();" class="py-4 flex items-baseline justify-between group text-left w-full cursor-pointer">
+            <span class="font-serif text-3xl text-paper group-hover:italic group-hover:text-sage transition-all">Guest Feedback</span>
+            <span class="font-mono text-[11px] text-sage">05</span>
           </button>
         </nav>
       </div>
 
-      <div style="background:var(--primary-soft); padding:14px; border-radius:var(--radius-md); border:1px solid var(--primary-border);">
-        <div style="font-size:0.8rem; font-weight:700; color:var(--primary-dark); margin-bottom:4px;">Zero Consultancy Fees</div>
-        <div class="helper" style="font-size:0.74rem;">Conviction HR never charges candidates for interviews or job placements.</div>
-      </div>
-    </aside>
-  </div>
-
-  <!-- MAIN CONTENT -->
-  <main>
-    <!-- VIEW 1: LIVE JOBS -->
-    <section id="view-jobs" class="view active">
-      <div class="hero-card">
-        <h2>Get Hired Without the Wait</h2>
-        <p>Apply in 60 seconds, get your instant Tracking ID, and walk in directly with verified HR slots.</p>
-        <button class="btn btn-sm" style="background:#fff; color:var(--primary-dark);" onclick="switchView('track', document.getElementById('nav-track'))">
-          <svg class="icon icon-sm" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-          <span>Check Existing Application</span>
+      <div class="space-y-3 pt-6 border-t border-paper/15">
+        <button onclick="closeMobileDrawer(); openReserveDrawer();" class="w-full py-3.5 bg-leafolive hover:bg-paper hover:text-forest text-paper font-mono text-xs uppercase tracking-[0.18em] flex items-center justify-center gap-2 transition-colors cursor-pointer">
+          <span>Book a Table</span>
+          <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
         </button>
-      </div>
-
-      <!-- Quick Service Bar -->
-      <div class="service-bar">
-        <div class="service-tile" onclick="filterJobs('BPO / Support', document.querySelectorAll('.chip')[1])">
-          <div class="service-icon-box">
-            <svg class="icon" viewBox="0 0 24 24"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg>
-          </div>
-          <span>Voice &amp; BPO</span>
-        </div>
-        <div class="service-tile" onclick="filterJobs('Back Office', document.querySelectorAll('.chip')[2])">
-          <div class="service-icon-box">
-            <svg class="icon" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-          </div>
-          <span>Back Office</span>
-        </div>
-        <div class="service-tile" onclick="switchView('track', document.getElementById('nav-track'))">
-          <div class="service-icon-box">
-            <svg class="icon" viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-          </div>
-          <span>Live Status</span>
-        </div>
-      </div>
-
-      <!-- Category Chips -->
-      <div class="filter-scroll" id="category-filters">
-        <button class="chip active" onclick="filterJobs('All', this)">All Openings</button>
-        <button class="chip" onclick="filterJobs('BPO / Support', this)">BPO / Support</button>
-        <button class="chip" onclick="filterJobs('Back Office', this)">Back Office</button>
-        <button class="chip" onclick="filterJobs('Sales / Field', this)">Sales / Field</button>
-        <button class="chip" onclick="filterJobs('IT / Tech', this)">IT / Tech</button>
-      </div>
-
-      <div id="jobs-list"></div>
-    </section>
-
-    <!-- VIEW 2: SELF-SERVE STATUS TRACKER -->
-    <section id="view-track" class="view">
-      <div class="card">
-        <div style="display:flex; align-items:center; gap:10px; margin-bottom:6px;">
-          <div class="service-icon-box">
-            <svg class="icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-          </div>
-          <div>
-            <h2 style="font-size:1.08rem; color:var(--secondary);">Application Status Tracker</h2>
-            <p class="helper">Instant updates—no need to call the recruiter desk.</p>
-          </div>
-        </div>
-
-        <div class="form-group" style="margin-top:14px;">
-          <label>Mobile Number or Reference ID</label>
-          <input type="text" id="track-query" placeholder="e.g. 9876543210 or CHR-1001" />
-        </div>
-        <button class="btn btn-primary btn-full" onclick="trackApplication()">
-          <svg class="icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-          <span>Track My Application</span>
-        </button>
-      </div>
-
-      <div id="track-results"></div>
-    </section>
-
-    <!-- VIEW 3: RECRUITER PIN PORTAL -->
-    <section id="view-recruiter" class="view">
-      <div id="pin-gate" class="card" style="text-align:center; padding:32px 20px;">
-        <div class="service-icon-box" style="width:52px; height:52px; margin:0 auto 12px; border-radius:16px;">
-          <svg class="icon icon-lg" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-        </div>
-        <h2 style="font-size:1.12rem; color:var(--secondary); margin-bottom:4px;">Conviction HR Staff Portal</h2>
-        <p class="helper" style="margin-bottom:18px;">Enter your 4-digit recruiter PIN to manage candidates &amp; openings.<br>(Demo PIN: <strong>1234</strong>)</p>
-        <div class="form-group" style="max-width:210px; margin:0 auto 14px;">
-          <input type="password" id="recruiter-pin" maxlength="6" placeholder="••••" style="text-align:center; font-size:1.35rem; letter-spacing:8px; font-weight:800;" />
-        </div>
-        <button class="btn btn-primary" style="min-width:210px;" onclick="unlockPortal()">
-          <svg class="icon" viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 9.9-1"/></svg>
-          <span>Unlock Workspace</span>
-        </button>
-      </div>
-
-      <div id="recruiter-dashboard" style="display:none;">
-        <div class="stats-grid">
-          <div class="stat-card">
-            <div class="stat-val" id="stat-total">0</div>
-            <div class="stat-lbl">Applicants</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-val" id="stat-interviews">0</div>
-            <div class="stat-lbl">Interviews</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-val" id="stat-selected">0</div>
-            <div class="stat-lbl">Joined</div>
-          </div>
-        </div>
-
-        <div style="display:flex; gap:8px; margin-bottom:16px;">
-          <button class="btn btn-secondary btn-sm" style="flex:1;" id="subtab-btn-cand" onclick="switchRecruiterTab('candidates')">
-            <svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg>
-            <span>Candidates</span>
-          </button>
-          <button class="btn btn-outline btn-sm" style="flex:1;" id="subtab-btn-jobs" onclick="switchRecruiterTab('manage-jobs')">
-            <svg class="icon icon-sm" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-            <span>Post / Close Jobs</span>
-          </button>
-          <button class="btn btn-soft btn-sm" onclick="exportCSV()" title="Export CSV">
-            <svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            <span>CSV</span>
-          </button>
-        </div>
-
-        <!-- Candidate Pipeline -->
-        <div id="rec-tab-candidates">
-          <div class="form-row-2">
-            <select id="filter-status" onchange="renderRecruiterCandidates()">
-              <option value="All">All Stages</option>
-              <option value="Applied">New / Applied</option>
-              <option value="Shortlisted">Shortlisted</option>
-              <option value="Interview">Interview Set</option>
-              <option value="Selected">Selected / Joined</option>
-              <option value="Rejected">Rejected</option>
-            </select>
-            <input type="text" id="search-candidate" placeholder="Name, phone or ID..." oninput="renderRecruiterCandidates()" />
-          </div>
-          <div id="recruiter-candidates-list"></div>
-        </div>
-
-        <!-- Manage Jobs -->
-        <div id="rec-tab-jobs" style="display:none;">
-          <div class="card">
-            <h3 style="font-size:1rem; color:var(--secondary); margin-bottom:12px;">Publish New Job Role</h3>
-            <div class="form-group">
-              <label>Job Role Title *</label>
-              <input type="text" id="new-job-title" placeholder="e.g. Domestic Voice Executive" />
-            </div>
-            <div class="form-row-2">
-              <div>
-                <label>Category</label>
-                <select id="new-job-cat">
-                  <option value="BPO / Support">BPO / Support</option>
-                  <option value="Back Office">Back Office</option>
-                  <option value="Sales / Field">Sales / Field</option>
-                  <option value="IT / Tech">IT / Tech</option>
-                </select>
-              </div>
-              <div>
-                <label>Salary Package *</label>
-                <input type="text" id="new-job-sal" placeholder="₹18k - ₹24k" />
-              </div>
-            </div>
-            <div class="form-row-2">
-              <div>
-                <label>Location *</label>
-                <input type="text" id="new-job-loc" placeholder="Hadapsar / Kharadi" />
-              </div>
-              <div>
-                <label>Assigned Recruiter *</label>
-                <input type="text" id="new-job-recruiter" placeholder="e.g. Sneha / Rahul" />
-              </div>
-            </div>
-            <div class="form-group">
-              <label>Shift &amp; Eligibility</label>
-              <input type="text" id="new-job-req" placeholder="Day Shift • 12th / Grad • Freshers" />
-            </div>
-            <button class="btn btn-primary btn-full" onclick="addNewJob()">
-              <svg class="icon" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-              <span>Publish Opening Live</span>
-            </button>
-          </div>
-
-          <h3 style="font-size:0.88rem; color:var(--text-muted); margin:16px 0 10px; font-weight:700;">Manage Active &amp; Closed Roles</h3>
-          <div id="recruiter-jobs-list"></div>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <!-- APPLY BOTTOM SHEET MODAL -->
-  <div id="apply-modal" class="modal-backdrop" onclick="closeApplyModal()">
-    <div class="modal-sheet" onclick="event.stopPropagation()">
-      <div class="sheet-handle"></div>
-      <div class="modal-header">
-        <div>
-          <h3 id="modal-job-title" style="font-size:1.05rem; color:var(--secondary); font-weight:800;">Apply for Role</h3>
-          <p id="modal-job-sub" class="helper" style="margin-top:2px;"></p>
-        </div>
-        <button class="close-circle" onclick="closeApplyModal()" aria-label="Close">
-          <svg class="icon icon-sm" viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
-        </button>
-      </div>
-
-      <form id="apply-form" onsubmit="submitApplication(event)">
-        <input type="hidden" id="apply-job-id" />
-        <input type="hidden" id="apply-job-name" />
-        <input type="hidden" id="apply-job-recruiter" />
-
-        <div class="form-group">
-          <label>Full Name *</label>
-          <input type="text" id="cand-name" required placeholder="Enter your full name" />
-        </div>
-
-        <div class="form-group">
-          <label>WhatsApp Mobile Number *</label>
-          <input type="tel" id="cand-phone" required pattern="[0-9]{10}" maxlength="10" placeholder="10-digit WhatsApp number" />
-        </div>
-
-        <div class="form-row-2">
-          <div>
-            <label>Current Locality *</label>
-            <input type="text" id="cand-area" required placeholder="e.g. Hadapsar" />
-          </div>
-          <div>
-            <label>Qualification *</label>
-            <select id="cand-edu" required>
-              <option value="12th Pass">12th Pass</option>
-              <option value="Diploma">Diploma</option>
-              <option value="Graduate">Graduate</option>
-              <option value="Post Graduate">Post Graduate</option>
-            </select>
-          </div>
-        </div>
-
-        <div class="form-row-2">
-          <div>
-            <label>Total Experience *</label>
-            <select id="cand-exp" required>
-              <option value="Fresher">Fresher</option>
-              <option value="6 Months - 1 Yr">6 Months - 1 Yr</option>
-              <option value="1 - 3 Years">1 - 3 Years</option>
-              <option value="3+ Years">3+ Years</option>
-            </select>
-          </div>
-          <div>
-            <label>English Fluency *</label>
-            <select id="cand-eng" required>
-              <option value="Basic">Basic</option>
-              <option value="Conversational">Conversational</option>
-              <option value="Fluent">Fluent</option>
-            </select>
-          </div>
-        </div>
-
-        <div class="form-row-2">
-          <div>
-            <label>Preferred Shift *</label>
-            <select id="cand-shift" required>
-              <option value="Day Shift">Day Shift</option>
-              <option value="Rotational / Night">Rotational / Night</option>
-              <option value="Any Shift">Any Shift</option>
-            </select>
-          </div>
-          <div>
-            <label>Notice Period *</label>
-            <select id="cand-notice" required>
-              <option value="Immediate">Immediate</option>
-              <option value="Within 7 Days">Within 7 Days</option>
-              <option value="15-30 Days">15-30 Days</option>
-            </select>
-          </div>
-        </div>
-
-        <div class="form-row-2">
-          <div>
-            <label>How Did You Find Us?</label>
-            <select id="cand-source">
-              <option value="WhatsApp Group">WhatsApp Group</option>
-              <option value="Office QR / Walk-in">Office QR / Walk-in</option>
-              <option value="Instagram / Referral">Instagram / Referral</option>
-              <option value="Job Portal">Job Portal</option>
-            </select>
-          </div>
-          <div>
-            <label>Resume Link (Optional)</label>
-            <input type="url" id="cand-resume" placeholder="Google Drive URL" />
-          </div>
-        </div>
-
-        <button type="submit" class="btn btn-primary btn-full" style="margin-top:6px;">
-          <svg class="icon" viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-          <span>Submit &amp; Get Tracking ID</span>
-        </button>
-      </form>
-
-      <!-- Instant Confirmation Receipt -->
-      <div id="apply-receipt" style="display:none;">
-        <div class="receipt-card">
-          <div style="width:48px; height:48px; border-radius:50%; background:#dcfce7; color:var(--accent); display:flex; align-items:center; justify-content:center; margin:0 auto 10px;">
-            <svg class="icon icon-lg" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
-          </div>
-          <h3 style="color:var(--secondary); font-size:1.1rem;">Application Registered!</h3>
-          <p class="helper" style="margin-top:4px;">Save your Conviction HR Reference ID:</p>
-          <div class="ref-pill" id="receipt-id">CHR-1001</div>
-          <p class="helper" id="receipt-summary"></p>
-        </div>
-        <button class="btn btn-secondary btn-full" onclick="closeApplyModal()">Done</button>
+        <a href="https://www.instagram.com/leafcafepune?jplx=MTdoM2ZxcGtmaDhmbg==" target="_blank" rel="noopener noreferrer" class="w-full py-3 border border-paper/20 text-paper/85 hover:text-paper font-mono text-[11px] uppercase tracking-[0.16em] flex items-center justify-center gap-2 transition-colors">
+          <span>Instagram @leafcafepune</span>
+        </a>
       </div>
     </div>
   </div>
 
-  <!-- BOTTOM NAVIGATION -->
-  <nav class="bottom-nav">
-    <button class="nav-btn active" id="nav-jobs" onclick="switchView('jobs', this)">
-      <svg class="icon" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
-      <span>Live Jobs</span>
-    </button>
-    <button class="nav-btn" id="nav-track" onclick="switchView('track', this)">
-      <svg class="icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-      <span>Track Status</span>
-    </button>
-    <button class="nav-btn" id="nav-recruiter" onclick="switchView('recruiter', this)">
-      <svg class="icon" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-      <span>Recruiter</span>
-    </button>
-  </nav>
-
-  <script>
-    const BRAND_NAME = "Conviction HR";
-    const STAFF_PIN = "1234";
-
-    const DEFAULT_JOBS = [
-      {
-        id: "CHR-ROLE-1",
-        title: "Customer Support Executive (Domestic / Semi-Voice)",
-        category: "BPO / Support",
-        salary: "₹18,000 - ₹23,500",
-        location: "Hadapsar / Magarpatta",
-        recruiter: "HR Sneha",
-        req: "Day Shift • 12th / Grad • Freshers",
-        status: "Active"
-      },
-      {
-        id: "CHR-ROLE-2",
-        title: "Back Office & Data Operations Associate",
-        category: "Back Office",
-        salary: "₹16,500 - ₹21,000",
-        location: "Kharadi IT Park",
-        recruiter: "HR Rahul",
-        req: "Fixed Day Shift • Basic Excel • Grad",
-        status: "Active"
-      },
-      {
-        id: "CHR-ROLE-3",
-        title: "International Voice Process (UK / US Shift)",
-        category: "BPO / Support",
-        salary: "₹26,000 - ₹34,000 + Cab",
-        location: "Viman Nagar",
-        recruiter: "HR Sneha",
-        req: "Fluent English • 0-2 Yrs Exp",
-        status: "Active"
-      },
-      {
-        id: "CHR-ROLE-4",
-        title: "Junior Technical Support / Service Desk",
-        category: "IT / Tech",
-        salary: "₹24,000 - ₹30,000",
-        location: "Hinjewadi / Magarpatta",
-        recruiter: "HR Amit",
-        req: "BCA / BSc / Any Grad • Rotational",
-        status: "Active"
-      }
-    ];
-
-    const DEFAULT_CANDIDATES = [
-      {
-        appId: "CHR-1001",
-        timestamp: new Date().toLocaleDateString("en-IN"),
-        jobId: "CHR-ROLE-1",
-        jobTitle: "Customer Support Executive (Domestic / Semi-Voice)",
-        recruiter: "HR Sneha",
-        name: "Rohan Deshmukh",
-        phone: "9876543210",
-        area: "Hadapsar",
-        edu: "Graduate",
-        exp: "Fresher",
-        eng: "Conversational",
-        shift: "Day Shift",
-        notice: "Immediate",
-        source: "WhatsApp Group",
-        resume: "",
-        status: "Interview",
-        remark: "Walk-in Interview Tomorrow at 11:00 AM • Conviction HR Desk, Magarpatta Road. Carry 2 resumes & Aadhar."
-      }
-    ];
-
-    let jobs = JSON.parse(localStorage.getItem("chr_jobs")) || DEFAULT_JOBS;
-    let candidates = JSON.parse(localStorage.getItem("chr_candidates")) || DEFAULT_CANDIDATES;
-    let currentCategory = "All";
-
-    function saveData() {
-      localStorage.setItem("chr_jobs", JSON.stringify(jobs));
-      localStorage.setItem("chr_candidates", JSON.stringify(candidates));
-    }
-
-    // Drawer Controls
-    function toggleDrawer(open) {
-      document.getElementById("drawer-backdrop").classList.toggle("open", open);
-    }
-
-    function drawerNavigate(viewName) {
-      toggleDrawer(false);
-      switchView(viewName, document.getElementById("nav-" + viewName));
-    }
-
-    // View Switching
-    function switchView(viewName, navBtn) {
-      document.querySelectorAll(".view").forEach(v => v.classList.remove("active"));
-      document.getElementById("view-" + viewName).classList.add("active");
-
-      document.querySelectorAll(".nav-btn").forEach(b => b.classList.remove("active"));
-      if (navBtn) navBtn.classList.add("active");
-
-      window.scrollTo({ top: 0, behavior: "smooth" });
-      if (viewName === "jobs") renderJobs();
-      if (viewName === "recruiter") renderRecruiterDashboard();
-    }
-
-    // Category Filter
-    function filterJobs(cat, chipBtn) {
-      currentCategory = cat;
-      document.querySelectorAll(".chip").forEach(c => c.classList.remove("active"));
-      if (chipBtn) chipBtn.classList.add("active");
-      renderJobs();
-    }
-
-    // Render Live Jobs
-    function renderJobs() {
-      const list = document.getElementById("jobs-list");
-      const activeJobs = jobs.filter(j => j.status === "Active" && (currentCategory === "All" || j.category === currentCategory));
-
-      if (!activeJobs.length) {
-        list.innerHTML = `<div class="card" style="text-align:center; color:var(--text-muted); padding:28px 16px;">No active openings in this category right now.</div>`;
-        return;
-      }
-
-      list.innerHTML = activeJobs.map((job, idx) => `
-        <div class="card" style="animation-delay: ${idx * 0.05}s">
-          <div class="job-top">
-            <div>
-              <div class="job-title">${job.title}</div>
-              <div class="job-sub">
-                <svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                <span>${job.location} • ${job.category}</span>
-              </div>
-            </div>
-            <div class="salary-badge">${job.salary}</div>
-          </div>
-
-          <div class="pill-row">
-            <span class="info-pill">
-              <svg class="icon icon-sm" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-              <span>${job.req}</span>
-            </span>
-            <span class="info-pill recruiter-tag">
-              <svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-              <span>Lead: ${job.recruiter}</span>
-            </span>
-          </div>
-
-          <div class="card-actions">
-            <button class="btn btn-primary" onclick="openApplyModal('${job.id}')">
-              <span>Quick Apply</span>
-              <svg class="icon icon-sm" viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-            </button>
-            <button class="btn btn-soft btn-icon-only" onclick="shareJobToWhatsApp('${job.id}')" title="Share to WhatsApp Group" aria-label="Share Job">
-              <svg class="icon" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
-            </button>
-          </div>
+  <!-- Editorial Hero Section -->
+  <section class="pt-28 pb-16 sm:pt-36 sm:pb-24 px-4 sm:px-8 border-b border-forest/15">
+    <div class="max-w-[1380px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-end">
+      
+      <!-- Left Editorial Masthead -->
+      <div class="lg:col-span-7 space-y-7">
+        <div class="flex flex-wrap items-center gap-3 font-mono text-[11px] uppercase tracking-[0.2em] text-leafolive">
+          <span>A Café by Advanced Nature</span>
+          <span class="text-forest/30">/</span>
+          <span>Hadapsar Industrial Estate, Pune</span>
         </div>
-      `).join("");
-    }
 
-    // 1-Tap Share Job Blurb to WhatsApp Group
-    function shareJobToWhatsApp(jobId) {
-      const job = jobs.find(j => j.id === jobId);
-      if (!job) return;
-      const pageUrl = window.location.href;
-      const text = `*${BRAND_NAME} — Urgent Hiring*%0A%0A` +
-        `*Role:* ${job.title}%0A` +
-        `*Location:* ${job.location}%0A` +
-        `*Salary:* ${job.salary}%0A` +
-        `*Details:* ${job.req}%0A` +
-        `*Coordinator:* ${job.recruiter}%0A%0A` +
-        `Apply in 60 seconds & get your tracking ID here:%0A${pageUrl}`;
-      window.open(`https://wa.me/?text=${text}`, "_blank");
-    }
+        <h1 class="font-serif text-5xl sm:text-7xl xl:text-[5.5rem] font-normal text-forest leading-[0.98] tracking-[-0.02em]">
+          Handcrafted lanterns, <span class="italic font-normal text-leafolive">filter decoctions</span> &amp; soulful global plates.
+        </h1>
 
-    // Apply Modal
-    function openApplyModal(jobId) {
-      const job = jobs.find(j => j.id === jobId);
-      if (!job) return;
+        <p class="text-base sm:text-lg text-ink/75 max-w-xl leading-relaxed font-normal">
+          An eco-conscious industrial-art sanctuary where upcycled architecture meets South Indian filter brews, Burmese Khao Suey, and quiet mezzanine corners.
+        </p>
 
-      document.getElementById("apply-job-id").value = job.id;
-      document.getElementById("apply-job-name").value = job.title;
-      document.getElementById("apply-job-recruiter").value = job.recruiter;
-      document.getElementById("modal-job-title").innerText = job.title;
-      document.getElementById("modal-job-sub").innerText = `${job.location} • ${job.salary} • ${job.recruiter}`;
-
-      document.getElementById("apply-form").style.display = "block";
-      document.getElementById("apply-receipt").style.display = "none";
-      document.getElementById("apply-form").reset();
-      document.getElementById("apply-modal").classList.add("open");
-    }
-
-    function closeApplyModal() {
-      document.getElementById("apply-modal").classList.remove("open");
-    }
-
-    function submitApplication(e) {
-      e.preventDefault();
-      const phone = document.getElementById("cand-phone").value.trim();
-      const jobId = document.getElementById("apply-job-id").value;
-
-      const duplicate = candidates.find(c => c.phone === phone && c.jobId === jobId);
-      if (duplicate) {
-        alert(`You have already applied for this opening! Your Reference ID is ${duplicate.appId}.`);
-        return;
-      }
-
-      const appId = `CHR-${1001 + candidates.length}`;
-      const newCand = {
-        appId,
-        timestamp: new Date().toLocaleDateString("en-IN"),
-        jobId,
-        jobTitle: document.getElementById("apply-job-name").value,
-        recruiter: document.getElementById("apply-job-recruiter").value,
-        name: document.getElementById("cand-name").value.trim(),
-        phone,
-        area: document.getElementById("cand-area").value.trim(),
-        edu: document.getElementById("cand-edu").value,
-        exp: document.getElementById("cand-exp").value,
-        eng: document.getElementById("cand-eng").value,
-        shift: document.getElementById("cand-shift").value,
-        notice: document.getElementById("cand-notice").value,
-        source: document.getElementById("cand-source").value,
-        resume: document.getElementById("cand-resume").value.trim(),
-        status: "Applied",
-        remark: `Application received by ${document.getElementById("apply-job-recruiter").value}. Screening in progress.`
-      };
-
-      candidates.unshift(newCand);
-      saveData();
-
-      document.getElementById("apply-form").style.display = "none";
-      document.getElementById("apply-receipt").style.display = "block";
-      document.getElementById("receipt-id").innerText = appId;
-      document.getElementById("receipt-summary").innerText = `${newCand.name} (${newCand.phone}) • Assigned to ${newCand.recruiter}`;
-    }
-
-    // Track Status
-    function trackApplication() {
-      const q = document.getElementById("track-query").value.trim().toUpperCase();
-      const results = document.getElementById("track-results");
-
-      if (!q) {
-        results.innerHTML = `<div class="card" style="color:var(--primary-dark); font-weight:600;">Please enter your 10-digit mobile number or Reference ID.</div>`;
-        return;
-      }
-
-      const matches = candidates.filter(c => c.phone === q || c.appId.toUpperCase() === q);
-
-      if (!matches.length) {
-        results.innerHTML = `<div class="card">No application found for <strong>${q}</strong>. Please check your number or apply under Live Jobs.</div>`;
-        return;
-      }
-
-      results.innerHTML = matches.map(c => `
-        <div class="card">
-          <div style="display:flex; justify-content:space-between; align-items:center; gap:8px; margin-bottom:10px;">
-            <span style="font-weight:800; color:var(--primary); font-size:0.9rem;">${c.appId}</span>
-            <span class="status-badge st-${c.status}">${c.status}</span>
-          </div>
-          <div style="font-weight:800; font-size:1.02rem; color:var(--secondary);">${c.jobTitle}</div>
-          <div class="helper" style="margin:4px 0 12px;">Candidate: ${c.name} • Coordinator: ${c.recruiter}</div>
-          <div style="background:var(--primary-soft); border-left:3px solid var(--primary); padding:12px; border-radius:10px; font-size:0.84rem; color:var(--text);">
-            <strong>Latest Update:</strong> ${c.remark}
-          </div>
+        <!-- Primary Action Row -->
+        <div class="flex flex-wrap items-center gap-4 pt-2">
+          <button onclick="openReserveDrawer()" class="px-8 py-4 bg-forest hover:bg-leafolive text-paper font-mono text-xs uppercase tracking-[0.18em] transition-colors duration-300 flex items-center gap-3 cursor-pointer">
+            <span>Find a Table</span>
+            <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+          </button>
+          <a href="#menu" class="px-8 py-4 border border-forest/25 hover:border-forest text-forest font-mono text-xs uppercase tracking-[0.18em] transition-colors duration-300">
+            Browse Full Menu
+          </a>
         </div>
-      `).join("");
-    }
 
-    // Recruiter Portal
-    function unlockPortal() {
-      const pin = document.getElementById("recruiter-pin").value;
-      if (pin === STAFF_PIN) {
-        document.getElementById("pin-gate").style.display = "none";
-        document.getElementById("recruiter-dashboard").style.display = "block";
-        renderRecruiterDashboard();
-      } else {
-        alert("Invalid PIN. Demo PIN is 1234.");
-      }
-    }
-
-    function switchRecruiterTab(tab) {
-      const isCand = tab === "candidates";
-      document.getElementById("rec-tab-candidates").style.display = isCand ? "block" : "none";
-      document.getElementById("rec-tab-jobs").style.display = isCand ? "none" : "block";
-
-      document.getElementById("subtab-btn-cand").className = isCand ? "btn btn-secondary btn-sm" : "btn btn-outline btn-sm";
-      document.getElementById("subtab-btn-jobs").className = !isCand ? "btn btn-secondary btn-sm" : "btn btn-outline btn-sm";
-
-      if (!isCand) renderRecruiterJobs();
-    }
-
-    function renderRecruiterDashboard() {
-      document.getElementById("stat-total").innerText = candidates.length;
-      document.getElementById("stat-interviews").innerText = candidates.filter(c => c.status === "Interview").length;
-      document.getElementById("stat-selected").innerText = candidates.filter(c => c.status === "Selected").length;
-      renderRecruiterCandidates();
-    }
-
-    function renderRecruiterCandidates() {
-      const statusFilter = document.getElementById("filter-status").value;
-      const search = document.getElementById("search-candidate").value.trim().toLowerCase();
-      const list = document.getElementById("recruiter-candidates-list");
-
-      const filtered = candidates.filter(c => {
-        const matchSt = statusFilter === "All" || c.status === statusFilter;
-        const matchQ = c.name.toLowerCase().includes(search) || c.phone.includes(search) || c.appId.toLowerCase().includes(search);
-        return matchSt && matchQ;
-      });
-
-      if (!filtered.length) {
-        list.innerHTML = `<div class="card" style="text-align:center; color:var(--text-muted);">No matching candidates found.</div>`;
-        return;
-      }
-
-      list.innerHTML = filtered.map(c => `
-        <div class="card">
-          <div style="display:flex; justify-content:space-between; align-items:flex-start; gap:10px;">
-            <div>
-              <div style="font-weight:800; font-size:1rem; color:var(--secondary);">${c.name} <span style="font-size:0.76rem; color:var(--text-muted); font-weight:600;">(${c.appId})</span></div>
-              <div style="font-size:0.8rem; color:var(--primary-dark); font-weight:700; margin-top:2px;">${c.jobTitle}</div>
-            </div>
-            <span class="status-badge st-${c.status}">${c.status}</span>
-          </div>
-
-          <div class="pill-row" style="margin:10px 0 12px;">
-            <span class="info-pill">${c.phone}</span>
-            <span class="info-pill">${c.area}</span>
-            <span class="info-pill">${c.edu} • ${c.exp}</span>
-            <span class="info-pill">Eng: ${c.eng}</span>
-            <span class="info-pill">${c.shift}</span>
-            <span class="info-pill recruiter-tag">${c.source}</span>
-          </div>
-
-          <div style="display:grid; grid-template-columns: 1fr 1fr; gap:8px;">
-            <select onchange="updateCandidateStatus('${c.appId}', this.value)" style="padding:9px 10px; font-size:0.8rem; font-weight:700;">
-              <option value="Applied" ${c.status === "Applied" ? "selected" : ""}>Applied</option>
-              <option value="Shortlisted" ${c.status === "Shortlisted" ? "selected" : ""}>Shortlisted</option>
-              <option value="Interview" ${c.status === "Interview" ? "selected" : ""}>Interview Set</option>
-              <option value="Selected" ${c.status === "Selected" ? "selected" : ""}>Selected / Joined</option>
-              <option value="Rejected" ${c.status === "Rejected" ? "selected" : ""}>Rejected</option>
-            </select>
-
-            <button class="btn btn-whatsapp btn-sm" onclick="sendWhatsAppPass('${c.appId}')">
-              <svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
-              <span>WhatsApp Pass</span>
-            </button>
-          </div>
-          ${c.resume ? `<div style="margin-top:10px;"><a href="${c.resume}" target="_blank" style="font-size:0.78rem; color:var(--primary); font-weight:700; text-decoration:none;">Open Attached Resume ↗</a></div>` : ""}
-        </div>
-      `).join("");
-    }
-
-    function updateCandidateStatus(appId, newStatus) {
-      const cand = candidates.find(c => c.appId === appId);
-      if (!cand) return;
-
-      cand.status = newStatus;
-      if (newStatus === "Interview") {
-        const slot = prompt("Enter Interview Date, Time & Venue:", "Tomorrow at 11:00 AM • Conviction HR Office");
-        if (slot) cand.remark = `Interview Scheduled: ${slot}. Bring 2 resumes & ID proof.`;
-      } else if (newStatus === "Shortlisted") {
-        cand.remark = `Profile shortlisted by ${cand.recruiter}. Expect an interview slot shortly.`;
-      } else if (newStatus === "Selected") {
-        cand.remark = "Congratulations! Offer confirmed by Conviction HR.";
-      } else if (newStatus === "Rejected") {
-        cand.remark = "Not shortlisted for this drive. Check Live Jobs for other matching openings.";
-      }
-
-      saveData();
-      renderRecruiterDashboard();
-    }
-
-    function sendWhatsAppPass(appId) {
-      const c = candidates.find(item => item.appId === appId);
-      if (!c) return;
-
-      const msg = `Hello ${c.name}, greetings from *${BRAND_NAME}*!%0A%0A` +
-        `*Ref ID:* ${c.appId}%0A` +
-        `*Role:* ${c.jobTitle}%0A` +
-        `*Status:* ${c.status}%0A` +
-        `*Update:* ${c.remark}%0A%0A` +
-        `Please reply *YES* to confirm.`;
-
-      window.open(`https://wa.me/91${c.phone}?text=${msg}`, "_blank");
-    }
-
-    // Manage Jobs
-    function addNewJob() {
-      const title = document.getElementById("new-job-title").value.trim();
-      const category = document.getElementById("new-job-cat").value;
-      const salary = document.getElementById("new-job-sal").value.trim();
-      const location = document.getElementById("new-job-loc").value.trim();
-      const recruiter = document.getElementById("new-job-recruiter").value.trim();
-      const req = document.getElementById("new-job-req").value.trim();
-
-      if (!title || !salary || !location) {
-        alert("Please enter Role Title, Salary, and Location.");
-        return;
-      }
-
-      jobs.unshift({
-        id: "CHR-ROLE-" + (jobs.length + 1),
-        title,
-        category,
-        salary,
-        location,
-        recruiter: recruiter || "HR Desk",
-        req: req || "Immediate Hiring",
-        status: "Active"
-      });
-
-      saveData();
-      document.getElementById("new-job-title").value = "";
-      document.getElementById("new-job-sal").value = "";
-      document.getElementById("new-job-loc").value = "";
-      document.getElementById("new-job-recruiter").value = "";
-      document.getElementById("new-job-req").value = "";
-      renderRecruiterJobs();
-      alert("Opening published live on Conviction HR!");
-    }
-
-    function renderRecruiterJobs() {
-      const list = document.getElementById("recruiter-jobs-list");
-      list.innerHTML = jobs.map(j => `
-        <div class="card" style="display:flex; justify-content:space-between; align-items:center; gap:12px; padding:14px 16px;">
+        <!-- Architectural Metadata Strip -->
+        <div class="grid grid-cols-3 gap-4 pt-8 border-t border-forest/15 max-w-xl">
           <div>
-            <div style="font-weight:800; font-size:0.92rem; color:var(--secondary);">${j.title}</div>
-            <div class="helper">${j.location} • ${j.salary} • ${j.recruiter}</div>
+            <p class="font-mono text-[10px] uppercase tracking-[0.18em] text-ink/50">Google Rating</p>
+            <p class="font-serif text-2xl sm:text-3xl font-semibold text-forest mt-0.5">4.7 <span class="text-sm font-sans font-normal text-ink/60">(456)</span></p>
           </div>
-          <button class="btn btn-sm ${j.status === 'Active' ? 'btn-whatsapp' : 'btn-soft'}" onclick="toggleJobStatus('${j.id}')">
-            ${j.status}
+          <div class="border-l border-forest/15 pl-4">
+            <p class="font-mono text-[10px] uppercase tracking-[0.18em] text-ink/50">Cost for Two</p>
+            <p class="font-serif text-2xl sm:text-3xl font-semibold text-forest mt-0.5">₹400–600</p>
+          </div>
+          <div class="border-l border-forest/15 pl-4">
+            <p class="font-mono text-[10px] uppercase tracking-[0.18em] text-ink/50">Studio Hours</p>
+            <p class="font-serif text-2xl sm:text-3xl font-semibold text-forest mt-0.5">11a–10p</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Archway Visual + Rotating Studio Stamp -->
+      <div class="lg:col-span-5 relative flex justify-center lg:justify-end">
+        <div class="relative w-full max-w-md">
+          <!-- Rotating Circular Brand Stamp -->
+          <div class="absolute -top-6 -left-4 sm:-left-8 z-20 w-28 h-28 sm:w-32 sm:h-32 rounded-full bg-leafolive text-paper flex items-center justify-center shadow-lg border border-paper/30">
+            <svg viewBox="0 0 120 120" class="w-full h-full animate-seal">
+              <defs>
+                <path id="circlePath" d="M 60, 60 m -44, 0 a 44,44 0 1,1 88,0 a 44,44 0 1,1 -88,0" />
+              </defs>
+              <text fill="#F6F3EB" font-size="8.2" font-family="IBM Plex Mono, monospace" letter-spacing="2.4">
+                <textPath href="#circlePath">FOOD • ART • COMMUNITY • ADVANCED NATURE •</textPath>
+              </text>
+            </svg>
+            <span class="absolute font-logo text-sm font-bold tracking-[0.18em]">LEAF</span>
+          </div>
+
+          <!-- Arch-Topped Gallery Frame -->
+          <div class="rounded-t-[13rem] overflow-hidden border border-forest/20 bg-parchment aspect-[4/5] relative group">
+            <img 
+              src="assets/cafe-ceiling.webp" 
+              onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=900&q=85';"
+              alt="Leaf Café hanging sculptural lanterns and mezzanine loft" 
+              class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-forest/80 via-transparent to-transparent"></div>
+            <div class="absolute bottom-5 left-6 right-6 flex items-end justify-between text-paper">
+              <div>
+                <p class="font-mono text-[10px] uppercase tracking-[0.2em] text-sage">Fig 01. Interior Canopy</p>
+                <p class="font-serif text-xl italic mt-0.5">Handcrafted Lotus &amp; Industrial Loft</p>
+              </div>
+              <span class="font-mono text-[10px] border border-paper/30 px-2 py-1">PUNE</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Diner Sentiment & Google Reviews Strip -->
+  <section class="border-b border-forest/15 bg-parchment/55">
+    <div class="max-w-[1380px] mx-auto px-4 sm:px-8 py-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center reveal">
+      
+      <!-- Rating Breakdown -->
+      <div class="lg:col-span-4 flex items-center gap-6">
+        <div>
+          <span class="font-serif text-5xl sm:text-6xl font-semibold text-forest leading-none">4.7</span>
+          <div class="flex items-center gap-1 text-terracotta mt-2">
+            <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+            <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+            <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+            <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+            <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+          </div>
+          <p class="font-mono text-[10px] uppercase tracking-wider text-ink/60 mt-1.5">456 Verified Reviews</p>
+        </div>
+
+        <div class="flex-1 space-y-1.5 border-l border-forest/15 pl-5 font-mono text-[10px] text-ink/70">
+          <div class="flex items-center gap-2"><span>5★</span><div class="flex-1 h-1.5 bg-forest/10"><div class="bg-forest h-full w-[82%]"></div></div></div>
+          <div class="flex items-center gap-2"><span>4★</span><div class="flex-1 h-1.5 bg-forest/10"><div class="bg-forest h-full w-[13%]"></div></div></div>
+          <div class="flex-1 flex items-center gap-2"><span>3★</span><div class="flex-1 h-1.5 bg-forest/10"><div class="bg-forest h-full w-[3%]"></div></div></div>
+          <div class="flex items-center gap-2"><span>2★</span><div class="flex-1 h-1.5 bg-forest/10"><div class="bg-forest h-full w-[1%]"></div></div></div>
+          <div class="flex items-center gap-2"><span>1★</span><div class="flex-1 h-1.5 bg-forest/10"><div class="bg-forest h-full w-[1%]"></div></div></div>
+        </div>
+      </div>
+
+      <!-- Editorial Press-Style Quotes -->
+      <div class="lg:col-span-6 grid grid-cols-1 sm:grid-cols-3 gap-5 border-t lg:border-t-0 lg:border-l border-forest/15 pt-6 lg:pt-0 lg:pl-8">
+        <div>
+          <p class="font-serif text-lg italic text-forest leading-snug">&ldquo;Unmatched aesthetic &amp; serene studio vibe.&rdquo;</p>
+          <span class="font-mono text-[10px] uppercase tracking-widest text-leafolive mt-1.5 block">Ambience</span>
+        </div>
+        <div>
+          <p class="font-serif text-lg italic text-forest leading-snug">&ldquo;Best South Indian Filter Coffee &amp; Khao Suey.&rdquo;</p>
+          <span class="font-mono text-[10px] uppercase tracking-widest text-leafolive mt-1.5 block">Kitchen</span>
+        </div>
+        <div>
+          <p class="font-serif text-lg italic text-forest leading-snug">&ldquo;An architectural hidden gem in Hadapsar.&rdquo;</p>
+          <span class="font-mono text-[10px] uppercase tracking-widest text-leafolive mt-1.5 block">Pune Diners</span>
+        </div>
+      </div>
+
+      <!-- Review Link -->
+      <div class="lg:col-span-2 flex lg:justify-end">
+        <a href="https://maps.google.com/?q=Leaf+-+A+café+by+Advanced+Nature+Hadapsar+Pune" target="_blank" rel="noopener noreferrer" class="font-mono text-[11px] uppercase tracking-[0.16em] text-forest border-b border-forest pb-1 inline-flex items-center gap-1.5 hover:text-leafolive hover:border-leafolive transition-colors">
+          <span>Google Maps</span>
+          <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Curated Plates (Asymmetric Editorial Showcase) -->
+  <section id="curated" class="py-20 sm:py-28 px-4 sm:px-8 border-b border-forest/15">
+    <div class="max-w-[1380px] mx-auto">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-14 gap-4 reveal">
+        <div>
+          <span class="font-mono text-[11px] uppercase tracking-[0.22em] text-leafolive">Section 01 &mdash; House Signatures</span>
+          <h2 class="font-serif text-4xl sm:text-6xl font-normal text-forest mt-2">Curated from the Kitchen</h2>
+        </div>
+        <p class="text-sm text-ink/70 max-w-md leading-relaxed">
+          Prepared fresh to order—pairing comforting global bowls with traditional Chikmagalur-style filter coffee decoctions.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 border-t border-l border-forest/15">
+        
+        <!-- Item 1 -->
+        <article class="border-r border-b border-forest/15 p-6 flex flex-col justify-between group bg-paper hover:bg-parchment/50 transition-colors reveal">
+          <div>
+            <div class="flex items-center justify-between font-mono text-[10px] uppercase tracking-widest text-ink/55 mb-4">
+              <span>01 / Sliders</span>
+              <span class="text-forest font-medium">₹450</span>
+            </div>
+            <div class="aspect-[4/3] overflow-hidden mb-5 bg-parchment">
+              <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=700&q=80" alt="Chipotle falafel sliders" class="w-full h-full object-cover grayscale-[15%] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" />
+            </div>
+            <h3 class="font-serif text-2xl font-semibold text-forest">Chipotle Falafel Sliders</h3>
+            <p class="text-xs text-ink/70 leading-relaxed mt-2">Crisp golden chickpea patties layered with ripe tomatoes, lettuce, and smoky tahini inside soft artisanal buns.</p>
+          </div>
+          <div class="mt-6 pt-3 border-t border-forest/10 flex items-center justify-between font-mono text-[10px] uppercase tracking-wider text-leafolive">
+            <span>Guest Favorite</span>
+            <span>Vegetarian</span>
+          </div>
+        </article>
+
+        <!-- Item 2 -->
+        <article class="border-r border-b border-forest/15 p-6 flex flex-col justify-between group bg-paper hover:bg-parchment/50 transition-colors reveal delay-1">
+          <div>
+            <div class="flex items-center justify-between font-mono text-[10px] uppercase tracking-widest text-ink/55 mb-4">
+              <span>02 / Main Bowl</span>
+              <span class="text-forest font-medium">₹350</span>
+            </div>
+            <div class="aspect-[4/3] overflow-hidden mb-5 bg-parchment">
+              <img src="https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=700&q=80" alt="Burmese Khao Suey" class="w-full h-full object-cover grayscale-[15%] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" />
+            </div>
+            <h3 class="font-serif text-2xl font-semibold text-forest">Burmese Khao Suey</h3>
+            <p class="text-xs text-ink/70 leading-relaxed mt-2">Silky rice noodles steeped in a fragrant coconut curry broth infused with crushed garlic, ginger, and fresh lemongrass.</p>
+          </div>
+          <div class="mt-6 pt-3 border-t border-forest/10 flex items-center justify-between font-mono text-[10px] uppercase tracking-wider text-leafolive">
+            <span>House Classic</span>
+            <span>One-Bowl Meal</span>
+          </div>
+        </article>
+
+        <!-- Item 3 -->
+        <article class="border-r border-b border-forest/15 p-6 flex flex-col justify-between group bg-paper hover:bg-parchment/50 transition-colors reveal delay-2">
+          <div>
+            <div class="flex items-center justify-between font-mono text-[10px] uppercase tracking-widest text-ink/55 mb-4">
+              <span>03 / Patisserie</span>
+              <span class="text-forest font-medium">₹319</span>
+            </div>
+            <div class="aspect-[4/3] overflow-hidden mb-5 bg-parchment">
+              <img src="https://images.unsplash.com/photo-1533134242443-d4fd215305ad?auto=format&fit=crop&w=700&q=80" alt="Lotus Biscoff Cheesecake" class="w-full h-full object-cover grayscale-[15%] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" />
+            </div>
+            <h3 class="font-serif text-2xl font-semibold text-forest">Lotus Biscoff Cheesecake</h3>
+            <p class="text-xs text-ink/70 leading-relaxed mt-2">Caramelized Biscoff biscuit crust crowned with a velvety cream cheese layer folded with spiced cookie crumbs.</p>
+          </div>
+          <div class="mt-6 pt-3 border-t border-forest/10 flex items-center justify-between font-mono text-[10px] uppercase tracking-wider text-terracotta">
+            <span>Signature Sweet</span>
+            <span>Small Batch</span>
+          </div>
+        </article>
+
+        <!-- Item 4 -->
+        <article class="border-r border-b border-forest/15 p-6 flex flex-col justify-between group bg-paper hover:bg-parchment/50 transition-colors reveal delay-3">
+          <div>
+            <div class="flex items-center justify-between font-mono text-[10px] uppercase tracking-widest text-ink/55 mb-4">
+              <span>04 / Coffee Bar</span>
+              <span class="text-forest font-medium">₹210</span>
+            </div>
+            <div class="aspect-[4/3] overflow-hidden mb-5 bg-parchment">
+              <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=700&q=80" alt="Coconut Filter Cold Coffee" class="w-full h-full object-cover grayscale-[15%] group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" />
+            </div>
+            <h3 class="font-serif text-2xl font-semibold text-forest">Coconut Filter Cold Coffee</h3>
+            <p class="text-xs text-ink/70 leading-relaxed mt-2">Slow-dripped South Indian filter decoction shaken over ice with velvety coconut notes for a crisp, coastal finish.</p>
+          </div>
+          <div class="mt-6 pt-3 border-t border-forest/10 flex items-center justify-between font-mono text-[10px] uppercase tracking-wider text-leafolive">
+            <span>Signature Brew</span>
+            <span>Chilled</span>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Editorial Menu Ledger -->
+  <section id="menu" class="py-20 sm:py-28 px-4 sm:px-8 border-b border-forest/15">
+    <div class="max-w-[1380px] mx-auto">
+      
+      <!-- Header & Search Controls -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end mb-12 reveal">
+        <div class="lg:col-span-6">
+          <span class="font-mono text-[11px] uppercase tracking-[0.22em] text-leafolive">Section 02 &mdash; Leaf Kitchen &amp; Coffee Bar</span>
+          <h2 class="font-serif text-4xl sm:text-6xl font-normal text-forest mt-2">The Full Café Menu</h2>
+          <p class="text-xs sm:text-sm text-ink/65 mt-2">Please inform your server of any allergies or dietary preferences. Government taxes as applicable.</p>
+        </div>
+
+        <div class="lg:col-span-6 flex flex-col sm:flex-row gap-3 lg:justify-end">
+          <div class="relative flex-1 max-w-md">
+            <i data-lucide="search" class="w-4 h-4 text-ink/45 absolute left-3.5 top-1/2 -translate-y-1/2"></i>
+            <input 
+              type="text" 
+              id="menu-search" 
+              placeholder="Search dishes, filter coffee, vegan..." 
+              class="w-full pl-10 pr-4 py-3 bg-white/70 border border-forest/20 text-sm focus:outline-none focus:border-forest transition-colors"
+            />
+          </div>
+          <button id="diet-toggle" class="px-4 py-3 border border-forest/20 bg-white/70 hover:bg-forest hover:text-paper font-mono text-[11px] uppercase tracking-wider text-forest transition-colors cursor-pointer shrink-0">
+            Vegan / GF Only
           </button>
         </div>
-      `).join("");
+      </div>
+
+      <!-- Category Index Tabs -->
+      <div class="flex items-center gap-2 overflow-x-auto no-scrollbar border-y border-forest/15 py-3 mb-10" id="menu-tabs">
+        <button data-cat="all" class="menu-tab active shrink-0 px-4 py-2 font-mono text-[11px] uppercase tracking-[0.14em] bg-forest text-paper transition-colors cursor-pointer">All Sections (8)</button>
+        <button data-cat="soups" class="menu-tab shrink-0 px-4 py-2 font-mono text-[11px] uppercase tracking-[0.14em] text-forest hover:bg-parchment transition-colors cursor-pointer">Soups</button>
+        <button data-cat="sliders" class="menu-tab shrink-0 px-4 py-2 font-mono text-[11px] uppercase tracking-[0.14em] text-forest hover:bg-parchment transition-colors cursor-pointer">Sliders &amp; Sandwiches</button>
+        <button data-cat="mains" class="menu-tab shrink-0 px-4 py-2 font-mono text-[11px] uppercase tracking-[0.14em] text-forest hover:bg-parchment transition-colors cursor-pointer">Main Course</button>
+        <button data-cat="salads" class="menu-tab shrink-0 px-4 py-2 font-mono text-[11px] uppercase tracking-[0.14em] text-forest hover:bg-parchment transition-colors cursor-pointer">Salads &amp; Bowls</button>
+        <button data-cat="appetizers" class="menu-tab shrink-0 px-4 py-2 font-mono text-[11px] uppercase tracking-[0.14em] text-forest hover:bg-parchment transition-colors cursor-pointer">Appetizers</button>
+        <button data-cat="desserts" class="menu-tab shrink-0 px-4 py-2 font-mono text-[11px] uppercase tracking-[0.14em] text-forest hover:bg-parchment transition-colors cursor-pointer">Desserts</button>
+        <button data-cat="drinks" class="menu-tab shrink-0 px-4 py-2 font-mono text-[11px] uppercase tracking-[0.14em] text-forest hover:bg-parchment transition-colors cursor-pointer">Smoothies &amp; Coolers</button>
+        <button data-cat="coffee" class="menu-tab shrink-0 px-4 py-2 font-mono text-[11px] uppercase tracking-[0.14em] text-forest hover:bg-parchment transition-colors cursor-pointer">Tea, Coffee &amp; Water</button>
+      </div>
+
+      <!-- Two-Column Editorial Ledger Output -->
+      <div id="menu-ledger" class="grid grid-cols-1 lg:grid-cols-2 gap-x-14 gap-y-12"></div>
+
+      <div id="menu-empty" class="hidden py-16 text-center border border-forest/15 bg-parchment/40">
+        <p class="font-serif text-3xl text-forest">No dishes match your current filter.</p>
+        <button onclick="resetMenuFilters()" class="mt-4 px-6 py-2.5 bg-forest text-paper font-mono text-xs uppercase tracking-widest cursor-pointer">Reset Menu Filters</button>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- The Studio & Gallery (Dark Forest Architectural Contrast) -->
+  <section id="space" class="py-20 sm:py-28 px-4 sm:px-8 bg-forest text-paper">
+    <div class="max-w-[1380px] mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-end mb-14 reveal">
+        <div class="lg:col-span-7">
+          <span class="font-mono text-[11px] uppercase tracking-[0.22em] text-sage">Section 03 &mdash; Advanced Nature Design Studio</span>
+          <h2 class="font-serif text-4xl sm:text-6xl font-normal text-paper mt-2">Inside the Industrial Loft</h2>
+        </div>
+        <div class="lg:col-span-5">
+          <p class="text-sm text-paper/75 leading-relaxed">
+            Built inside a repurposed Hadapsar warehouse, every lantern, painted tabletop, and mezzanine balustrade is crafted by Advanced Nature artisans.
+          </p>
+        </div>
+      </div>
+
+      <!-- Asymmetric 12-Col Gallery Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+        <figure class="md:col-span-5 border border-paper/15 p-3 bg-paper/[0.03] group reveal">
+          <div class="aspect-[3/4] overflow-hidden">
+            <img 
+              src="assets/cafe-ceiling.webp" 
+              onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=800&q=85';"
+              alt="Sculptural lotus-leaf hanging lamps at Leaf Café" 
+              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
+            />
+          </div>
+          <figcaption class="pt-4 pb-1 px-1 flex items-baseline justify-between">
+            <div>
+              <span class="font-mono text-[10px] uppercase tracking-widest text-sage block">Plate 01</span>
+              <span class="font-serif text-2xl text-paper">Sculptural Lotus Canopy</span>
+            </div>
+            <span class="font-mono text-[10px] text-paper/50">MAIN HALL</span>
+          </figcaption>
+        </figure>
+
+        <figure class="md:col-span-4 border border-paper/15 p-3 bg-paper/[0.03] group reveal delay-1">
+          <div class="aspect-[3/4] overflow-hidden">
+            <img 
+              src="assets/cafe-dining.webp" 
+              onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1445116572660-236099ec97a0?auto=format&fit=crop&w=800&q=85';"
+              alt="Hand-painted dining tables at Leaf Café" 
+              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
+            />
+          </div>
+          <figcaption class="pt-4 pb-1 px-1 flex items-baseline justify-between">
+            <div>
+              <span class="font-mono text-[10px] uppercase tracking-widest text-sage block">Plate 02</span>
+              <span class="font-serif text-2xl text-paper">Terracotta &amp; Upcycled Wood</span>
+            </div>
+            <span class="font-mono text-[10px] text-paper/50">GALLERY FLOOR</span>
+          </figcaption>
+        </figure>
+
+        <figure class="md:col-span-3 border border-paper/15 p-3 bg-paper/[0.03] group reveal delay-2">
+          <div class="aspect-[3/4] overflow-hidden">
+            <img 
+              src="assets/cafe-mezzanine.webp" 
+              onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=800&q=85';"
+              alt="Mezzanine overhead view of Leaf Café Pune" 
+              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
+            />
+          </div>
+          <figcaption class="pt-4 pb-1 px-1 flex items-baseline justify-between">
+            <div>
+              <span class="font-mono text-[10px] uppercase tracking-widest text-sage block">Plate 03</span>
+              <span class="font-serif text-2xl text-paper">Mezzanine Loft</span>
+            </div>
+            <span class="font-mono text-[10px] text-paper/50">UPPER DECK</span>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- Direct Table Booking Strip -->
+  <section class="py-16 sm:py-20 px-4 sm:px-8 bg-parchment border-b border-forest/15">
+    <div class="max-w-[1380px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 items-center reveal">
+      <div class="lg:col-span-5 space-y-2">
+        <span class="font-mono text-[11px] uppercase tracking-[0.22em] text-leafolive">Instant Dining Privileges</span>
+        <h2 class="font-serif text-3xl sm:text-5xl font-normal text-forest">Reserve a Table Online</h2>
+        <p class="text-sm text-ink/70 leading-relaxed">
+          Select your preferred dining partner below to unlock instant table reservations and partner offers.
+        </p>
+      </div>
+
+      <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <!-- Swiggy -->
+        <a href="https://www.swiggy.com/restaurants" target="_blank" rel="noopener noreferrer" class="p-5 bg-paper border border-forest/15 hover:border-swiggy transition-all group flex flex-col justify-between">
+          <div class="flex items-center justify-between mb-6">
+            <span class="w-9 h-9 bg-swiggy text-white flex items-center justify-center font-sans font-black text-sm">S</span>
+            <i data-lucide="arrow-up-right" class="w-4 h-4 text-ink/40 group-hover:text-swiggy group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"></i>
+          </div>
+          <div>
+            <p class="font-serif text-2xl font-semibold text-forest">Swiggy Dineout</p>
+            <p class="font-mono text-[10px] uppercase tracking-wider text-swiggy mt-1">Flat 15% Off Bill</p>
+          </div>
+        </a>
+
+        <!-- Zomato -->
+        <a href="https://www.zomato.com/pune/leaf-a-cafe-by-advanced-nature-hadapsar" target="_blank" rel="noopener noreferrer" class="p-5 bg-paper border border-forest/15 hover:border-zomato transition-all group flex flex-col justify-between">
+          <div class="flex items-center justify-between mb-6">
+            <span class="w-9 h-9 bg-zomato text-white flex items-center justify-center font-sans font-black italic text-xs">Z</span>
+            <i data-lucide="arrow-up-right" class="w-4 h-4 text-ink/40 group-hover:text-zomato group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"></i>
+          </div>
+          <div>
+            <p class="font-serif text-2xl font-semibold text-forest">Zomato Dining</p>
+            <p class="font-mono text-[10px] uppercase tracking-wider text-zomato mt-1">Instant Confirmation</p>
+          </div>
+        </a>
+
+        <!-- District -->
+        <a href="https://www.district.in/" target="_blank" rel="noopener noreferrer" class="p-5 bg-paper border border-forest/15 hover:border-district transition-all group flex flex-col justify-between">
+          <div class="flex items-center justify-between mb-6">
+            <span class="w-9 h-9 bg-district text-white flex items-center justify-center font-sans font-black text-xs">D</span>
+            <i data-lucide="arrow-up-right" class="w-4 h-4 text-ink/40 group-hover:text-district group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"></i>
+          </div>
+          <div>
+            <p class="font-serif text-2xl font-semibold text-forest">District by Zomato</p>
+            <p class="font-mono text-[10px] uppercase tracking-wider text-district mt-1">Flat 10% Off Dining</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Visit & Architectural Map -->
+  <section id="visit" class="py-20 sm:py-28 px-4 sm:px-8">
+    <div class="max-w-[1380px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch reveal">
+      
+      <div class="lg:col-span-5 flex flex-col justify-between space-y-8">
+        <div>
+          <span class="font-mono text-[11px] uppercase tracking-[0.22em] text-leafolive">Section 04 &mdash; Coordinates</span>
+          <h2 class="font-serif text-4xl sm:text-5xl font-normal text-forest mt-2">Visit Leaf Café</h2>
+        </div>
+
+        <div class="divide-y divide-forest/15 border-y border-forest/15">
+          <div class="py-5">
+            <p class="font-mono text-[10px] uppercase tracking-[0.2em] text-ink/50 mb-1">Studio Address</p>
+            <p class="text-sm sm:text-base text-forest font-medium">Plot 08, Hadapsar Industrial Estate, Hadapsar, Pune, Maharashtra 411013</p>
+          </div>
+          <div class="py-5">
+            <p class="font-mono text-[10px] uppercase tracking-[0.2em] text-ink/50 mb-1">Opening Hours</p>
+            <p class="text-sm sm:text-base text-forest font-medium">Tuesday – Sunday: 11:00 AM – 10:00 PM</p>
+            <p class="font-mono text-[11px] text-terracotta mt-1">Closed on Mondays</p>
+          </div>
+          <div class="py-5">
+            <p class="font-mono text-[10px] uppercase tracking-[0.2em] text-ink/50 mb-1">Community &amp; Workshops</p>
+            <a href="https://www.instagram.com/leafcafepune?jplx=MTdoM2ZxcGtmaDhmbg==" target="_blank" rel="noopener noreferrer" class="text-sm sm:text-base text-leafolive hover:text-forest font-medium inline-flex items-center gap-1.5 transition-colors">
+              <span>@leafcafepune on Instagram</span>
+              <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <a href="https://maps.google.com/?q=Leaf+-+A+café+by+Advanced+Nature+Hadapsar+Pune" target="_blank" rel="noopener noreferrer" class="px-7 py-4 bg-forest hover:bg-leafolive text-paper font-mono text-xs uppercase tracking-[0.18em] inline-flex items-center gap-3 transition-colors">
+            <i data-lucide="navigation" class="w-4 h-4"></i>
+            <span>Open in Google Maps</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="lg:col-span-7 min-h-[340px] border border-forest/20 p-2 bg-white/60">
+        <iframe 
+          title="Leaf Café Hadapsar Map"
+          src="https://www.google.com/maps?q=Leaf+-+A+cafe+by+Advanced+Nature,+Hadapsar+Industrial+Estate,+Pune&output=embed" 
+          class="w-full h-full min-h-[320px] border-0 grayscale-[25%] contrast-[1.02]" 
+          loading="lazy">
+        </iframe>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Architectural Footer -->
+  <footer class="bg-forest text-paper py-14 px-4 sm:px-8 border-t border-paper/10">
+    <div class="max-w-[1380px] mx-auto flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+      <div>
+        <span class="font-logo text-2xl font-bold tracking-[0.2em] text-paper block">LEAF</span>
+        <span class="font-mono text-[10px] uppercase tracking-[0.2em] text-sage mt-1 block">A Café by Advanced Nature &bull; Hadapsar, Pune</span>
+      </div>
+
+      <div class="flex flex-wrap items-center gap-6 font-mono text-[11px] uppercase tracking-[0.16em] text-paper/75">
+        <button onclick="openReserveDrawer()" class="hover:text-paper cursor-pointer uppercase">Reserve</button>
+        <button onclick="openFeedbackDrawer()" class="hover:text-paper cursor-pointer uppercase">Feedback</button>
+        <a href="https://www.instagram.com/leafcafepune?jplx=MTdoM2ZxcGtmaDhmbg==" target="_blank" rel="noopener noreferrer" class="text-sage hover:text-paper transition-colors">Instagram &nearr;</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Slide-Over Table Reservation Drawer -->
+  <div id="reserve-drawer" class="drawer-backdrop fixed inset-0 z-50 bg-ink/55 backdrop-blur-xs flex justify-end">
+    <div class="drawer-panel w-full max-w-md bg-paper text-ink h-full p-7 sm:p-9 flex flex-col justify-between border-l border-forest/20 overflow-y-auto">
+      <div>
+        <div class="flex items-center justify-between pb-5 border-b border-forest/15">
+          <span class="font-mono text-[11px] uppercase tracking-[0.2em] text-leafolive">Table Reservation</span>
+          <button onclick="closeReserveDrawer()" aria-label="Close drawer" class="w-9 h-9 border border-forest/20 flex items-center justify-center text-forest hover:bg-forest hover:text-paper transition-colors cursor-pointer">
+            <i data-lucide="x" class="w-4 h-4"></i>
+          </button>
+        </div>
+
+        <h3 class="font-serif text-4xl font-normal text-forest mt-6">Find Your Table</h3>
+        <p class="text-xs sm:text-sm text-ink/70 mt-2 leading-relaxed">
+          Book live availability through our official dining partners to claim instant table offers at Plot 08, Hadapsar.
+        </p>
+
+        <div class="space-y-3.5 mt-8">
+          <a href="https://www.swiggy.com/restaurants" target="_blank" rel="noopener noreferrer" class="block p-5 bg-white border border-forest/15 hover:border-swiggy transition-colors group">
+            <div class="flex items-center justify-between">
+              <div>
+                <span class="font-mono text-[10px] uppercase tracking-widest text-swiggy font-medium">Partner 01 &bull; Flat 15% Off</span>
+                <p class="font-serif text-2xl font-semibold text-forest mt-0.5">Book via Swiggy Dineout</p>
+              </div>
+              <i data-lucide="arrow-up-right" class="w-5 h-5 text-swiggy"></i>
+            </div>
+          </a>
+
+          <a href="https://www.zomato.com/pune/leaf-a-cafe-by-advanced-nature-hadapsar" target="_blank" rel="noopener noreferrer" class="block p-5 bg-white border border-forest/15 hover:border-zomato transition-colors group">
+            <div class="flex items-center justify-between">
+              <div>
+                <span class="font-mono text-[10px] uppercase tracking-widest text-zomato font-medium">Partner 02 &bull; Instant Slot</span>
+                <p class="font-serif text-2xl font-semibold text-forest mt-0.5">Book via Zomato</p>
+              </div>
+              <i data-lucide="arrow-up-right" class="w-5 h-5 text-zomato"></i>
+            </div>
+          </a>
+
+          <a href="https://www.district.in/" target="_blank" rel="noopener noreferrer" class="block p-5 bg-white border border-forest/15 hover:border-district transition-colors group">
+            <div class="flex items-center justify-between">
+              <div>
+                <span class="font-mono text-[10px] uppercase tracking-widest text-district font-medium">Partner 03 &bull; Flat 10% Off</span>
+                <p class="font-serif text-2xl font-semibold text-forest mt-0.5">Book via District by Zomato</p>
+              </div>
+              <i data-lucide="arrow-up-right" class="w-5 h-5 text-district"></i>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <div class="pt-6 border-t border-forest/15 font-mono text-[11px] text-ink/60">
+        Tue – Sun &bull; 11:00 AM to 10:00 PM (Closed Mon)
+      </div>
+    </div>
+  </div>
+
+  <!-- Slide-Over Guest Feedback Drawer -->
+  <div id="feedback-drawer" class="drawer-backdrop fixed inset-0 z-50 bg-ink/55 backdrop-blur-xs flex justify-end">
+    <div class="drawer-panel w-full max-w-md bg-paper text-ink h-full p-7 sm:p-9 flex flex-col justify-between border-l border-forest/20 overflow-y-auto">
+      <div>
+        <div class="flex items-center justify-between pb-5 border-b border-forest/15">
+          <span class="font-mono text-[11px] uppercase tracking-[0.2em] text-leafolive">Guest Ledger</span>
+          <button onclick="closeFeedbackDrawer()" aria-label="Close feedback drawer" class="w-9 h-9 border border-forest/20 flex items-center justify-center text-forest hover:bg-forest hover:text-paper transition-colors cursor-pointer">
+            <i data-lucide="x" class="w-4 h-4"></i>
+          </button>
+        </div>
+
+        <h3 class="font-serif text-4xl font-normal text-forest mt-6">Share Your Notes</h3>
+        <p class="text-xs sm:text-sm text-ink/70 mt-2 leading-relaxed">
+          Tell the Leaf Café studio team about your coffee, food, or gallery experience.
+        </p>
+
+        <form id="feedback-form" class="space-y-5 mt-7">
+          <div>
+            <label class="block font-mono text-[10px] uppercase tracking-widest text-forest mb-2">Experience Rating</label>
+            <div class="flex items-center gap-1.5" id="feedback-stars">
+              <button type="button" data-rating="1" class="star-btn p-2 border border-forest/15 bg-white text-terracotta cursor-pointer"><i data-lucide="star" class="w-4 h-4 fill-current"></i></button>
+              <button type="button" data-rating="2" class="star-btn p-2 border border-forest/15 bg-white text-terracotta cursor-pointer"><i data-lucide="star" class="w-4 h-4 fill-current"></i></button>
+              <button type="button" data-rating="3" class="star-btn p-2 border border-forest/15 bg-white text-terracotta cursor-pointer"><i data-lucide="star" class="w-4 h-4 fill-current"></i></button>
+              <button type="button" data-rating="4" class="star-btn p-2 border border-forest/15 bg-white text-terracotta cursor-pointer"><i data-lucide="star" class="w-4 h-4 fill-current"></i></button>
+              <button type="button" data-rating="5" class="star-btn p-2 border border-forest/15 bg-white text-terracotta cursor-pointer"><i data-lucide="star" class="w-4 h-4 fill-current"></i></button>
+              <span id="rating-label" class="font-mono text-xs text-leafolive ml-2">5 / 5</span>
+            </div>
+          </div>
+
+          <div>
+            <label class="block font-mono text-[10px] uppercase tracking-widest text-forest mb-1.5">Your Name</label>
+            <input type="text" id="fb-name" required placeholder="Enter your name" class="w-full px-4 py-3 bg-white border border-forest/20 text-sm focus:outline-none focus:border-forest" />
+          </div>
+
+          <div>
+            <label class="block font-mono text-[10px] uppercase tracking-widest text-forest mb-1.5">Notes for the Team</label>
+            <textarea id="fb-message" rows="4" required placeholder="What stood out during your visit?" class="w-full px-4 py-3 bg-white border border-forest/20 text-sm focus:outline-none focus:border-forest resize-none"></textarea>
+          </div>
+
+          <div class="space-y-2.5 pt-2">
+            <button type="submit" class="w-full py-3.5 bg-forest hover:bg-leafolive text-paper font-mono text-xs uppercase tracking-[0.16em] flex items-center justify-center gap-2 transition-colors cursor-pointer">
+              <span>Send via WhatsApp</span>
+              <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+            </button>
+            <button type="button" onclick="sendFeedbackEmail()" class="w-full py-3.5 border border-forest/25 hover:border-forest text-forest font-mono text-xs uppercase tracking-[0.16em] flex items-center justify-center gap-2 transition-colors cursor-pointer">
+              <span>Send via Email</span>
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <div class="pt-6 border-t border-forest/15 font-mono text-[10px] uppercase tracking-widest text-ink/50">
+        Direct to Leaf Café Studio Management
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const CAFE_MENU = [
+      {
+        id: "soups",
+        num: "01",
+        title: "Soups",
+        items: [
+          { name: "Almond Broccoli Soup", price: "₹350", desc: "Classic puréed broccoli with a light, creamy base and toasted almonds—warm, simple, and comforting." },
+          { name: "Minestrone Soup", price: "₹350", desc: "Vibrant medley of seasonal vegetables, tender pasta, and hearty beans simmered in a rich tomato-based broth." },
+          { name: "Cream of Mushroom Soup", price: "₹375", desc: "Smooth, velvety blend of sautéed mushrooms, slow-simmered with onions, garlic, and herbs, finished with fresh cream." }
+        ]
+      },
+      {
+        id: "sliders",
+        num: "02",
+        title: "Sliders & Sandwiches",
+        items: [
+          { name: "Caprese Panini", price: "₹415", desc: "Fresh mozzarella, sliced tomatoes, basil, and pesto on ciabatta, grilled to perfection." },
+          { name: "Cottage Cheese Steak & Cheese Grilled", price: "₹415", desc: "Grilled cottage cheese steak, caramelized onions, provolone cheese, and garlic aioli on sourdough." },
+          { name: "Mushroom & Swiss Grilled Sandwich", price: "₹415", desc: "Sautéed mushrooms, Swiss cheese, and truffle aioli on artisan focaccia." },
+          { name: "Chipotle Falafel Sliders", price: "₹450", desc: "Mini chickpea patties, golden and crispy with fresh lettuce, ripe tomatoes, and creamy tahini sauce inside soft slider buns." }
+        ]
+      },
+      {
+        id: "mains",
+        num: "03",
+        title: "Main Course",
+        items: [
+          { name: "Vegetable Steak with Rice", price: "₹299", tag: "Vegan Option", desc: "Grilled vegetable patty made from a savory blend of mashed potatoes, carrots, beans, and herbs served with steamed rice." },
+          { name: "Veg Thai Curry with Jasmine Rice", price: "₹499", tag: "Green / Yellow", desc: "Gently cooked in coconut milk infused with Thai herbs, lemongrass, and your choice of yellow or green curry paste." },
+          { name: "Khao Suey", price: "₹350", tag: "Signature", desc: "Rice noodles-inspired one-bowl meal served in a fragrant coconut curry broth infused with garlic, ginger, and lemongrass." },
+          { name: "Arrabbiata Pasta", price: "₹415", tag: "Penne / Spaghetti / Fettuccine", desc: "Spicy tomato sauce simmered with red chili, roasted garlic, and sweet basil." },
+          { name: "Alfredo Pasta", price: "₹415", tag: "Penne / Spaghetti / Fettuccine", desc: "Creamy aged Parmesan sauce emulsified with butter and cracked black pepper." },
+          { name: "Mushroom Stroganoff", price: "₹515", tag: "Vegan Option", desc: "Rich, creamy cashew-based sauce folded with pan-seared forest mushrooms." },
+          { name: "French Fries", price: "₹150", tag: "Salted / Peri Peri", desc: "Crispy golden fries seasoned with your choice of classic sea salt or house peri peri spice." }
+        ]
+      },
+      {
+        id: "salads",
+        num: "04",
+        title: "Fresh Salads & Bowls",
+        items: [
+          { name: "Avocado Power Bowl", price: "₹515", tag: "Gluten Free • Vegan", desc: "Quinoa, black beans, ripe avocado, cherry tomatoes, sweet corn, and zesty cilantro-lime dressing." },
+          { name: "Smoky Tofu & Sprout Arugula", price: "₹465", tag: "Vegan", desc: "Charred smoky tofu paired with crisp sprouts, peppery arugula, and bright lemon-ginger dressing." },
+          { name: "Garden Salad", price: "₹199", tag: "Vegan", desc: "Farm-fresh crisp lettuce, tomatoes, cucumbers, bell peppers, and carrots tossed in a light vinaigrette." },
+          { name: "Caesar Salad", price: "₹350", desc: "Crisp romaine lettuce tossed in creamy Caesar dressing, topped with garlic croutons and shaved Parmesan." }
+        ]
+      },
+      {
+        id: "appetizers",
+        num: "05",
+        title: "Appetizers",
+        items: [
+          { name: "Bruschetta Trio (Cold)", price: "₹350", desc: "Three artisanal crostini: Tomato & Basil, Mushroom & Truffle, and smashed Avocado." },
+          { name: "Tex Mex Poppers", price: "₹400", desc: "Crispy golden bites bursting with a spiced Tex-Mex filling of creamy cheese, jalapeños, bell peppers, and corn." },
+          { name: "Middle Eastern Mezze Platter", price: "₹515", desc: "House hummus, crisp falafel, smoky baba ghanoush, quinoa tabbouleh, and warm grilled pita." }
+        ]
+      },
+      {
+        id: "desserts",
+        num: "06",
+        title: "Signature Desserts",
+        items: [
+          { name: "Lotus Biscoff Cheesecake", price: "₹319", tag: "Bestseller", desc: "Biscoff biscuit base topped with a velvety cream cheese layer infused with crushed Lotus Biscoff cookies." },
+          { name: "Tub Tim Grob", price: "₹299", desc: "Chilled Thai delicacy combining ruby water chestnuts with sweet coconut milk and soaked chia seeds." },
+          { name: "Pistachio Tart", price: "₹310", desc: "Buttery, crisp tart shell filled with smooth roasted pistachio cream and rich pastry custard." }
+        ]
+      },
+      {
+        id: "drinks",
+        num: "07",
+        title: "Smoothies & Coolers",
+        items: [
+          { name: "Mango Smoothie", price: "₹199", desc: "Thick, chilled seasonal Alphonso mango blend." },
+          { name: "Chocolate Berry Banana Smoothie", price: "₹249", desc: "Rich cacao blended with ripe banana and forest berries." },
+          { name: "Guava Delight Punch", price: "₹199", desc: "Pink guava refresher with a subtle spiced rim." },
+          { name: "Watermelon Juice", price: "₹199", desc: "Cold-pressed fresh watermelon cooler." },
+          { name: "Blue Lagoon", price: "₹150", desc: "Citrus-infused sparkling blue refresher." },
+          { name: "Spicy Kokum Cooler", price: "₹150", desc: "Coastal Konkan kokum reduction balanced with roasted cumin and lime." }
+        ]
+      },
+      {
+        id: "coffee",
+        num: "08",
+        title: "Tea, Coffee & Water",
+        items: [
+          { name: "Assorted Artisan Teas", price: "₹130", desc: "Choice of Masala Chai, English Breakfast, Pure Chamomile, Lemon & Ginger, or Earl Grey." },
+          { name: "Sarita's Filter Coffee", price: "₹150", tag: "Signature", desc: "Traditional brass-filter South Indian decoction frothed with farm milk." },
+          { name: "Black Coffee", price: "₹105", desc: "Freshly brewed single-origin black coffee." },
+          { name: "Filter Mocha Madras", price: "₹150", desc: "Strong filter coffee decoction layered over dark chocolate ganache and steamed milk." },
+          { name: "Bournvita", price: "₹150", desc: "Classic warm malted chocolate comfort drink." },
+          { name: "Classic Filter Cold Coffee", price: "₹210", desc: "Chilled South Indian filter coffee shaken to a silky froth." },
+          { name: "Coconut Filter Cold Coffee", price: "₹210", tag: "Must Try", desc: "Chilled filter coffee decoction infused with creamy coconut notes." },
+          { name: "Veen Natural Mineral Water (660 ml)", price: "₹199", desc: "Crisp Himalayan spring mineral water." }
+        ]
+      }
+    ];
+
+    let activeCategory = "all";
+    let searchQuery = "";
+    let dietOnly = false;
+
+    const ledgerEl = document.getElementById("menu-ledger");
+    const emptyEl = document.getElementById("menu-empty");
+    const menuTabs = document.querySelectorAll(".menu-tab");
+    const dietBtn = document.getElementById("diet-toggle");
+
+    function renderMenu() {
+      ledgerEl.innerHTML = "";
+      let totalRendered = 0;
+
+      CAFE_MENU.forEach(section => {
+        if (activeCategory !== "all" && section.id !== activeCategory) return;
+
+        const filteredItems = section.items.filter(item => {
+          const textBlob = `${item.name} ${item.desc} ${item.tag || ""}`.toLowerCase();
+          const matchesSearch = textBlob.includes(searchQuery.toLowerCase());
+          const matchesDiet = !dietOnly || textBlob.includes("vegan") || textBlob.includes("gluten free");
+          return matchesSearch && matchesDiet;
+        });
+
+        if (filteredItems.length === 0) return;
+        totalRendered += filteredItems.length;
+
+        const block = document.createElement("div");
+        block.className = "space-y-5";
+
+        const rowsHtml = filteredItems.map(item => `
+          <div class="py-4 border-b border-forest/12 flex items-start justify-between gap-4 group">
+            <div class="space-y-1">
+              <div class="flex flex-wrap items-center gap-2">
+                <h4 class="font-serif text-2xl font-semibold text-forest group-hover:text-leafolive transition-colors">${item.name}</h4>
+                ${item.tag ? `<span class="font-mono text-[9px] uppercase tracking-wider px-2 py-0.5 border border-leafolive/35 text-leafolive">${item.tag}</span>` : ""}
+              </div>
+              <p class="text-xs sm:text-sm text-ink/70 leading-relaxed max-w-xl">${item.desc}</p>
+            </div>
+            <span class="font-mono text-sm font-medium text-forest shrink-0 pt-1">${item.price}</span>
+          </div>
+        `).join("");
+
+        block.innerHTML = `
+          <div class="flex items-baseline justify-between border-b-2 border-forest pb-2.5">
+            <div class="flex items-baseline gap-3">
+              <span class="font-mono text-xs text-leafolive">${section.num}</span>
+              <h3 class="font-logo text-lg sm:text-xl font-bold tracking-[0.14em] text-forest uppercase">${section.title}</h3>
+            </div>
+            <span class="font-mono text-[10px] uppercase tracking-widest text-ink/50">${filteredItems.length} Dishes</span>
+          </div>
+          <div>${rowsHtml}</div>
+        `;
+
+        ledgerEl.appendChild(block);
+      });
+
+      if (totalRendered === 0) {
+        emptyEl.classList.remove("hidden");
+      } else {
+        emptyEl.classList.add("hidden");
+      }
     }
 
-    function toggleJobStatus(jobId) {
-      const job = jobs.find(j => j.id === jobId);
-      if (!job) return;
-      job.status = job.status === "Active" ? "Closed" : "Active";
-      saveData();
-      renderRecruiterJobs();
+    menuTabs.forEach(tab => {
+      tab.addEventListener("click", () => {
+        activeCategory = tab.getAttribute("data-cat");
+        menuTabs.forEach(t => {
+          t.classList.remove("bg-forest", "text-paper");
+          t.classList.add("text-forest");
+        });
+        tab.classList.add("bg-forest", "text-paper");
+        tab.classList.remove("text-forest");
+        renderMenu();
+      });
+    });
+
+    document.getElementById("menu-search").addEventListener("input", e => {
+      searchQuery = e.target.value.trim();
+      renderMenu();
+    });
+
+    dietBtn.addEventListener("click", () => {
+      dietOnly = !dietOnly;
+      if (dietOnly) {
+        dietBtn.classList.add("bg-forest", "text-paper");
+        dietBtn.classList.remove("bg-white/70", "text-forest");
+      } else {
+        dietBtn.classList.remove("bg-forest", "text-paper");
+        dietBtn.classList.add("bg-white/70", "text-forest");
+      }
+      renderMenu();
+    });
+
+    function resetMenuFilters() {
+      activeCategory = "all";
+      searchQuery = "";
+      dietOnly = false;
+      document.getElementById("menu-search").value = "";
+      dietBtn.classList.remove("bg-forest", "text-paper");
+      dietBtn.classList.add("bg-white/70", "text-forest");
+      menuTabs.forEach(t => {
+        if (t.getAttribute("data-cat") === "all") {
+          t.classList.add("bg-forest", "text-paper");
+        } else {
+          t.classList.remove("bg-forest", "text-paper");
+        }
+      });
+      renderMenu();
     }
 
-    function exportCSV() {
-      if (!candidates.length) return alert("No candidate records to export.");
-      const headers = ["Ref_ID", "Date", "Role", "Recruiter", "Name", "Phone", "Area", "Education", "Experience", "English", "Shift", "Notice", "Source", "Status", "Remark"];
-      const rows = candidates.map(c => [
-        c.appId, c.timestamp, `"${c.jobTitle}"`, `"${c.recruiter}"`, `"${c.name}"`, c.phone, `"${c.area}"`, c.edu, c.exp, c.eng, c.shift, c.notice, `"${c.source}"`, c.status, `"${c.remark}"`
-      ].join(","));
+    renderMenu();
+    lucide.createIcons();
 
-      const csvContent = "data:text/csv;charset=utf-8," + [headers.join(","), ...rows].join("\n");
-      const link = document.createElement("a");
-      link.setAttribute("href", encodeURI(csvContent));
-      link.setAttribute("download", `ConvictionHR_Pipeline_${new Date().toISOString().slice(0,10)}.csv`);
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
+    // Slide-Over Drawers
+    const mobileDrawer = document.getElementById("mobile-drawer");
+    const reserveDrawer = document.getElementById("reserve-drawer");
+    const feedbackDrawer = document.getElementById("feedback-drawer");
+
+    function openMobileDrawer() { mobileDrawer.classList.add("open"); }
+    function closeMobileDrawer() { mobileDrawer.classList.remove("open"); }
+
+    function openReserveDrawer() { reserveDrawer.classList.add("open"); }
+    function closeReserveDrawer() { reserveDrawer.classList.remove("open"); }
+
+    function openFeedbackDrawer() { feedbackDrawer.classList.add("open"); }
+    function closeFeedbackDrawer() { feedbackDrawer.classList.remove("open"); }
+
+    document.getElementById("mobile-menu-btn").addEventListener("click", openMobileDrawer);
+    document.getElementById("close-drawer-btn").addEventListener("click", closeMobileDrawer);
+    document.querySelectorAll(".mobile-link").forEach(l => l.addEventListener("click", closeMobileDrawer));
+
+    [mobileDrawer, reserveDrawer, feedbackDrawer].forEach(drawer => {
+      drawer.addEventListener("click", e => {
+        if (e.target === drawer) drawer.classList.remove("open");
+      });
+    });
+
+    // Rating & Feedback Submission
+    let selectedRating = 5;
+    document.querySelectorAll(".star-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        selectedRating = parseInt(btn.getAttribute("data-rating"), 10);
+        document.getElementById("rating-label").textContent = `${selectedRating} / 5`;
+        document.querySelectorAll(".star-btn").forEach(b => {
+          const val = parseInt(b.getAttribute("data-rating"), 10);
+          b.classList.toggle("text-terracotta", val <= selectedRating);
+          b.classList.toggle("text-ink/25", val > selectedRating);
+        });
+      });
+    });
+
+    const CAFE_WHATSAPP = "919822000000";
+    const CAFE_EMAIL = "leafcafepune@gmail.com";
+
+    document.getElementById("feedback-form").addEventListener("submit", e => {
+      e.preventDefault();
+      const name = document.getElementById("fb-name").value.trim();
+      const msg = document.getElementById("fb-message").value.trim();
+      const text = `Hello Leaf Café! Guest Note:%0A%0A*Rating:* ${selectedRating}/5 ★%0A*Name:* ${encodeURIComponent(name)}%0A*Notes:* ${encodeURIComponent(msg)}`;
+      window.open(`https://wa.me/${CAFE_WHATSAPP}?text=${text}`, "_blank");
+      closeFeedbackDrawer();
+    });
+
+    function sendFeedbackEmail() {
+      const name = document.getElementById("fb-name").value.trim() || "Guest";
+      const msg = document.getElementById("fb-message").value.trim();
+      if (!msg) {
+        document.getElementById("fb-message").focus();
+        return;
+      }
+      const subject = encodeURIComponent(`Leaf Café Guest Note (${selectedRating}/5) from ${name}`);
+      const body = encodeURIComponent(`Rating: ${selectedRating}/5\nName: ${name}\n\nNotes:\n${msg}`);
+      window.location.href = `mailto:${CAFE_EMAIL}?subject=${subject}&body=${body}`;
+      closeFeedbackDrawer();
     }
 
-    renderJobs();
+    // Scroll Progress & Reveal Observer
+    window.addEventListener("scroll", () => {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      document.getElementById("scroll-progress").style.width = `${progress}%`;
+    }, { passive: true });
+
+    const revealObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("active");
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08 });
+
+    document.querySelectorAll(".reveal").forEach(el => revealObserver.observe(el));
   </script>
 </body>
 </html>
