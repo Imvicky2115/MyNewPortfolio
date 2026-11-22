@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>KORA//FORGE — Website Design &amp; Development Studio</title>
-  <meta name="description" content="Independent website design and development studio. We design websites, develop websites, redesign existing websites, and build custom web applications." />
+  <title>NOAH — Independent Web Developer &amp; Designer | Ashish Rajkumar</title>
+  <meta name="description" content="Independent freelance web designer and developer building fast, custom websites, redesigns, digital catalogues, and web apps with AI-assisted workflows and personal implementation." />
 
   <!-- Open Graph Metadata -->
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="KORA//FORGE — Website Design & Development Studio" />
+  <meta property="og:title" content="NOAH — Independent Web Developer & Designer" />
   <meta property="og:description" content="We design websites, develop websites, redesign existing websites, and build custom web applications." />
 
-  <!-- Intentional Architectural Typography System: Space Grotesk (Display & Body) + JetBrains Mono (Spec & Meta) -->
+  <!-- Architectural Typography: Space Grotesk (Display & Body) + JetBrains Mono (Technical Spec & Meta) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -28,7 +28,7 @@
 
   <style>
     /* ==========================================================================
-       1. DESIGN TOKENS — PRESERVED KORA//FORGE DARK BRUTALIST ATELIER PALETTE
+       1. DESIGN TOKENS — PRESERVED DARK BRUTALIST ATELIER PALETTE
        ========================================================================== */
     :root {
       --bg-void: #080809;
@@ -65,7 +65,7 @@
       color: var(--ink-primary);
       font-family: var(--font-sans);
       overflow-x: hidden;
-      scroll-padding-top: 86px;
+      scroll-padding-top: 84px;
     }
 
     body {
@@ -85,7 +85,7 @@
     }
 
     /* ==========================================================================
-       2. TYPOGRAPHY & CONTAINER PROPORTION SYSTEM (FIXED DESKTOP + MOBILE SCALE)
+       2. CONTAINER & TYPOGRAPHY PROPORTIONS
        ========================================================================== */
     .atelier-container {
       width: 100%;
@@ -112,7 +112,7 @@
     }
 
     .section-heading {
-      font-size: clamp(1.95rem, 3.6vw, 3.1rem);
+      font-size: clamp(1.9rem, 3.5vw, 3rem);
       font-weight: 700;
       letter-spacing: -0.03em;
       line-height: 1.08;
@@ -120,7 +120,7 @@
 
     .mono-label {
       font-family: var(--font-mono);
-      font-size: 0.75rem;
+      font-size: 0.74rem;
       font-weight: 500;
       text-transform: uppercase;
       letter-spacing: 0.12em;
@@ -134,19 +134,19 @@
 
     @media (min-width: 992px) {
       .section-block {
-        padding: 6.75rem 0;
+        padding: 6.5rem 0;
       }
     }
 
     .section-top-bar {
-      margin-bottom: 2.75rem;
-      padding-bottom: 1.35rem;
+      margin-bottom: 2.5rem;
+      padding-bottom: 1.25rem;
       border-bottom: 1px solid var(--line-grid);
     }
 
     @media (min-width: 992px) {
       .section-top-bar {
-        margin-bottom: 3.5rem;
+        margin-bottom: 3.25rem;
       }
     }
 
@@ -205,8 +205,8 @@
     .brand-wordmark {
       font-family: var(--font-sans);
       font-weight: 700;
-      font-size: 1.15rem;
-      letter-spacing: -0.03em;
+      font-size: 1.22rem;
+      letter-spacing: 0.06em;
       color: var(--ink-primary);
       text-decoration: none;
       display: inline-flex;
@@ -218,7 +218,7 @@
       font-family: var(--font-mono);
       font-size: 0.72rem;
       font-weight: 600;
-      padding: 0.22rem 0.45rem;
+      padding: 0.2rem 0.45rem;
       background-color: var(--signal-amber);
       color: #080809;
       border-radius: 2px;
@@ -248,7 +248,7 @@
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.06em;
-      padding: 0.82rem 1.35rem;
+      padding: 0.8rem 1.35rem;
       border: 1px solid var(--ink-primary);
       border-radius: var(--radius-sharp);
       text-decoration: none;
@@ -275,7 +275,7 @@
       font-weight: 500;
       text-transform: uppercase;
       letter-spacing: 0.06em;
-      padding: 0.82rem 1.35rem;
+      padding: 0.8rem 1.35rem;
       border: 1px solid var(--line-strong);
       border-radius: var(--radius-sharp);
       text-decoration: none;
@@ -344,7 +344,7 @@
     }
 
     /* ==========================================================================
-       5. HERO SECTION — 3-SECOND CLARITY + CLEAN DESKTOP PROPORTIONS
+       5. HERO SECTION — AUTHENTIC, HUMAN, NON-GENERIC + REFINED 4-CAPABILITY CARDS
        ========================================================================== */
     .hero-section {
       padding-top: 7.25rem;
@@ -363,7 +363,7 @@
       }
     }
 
-    .studio-identity-pill {
+    .availability-pill {
       display: inline-flex;
       align-items: center;
       gap: 0.6rem;
@@ -372,10 +372,10 @@
       border: 1px solid var(--line-strong);
       border-radius: var(--radius-sharp);
       font-family: var(--font-mono);
-      font-size: 0.74rem;
+      font-size: 0.72rem;
       font-weight: 500;
-      color: var(--ink-primary);
-      margin-bottom: 1.5rem;
+      color: var(--ink-secondary);
+      margin-bottom: 1.45rem;
     }
 
     .status-dot-live {
@@ -387,59 +387,75 @@
     }
 
     .hero-display-headline {
-      font-size: clamp(2.3rem, 4.6vw, 4.1rem);
+      font-size: clamp(2.2rem, 4.4vw, 3.85rem);
       font-weight: 700;
-      line-height: 1.05;
+      line-height: 1.07;
       letter-spacing: -0.035em;
-      margin-bottom: 1.35rem;
-      max-width: 17ch;
+      margin-bottom: 1.15rem;
     }
 
     .hero-display-headline .highlight-stroke {
       color: var(--signal-amber);
     }
 
-    /* 4-Core Deliverables Strip — Makes all 4 services obvious in under 3 seconds */
+    .hero-personal-note {
+      font-size: clamp(0.98rem, 1.2vw, 1.08rem);
+      color: var(--ink-secondary);
+      max-width: 560px;
+      margin-bottom: 1.75rem;
+      line-height: 1.65;
+    }
+
+    /* Upgraded 4-Card Capability Grid with Framed Icon Badges */
     .core-capabilities-grid {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 0.55rem;
+      gap: 0.65rem;
       margin-bottom: 2rem;
-      max-width: 580px;
+      max-width: 590px;
     }
 
     @media (min-width: 576px) {
       .core-capabilities-grid {
         grid-template-columns: repeat(2, 1fr);
-        gap: 0.65rem;
+        gap: 0.75rem;
       }
     }
 
-    .capability-pill-item {
+    .capability-card-chip {
       display: flex;
       align-items: center;
-      gap: 0.6rem;
-      padding: 0.65rem 0.85rem;
+      gap: 0.75rem;
+      padding: 0.72rem 0.85rem;
       background-color: var(--bg-panel);
       border: 1px solid var(--line-grid);
       border-radius: var(--radius-sharp);
       font-size: 0.92rem;
       font-weight: 500;
       color: var(--ink-primary);
-      transition: border-color 0.2s ease, transform 0.2s var(--ease-snap);
+      transition: border-color 0.2s ease, background-color 0.2s ease, transform 0.2s var(--ease-snap);
     }
 
-    .capability-pill-item:hover {
+    .capability-card-chip:hover {
       border-color: var(--signal-amber);
-      transform: translateX(3px);
+      background-color: var(--bg-panel-hover);
+      transform: translateY(-2px);
     }
 
-    .capability-pill-item i {
+    .cap-icon-box {
+      width: 32px;
+      height: 32px;
+      border-radius: 3px;
+      background-color: var(--signal-amber-dim);
+      border: 1px solid rgba(255, 107, 44, 0.28);
       color: var(--signal-amber);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       flex-shrink: 0;
     }
 
-    /* Right Interactive Spec Sheet Window in Hero */
+    /* Right Spec Window in Hero */
     .spec-window {
       background-color: var(--bg-panel);
       border: 1px solid var(--line-strong);
@@ -524,7 +540,7 @@
       gap: 1rem;
       padding: 0.75rem 0;
       border-bottom: 1px solid var(--line-grid);
-      font-size: 0.92rem;
+      font-size: 0.9rem;
     }
 
     .spec-row:last-child {
@@ -533,7 +549,7 @@
     }
 
     /* ==========================================================================
-       6. PORTFOLIO SECTION — SWIPEABLE CAROUSEL ON MOBILE, 2-COL GRID ON DESKTOP
+       6. PORTFOLIO SECTION — FULL-WIDTH MOBILE SWIPE CARDS + 2-COL DESKTOP GRID
        ========================================================================== */
     .portfolio-track {
       display: flex;
@@ -550,9 +566,11 @@
       display: none;
     }
 
+    /* Full 100% card visibility on mobile so zero text or edges clip */
     .portfolio-slide {
-      flex: 0 0 88%;
-      scroll-snap-align: start;
+      flex: 0 0 100%;
+      width: 100%;
+      scroll-snap-align: center;
       display: flex;
     }
 
@@ -576,7 +594,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-top: 1.1rem;
+      margin-top: 1.15rem;
     }
 
     @media (min-width: 768px) {
@@ -623,7 +641,7 @@
     }
 
     .portfolio-stage {
-      padding: 1.25rem 1.25rem 0;
+      padding: 1.1rem 1.1rem 0;
       background-color: #0b0b0e;
       border-bottom: 1px solid var(--line-grid);
     }
@@ -640,7 +658,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0.65rem 0.9rem;
+      padding: 0.6rem 0.85rem;
       background-color: #15151a;
       border-bottom: 1px solid var(--line-grid);
       gap: 0.5rem;
@@ -648,22 +666,22 @@
 
     .browser-address {
       font-family: var(--font-mono);
-      font-size: 0.68rem;
+      font-size: 0.67rem;
       color: var(--ink-secondary);
       background-color: var(--bg-void);
-      padding: 0.2rem 0.6rem;
+      padding: 0.2rem 0.55rem;
       border: 1px solid var(--line-grid);
       border-radius: 3px;
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
-      max-width: 220px;
+      max-width: 210px;
     }
 
-    /* Compelling Visual Mockup 1: Leaf Café */
+    /* Visual Mockup 1: Leaf Café */
     .visual-leaf {
-      padding: 1.5rem 1.35rem;
-      min-height: 285px;
+      padding: 1.35rem 1.2rem;
+      min-height: 265px;
       background:
         radial-gradient(circle at 90% 10%, rgba(52, 211, 153, 0.2), transparent 55%),
         linear-gradient(165deg, #101b15 0%, #0b0f0d 100%);
@@ -676,13 +694,14 @@
       display: flex;
       flex-direction: column;
       gap: 0.45rem;
-      margin-top: 1rem;
+      margin-top: 0.95rem;
     }
 
     .leaf-menu-strip {
       display: flex;
       align-items: center;
       justify-content: space-between;
+      gap: 0.5rem;
       padding: 0.55rem 0.75rem;
       background-color: rgba(255, 255, 255, 0.045);
       border: 1px solid rgba(52, 211, 153, 0.22);
@@ -693,23 +712,23 @@
     .leaf-tag-row {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.4rem;
-      margin-top: 0.75rem;
+      gap: 0.35rem;
+      margin-top: 0.7rem;
     }
 
     .leaf-mini-tag {
       font-family: var(--font-mono);
-      font-size: 0.65rem;
-      padding: 0.2rem 0.5rem;
+      font-size: 0.64rem;
+      padding: 0.2rem 0.48rem;
       background-color: rgba(52, 211, 153, 0.12);
       color: #a7f3d0;
       border-radius: 2px;
     }
 
-    /* Compelling Visual Mockup 2: HappyPaws (Ongoing) */
+    /* Visual Mockup 2: HappyPaws (Ongoing) */
     .visual-paws {
-      padding: 1.5rem 1.35rem;
-      min-height: 285px;
+      padding: 1.35rem 1.2rem;
+      min-height: 265px;
       background:
         radial-gradient(circle at 90% 10%, rgba(251, 191, 36, 0.18), transparent 55%),
         linear-gradient(165deg, #1d1610 0%, #0f0d0b 100%);
@@ -721,12 +740,12 @@
     .paws-cards-preview {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 0.6rem;
-      margin-top: 1rem;
+      gap: 0.55rem;
+      margin-top: 0.95rem;
     }
 
     .paws-feature-tile {
-      padding: 0.75rem;
+      padding: 0.7rem;
       background-color: rgba(255, 255, 255, 0.045);
       border: 1px solid rgba(251, 191, 36, 0.24);
       border-radius: 4px;
@@ -734,10 +753,10 @@
 
     .badge-live {
       font-family: var(--font-mono);
-      font-size: 0.67rem;
+      font-size: 0.65rem;
       text-transform: uppercase;
       letter-spacing: 0.08em;
-      padding: 0.22rem 0.58rem;
+      padding: 0.2rem 0.55rem;
       background-color: rgba(52, 211, 153, 0.14);
       border: 1px solid rgba(52, 211, 153, 0.35);
       color: var(--signal-mint);
@@ -749,10 +768,10 @@
 
     .badge-ongoing {
       font-family: var(--font-mono);
-      font-size: 0.67rem;
+      font-size: 0.65rem;
       text-transform: uppercase;
       letter-spacing: 0.08em;
-      padding: 0.22rem 0.58rem;
+      padding: 0.2rem 0.55rem;
       background-color: rgba(251, 191, 36, 0.14);
       border: 1px solid rgba(251, 191, 36, 0.35);
       color: var(--signal-gold);
@@ -763,7 +782,7 @@
     }
 
     .portfolio-content {
-      padding: 1.75rem;
+      padding: 1.5rem;
       flex-grow: 1;
       display: flex;
       flex-direction: column;
@@ -771,13 +790,13 @@
     }
 
     /* ==========================================================================
-       7. SERVICES & PRICING MATRIX
+       7. SERVICES, PRICING & DELIVERY TIMELINE MATRIX
        ========================================================================== */
     .service-matrix-card {
       background-color: var(--bg-panel);
       border: 1px solid var(--line-grid);
       border-radius: var(--radius-card);
-      padding: 1.75rem;
+      padding: 1.65rem;
       height: 100%;
       display: flex;
       flex-direction: column;
@@ -798,19 +817,47 @@
 
     .price-tag-inr {
       font-family: var(--font-sans);
-      font-size: 1.95rem;
+      font-size: 1.75rem;
       font-weight: 700;
       letter-spacing: -0.03em;
       color: var(--ink-primary);
-      line-height: 1.1;
-      margin: 0.75rem 0 0.5rem;
+      line-height: 1.15;
+      margin: 0.7rem 0 0.45rem;
     }
 
-    .price-tag-inr span {
+    .delivery-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
       font-family: var(--font-mono);
-      font-size: 0.76rem;
-      font-weight: 400;
-      color: var(--ink-muted);
+      font-size: 0.72rem;
+      color: var(--signal-mint);
+      background-color: rgba(52, 211, 153, 0.08);
+      border: 1px solid rgba(52, 211, 153, 0.22);
+      padding: 0.25rem 0.6rem;
+      border-radius: 3px;
+      margin-bottom: 0.85rem;
+    }
+
+    /* Delivery Timeline Table Box */
+    .timeline-table-wrap {
+      background-color: var(--bg-panel);
+      border: 1px solid var(--line-strong);
+      border-radius: var(--radius-card);
+      overflow: hidden;
+    }
+
+    .timeline-row-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1rem 1.35rem;
+      border-bottom: 1px solid var(--line-grid);
+    }
+
+    .timeline-row-item:last-child {
+      border-bottom: none;
     }
 
     /* ==========================================================================
@@ -820,7 +867,7 @@
       background-color: var(--bg-panel);
       border: 1px solid var(--line-grid);
       border-radius: var(--radius-card);
-      padding: 1.65rem;
+      padding: 1.5rem;
       height: 100%;
       transition: border-color 0.2s ease;
     }
@@ -831,30 +878,30 @@
 
     .step-code {
       font-family: var(--font-mono);
-      font-size: 0.82rem;
+      font-size: 0.78rem;
       font-weight: 600;
       color: var(--signal-amber);
       display: inline-block;
-      margin-bottom: 0.85rem;
+      margin-bottom: 0.65rem;
     }
 
     .form-wrapper {
       background-color: var(--bg-panel);
       border: 1px solid var(--line-strong);
       border-radius: var(--radius-card);
-      padding: 1.75rem;
+      padding: 1.65rem;
     }
 
     @media (min-width: 768px) {
       .form-wrapper {
-        padding: 2.5rem;
+        padding: 2.35rem;
       }
     }
 
     .input-label {
       display: block;
       font-family: var(--font-mono);
-      font-size: 0.74rem;
+      font-size: 0.73rem;
       text-transform: uppercase;
       letter-spacing: 0.06em;
       color: var(--ink-secondary);
@@ -908,7 +955,7 @@
     .atelier-footer {
       border-top: 1px solid var(--line-grid);
       background-color: var(--bg-atelier);
-      padding: 4rem 0 2.25rem;
+      padding: 3.75rem 0 2.25rem;
     }
 
     .footer-item-link {
@@ -943,20 +990,20 @@
   <div class="cursor-crosshair" id="cursorCrosshair" aria-hidden="true"></div>
 
   <!-- ========================================================================
-       1. NAVIGATION
+       1. NAVIGATION (BRANDING: NOAH)
        ======================================================================== -->
   <header class="atelier-header">
     <div class="atelier-container">
       <div class="d-flex align-items-center justify-content-between">
-        <a href="#top" class="brand-wordmark hover-target" aria-label="KORA FORGE Home">
-          <span class="brand-stamp">KF</span>
-          <span>KORA<span style="color: var(--signal-amber);">//</span>FORGE</span>
+        <a href="#top" class="brand-wordmark hover-target" aria-label="NOAH Home">
+          <span class="brand-stamp">N//</span>
+          <span>NOAH</span>
         </a>
 
         <nav class="d-none d-lg-flex align-items-center gap-1" aria-label="Primary Navigation">
           <a href="#work" class="nav-link-item hover-target">Work</a>
-          <a href="#services" class="nav-link-item hover-target">Services &amp; Rates</a>
-          <a href="#process" class="nav-link-item hover-target">Process</a>
+          <a href="#services" class="nav-link-item hover-target">Services &amp; Pricing</a>
+          <a href="#timeline" class="nav-link-item hover-target">Delivery &amp; Process</a>
           <a href="#about" class="nav-link-item hover-target">About</a>
           <a href="#contact" class="nav-link-item hover-target">Contact</a>
         </nav>
@@ -978,8 +1025,8 @@
   <div class="mobile-sheet" id="mobileSheet" role="dialog" aria-modal="true" aria-label="Mobile Menu">
     <div class="d-flex align-items-center justify-content-between">
       <a href="#top" class="brand-wordmark close-sheet">
-        <span class="brand-stamp">KF</span>
-        <span>KORA<span style="color: var(--signal-amber);">//</span>FORGE</span>
+        <span class="brand-stamp">N//</span>
+        <span>NOAH</span>
       </a>
       <button class="mobile-menu-btn" id="closeMobileMenu" aria-label="Close menu">
         <i data-lucide="x" style="width: 20px; height: 20px;"></i>
@@ -988,8 +1035,8 @@
 
     <nav class="mobile-sheet-links my-auto" aria-label="Mobile Navigation Links">
       <a href="#work" class="close-sheet"><span>Work</span><span class="idx">01</span></a>
-      <a href="#services" class="close-sheet"><span>Services &amp; Rates</span><span class="idx">02</span></a>
-      <a href="#process" class="close-sheet"><span>Process</span><span class="idx">03</span></a>
+      <a href="#services" class="close-sheet"><span>Services &amp; Pricing</span><span class="idx">02</span></a>
+      <a href="#timeline" class="close-sheet"><span>Delivery &amp; Process</span><span class="idx">03</span></a>
       <a href="#about" class="close-sheet"><span>About</span><span class="idx">04</span></a>
       <a href="#contact" class="close-sheet"><span>Contact</span><span class="idx">05</span></a>
     </nav>
@@ -1004,38 +1051,42 @@
 
   <main id="top">
     <!-- ======================================================================
-         2. HERO SECTION — OBVIOUS IN 3 SECONDS: WEBSITE DESIGN & DEVELOPMENT STUDIO
+         2. HERO SECTION (AUTHENTIC STUDENT BUILDER POSITIONING + 4 CAPABILITY CARDS)
          ====================================================================== -->
     <section class="hero-section">
       <div class="atelier-container">
         <div class="row align-items-center g-4 g-lg-5">
-          <!-- Left Column: Immediate 3-Second Clarity -->
+          <!-- Left Column -->
           <div class="col-lg-7">
-            <div class="studio-identity-pill reveal-hero">
+            <div class="availability-pill reveal-hero">
               <span class="status-dot-live" aria-hidden="true"></span>
-              <span>WEBSITE DESIGN &amp; DEVELOPMENT STUDIO</span>
+              <span>ASHISH RAJKUMAR · OPEN FOR FREELANCE PROJECTS</span>
             </div>
 
             <h1 class="hero-display-headline reveal-hero">
-              Website Design &amp; Development <span class="highlight-stroke">Built for Business.</span>
+              Hands-On Web Design &amp; Builds <span class="highlight-stroke">Without Agency Overhead.</span>
             </h1>
 
-            <!-- Immediate 4-Point Service Clarity (Readable in < 3 Seconds) -->
+            <p class="hero-personal-note reveal-hero">
+              I’m a final-year computer applications student building real-world websites and web tools—combining AI-assisted speed with personal implementation, testing, and full project ownership.
+            </p>
+
+            <!-- Improved 4 Capability Cards with Framed Icons -->
             <div class="core-capabilities-grid reveal-hero" aria-label="Core Services">
-              <div class="capability-pill-item">
-                <i data-lucide="pen-tool" style="width: 16px; height: 16px;"></i>
+              <div class="capability-card-chip">
+                <span class="cap-icon-box"><i data-lucide="pen-tool" style="width: 16px; height: 16px;"></i></span>
                 <span>We design websites.</span>
               </div>
-              <div class="capability-pill-item">
-                <i data-lucide="code-2" style="width: 16px; height: 16px;"></i>
+              <div class="capability-card-chip">
+                <span class="cap-icon-box"><i data-lucide="code-2" style="width: 16px; height: 16px;"></i></span>
                 <span>We develop websites.</span>
               </div>
-              <div class="capability-pill-item">
-                <i data-lucide="refresh-cw" style="width: 16px; height: 16px;"></i>
+              <div class="capability-card-chip">
+                <span class="cap-icon-box"><i data-lucide="refresh-cw" style="width: 16px; height: 16px;"></i></span>
                 <span>We redesign existing websites.</span>
               </div>
-              <div class="capability-pill-item">
-                <i data-lucide="cpu" style="width: 16px; height: 16px;"></i>
+              <div class="capability-card-chip">
+                <span class="cap-icon-box"><i data-lucide="cpu" style="width: 16px; height: 16px;"></i></span>
                 <span>We build custom web applications.</span>
               </div>
             </div>
@@ -1046,14 +1097,8 @@
                 <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i>
               </a>
               <a href="#work" class="btn-forge-outline hover-target">
-                <span>See Our Work</span>
+                <span>See Live Work</span>
               </a>
-            </div>
-
-            <div class="mt-4 pt-2 d-flex flex-wrap align-items-center gap-2 gap-sm-3 reveal-hero" style="font-family: var(--font-mono); font-size: 0.74rem; color: var(--ink-muted);">
-              <span>INDEPENDENT ATELIER</span>
-              <span>/</span>
-              <span>INDIA · USA · UK · CANADA · AUSTRALIA</span>
             </div>
           </div>
 
@@ -1064,58 +1109,58 @@
                 <div class="spec-dots" aria-hidden="true">
                   <span></span><span></span><span></span>
                 </div>
-                <span class="mono-label" style="font-size: 0.68rem;">STUDIO_DELIVERABLES.SPEC</span>
+                <span class="mono-label" style="font-size: 0.68rem;">NOAH // WORKFLOW_SPEC</span>
               </div>
 
-              <div class="spec-tabs" role="tablist" aria-label="Studio Deliverables">
-                <button class="spec-tab-btn active hover-target" role="tab" aria-selected="true" data-tab="tab-websites">Websites</button>
-                <button class="spec-tab-btn hover-target" role="tab" aria-selected="false" data-tab="tab-redesign">Redesigns</button>
-                <button class="spec-tab-btn hover-target" role="tab" aria-selected="false" data-tab="tab-webapps">Web Apps</button>
+              <div class="spec-tabs" role="tablist" aria-label="How Projects Are Built">
+                <button class="spec-tab-btn active hover-target" role="tab" aria-selected="true" data-tab="tab-approach">Approach</button>
+                <button class="spec-tab-btn hover-target" role="tab" aria-selected="false" data-tab="tab-quality">Testing</button>
+                <button class="spec-tab-btn hover-target" role="tab" aria-selected="false" data-tab="tab-ownership">Ownership</button>
               </div>
 
               <div class="spec-body">
-                <div class="spec-pane active" id="tab-websites">
+                <div class="spec-pane active" id="tab-approach">
                   <div class="spec-row">
-                    <span style="color: var(--ink-secondary);">Design &amp; Code</span>
-                    <span class="mono-label" style="color: var(--ink-primary);">Custom UI + Frontend</span>
+                    <span style="color: var(--ink-secondary);">Workflow</span>
+                    <span class="mono-label" style="color: var(--ink-primary);">AI-Assisted + Hand-Coded</span>
                   </div>
                   <div class="spec-row">
-                    <span style="color: var(--ink-secondary);">Mobile &amp; Desktop</span>
-                    <span class="mono-label" style="color: var(--ink-primary);">100% Responsive</span>
+                    <span style="color: var(--ink-secondary);">Communication</span>
+                    <span class="mono-label" style="color: var(--ink-primary);">Direct 1-on-1 Builder</span>
                   </div>
                   <div class="spec-row">
-                    <span style="color: var(--ink-secondary);">Templates Used</span>
-                    <span class="mono-label" style="color: var(--signal-amber);">Zero (Hand-Built)</span>
-                  </div>
-                </div>
-
-                <div class="spec-pane" id="tab-redesign">
-                  <div class="spec-row">
-                    <span style="color: var(--ink-secondary);">Visual Upgrade</span>
-                    <span class="mono-label" style="color: var(--ink-primary);">Modern Layout &amp; Type</span>
-                  </div>
-                  <div class="spec-row">
-                    <span style="color: var(--ink-secondary);">Speed &amp; UX</span>
-                    <span class="mono-label" style="color: var(--ink-primary);">Clean, Fast Loading</span>
-                  </div>
-                  <div class="spec-row">
-                    <span style="color: var(--ink-secondary);">Conversion</span>
-                    <span class="mono-label" style="color: var(--signal-mint);">WhatsApp + Lead Forms</span>
+                    <span style="color: var(--ink-secondary);">Pricing</span>
+                    <span class="mono-label" style="color: var(--signal-amber);">Student-Friendly Rates</span>
                   </div>
                 </div>
 
-                <div class="spec-pane" id="tab-webapps">
+                <div class="spec-pane" id="tab-quality">
                   <div class="spec-row">
-                    <span style="color: var(--ink-secondary);">Functionality</span>
-                    <span class="mono-label" style="color: var(--ink-primary);">Custom Interactive Flows</span>
+                    <span style="color: var(--ink-secondary);">Responsive QA</span>
+                    <span class="mono-label" style="color: var(--ink-primary);">Mobile + Desktop Checked</span>
                   </div>
                   <div class="spec-row">
-                    <span style="color: var(--ink-secondary);">Catalogues &amp; Booking</span>
-                    <span class="mono-label" style="color: var(--ink-primary);">Tailored to Business</span>
+                    <span style="color: var(--ink-secondary);">Performance</span>
+                    <span class="mono-label" style="color: var(--ink-primary);">Lightweight &amp; Fast</span>
                   </div>
                   <div class="spec-row">
-                    <span style="color: var(--ink-secondary);">Ownership</span>
-                    <span class="mono-label" style="color: var(--signal-mint);">100% Yours at Launch</span>
+                    <span style="color: var(--ink-secondary);">Lead Setup</span>
+                    <span class="mono-label" style="color: var(--signal-mint);">WhatsApp + Email Ready</span>
+                  </div>
+                </div>
+
+                <div class="spec-pane" id="tab-ownership">
+                  <div class="spec-row">
+                    <span style="color: var(--ink-secondary);">Accountability</span>
+                    <span class="mono-label" style="color: var(--ink-primary);">Personal Implementation</span>
+                  </div>
+                  <div class="spec-row">
+                    <span style="color: var(--ink-secondary);">Source Code</span>
+                    <span class="mono-label" style="color: var(--ink-primary);">100% Client Owned</span>
+                  </div>
+                  <div class="spec-row">
+                    <span style="color: var(--ink-secondary);">Post-Launch</span>
+                    <span class="mono-label" style="color: var(--signal-mint);">Support &amp; Updates</span>
                   </div>
                 </div>
               </div>
@@ -1126,23 +1171,23 @@
     </section>
 
     <!-- ======================================================================
-         3. PORTFOLIO SECTION (SWIPEABLE LEFT/RIGHT ON MOBILE, SIDE-BY-SIDE ON DESKTOP)
+         3. PORTFOLIO SECTION (FULL-WIDTH MOBILE SWIPEABLE CARDS + 2-COL DESKTOP)
          ====================================================================== -->
     <section id="work" class="section-block" style="background-color: var(--bg-atelier);">
       <div class="atelier-container">
         <div class="row align-items-end justify-content-between section-top-bar reveal-up">
           <div class="col-lg-7">
             <span class="mono-label d-block mb-2">01 / Portfolio</span>
-            <h2 class="section-heading mb-0">Featured &amp; Ongoing Builds.</h2>
+            <h2 class="section-heading mb-0">Live &amp; Ongoing Projects.</h2>
           </div>
           <div class="col-lg-4 mt-3 mt-lg-0">
             <p class="mb-0" style="color: var(--ink-secondary);">
-              Real web projects crafted for clarity, mobile usability, and practical customer discovery.
+              Real web builds focused on clean UI, fast mobile browsing, and practical usability.
             </p>
           </div>
         </div>
 
-        <!-- Swipeable Track on Mobile / Side-by-Side Grid on Desktop -->
+        <!-- Swipeable Track on Mobile (100% card width) / 2-Column Side-by-Side on Desktop -->
         <div class="portfolio-track" id="portfolioTrack">
           <!-- PROJECT 1: LEAF CAFÉ -->
           <div class="portfolio-slide reveal-up" data-slide-index="0">
@@ -1170,24 +1215,24 @@
                       </div>
 
                       <h3 class="h4 mb-1" style="color: var(--ink-primary);">Leaf Café — Digital Menu &amp; Reservations</h3>
-                      <p class="small mb-0" style="color: var(--ink-secondary);">Interactive food categories, ambience gallery, and direct table booking links.</p>
+                      <p class="small mb-0" style="color: var(--ink-secondary);">Interactive food categories, gallery, café details, and table reservation links.</p>
 
                       <div class="leaf-tag-row">
                         <span class="leaf-mini-tag">Interactive Menu</span>
                         <span class="leaf-mini-tag">Food Categories</span>
-                        <span class="leaf-mini-tag">Photo Gallery</span>
-                        <span class="leaf-mini-tag">Reservation Links</span>
+                        <span class="leaf-mini-tag">Gallery</span>
+                        <span class="leaf-mini-tag">Reservations</span>
                       </div>
                     </div>
 
                     <div class="leaf-showcase-menu">
                       <div class="leaf-menu-strip">
                         <span style="color: var(--ink-primary); font-weight: 500;">01 / Menu &amp; Categories</span>
-                        <span style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--signal-mint);">MOBILE OPTIMIZED</span>
+                        <span style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--signal-mint);">RESPONSIVE UI</span>
                       </div>
                       <div class="leaf-menu-strip">
-                        <span style="color: var(--ink-primary); font-weight: 500;">02 / Gallery &amp; Table Booking</span>
-                        <span style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--signal-mint);">DIRECT LINKS</span>
+                        <span style="color: var(--ink-primary); font-weight: 500;">02 / Gallery &amp; Booking Links</span>
+                        <span style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--signal-mint);">LIVE SITE</span>
                       </div>
                     </div>
                   </div>
@@ -1240,25 +1285,25 @@
                       </div>
 
                       <h3 class="h4 mb-1" style="color: var(--ink-primary);">HappyPaws — Pet Discovery &amp; Info Hub</h3>
-                      <p class="small mb-0" style="color: var(--ink-secondary);">Making animal-related information and discovery clearer and easier to navigate on any device.</p>
+                      <p class="small mb-0" style="color: var(--ink-secondary);">Making animal-related information and discovery simpler to explore on mobile and desktop.</p>
                     </div>
 
                     <div class="paws-cards-preview">
                       <div class="paws-feature-tile">
                         <div style="font-family: var(--font-mono); font-size: 0.65rem; color: var(--signal-gold);">DISCOVERY</div>
-                        <div class="small fw-semibold mt-1">Structured Pet Profiles</div>
+                        <div class="small fw-semibold mt-1">Structured Pet Info</div>
                       </div>
                       <div class="paws-feature-tile">
                         <div style="font-family: var(--font-mono); font-size: 0.65rem; color: var(--signal-gold);">USABILITY</div>
-                        <div class="small fw-semibold mt-1">Fast Mobile Browsing</div>
+                        <div class="small fw-semibold mt-1">Mobile-First Layout</div>
                       </div>
                       <div class="paws-feature-tile">
-                        <div style="font-family: var(--font-mono); font-size: 0.65rem; color: var(--signal-gold);">ACCESSIBILITY</div>
-                        <div class="small fw-semibold mt-1">Clear Info Hierarchy</div>
+                        <div style="font-family: var(--font-mono); font-size: 0.65rem; color: var(--signal-gold);">NAVIGATION</div>
+                        <div class="small fw-semibold mt-1">Clear Browsing</div>
                       </div>
                       <div class="paws-feature-tile">
                         <div style="font-family: var(--font-mono); font-size: 0.65rem; color: var(--signal-gold);">BUILD STAGE</div>
-                        <div class="small fw-semibold mt-1">Ongoing Development</div>
+                        <div class="small fw-semibold mt-1">Ongoing Updates</div>
                       </div>
                     </div>
                   </div>
@@ -1267,7 +1312,7 @@
 
               <div class="portfolio-content">
                 <div>
-                  <span class="mono-label d-block mb-2" style="font-size: 0.7rem;">Ongoing Web Application</span>
+                  <span class="mono-label d-block mb-2" style="font-size: 0.7rem;">Ongoing Web Experience</span>
                   <h3 class="h3 mb-2">HappyPaws</h3>
                   <p class="small mb-4" style="color: var(--ink-secondary);">
                     An ongoing pet-related web experience designed to make animal-related information and discovery more accessible.
@@ -1293,7 +1338,7 @@
             <button class="swipe-dot" data-target-slide="1" aria-label="Show HappyPaws"></button>
           </div>
           <div class="d-flex align-items-center gap-2">
-            <span style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--ink-muted);">SWIPE CARDS</span>
+            <span style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--ink-muted);">SWIPE LEFT / RIGHT</span>
             <button class="mobile-menu-btn" style="width: 36px; height: 36px;" id="prevProjectBtn" aria-label="Previous project">
               <i data-lucide="chevron-left" style="width: 16px; height: 16px;"></i>
             </button>
@@ -1306,43 +1351,47 @@
     </section>
 
     <!-- ======================================================================
-         4. SERVICES & PRICING MATRIX (UNIFIED INR STARTING RATES)
+         4. SERVICES & PRICING MATRIX (UPDATED WITH YOUR RECOMMENDED RATES)
          ====================================================================== -->
     <section id="services" class="section-block">
       <div class="atelier-container">
         <div class="row align-items-end justify-content-between section-top-bar reveal-up">
           <div class="col-lg-7">
-            <span class="mono-label d-block mb-2">02 / Services &amp; Rates</span>
-            <h2 class="section-heading mb-0">Website Design, Development &amp; Pricing.</h2>
+            <span class="mono-label d-block mb-2">02 / Services &amp; Suggested Pricing</span>
+            <h2 class="section-heading mb-0">Simple Services. Honest Starting Rates.</h2>
           </div>
           <div class="col-lg-4 mt-3 mt-lg-0">
             <p class="mb-0" style="color: var(--ink-secondary);">
-              Standard freelance starting prices in INR (₹). Final quote depends on page count and feature requirements.
+              Suggested starting prices in ₹. Final quote depends on exact pages and features.
             </p>
           </div>
         </div>
 
         <div class="row g-4">
-          <!-- 01. Landing Pages -->
+          <!-- 01. Single-page Website / Landing Page -->
           <div class="col-md-6 col-lg-4 reveal-up">
             <div class="service-matrix-card">
               <div>
                 <div class="d-flex align-items-center justify-content-between">
-                  <span class="mono-label">01 / Landing Page</span>
+                  <span class="mono-label">01 / Single-Page Website</span>
                   <i data-lucide="layout-template" style="width: 18px; height: 18px; color: var(--ink-secondary);"></i>
                 </div>
-                <div class="price-tag-inr">₹7,500 <span>starting</span></div>
-                <p class="small mb-0" style="color: var(--ink-secondary);">Single-page website built for product launches, campaigns, or personal brands.</p>
+                <div class="price-tag-inr">₹3,000–5,000</div>
+                <div class="delivery-chip">
+                  <i data-lucide="clock" style="width: 12px; height: 12px;"></i>
+                  <span>3–5 working days</span>
+                </div>
+                <p class="small mb-0" style="color: var(--ink-secondary);">Clean landing page for a product, service, or personal brand.</p>
               </div>
               <div class="mt-4 pt-3 border-top" style="border-color: var(--line-grid) !important;">
-                <a href="#contact" class="btn-forge-outline w-100 hover-target select-service-btn" data-service="Landing Page (Starts ₹7,500)">
+                <a href="#contact" class="btn-forge-outline w-100 hover-target select-service-btn" data-service="Single-Page Website (₹3,000–5,000)">
                   <span>Request Quote</span>
                 </a>
               </div>
             </div>
           </div>
 
-          <!-- 02. Digital Catalogues -->
+          <!-- 02. Digital Catalogue -->
           <div class="col-md-6 col-lg-4 reveal-up">
             <div class="service-matrix-card">
               <div>
@@ -1350,11 +1399,15 @@
                   <span class="mono-label">02 / Digital Catalogue</span>
                   <i data-lucide="book-open" style="width: 18px; height: 18px; color: var(--ink-secondary);"></i>
                 </div>
-                <div class="price-tag-inr">₹9,000 <span>starting</span></div>
-                <p class="small mb-0" style="color: var(--ink-secondary);">Interactive café menus, product showcases, and service directories with booking links.</p>
+                <div class="price-tag-inr">₹5,000–8,000</div>
+                <div class="delivery-chip">
+                  <i data-lucide="clock" style="width: 12px; height: 12px;"></i>
+                  <span>5–8 working days</span>
+                </div>
+                <p class="small mb-0" style="color: var(--ink-secondary);">Interactive café menu or product showcase with WhatsApp &amp; booking links.</p>
               </div>
               <div class="mt-4 pt-3 border-top" style="border-color: var(--line-grid) !important;">
-                <a href="#contact" class="btn-forge-outline w-100 hover-target select-service-btn" data-service="Digital Catalogue (Starts ₹9,000)">
+                <a href="#contact" class="btn-forge-outline w-100 hover-target select-service-btn" data-service="Digital Catalogue (₹5,000–8,000)">
                   <span>Request Quote</span>
                 </a>
               </div>
@@ -1369,49 +1422,61 @@
                   <span class="mono-label">03 / Website Redesign</span>
                   <i data-lucide="refresh-cw" style="width: 18px; height: 18px; color: var(--ink-secondary);"></i>
                 </div>
-                <div class="price-tag-inr">₹10,000 <span>starting</span></div>
-                <p class="small mb-0" style="color: var(--ink-secondary);">Modernize existing websites with sharper typography, speed, and mobile responsiveness.</p>
+                <div class="price-tag-inr">₹5,000–9,000</div>
+                <div class="delivery-chip">
+                  <i data-lucide="clock" style="width: 12px; height: 12px;"></i>
+                  <span>5–10 working days</span>
+                </div>
+                <p class="small mb-0" style="color: var(--ink-secondary);">Refresh an outdated site with modern layout, speed, and mobile support.</p>
               </div>
               <div class="mt-4 pt-3 border-top" style="border-color: var(--line-grid) !important;">
-                <a href="#contact" class="btn-forge-outline w-100 hover-target select-service-btn" data-service="Website Redesign (Starts ₹10,000)">
+                <a href="#contact" class="btn-forge-outline w-100 hover-target select-service-btn" data-service="Website Redesign (₹5,000–9,000)">
                   <span>Request Quote</span>
                 </a>
               </div>
             </div>
           </div>
 
-          <!-- 04. Business Websites -->
+          <!-- 04. Small Business Website -->
           <div class="col-md-6 col-lg-4 reveal-up">
             <div class="service-matrix-card featured-tier">
               <div>
                 <div class="d-flex align-items-center justify-content-between">
-                  <span class="mono-label">04 / Business Website</span>
-                  <span style="font-family: var(--font-mono); font-size: 0.65rem; background: var(--signal-amber); color: #080809; padding: 0.15rem 0.45rem; font-weight: 600;">MOST REQUESTED</span>
+                  <span class="mono-label">04 / Small Business Website</span>
+                  <span style="font-family: var(--font-mono); font-size: 0.65rem; background: var(--signal-amber); color: #080809; padding: 0.15rem 0.45rem; font-weight: 600;">POPULAR</span>
                 </div>
-                <div class="price-tag-inr">₹15,000 <span>starting</span></div>
-                <p class="small mb-0" style="color: var(--ink-secondary);">Custom multi-section website designed and developed for small and growing businesses.</p>
+                <div class="price-tag-inr">₹6,000–10,000</div>
+                <div class="delivery-chip">
+                  <i data-lucide="clock" style="width: 12px; height: 12px;"></i>
+                  <span>7–10 working days</span>
+                </div>
+                <p class="small mb-0" style="color: var(--ink-secondary);">Multi-section custom website built for local and growing businesses.</p>
               </div>
               <div class="mt-4 pt-3 border-top" style="border-color: var(--line-grid) !important;">
-                <a href="#contact" class="btn-forge-solid w-100 hover-target select-service-btn" data-service="Business Website (Starts ₹15,000)">
+                <a href="#contact" class="btn-forge-solid w-100 hover-target select-service-btn" data-service="Small Business Website (₹6,000–10,000)">
                   <span>Request Quote</span>
                 </a>
               </div>
             </div>
           </div>
 
-          <!-- 05. Custom Web Applications -->
+          <!-- 05. Basic Custom Web App -->
           <div class="col-md-6 col-lg-4 reveal-up">
             <div class="service-matrix-card">
               <div>
                 <div class="d-flex align-items-center justify-content-between">
-                  <span class="mono-label">05 / Custom Web App</span>
+                  <span class="mono-label">05 / Basic Custom Web App</span>
                   <i data-lucide="cpu" style="width: 18px; height: 18px; color: var(--ink-secondary);"></i>
                 </div>
-                <div class="price-tag-inr">₹25,000 <span>starting</span></div>
-                <p class="small mb-0" style="color: var(--ink-secondary);">Interactive web applications, custom workflows, filters, and backend integrations.</p>
+                <div class="price-tag-inr">₹12,000–20,000</div>
+                <div class="delivery-chip">
+                  <i data-lucide="clock" style="width: 12px; height: 12px;"></i>
+                  <span>2–4 weeks</span>
+                </div>
+                <p class="small mb-0" style="color: var(--ink-secondary);">Interactive web tools, custom intake forms, filters, and data workflows.</p>
               </div>
               <div class="mt-4 pt-3 border-top" style="border-color: var(--line-grid) !important;">
-                <a href="#contact" class="btn-forge-outline w-100 hover-target select-service-btn" data-service="Custom Web Application (Starts ₹25,000)">
+                <a href="#contact" class="btn-forge-outline w-100 hover-target select-service-btn" data-service="Basic Custom Web App (₹12,000–20,000)">
                   <span>Request Quote</span>
                 </a>
               </div>
@@ -1423,14 +1488,18 @@
             <div class="service-matrix-card">
               <div>
                 <div class="d-flex align-items-center justify-content-between">
-                  <span class="mono-label">06 / Maintenance</span>
+                  <span class="mono-label">06 / Website Updates</span>
                   <i data-lucide="wrench" style="width: 18px; height: 18px; color: var(--ink-secondary);"></i>
                 </div>
-                <div class="price-tag-inr">₹2,500 <span>/ month</span></div>
-                <p class="small mb-0" style="color: var(--ink-secondary);">Ongoing content edits, menu updates, speed checks, and technical support.</p>
+                <div class="price-tag-inr">₹1,000–2,500 <span style="font-family: var(--font-mono); font-size: 0.75rem; font-weight: 400; color: var(--ink-muted);">/ mo</span></div>
+                <div class="delivery-chip">
+                  <i data-lucide="clock" style="width: 12px; height: 12px;"></i>
+                  <span>24–48 hr turnaround</span>
+                </div>
+                <p class="small mb-0" style="color: var(--ink-secondary);">Content edits, menu changes, image swaps, and ongoing fixes.</p>
               </div>
               <div class="mt-4 pt-3 border-top" style="border-color: var(--line-grid) !important;">
-                <a href="#contact" class="btn-forge-outline w-100 hover-target select-service-btn" data-service="Website Maintenance (₹2,500/month)">
+                <a href="#contact" class="btn-forge-outline w-100 hover-target select-service-btn" data-service="Website Maintenance & Updates">
                   <span>Request Support</span>
                 </a>
               </div>
@@ -1441,91 +1510,85 @@
     </section>
 
     <!-- ======================================================================
-         5. PROCESS & PRINCIPLES
+         5. ESTIMATED DELIVERY TIMELINE (MATCHING YOUR SCREENSHOT) + 5-STEP WORKFLOW
          ====================================================================== -->
-    <section id="process" class="section-block" style="background-color: var(--bg-atelier);">
+    <section id="timeline" class="section-block" style="background-color: var(--bg-atelier);">
       <div class="atelier-container">
         <div class="row align-items-end justify-content-between section-top-bar reveal-up">
           <div class="col-lg-7">
-            <span class="mono-label d-block mb-2">03 / How We Work</span>
-            <h2 class="section-heading mb-0">Five Steps From Idea to Launch.</h2>
+            <span class="mono-label d-block mb-2">03 / Timeline &amp; Process</span>
+            <h2 class="section-heading mb-0">Estimated Delivery &amp; Workflow.</h2>
           </div>
           <div class="col-lg-4 mt-3 mt-lg-0">
             <p class="mb-0" style="color: var(--ink-secondary);">
-              Business-focused design, mobile-first code, and clear milestones without unnecessary layers.
+              Realistic turnaround windows with personal testing and clear milestone check-ins.
             </p>
           </div>
         </div>
 
-        <div class="row g-3 g-md-4 mb-5">
-          <div class="col-6 col-md-4 col-lg reveal-step">
-            <div class="brutalist-box">
-              <span class="step-code">01 / DISCOVERY</span>
-              <h3 class="h5 mb-2">Discovery</h3>
-              <p class="small mb-0" style="color: var(--ink-secondary);">Understand your business goals, audience, and requirements.</p>
+        <div class="row g-4 g-lg-5 align-items-start mb-5">
+          <!-- Left: Exact Estimated Delivery Table from your Screenshot -->
+          <div class="col-lg-6 reveal-up">
+            <div class="d-flex align-items-center justify-content-between mb-3">
+              <span class="mono-label">PROJECT</span>
+              <span class="mono-label">ESTIMATED DELIVERY</span>
             </div>
-          </div>
 
-          <div class="col-6 col-md-4 col-lg reveal-step">
-            <div class="brutalist-box">
-              <span class="step-code">02 / PLANNING</span>
-              <h3 class="h5 mb-2">Planning</h3>
-              <p class="small mb-0" style="color: var(--ink-secondary);">Define pages, features, content structure, and architecture.</p>
-            </div>
-          </div>
-
-          <div class="col-6 col-md-4 col-lg reveal-step">
-            <div class="brutalist-box">
-              <span class="step-code">03 / BUILD</span>
-              <h3 class="h5 mb-2">Design &amp; Dev</h3>
-              <p class="small mb-0" style="color: var(--ink-secondary);">Design the interface and develop the responsive website.</p>
-            </div>
-          </div>
-
-          <div class="col-6 col-md-6 col-lg reveal-step">
-            <div class="brutalist-box">
-              <span class="step-code">04 / QA</span>
-              <h3 class="h5 mb-2">Testing</h3>
-              <p class="small mb-0" style="color: var(--ink-secondary);">Test mobile responsiveness, functionality, and load speed.</p>
-            </div>
-          </div>
-
-          <div class="col-12 col-md-6 col-lg reveal-step">
-            <div class="brutalist-box">
-              <span class="step-code">05 / DEPLOY</span>
-              <h3 class="h5 mb-2">Launch</h3>
-              <p class="small mb-0" style="color: var(--ink-secondary);">Deploy live and hand over complete website control.</p>
-            </div>
-          </div>
-        </div>
-
-        <div class="row g-3 pt-3 border-top" style="border-color: var(--line-grid) !important;">
-          <div class="col-sm-6 col-lg-4 reveal-up">
-            <div class="d-flex align-items-start gap-3 py-2">
-              <i data-lucide="check-square" style="width: 18px; height: 18px; color: var(--signal-amber); flex-shrink: 0; margin-top: 3px;"></i>
-              <div>
-                <h4 class="h6 mb-1">Custom-Built &amp; Business-Focused</h4>
-                <p class="small mb-0" style="color: var(--ink-secondary);">Tailored design and clean code built around real customer conversion.</p>
+            <div class="timeline-table-wrap">
+              <div class="timeline-row-item">
+                <span class="fw-semibold" style="color: var(--ink-primary);">Landing page</span>
+                <span style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--signal-mint);">3–5 working days</span>
+              </div>
+              <div class="timeline-row-item">
+                <span class="fw-semibold" style="color: var(--ink-primary);">Small business website</span>
+                <span style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--signal-mint);">7–10 working days</span>
+              </div>
+              <div class="timeline-row-item">
+                <span class="fw-semibold" style="color: var(--ink-primary);">Digital catalogue</span>
+                <span style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--signal-mint);">5–8 working days</span>
+              </div>
+              <div class="timeline-row-item">
+                <span class="fw-semibold" style="color: var(--ink-primary);">Website redesign</span>
+                <span style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--signal-mint);">5–10 working days</span>
+              </div>
+              <div class="timeline-row-item">
+                <span class="fw-semibold" style="color: var(--ink-primary);">Basic custom web app</span>
+                <span style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--signal-amber);">2–4 weeks</span>
               </div>
             </div>
           </div>
 
-          <div class="col-sm-6 col-lg-4 reveal-up">
-            <div class="d-flex align-items-start gap-3 py-2">
-              <i data-lucide="check-square" style="width: 18px; height: 18px; color: var(--signal-amber); flex-shrink: 0; margin-top: 3px;"></i>
-              <div>
-                <h4 class="h6 mb-1">Mobile-First &amp; Fast Performance</h4>
-                <p class="small mb-0" style="color: var(--ink-secondary);">Engineered to feel sharp and load fast across phones, tablets, and desktops.</p>
+          <!-- Right: How Each Project Is Executed -->
+          <div class="col-lg-6 reveal-up">
+            <span class="mono-label d-block mb-3">HOW I WORK WITH YOU</span>
+            <div class="row g-3">
+              <div class="col-sm-6">
+                <div class="brutalist-box">
+                  <span class="step-code">01 / DISCOVERY</span>
+                  <h3 class="h6 mb-1">Understand Goals</h3>
+                  <p class="small mb-0" style="color: var(--ink-secondary);">Clarify pages, features, and content before writing code.</p>
+                </div>
               </div>
-            </div>
-          </div>
-
-          <div class="col-sm-12 col-lg-4 reveal-up">
-            <div class="d-flex align-items-start gap-3 py-2">
-              <i data-lucide="check-square" style="width: 18px; height: 18px; color: var(--signal-amber); flex-shrink: 0; margin-top: 3px;"></i>
-              <div>
-                <h4 class="h6 mb-1">Direct Communication &amp; Support</h4>
-                <p class="small mb-0" style="color: var(--ink-secondary);">Transparent pricing, direct founder updates, and post-launch maintenance.</p>
+              <div class="col-sm-6">
+                <div class="brutalist-box">
+                  <span class="step-code">02 / STRUCTURE</span>
+                  <h3 class="h6 mb-1">Plan &amp; Wireframe</h3>
+                  <p class="small mb-0" style="color: var(--ink-secondary);">Map out mobile-first layout and user navigation flow.</p>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="brutalist-box">
+                  <span class="step-code">03 / BUILD</span>
+                  <h3 class="h6 mb-1">AI-Assisted + Hand-Built</h3>
+                  <p class="small mb-0" style="color: var(--ink-secondary);">Fast iteration paired with personal code implementation.</p>
+                </div>
+              </div>
+              <div class="col-sm-6">
+                <div class="brutalist-box">
+                  <span class="step-code">04 / TEST &amp; LAUNCH</span>
+                  <h3 class="h6 mb-1">QA &amp; Handover</h3>
+                  <p class="small mb-0" style="color: var(--ink-secondary);">Tested on real phones &amp; desktops, then deployed live.</p>
+                </div>
               </div>
             </div>
           </div>
@@ -1534,24 +1597,24 @@
     </section>
 
     <!-- ======================================================================
-         6. ABOUT SECTION
+         6. ABOUT SECTION (HONEST STUDENT BUILDER POSITIONING)
          ====================================================================== -->
     <section id="about" class="section-block">
       <div class="atelier-container">
         <div class="row align-items-center g-4 g-lg-5">
           <div class="col-lg-4 reveal-up">
-            <span class="mono-label d-block mb-2">04 / About</span>
-            <h2 class="section-heading mb-3">Independent Digital Atelier.</h2>
+            <span class="mono-label d-block mb-2">04 / About NOAH</span>
+            <h2 class="section-heading mb-3">Built by a Student Builder, Not a Big Agency.</h2>
             <p class="small mb-0" style="color: var(--ink-muted); font-family: var(--font-mono);">
-              ASHISH RAJKUMAR · PUNE, INDIA
+              ASHISH RAJKUMAR · FINAL-YEAR BCA STUDENT · PUNE, INDIA
             </p>
           </div>
           <div class="col-lg-8 reveal-up">
             <p class="fs-4 fw-medium mb-3" style="line-height: 1.5; color: var(--ink-primary);">
-              “We are an independent digital development studio passionate about building useful, thoughtful and visually engaging digital experiences. We combine design thinking, modern web technologies and AI-assisted workflows to turn ideas into working products.”
+              I’m a computer applications student actively building my skills, portfolio, and real-world experience—taking on select freelance web projects with full personal ownership.
             </p>
             <p class="mb-0" style="color: var(--ink-secondary);">
-              You work directly with the person designing and coding your website—ensuring fast decisions, honest timelines, and clean execution from start to finish.
+              Instead of pretending to be a large agency, I keep things transparent: I combine modern AI-assisted development workflows with hands-on coding, thorough mobile and desktop testing, and direct 1-on-1 communication so small businesses and founders get reliable websites at fair, honest rates.
             </p>
           </div>
         </div>
@@ -1566,9 +1629,9 @@
         <div class="row g-5">
           <div class="col-lg-5 reveal-up">
             <span class="mono-label d-block mb-2">05 / Contact</span>
-            <h2 class="section-heading mb-3">Start Your Website Project.</h2>
+            <h2 class="section-heading mb-3">Let's Discuss Your Project.</h2>
             <p class="mb-4" style="color: var(--ink-secondary);">
-              Share what you need designed, developed, or redesigned. You will receive a direct reply with clear scope and pricing.
+              Send your website or web app idea, timeline, and budget range. You’ll get a direct, honest reply from me.
             </p>
 
             <div class="brutalist-box mb-3" style="height: auto;">
@@ -1583,14 +1646,14 @@
                   <span>rajkumarashish75@gmail.com</span>
                 </a>
               </div>
-              <a href="https://wa.me/918788337049?text=Hi%20Ashish%2C%20I%27d%20like%20to%20discuss%20a%20website%20project." target="_blank" rel="noopener noreferrer" class="btn-forge-outline w-100 hover-target" style="border-color: rgba(52, 211, 153, 0.4);">
+              <a href="https://wa.me/918788337049?text=Hi%20Ashish%2C%20I%20saw%20NOAH%20and%20would%20like%20to%20discuss%20a%20website%20project." target="_blank" rel="noopener noreferrer" class="btn-forge-outline w-100 hover-target" style="border-color: rgba(52, 211, 153, 0.4);">
                 <i data-lucide="message-circle" style="width: 16px; height: 16px; color: var(--signal-mint);"></i>
-                <span>Chat on WhatsApp</span>
+                <span>Message on WhatsApp</span>
               </a>
             </div>
 
             <div class="p-3" style="border: 1px dashed var(--line-strong); border-radius: var(--radius-sharp); font-size: 0.82rem; color: var(--ink-secondary);">
-              <strong style="color: var(--ink-primary);">Form Note:</strong> Submitting validates your brief and opens your email client pre-addressed to <strong>rajkumarashish75@gmail.com</strong>. To connect silent background submissions later, add <code>action="https://formspree.io/f/YOUR_ID" method="POST"</code> to the form tag.
+              <strong style="color: var(--ink-primary);">Form Note:</strong> Submitting validates your details and opens your email app pre-addressed to <strong>rajkumarashish75@gmail.com</strong>. To connect silent background submissions later, add <code>action="https://formspree.io/f/YOUR_ID" method="POST"</code> to the form tag.
             </div>
           </div>
 
@@ -1612,7 +1675,7 @@
 
                   <div class="col-md-6">
                     <label for="businessName" class="input-label">Business Name</label>
-                    <input type="text" class="atelier-input" id="businessName" name="businessName" placeholder="Brand or company" />
+                    <input type="text" class="atelier-input" id="businessName" name="businessName" placeholder="Brand or business" />
                   </div>
 
                   <div class="col-md-6">
@@ -1630,27 +1693,27 @@
                   </div>
 
                   <div class="col-md-6">
-                    <label for="projectType" class="input-label">Service &amp; Starting Rate *</label>
+                    <label for="projectType" class="input-label">Project Type *</label>
                     <select class="atelier-select" id="projectType" name="projectType" required>
-                      <option value="" selected disabled>Select service</option>
-                      <option value="Landing Page (Starts ₹7,500)">Landing Page (Starts ₹7,500)</option>
-                      <option value="Digital Catalogue (Starts ₹9,000)">Digital Catalogue (Starts ₹9,000)</option>
-                      <option value="Website Redesign (Starts ₹10,000)">Website Redesign (Starts ₹10,000)</option>
-                      <option value="Business Website (Starts ₹15,000)">Business Website (Starts ₹15,000)</option>
-                      <option value="Custom Web Application (Starts ₹25,000)">Custom Web Application (Starts ₹25,000)</option>
-                      <option value="Website Maintenance (₹2,500/month)">Website Maintenance (₹2,500/month)</option>
+                      <option value="" selected disabled>Select project type</option>
+                      <option value="Single-Page Website (₹3,000–5,000)">Single-Page Website (₹3,000–5,000)</option>
+                      <option value="Digital Catalogue (₹5,000–8,000)">Digital Catalogue (₹5,000–8,000)</option>
+                      <option value="Website Redesign (₹5,000–9,000)">Website Redesign (₹5,000–9,000)</option>
+                      <option value="Small Business Website (₹6,000–10,000)">Small Business Website (₹6,000–10,000)</option>
+                      <option value="Basic Custom Web App (₹12,000–20,000)">Basic Custom Web App (₹12,000–20,000)</option>
+                      <option value="Website Maintenance & Updates">Website Maintenance &amp; Updates</option>
                     </select>
-                    <div class="field-error">Please select a service.</div>
+                    <div class="field-error">Please select a project type.</div>
                   </div>
 
                   <div class="col-md-6">
                     <label for="estimatedBudget" class="input-label">Estimated Budget (₹) *</label>
                     <select class="atelier-select" id="estimatedBudget" name="estimatedBudget" required>
                       <option value="" selected disabled>Select budget range</option>
-                      <option value="₹7,500 – ₹12,000">₹7,500 – ₹12,000</option>
-                      <option value="₹12,000 – ₹20,000">₹12,000 – ₹20,000</option>
-                      <option value="₹20,000 – ₹35,000">₹20,000 – ₹35,000</option>
-                      <option value="₹35,000+ (Custom Scope)">₹35,000+ (Custom Scope)</option>
+                      <option value="₹3,000 – ₹5,000">₹3,000 – ₹5,000</option>
+                      <option value="₹5,000 – ₹9,000">₹5,000 – ₹9,000</option>
+                      <option value="₹6,000 – ₹10,000">₹6,000 – ₹10,000</option>
+                      <option value="₹12,000 – ₹20,000+">₹12,000 – ₹20,000+</option>
                     </select>
                     <div class="field-error">Please select a budget range.</div>
                   </div>
@@ -1659,9 +1722,10 @@
                     <label for="expectedTimeline" class="input-label">Expected Timeline *</label>
                     <select class="atelier-select" id="expectedTimeline" name="expectedTimeline" required>
                       <option value="" selected disabled>Select timeline</option>
-                      <option value="1–2 Weeks">1–2 Weeks</option>
-                      <option value="2–4 Weeks">2–4 Weeks</option>
-                      <option value="1–2 Months">1–2 Months</option>
+                      <option value="3–5 working days">3–5 working days</option>
+                      <option value="5–8 working days">5–8 working days</option>
+                      <option value="7–10 working days">7–10 working days</option>
+                      <option value="2–4 weeks">2–4 weeks</option>
                       <option value="Flexible">Flexible</option>
                     </select>
                     <div class="field-error">Please select a timeline.</div>
@@ -1669,7 +1733,7 @@
 
                   <div class="col-12">
                     <label for="projectDescription" class="input-label">Project Description *</label>
-                    <textarea class="atelier-input" id="projectDescription" name="projectDescription" rows="4" placeholder="Describe your website, redesign, or web app requirements..." required></textarea>
+                    <textarea class="atelier-input" id="projectDescription" name="projectDescription" rows="4" placeholder="Tell me about your website, redesign, or web app idea..." required></textarea>
                     <div class="field-error">Please enter a brief project description.</div>
                   </div>
 
@@ -1700,11 +1764,11 @@
       <div class="row g-4 pb-4">
         <div class="col-lg-4">
           <a href="#top" class="brand-wordmark mb-3">
-            <span class="brand-stamp">KF</span>
-            <span>KORA<span style="color: var(--signal-amber);">//</span>FORGE</span>
+            <span class="brand-stamp">N//</span>
+            <span>NOAH</span>
           </a>
           <p class="small mb-2" style="color: var(--ink-secondary); max-width: 310px;">
-            Website design &amp; development studio. We turn business ideas into powerful digital experiences.
+            Independent web design &amp; development portfolio by Ashish Rajkumar.
           </p>
           <p class="mono-label mb-0" style="font-size: 0.68rem; color: var(--ink-muted);">
             INDIA · USA · UK · CANADA · AUSTRALIA
@@ -1715,21 +1779,21 @@
           <h4 class="mono-label mb-3" style="font-size: 0.72rem; color: var(--ink-primary);">Index</h4>
           <ul class="list-unstyled mb-0">
             <li><a href="#work" class="footer-item-link">Work</a></li>
-            <li><a href="#services" class="footer-item-link">Services &amp; Rates</a></li>
-            <li><a href="#process" class="footer-item-link">Process</a></li>
+            <li><a href="#services" class="footer-item-link">Services &amp; Pricing</a></li>
+            <li><a href="#timeline" class="footer-item-link">Delivery &amp; Process</a></li>
             <li><a href="#about" class="footer-item-link">About</a></li>
             <li><a href="#contact" class="footer-item-link">Contact</a></li>
           </ul>
         </div>
 
         <div class="col-6 col-md-4 col-lg-3">
-          <h4 class="mono-label mb-3" style="font-size: 0.72rem; color: var(--ink-primary);">Capabilities</h4>
+          <h4 class="mono-label mb-3" style="font-size: 0.72rem; color: var(--ink-primary);">Starting Rates</h4>
           <ul class="list-unstyled mb-0">
-            <li><a href="#services" class="footer-item-link">Website Design</a></li>
-            <li><a href="#services" class="footer-item-link">Website Development</a></li>
-            <li><a href="#services" class="footer-item-link">Website Redesign</a></li>
-            <li><a href="#services" class="footer-item-link">Custom Web Applications</a></li>
-            <li><a href="#services" class="footer-item-link">Digital Catalogues</a></li>
+            <li><a href="#services" class="footer-item-link">Single-Page (₹3,000–5,000)</a></li>
+            <li><a href="#services" class="footer-item-link">Digital Catalogue (₹5,000–8,000)</a></li>
+            <li><a href="#services" class="footer-item-link">Redesign (₹5,000–9,000)</a></li>
+            <li><a href="#services" class="footer-item-link">Small Business (₹6,000–10,000)</a></li>
+            <li><a href="#services" class="footer-item-link">Basic Web App (₹12,000–20,000)</a></li>
           </ul>
         </div>
 
@@ -1754,14 +1818,14 @@
       </div>
 
       <div class="pt-4 border-top d-flex flex-column flex-sm-row align-items-center justify-content-between gap-2 small" style="border-color: var(--line-grid) !important; color: var(--ink-muted);">
-        <div>&copy; <span id="yearNow"></span> KORA//FORGE. Website Design &amp; Development Studio.</div>
-        <div style="font-family: var(--font-mono); font-size: 0.72rem;">ASHISH RAJKUMAR</div>
+        <div>&copy; <span id="yearNow"></span> NOAH. Built by Ashish Rajkumar.</div>
+        <div style="font-family: var(--font-mono); font-size: 0.72rem;">INDEPENDENT FREELANCE PORTFOLIO</div>
       </div>
     </div>
   </footer>
 
   <!-- ========================================================================
-       JAVASCRIPT: MOBILE PORTFOLIO SWIPE, TABS, VALIDATION & SUBTLE MOTION
+       JAVASCRIPT: MOBILE SWIPE, TABS, VALIDATION & SUBTLE MOTION
        ======================================================================== -->
   <script>
     document.addEventListener("DOMContentLoaded", () => {
@@ -1814,7 +1878,7 @@
         });
       });
 
-      // Mobile Swipeable Portfolio Carousel Controls & Active Dot Sync
+      // Full-Card Mobile Swipeable Portfolio Carousel
       const track = document.getElementById("portfolioTrack");
       const slides = document.querySelectorAll(".portfolio-slide");
       const dots = document.querySelectorAll(".swipe-dot");
@@ -1892,7 +1956,7 @@
         });
       }
 
-      // Subtle, Memorable GSAP Entrance & Scroll Motion
+      // Subtle GSAP Entrance & Scroll Animations
       if (!reducedMotion && window.gsap) {
         gsap.registerPlugin(ScrollTrigger);
 
@@ -1916,19 +1980,6 @@
             duration: 0.6,
             ease: "power2.out"
           });
-        });
-
-        gsap.from(".reveal-step", {
-          scrollTrigger: {
-            trigger: "#process",
-            start: "top 84%",
-            once: true
-          },
-          y: 16,
-          opacity: 0,
-          duration: 0.5,
-          stagger: 0.07,
-          ease: "power2.out"
         });
       }
 
@@ -1960,7 +2011,7 @@
           const body = [
             `Hi Ashish,`,
             ``,
-            `I would like to discuss a website project with KORA//FORGE:`,
+            `I saw NOAH and would like to discuss a project:`,
             ``,
             `Name: ${fullName}`,
             `Email: ${emailAddress}`,
