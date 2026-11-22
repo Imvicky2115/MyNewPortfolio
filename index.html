@@ -3,21 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>KINETIC / STUDIO — Independent Digital Development Studio</title>
-  <meta name="description" content="We turn business ideas into powerful digital experiences. Independent web design and development studio building custom websites, web applications, and digital products for ambitious global businesses." />
+  <title>VICKY.WORKS — Independent Web Design & Development Studio</title>
+  <meta name="description" content="We turn business ideas into powerful digital experiences. Independent freelance web design and development studio crafting websites, digital catalogues, and custom web apps." />
   
-  <!-- Open Graph / Social Metadata -->
+  <!-- Open Graph Metadata -->
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="KINETIC / STUDIO — Digital Design & Engineering" />
-  <meta property="og:description" content="We turn business ideas into powerful digital experiences. Custom websites, web applications, and digital catalogues." />
-  <meta property="og:site_name" content="KINETIC / STUDIO" />
+  <meta property="og:title" content="VICKY.WORKS — Web Design & Digital Engineering" />
+  <meta property="og:description" content="We turn business ideas into powerful digital experiences. Custom websites, redesigns, and web applications built for growth." />
 
-  <!-- Typography: Syne (Editorial Display) + Plus Jakarta Sans (Clean UI) + JetBrains Mono (Technical Accents) -->
+  <!-- Editorial & Humanist Typography: Fraunces (Editorial Serif) + Plus Jakarta Sans (Clean UI) + JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
-  <!-- Bootstrap 5 Grid & Utilities (Scoped & Customized) -->
+  <!-- Bootstrap 5 Grid & Layout Utilities -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
 
   <!-- Lucide Icons -->
@@ -29,33 +28,33 @@
 
   <style>
     /* ==========================================================================
-       1. DESIGN TOKENS & BASE SYSTEM
+       1. DESIGN TOKENS & HUMANIST EDITORIAL SYSTEM
        ========================================================================== */
     :root {
-      --bg-primary: #09090b;
-      --bg-secondary: #0f0f12;
-      --bg-surface: #141418;
-      --bg-surface-elevated: #1b1b20;
-      --border-subtle: rgba(255, 255, 255, 0.08);
-      --border-hover: rgba(255, 255, 255, 0.18);
-      
-      --text-primary: #f4f4f6;
-      --text-secondary: #a1a1aa;
-      --text-muted: #71717a;
-      
-      --accent-primary: #e2e8f0;
-      --accent-warm: #d4a373;       /* Subtle architectural bronze/amber */
-      --accent-emerald: #34d399;    /* Live status / Leaf Cafe subtle cue */
-      --accent-sky: #38bdf8;        /* Subtle engineering highlight */
+      --bg-canvas: #0b0b0d;
+      --bg-elevated: #121216;
+      --bg-card: #16161b;
+      --bg-card-hover: #1c1c22;
 
-      --font-display: 'Syne', sans-serif;
+      --border-hairline: rgba(255, 255, 255, 0.08);
+      --border-strong: rgba(255, 255, 255, 0.16);
+
+      --text-ink: #f5f3ef;          /* Warm off-white, softer & more editorial than stark #fff */
+      --text-body: #b4b2ad;         /* Warm neutral grey for effortless reading */
+      --text-muted: #7c7a75;
+
+      --accent-sand: #d8a46f;       /* Warm architectural copper/sand */
+      --accent-sand-soft: rgba(216, 164, 111, 0.12);
+      --accent-sage: #4ade80;       /* Live indicator */
+      --accent-amber: #fbbf24;      /* Ongoing project indicator */
+
+      --font-serif: 'Fraunces', Georgia, serif;
       --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
       --font-mono: 'JetBrains Mono', monospace;
 
-      --radius-sm: 8px;
       --radius-md: 14px;
-      --radius-lg: 22px;
-      --transition-smooth: cubic-bezier(0.16, 1, 0.3, 1);
+      --radius-lg: 20px;
+      --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
     }
 
     *, *::before, *::after {
@@ -63,76 +62,111 @@
     }
 
     html {
-      background-color: var(--bg-primary);
-      color: var(--text-primary);
+      background-color: var(--bg-canvas);
+      color: var(--text-ink);
       font-family: var(--font-sans);
       overflow-x: hidden;
-      scroll-padding-top: 90px;
+      scroll-padding-top: 88px;
     }
 
     body {
-      background-color: var(--bg-primary);
-      color: var(--text-primary);
+      background-color: var(--bg-canvas);
+      color: var(--text-ink);
       font-family: var(--font-sans);
-      line-height: 1.65;
+      font-size: 1rem;
+      line-height: 1.7;
       overflow-x: hidden;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
     }
 
     ::selection {
-      background: rgba(212, 163, 115, 0.28);
-      color: #fff;
+      background-color: rgba(216, 164, 111, 0.28);
+      color: var(--text-ink);
     }
 
-    /* Subtle Architectural Grid Background */
-    .bg-grid-pattern {
-      background-image: 
-        linear-gradient(to right, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
-      background-size: 64px 64px;
+    /* Subtle tactile paper grain overlay (very restrained) */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 9990;
+      opacity: 0.022;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
     }
 
-    /* Typography Hierarchy */
-    h1, h2, h3, .font-display {
-      font-family: var(--font-display);
-      letter-spacing: -0.03em;
-      line-height: 1.1;
-      color: var(--text-primary);
+    /* Editorial Typography Hierarchy */
+    .font-serif-editorial {
+      font-family: var(--font-serif);
+      font-optical-sizing: auto;
+      letter-spacing: -0.025em;
     }
 
-    .eyebrow {
+    h1, h2 {
+      font-family: var(--font-serif);
+      font-weight: 600;
+      letter-spacing: -0.025em;
+      line-height: 1.14;
+      color: var(--text-ink);
+    }
+
+    h3, h4, h5, h6 {
+      font-family: var(--font-sans);
+      font-weight: 600;
+      letter-spacing: -0.015em;
+      line-height: 1.3;
+      color: var(--text-ink);
+    }
+
+    .section-kicker {
       font-family: var(--font-mono);
       font-size: 0.75rem;
       text-transform: uppercase;
       letter-spacing: 0.14em;
-      color: var(--accent-warm);
+      color: var(--accent-sand);
       display: inline-flex;
       align-items: center;
-      gap: 0.5rem;
-      margin-bottom: 1rem;
+      gap: 0.6rem;
+      margin-bottom: 0.9rem;
     }
 
-    .eyebrow::before {
+    .section-kicker::before {
       content: "";
-      width: 18px;
+      width: 20px;
       height: 1px;
-      background-color: var(--accent-warm);
-      display: inline-block;
+      background-color: var(--accent-sand);
     }
 
-    .section-padding {
-      padding: 6.5rem 0;
+    /* Generous, Balanced Section Spacing */
+    .section-space {
+      padding: 5.5rem 0;
     }
 
-    @media (min-width: 992px) {
-      .section-padding {
+    @media (min-width: 768px) {
+      .section-space {
+        padding: 7rem 0;
+      }
+    }
+
+    @media (min-width: 1200px) {
+      .section-space {
         padding: 8.5rem 0;
       }
     }
 
+    .section-header-gap {
+      margin-bottom: 3.25rem;
+    }
+
+    @media (min-width: 992px) {
+      .section-header-gap {
+        margin-bottom: 4.25rem;
+      }
+    }
+
     /* ==========================================================================
-       2. CUSTOM DESKTOP CURSOR
+       2. CUSTOM CURSOR (DESKTOP POINTER ONLY)
        ========================================================================== */
     .cursor-dot,
     .cursor-ring {
@@ -151,506 +185,481 @@
         display: block;
         width: 6px;
         height: 6px;
-        background-color: var(--text-primary);
-        transition: transform 0.15s ease, background-color 0.2s ease;
+        background-color: var(--text-ink);
       }
       .cursor-ring {
         display: block;
         width: 34px;
         height: 34px;
-        border: 1px solid rgba(255, 255, 255, 0.28);
-        transition: width 0.25s var(--transition-smooth), 
-                    height 0.25s var(--transition-smooth), 
+        border: 1px solid rgba(245, 243, 239, 0.28);
+        transition: width 0.25s var(--ease-out),
+                    height 0.25s var(--ease-out),
                     border-color 0.25s ease,
                     background-color 0.25s ease;
       }
       body.cursor-hover .cursor-ring {
-        width: 54px;
-        height: 54px;
-        border-color: var(--accent-warm);
-        background-color: rgba(212, 163, 115, 0.08);
+        width: 52px;
+        height: 52px;
+        border-color: var(--accent-sand);
+        background-color: rgba(216, 164, 111, 0.08);
       }
       body.cursor-hover .cursor-dot {
-        background-color: var(--accent-warm);
+        background-color: var(--accent-sand);
       }
     }
 
     /* ==========================================================================
-       3. NAVIGATION BAR
+       3. NAVIGATION HEADER & MOBILE DRAWER
        ========================================================================== */
-    .site-header {
+    .site-nav {
       position: fixed;
       top: 0;
       left: 0;
       right: 0;
       z-index: 1030;
       padding: 1.15rem 0;
-      transition: background-color 0.35s ease, border-color 0.35s ease, padding 0.35s ease;
       border-bottom: 1px solid transparent;
+      transition: background-color 0.3s ease, padding 0.3s ease, border-color 0.3s ease;
     }
 
-    .site-header.scrolled {
-      background-color: rgba(9, 9, 11, 0.84);
+    .site-nav.is-scrolled {
+      background-color: rgba(11, 11, 13, 0.88);
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
-      border-bottom-color: var(--border-subtle);
+      border-bottom-color: var(--border-hairline);
       padding: 0.85rem 0;
     }
 
-    .studio-brand {
-      font-family: var(--font-display);
-      font-weight: 800;
-      font-size: 1.25rem;
-      letter-spacing: -0.04em;
-      color: var(--text-primary);
+    .brand-logo {
+      font-family: var(--font-serif);
+      font-weight: 700;
+      font-size: 1.32rem;
+      letter-spacing: -0.02em;
+      color: var(--text-ink);
       text-decoration: none;
       display: inline-flex;
       align-items: center;
-      gap: 0.55rem;
+      gap: 0.6rem;
     }
 
-    .brand-mark {
-      width: 28px;
-      height: 28px;
-      border-radius: 7px;
-      background: linear-gradient(135deg, #27272a 0%, #18181b 100%);
-      border: 1px solid var(--border-hover);
+    .brand-monogram {
+      width: 30px;
+      height: 30px;
+      border-radius: 8px;
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-strong);
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      color: var(--accent-warm);
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--accent-sand);
     }
 
-    .nav-link-custom {
-      color: var(--text-secondary);
+    .nav-item-link {
+      color: var(--text-body);
       text-decoration: none;
       font-size: 0.92rem;
       font-weight: 500;
-      padding: 0.4rem 0.85rem;
-      transition: color 0.25s ease;
-      position: relative;
+      padding: 0.45rem 0.9rem;
+      border-radius: 8px;
+      transition: color 0.2s ease, background-color 0.2s ease;
     }
 
-    .nav-link-custom:hover,
-    .nav-link-custom:focus-visible {
-      color: var(--text-primary);
+    .nav-item-link:hover,
+    .nav-item-link:focus-visible {
+      color: var(--text-ink);
+      background-color: rgba(255, 255, 255, 0.04);
     }
 
-    /* Buttons */
-    .btn-studio-primary {
-      background-color: var(--text-primary);
-      color: var(--bg-primary);
+    /* Tactile Buttons */
+    .btn-primary-warm {
+      background-color: var(--text-ink);
+      color: var(--bg-canvas);
       font-weight: 600;
       font-size: 0.92rem;
-      padding: 0.78rem 1.5rem;
+      padding: 0.8rem 1.55rem;
       border-radius: 999px;
-      border: 1px solid var(--text-primary);
+      border: 1px solid var(--text-ink);
       text-decoration: none;
       display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: 0.55rem;
-      transition: transform 0.3s var(--transition-smooth), background-color 0.25s ease, box-shadow 0.3s ease;
+      transition: transform 0.25s var(--ease-out), background-color 0.2s ease, box-shadow 0.25s ease;
       cursor: pointer;
     }
 
-    .btn-studio-primary:hover {
+    .btn-primary-warm:hover {
       background-color: #ffffff;
-      color: #000000;
+      color: #09090b;
       transform: translateY(-2px);
-      box-shadow: 0 10px 26px rgba(255, 255, 255, 0.12);
+      box-shadow: 0 10px 25px rgba(245, 243, 239, 0.12);
     }
 
-    .btn-studio-secondary {
-      background-color: rgba(255, 255, 255, 0.03);
-      color: var(--text-primary);
+    .btn-outline-warm {
+      background-color: transparent;
+      color: var(--text-ink);
       font-weight: 500;
       font-size: 0.92rem;
-      padding: 0.78rem 1.5rem;
+      padding: 0.8rem 1.55rem;
       border-radius: 999px;
-      border: 1px solid var(--border-hover);
+      border: 1px solid var(--border-strong);
       text-decoration: none;
       display: inline-flex;
       align-items: center;
       justify-content: center;
       gap: 0.55rem;
-      transition: transform 0.3s var(--transition-smooth), background-color 0.25s ease, border-color 0.25s ease;
+      transition: transform 0.25s var(--ease-out), background-color 0.2s ease, border-color 0.2s ease;
       cursor: pointer;
     }
 
-    .btn-studio-secondary:hover {
-      background-color: rgba(255, 255, 255, 0.08);
+    .btn-outline-warm:hover {
+      background-color: rgba(255, 255, 255, 0.05);
       border-color: rgba(255, 255, 255, 0.32);
-      color: #ffffff;
+      color: var(--text-ink);
       transform: translateY(-2px);
+    }
+
+    .mobile-toggle-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-strong);
+      color: var(--text-ink);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
     }
 
     /* Mobile Drawer */
-    .mobile-menu-toggle {
-      background: transparent;
-      border: 1px solid var(--border-hover);
-      color: var(--text-primary);
-      width: 42px;
-      height: 42px;
-      border-radius: 10px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .mobile-nav-drawer {
+    .mobile-drawer {
       position: fixed;
       inset: 0;
-      background-color: rgba(9, 9, 11, 0.97);
+      z-index: 1050;
+      background-color: rgba(11, 11, 13, 0.98);
       backdrop-filter: blur(18px);
-      z-index: 1040;
+      padding: 1.5rem;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      padding: 1.5rem;
       opacity: 0;
       visibility: hidden;
-      transition: opacity 0.3s ease, visibility 0.3s ease;
+      transition: opacity 0.28s ease, visibility 0.28s ease;
     }
 
-    .mobile-nav-drawer.active {
+    .mobile-drawer.is-open {
       opacity: 1;
       visibility: visible;
     }
 
-    .mobile-nav-links a {
-      display: block;
-      font-family: var(--font-display);
-      font-size: 2rem;
-      font-weight: 700;
-      color: var(--text-primary);
+    .mobile-drawer-nav a {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: var(--font-serif);
+      font-size: 1.75rem;
+      font-weight: 600;
+      color: var(--text-ink);
       text-decoration: none;
-      padding: 0.65rem 0;
-      border-bottom: 1px solid var(--border-subtle);
-      transition: color 0.2s ease, padding-left 0.25s ease;
+      padding: 0.85rem 0;
+      border-bottom: 1px solid var(--border-hairline);
     }
 
-    .mobile-nav-links a:hover {
-      color: var(--accent-warm);
-      padding-left: 0.5rem;
+    .mobile-drawer-nav a:hover {
+      color: var(--accent-sand);
     }
 
     /* ==========================================================================
-       4. HERO SECTION & INTERACTIVE BROWSER STAGE
+       4. HERO SECTION & INTERACTIVE WORKSPACE PREVIEW
        ========================================================================== */
-    .hero-section {
+    .hero-wrap {
+      padding-top: 7.75rem;
+      padding-bottom: 5rem;
       position: relative;
-      padding-top: 8.5rem;
-      padding-bottom: 5.5rem;
       overflow: hidden;
     }
 
     @media (min-width: 992px) {
-      .hero-section {
-        padding-top: 10.5rem;
+      .hero-wrap {
+        padding-top: 10rem;
         padding-bottom: 7.5rem;
       }
     }
 
-    .hero-ambient-light {
+    .hero-subtle-glow {
       position: absolute;
-      top: -120px;
-      right: -100px;
-      width: 560px;
-      height: 560px;
-      background: radial-gradient(circle, rgba(212, 163, 115, 0.11) 0%, rgba(9, 9, 11, 0) 70%);
+      top: -140px;
+      right: -80px;
+      width: 520px;
+      height: 520px;
+      background: radial-gradient(circle, rgba(216, 164, 111, 0.09) 0%, rgba(11, 11, 13, 0) 70%);
       pointer-events: none;
-      z-index: 0;
     }
 
-    .hero-headline {
-      font-size: clamp(2.45rem, 5.2vw, 4.35rem);
-      font-weight: 800;
-      line-height: 1.06;
-      letter-spacing: -0.035em;
-      margin-bottom: 1.5rem;
-    }
-
-    .hero-headline .text-gradient-subtle {
-      background: linear-gradient(135deg, #ffffff 30%, #a1a1aa 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .hero-subtext {
-      font-size: clamp(1.02rem, 1.4vw, 1.2rem);
-      color: var(--text-secondary);
-      max-width: 560px;
-      margin-bottom: 2.25rem;
-      line-height: 1.7;
-    }
-
-    .studio-tagline-pill {
+    .tagline-badge {
       display: inline-flex;
       align-items: center;
       gap: 0.6rem;
-      padding: 0.42rem 0.95rem;
+      padding: 0.45rem 1rem;
       border-radius: 999px;
-      background-color: rgba(255, 255, 255, 0.04);
-      border: 1px solid var(--border-subtle);
-      font-size: 0.82rem;
-      color: var(--text-secondary);
-      margin-bottom: 1.5rem;
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-hairline);
+      font-size: 0.84rem;
+      color: var(--text-body);
+      margin-bottom: 1.65rem;
     }
 
-    .status-dot {
+    .live-pulse {
       width: 7px;
       height: 7px;
       border-radius: 50%;
-      background-color: var(--accent-emerald);
-      box-shadow: 0 0 8px rgba(52, 211, 153, 0.6);
+      background-color: var(--accent-sage);
+      box-shadow: 0 0 0 3px rgba(74, 222, 128, 0.16);
     }
 
-    /* Interactive Hero Browser Composition */
-    .hero-stage-wrapper {
-      position: relative;
-      perspective: 1200px;
-      padding: 1rem 0;
+    .hero-title {
+      font-size: clamp(2.35rem, 4.9vw, 4.15rem);
+      font-weight: 600;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
     }
 
-    .browser-stage {
-      position: relative;
-      background: linear-gradient(160deg, rgba(27, 27, 32, 0.9) 0%, rgba(15, 15, 18, 0.95) 100%);
-      border: 1px solid var(--border-hover);
+    .hero-title em {
+      font-style: italic;
+      font-weight: 500;
+      color: var(--accent-sand);
+    }
+
+    .hero-lead {
+      font-size: clamp(1.02rem, 1.3vw, 1.16rem);
+      color: var(--text-body);
+      max-width: 540px;
+      line-height: 1.75;
+      margin-bottom: 2.25rem;
+    }
+
+    /* Interactive Hero Browser Stage */
+    .hero-browser-shell {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-strong);
       border-radius: var(--radius-lg);
-      box-shadow: 0 30px 70px rgba(0, 0, 0, 0.65);
+      box-shadow: 0 28px 65px rgba(0, 0, 0, 0.55);
       overflow: hidden;
-      transform-style: preserve-3d;
       transition: transform 0.25s ease-out;
     }
 
-    .browser-chrome {
+    .browser-top-bar {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0.8rem 1.1rem;
-      background-color: rgba(255, 255, 255, 0.03);
-      border-bottom: 1px solid var(--border-subtle);
+      padding: 0.85rem 1.15rem;
+      background-color: rgba(255, 255, 255, 0.025);
+      border-bottom: 1px solid var(--border-hairline);
     }
 
-    .window-dots {
+    .dots-trio {
       display: flex;
       gap: 6px;
     }
 
-    .window-dots span {
-      width: 10px;
-      height: 10px;
+    .dots-trio span {
+      width: 9px;
+      height: 9px;
       border-radius: 50%;
-      background-color: rgba(255, 255, 255, 0.16);
+      background-color: rgba(255, 255, 255, 0.18);
     }
 
-    .browser-url-bar {
+    .url-pill {
       font-family: var(--font-mono);
       font-size: 0.72rem;
       color: var(--text-muted);
-      background-color: rgba(0, 0, 0, 0.35);
-      padding: 0.28rem 0.9rem;
+      background-color: var(--bg-canvas);
+      padding: 0.25rem 0.85rem;
       border-radius: 6px;
-      border: 1px solid var(--border-subtle);
+      border: 1px solid var(--border-hairline);
     }
 
-    .browser-tabs {
+    .browser-tab-strip {
       display: flex;
-      gap: 0.4rem;
-      padding: 0.65rem 1.1rem 0;
-      border-bottom: 1px solid var(--border-subtle);
-      background-color: rgba(0, 0, 0, 0.2);
+      gap: 0.35rem;
+      padding: 0.65rem 1.15rem 0;
+      background-color: rgba(0, 0, 0, 0.22);
+      border-bottom: 1px solid var(--border-hairline);
+      overflow-x: auto;
     }
 
-    .stage-tab-btn {
+    .stage-tab {
       background: transparent;
       border: 1px solid transparent;
       border-bottom: none;
       color: var(--text-muted);
       font-family: var(--font-mono);
-      font-size: 0.73rem;
-      padding: 0.45rem 0.85rem;
+      font-size: 0.72rem;
+      padding: 0.48rem 0.85rem;
       border-radius: 8px 8px 0 0;
+      white-space: nowrap;
       cursor: pointer;
-      transition: all 0.2s ease;
+      transition: color 0.2s ease, background-color 0.2s ease;
     }
 
-    .stage-tab-btn.active {
-      background-color: var(--bg-surface);
-      color: var(--text-primary);
-      border-color: var(--border-subtle);
+    .stage-tab.active {
+      background-color: var(--bg-card);
+      color: var(--text-ink);
+      border-color: var(--border-hairline);
     }
 
-    .stage-canvas {
+    .stage-panel-body {
       padding: 1.5rem;
-      min-height: 295px;
+      min-height: 280px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      background-color: var(--bg-surface);
     }
 
-    .stage-view {
+    .stage-pane {
       display: none;
-      animation: fadeSlideUp 0.35s var(--transition-smooth) forwards;
     }
 
-    .stage-view.active {
+    .stage-pane.active {
       display: block;
+      animation: paneFade 0.32s var(--ease-out);
     }
 
-    @keyframes fadeSlideUp {
-      from { opacity: 0; transform: translateY(8px); }
+    @keyframes paneFade {
+      from { opacity: 0; transform: translateY(6px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
-    /* Abstract Wireframe Elements Inside Hero Stage */
-    .mock-wireframe-hero {
+    .wireframe-box {
       padding: 1.25rem;
-      border-radius: var(--radius-md);
-      background: linear-gradient(135deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.01) 100%);
-      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      background-color: var(--bg-elevated);
+      border: 1px solid var(--border-hairline);
       margin-bottom: 1rem;
     }
 
-    .mock-pill {
-      display: inline-block;
+    .wireframe-tag {
       font-family: var(--font-mono);
       font-size: 0.68rem;
-      padding: 0.2rem 0.55rem;
-      border-radius: 4px;
-      background: rgba(212, 163, 115, 0.14);
-      color: var(--accent-warm);
-      margin-bottom: 0.6rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent-sand);
+      display: inline-block;
+      margin-bottom: 0.45rem;
     }
 
-    .mock-bar {
-      height: 8px;
-      border-radius: 4px;
-      background: rgba(255, 255, 255, 0.14);
-      margin-bottom: 0.5rem;
-    }
-
-    .mock-card-grid {
+    .mini-metric-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 0.65rem;
     }
 
-    .mock-mini-card {
-      background: rgba(255, 255, 255, 0.025);
-      border: 1px solid var(--border-subtle);
+    .mini-metric-tile {
+      padding: 0.8rem 0.7rem;
       border-radius: 10px;
-      padding: 0.85rem;
-    }
-
-    .stage-footer-meta {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding-top: 1rem;
-      margin-top: 1rem;
-      border-top: 1px solid var(--border-subtle);
-      font-family: var(--font-mono);
-      font-size: 0.72rem;
-      color: var(--text-muted);
+      background-color: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--border-hairline);
+      text-align: center;
     }
 
     /* ==========================================================================
-       5. TRUST & VALUE PROPOSITION SECTION
+       5. CARDS, SPACING & ALIGNMENT SYSTEM
        ========================================================================== */
-    .value-card {
-      background-color: var(--bg-surface);
-      border: 1px solid var(--border-subtle);
+    .studio-card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-hairline);
       border-radius: var(--radius-md);
-      padding: 1.75rem;
+      padding: 1.85rem;
       height: 100%;
-      transition: border-color 0.3s ease, transform 0.3s var(--transition-smooth), background-color 0.3s ease;
+      transition: border-color 0.25s ease, transform 0.28s var(--ease-out), background-color 0.25s ease;
     }
 
-    .value-card:hover {
-      border-color: var(--border-hover);
-      background-color: var(--bg-surface-elevated);
-      transform: translateY(-4px);
+    @media (min-width: 768px) {
+      .studio-card {
+        padding: 2.1rem;
+      }
     }
 
-    .icon-box {
+    .studio-card:hover {
+      border-color: var(--border-strong);
+      background-color: var(--bg-card-hover);
+      transform: translateY(-3px);
+    }
+
+    .icon-badge {
       width: 44px;
       height: 44px;
       border-radius: 11px;
-      background-color: rgba(255, 255, 255, 0.04);
-      border: 1px solid var(--border-subtle);
+      background-color: var(--accent-sand-soft);
+      border: 1px solid rgba(216, 164, 111, 0.22);
+      color: var(--accent-sand);
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      color: var(--accent-warm);
-      margin-bottom: 1.25rem;
+      flex-shrink: 0;
     }
 
     /* ==========================================================================
-       6. PORTFOLIO SHOWCASE (AUTHENTIC PROJECT MOCKUPS)
+       6. PORTFOLIO SHOWCASE (LEAF CAFÉ + HAPPYPAWS ONGOING)
        ========================================================================== */
-    .project-showcase-card {
-      background-color: var(--bg-surface);
-      border: 1px solid var(--border-subtle);
+    .work-card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-hairline);
       border-radius: var(--radius-lg);
       overflow: hidden;
-      transition: border-color 0.35s ease, transform 0.35s var(--transition-smooth);
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      transition: border-color 0.3s ease;
     }
 
-    .project-showcase-card:hover {
-      border-color: var(--border-hover);
+    .work-card:hover {
+      border-color: var(--border-strong);
     }
 
-    .project-browser-frame {
-      background-color: #0c0c0e;
-      border-bottom: 1px solid var(--border-subtle);
+    .work-frame-outer {
       padding: 1.25rem 1.25rem 0;
+      background-color: #0e0e11;
+      border-bottom: 1px solid var(--border-hairline);
     }
 
-    .project-window {
-      background-color: #131317;
-      border: 1px solid var(--border-hover);
+    .work-browser-window {
+      background-color: var(--bg-elevated);
+      border: 1px solid var(--border-strong);
       border-bottom: none;
-      border-radius: 14px 14px 0 0;
+      border-radius: 13px 13px 0 0;
       overflow: hidden;
     }
 
-    .project-window-header {
+    .work-browser-bar {
       display: flex;
       align-items: center;
       justify-content: space-between;
+      gap: 0.75rem;
       padding: 0.7rem 1rem;
-      background-color: rgba(255, 255, 255, 0.03);
-      border-bottom: 1px solid var(--border-subtle);
+      background-color: rgba(255, 255, 255, 0.025);
+      border-bottom: 1px solid var(--border-hairline);
     }
 
-    .project-url-pill {
+    .work-url {
       font-family: var(--font-mono);
       font-size: 0.7rem;
-      color: var(--text-secondary);
-      background: rgba(0, 0, 0, 0.45);
+      color: var(--text-body);
+      background-color: var(--bg-canvas);
       padding: 0.22rem 0.75rem;
       border-radius: 999px;
-      border: 1px solid var(--border-subtle);
-      max-width: 240px;
-      white-space: nowrap;
+      border: 1px solid var(--border-hairline);
       overflow: hidden;
       text-overflow: ellipsis;
+      white-space: nowrap;
+      max-width: 245px;
     }
 
-    /* Leaf Cafe Bespoke Architectural UI Preview (No fabricated screenshots) */
-    .preview-leaf-cafe {
-      padding: 1.65rem 1.5rem;
-      background: linear-gradient(155deg, #141c17 0%, #0f1311 100%);
-      min-height: 270px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .leaf-badge {
+    /* Project Status Pill */
+    .status-pill-live {
       display: inline-flex;
       align-items: center;
       gap: 0.4rem;
@@ -658,315 +667,318 @@
       font-size: 0.68rem;
       text-transform: uppercase;
       letter-spacing: 0.08em;
-      color: #86efac;
-      background: rgba(134, 239, 172, 0.1);
-      border: 1px solid rgba(134, 239, 172, 0.22);
-      padding: 0.25rem 0.65rem;
+      padding: 0.25rem 0.68rem;
       border-radius: 999px;
+      color: #86efac;
+      background-color: rgba(74, 222, 128, 0.1);
+      border: 1px solid rgba(74, 222, 128, 0.24);
     }
 
-    .leaf-menu-pills {
+    .status-pill-ongoing {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 0.25rem 0.68rem;
+      border-radius: 999px;
+      color: #fcd34d;
+      background-color: rgba(251, 191, 36, 0.1);
+      border: 1px solid rgba(251, 191, 36, 0.26);
+    }
+
+    /* Leaf Café Architectural Mockup */
+    .mockup-leaf {
+      padding: 1.65rem 1.5rem;
+      background: linear-gradient(160deg, #131b16 0%, #0f1311 100%);
+      min-height: 255px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .chip-row {
       display: flex;
       flex-wrap: wrap;
       gap: 0.45rem;
       margin: 1rem 0;
     }
 
-    .leaf-menu-pills span {
+    .chip-item {
       font-size: 0.74rem;
       padding: 0.3rem 0.7rem;
       border-radius: 6px;
-      background: rgba(255, 255, 255, 0.05);
+      background-color: rgba(255, 255, 255, 0.045);
       border: 1px solid rgba(255, 255, 255, 0.08);
-      color: #e4e4e7;
+      color: var(--text-ink);
     }
 
-    .leaf-booking-strip {
+    .mockup-footer-bar {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 0.5rem;
-      padding-top: 0.85rem;
+      padding-top: 0.9rem;
       border-top: 1px solid rgba(255, 255, 255, 0.08);
     }
 
-    .leaf-booking-chip {
+    .mockup-footer-cell {
       text-align: center;
       font-size: 0.72rem;
-      font-weight: 500;
-      padding: 0.45rem 0.4rem;
-      border-radius: 8px;
-      background: rgba(255, 255, 255, 0.04);
-      color: #d4d4d8;
-      border: 1px solid rgba(255, 255, 255, 0.06);
+      padding: 0.45rem 0.35rem;
+      border-radius: 7px;
+      background-color: rgba(255, 255, 255, 0.035);
+      color: var(--text-body);
     }
 
-    /* HappyPaws Bespoke Architectural UI Preview */
-    .preview-happypaws {
+    /* HappyPaws Architectural Mockup */
+    .mockup-paws {
       padding: 1.65rem 1.5rem;
-      background: linear-gradient(155deg, #1d1714 0%, #12100e 100%);
-      min-height: 270px;
+      background: linear-gradient(160deg, #1c1613 0%, #120f0e 100%);
+      min-height: 255px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
     }
 
-    .paws-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      font-family: var(--font-mono);
-      font-size: 0.68rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: #fdba74;
-      background: rgba(253, 186, 116, 0.1);
-      border: 1px solid rgba(253, 186, 116, 0.22);
-      padding: 0.25rem 0.65rem;
-      border-radius: 999px;
-    }
-
-    .paws-modules-grid {
+    .paws-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 0.55rem;
       margin-top: 1rem;
     }
 
-    .paws-module-item {
+    .paws-cell {
       padding: 0.65rem 0.75rem;
-      border-radius: 9px;
-      background: rgba(255, 255, 255, 0.04);
+      border-radius: 8px;
+      background-color: rgba(255, 255, 255, 0.04);
       border: 1px solid rgba(255, 255, 255, 0.07);
-      font-size: 0.76rem;
-      color: #e4e4e7;
+      font-size: 0.75rem;
+      color: var(--text-ink);
       display: flex;
       align-items: center;
       gap: 0.5rem;
     }
 
-    .project-body {
+    .work-card-body {
       padding: 2rem;
-    }
-
-    .project-category-tag {
-      font-family: var(--font-mono);
-      font-size: 0.74rem;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--accent-warm);
-      margin-bottom: 0.6rem;
-      display: block;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
 
     /* ==========================================================================
-       7. SERVICES SECTION
+       7. SERVICES & INR FREELANCE RATE CARD
        ========================================================================== */
-    .service-card {
-      background-color: var(--bg-surface);
-      border: 1px solid var(--border-subtle);
+    .service-card-item {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-hairline);
       border-radius: var(--radius-md);
       padding: 2rem;
       height: 100%;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      transition: border-color 0.3s ease, transform 0.3s var(--transition-smooth);
+      transition: border-color 0.25s ease, transform 0.28s var(--ease-out);
     }
 
-    .service-card:hover {
-      border-color: rgba(212, 163, 115, 0.45);
-      transform: translateY(-4px);
+    .service-card-item:hover {
+      border-color: rgba(216, 164, 111, 0.42);
+      transform: translateY(-3px);
     }
 
-    .service-num {
+    .rate-pill {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 0.35rem;
       font-family: var(--font-mono);
-      font-size: 0.78rem;
-      color: var(--text-muted);
+      font-size: 0.84rem;
+      color: var(--accent-sand);
+      background-color: var(--accent-sand-soft);
+      border: 1px solid rgba(216, 164, 111, 0.24);
+      padding: 0.35rem 0.8rem;
+      border-radius: 8px;
+      margin-top: 1.1rem;
     }
 
-    /* ==========================================================================
-       8. PROCESS TIMELINE
-       ========================================================================== */
-    .process-step {
-      position: relative;
-      padding: 1.75rem;
-      background-color: var(--bg-surface);
-      border: 1px solid var(--border-subtle);
-      border-radius: var(--radius-md);
-      height: 100%;
-      transition: border-color 0.3s ease;
-    }
-
-    .process-step:hover {
-      border-color: var(--border-hover);
-    }
-
-    .step-number {
-      font-family: var(--font-display);
-      font-size: 2rem;
-      font-weight: 800;
-      color: var(--accent-warm);
-      line-height: 1;
-      margin-bottom: 1rem;
-      display: block;
-    }
-
-    /* ==========================================================================
-       9. PRICING PACKAGES
-       ========================================================================== */
-    .pricing-card {
-      background-color: var(--bg-surface);
-      border: 1px solid var(--border-subtle);
+    /* Pricing Package Tiers */
+    .package-card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-hairline);
       border-radius: var(--radius-lg);
       padding: 2.25rem;
       height: 100%;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      transition: transform 0.3s var(--transition-smooth), border-color 0.3s ease;
+      transition: border-color 0.25s ease, transform 0.28s var(--ease-out);
     }
 
-    .pricing-card.featured {
-      background: linear-gradient(180deg, rgba(212, 163, 115, 0.08) 0%, var(--bg-surface) 100%);
-      border-color: rgba(212, 163, 115, 0.4);
+    .package-card.is-featured {
+      background: linear-gradient(180deg, rgba(216, 164, 111, 0.08) 0%, var(--bg-card) 100%);
+      border-color: rgba(216, 164, 111, 0.42);
     }
 
-    .pricing-card:hover {
-      transform: translateY(-4px);
-      border-color: var(--border-hover);
+    .package-card:hover {
+      border-color: var(--border-strong);
+      transform: translateY(-3px);
     }
 
-    .price-amount {
-      font-family: var(--font-display);
-      font-size: 2.75rem;
-      font-weight: 800;
-      color: var(--text-primary);
-      line-height: 1.1;
-      margin: 0.75rem 0;
+    .package-price {
+      font-family: var(--font-serif);
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--text-ink);
+      line-height: 1.15;
+      margin: 0.65rem 0;
     }
 
-    .pricing-list {
+    .check-list {
       list-style: none;
       padding: 0;
       margin: 1.5rem 0 2rem;
     }
 
-    .pricing-list li {
+    .check-list li {
       display: flex;
       align-items: flex-start;
       gap: 0.65rem;
-      color: var(--text-secondary);
-      font-size: 0.92rem;
+      color: var(--text-body);
+      font-size: 0.93rem;
       margin-bottom: 0.8rem;
     }
 
-    .pricing-list li i {
-      color: var(--accent-warm);
+    .check-list li i {
+      color: var(--accent-sand);
       flex-shrink: 0;
-      margin-top: 3px;
+      margin-top: 4px;
     }
 
     /* ==========================================================================
-       10. CONTACT FORM & ENQUIRY FLOW
+       8. PROCESS TIMELINE
        ========================================================================== */
-    .contact-panel {
-      background-color: var(--bg-surface);
-      border: 1px solid var(--border-subtle);
+    .process-card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-hairline);
+      border-radius: var(--radius-md);
+      padding: 1.85rem;
+      height: 100%;
+    }
+
+    .process-num {
+      font-family: var(--font-serif);
+      font-size: 2rem;
+      font-weight: 600;
+      color: var(--accent-sand);
+      line-height: 1;
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    /* ==========================================================================
+       9. CONTACT FORM & DIRECT DETAILS
+       ========================================================================== */
+    .enquiry-box {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-hairline);
       border-radius: var(--radius-lg);
       padding: 2rem;
     }
 
     @media (min-width: 768px) {
-      .contact-panel {
-        padding: 3rem;
+      .enquiry-box {
+        padding: 2.75rem;
       }
     }
 
-    .form-label-custom {
-      font-size: 0.85rem;
-      font-weight: 500;
-      color: var(--text-secondary);
-      margin-bottom: 0.45rem;
+    .field-label {
       display: block;
+      font-size: 0.86rem;
+      font-weight: 500;
+      color: var(--text-body);
+      margin-bottom: 0.45rem;
     }
 
-    .form-control-studio,
-    .form-select-studio {
+    .field-input,
+    .field-select {
       width: 100%;
-      background-color: var(--bg-primary);
-      border: 1px solid var(--border-subtle);
+      background-color: var(--bg-canvas);
+      border: 1px solid var(--border-hairline);
       border-radius: 10px;
-      padding: 0.78rem 1rem;
-      color: var(--text-primary);
+      padding: 0.8rem 1rem;
+      color: var(--text-ink);
       font-family: var(--font-sans);
-      font-size: 0.94rem;
-      transition: border-color 0.25s ease, box-shadow 0.25s ease;
+      font-size: 0.95rem;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
     }
 
-    .form-control-studio:focus,
-    .form-select-studio:focus {
+    .field-input:focus,
+    .field-select:focus {
       outline: none;
-      border-color: var(--accent-warm);
-      box-shadow: 0 0 0 3px rgba(212, 163, 115, 0.14);
+      border-color: var(--accent-sand);
+      box-shadow: 0 0 0 3px rgba(216, 164, 111, 0.14);
     }
 
-    .form-control-studio::placeholder {
+    .field-input::placeholder {
       color: var(--text-muted);
     }
 
-    .form-select-studio option {
-      background-color: var(--bg-surface);
-      color: var(--text-primary);
+    .field-select option {
+      background-color: var(--bg-card);
+      color: var(--text-ink);
     }
 
-    .invalid-feedback-custom {
+    .error-msg {
       color: #f87171;
       font-size: 0.8rem;
       margin-top: 0.35rem;
       display: none;
     }
 
-    .was-validated .form-control-studio:invalid + .invalid-feedback-custom,
-    .was-validated .form-select-studio:invalid + .invalid-feedback-custom {
+    .was-validated .field-input:invalid + .error-msg,
+    .was-validated .field-select:invalid + .error-msg {
       display: block;
     }
 
-    .backend-note-box {
-      background-color: rgba(255, 255, 255, 0.025);
-      border: 1px dashed var(--border-hover);
-      border-radius: 12px;
-      padding: 1rem 1.25rem;
-      font-size: 0.84rem;
-      color: var(--text-secondary);
-    }
-
-    .whatsapp-card {
-      background-color: rgba(52, 211, 153, 0.06);
-      border: 1px solid rgba(52, 211, 153, 0.22);
+    .contact-channel-card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-hairline);
       border-radius: var(--radius-md);
       padding: 1.5rem;
+      margin-bottom: 1.15rem;
+    }
+
+    .info-callout {
+      background-color: rgba(255, 255, 255, 0.02);
+      border: 1px dashed var(--border-strong);
+      border-radius: 12px;
+      padding: 1.1rem 1.25rem;
+      font-size: 0.84rem;
+      color: var(--text-body);
     }
 
     /* ==========================================================================
-       11. FOOTER & REDUCED MOTION
+       10. FOOTER & REDUCED MOTION
        ========================================================================== */
-    .site-footer {
-      border-top: 1px solid var(--border-subtle);
-      background-color: var(--bg-secondary);
+    .footer-area {
+      background-color: var(--bg-elevated);
+      border-top: 1px solid var(--border-hairline);
       padding: 4.5rem 0 2.5rem;
     }
 
-    .footer-link {
-      color: var(--text-secondary);
+    .footer-nav-link {
+      color: var(--text-body);
       text-decoration: none;
-      font-size: 0.9rem;
+      font-size: 0.92rem;
       display: inline-block;
       margin-bottom: 0.55rem;
       transition: color 0.2s ease;
     }
 
-    .footer-link:hover {
-      color: var(--text-primary);
+    .footer-nav-link:hover {
+      color: var(--text-ink);
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -982,43 +994,41 @@
     }
   </style>
 </head>
-<body class="bg-grid-pattern">
+<body>
 
-  <!-- Custom Desktop Cursor -->
+  <!-- Custom Cursor (Desktop Only) -->
   <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
   <div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
 
   <!-- ========================================================================
        1. NAVIGATION
        ======================================================================== -->
-  <header class="site-header" id="siteHeader">
+  <header class="site-nav" id="siteNav">
     <div class="container">
       <div class="d-flex align-items-center justify-content-between">
-        <!-- Studio Logo (Easy to rename here) -->
-        <a href="#top" class="studio-brand interactive-hover" aria-label="Kinetic Studio Home">
-          <span class="brand-mark">
-            <i data-lucide="layers" style="width: 16px; height: 16px;"></i>
-          </span>
-          <span>KINETIC<span style="color: var(--accent-warm);">.</span>STUDIO</span>
+        <!-- Studio Logo (Change name anytime) -->
+        <a href="#top" class="brand-logo interactive-hover" aria-label="Vicky Works Home">
+          <span class="brand-monogram">VW</span>
+          <span>Vicky<span style="color: var(--accent-sand);">.</span>Works</span>
         </a>
 
-        <!-- Desktop Navigation -->
-        <nav class="d-none d-lg-flex align-items-center gap-1" aria-label="Primary Navigation">
-          <a href="#work" class="nav-link-custom interactive-hover">Work</a>
-          <a href="#services" class="nav-link-custom interactive-hover">Services</a>
-          <a href="#process" class="nav-link-custom interactive-hover">Process</a>
-          <a href="#pricing" class="nav-link-custom interactive-hover">Pricing</a>
-          <a href="#about" class="nav-link-custom interactive-hover">About</a>
-          <a href="#contact" class="nav-link-custom interactive-hover">Contact</a>
+        <!-- Desktop Menu -->
+        <nav class="d-none d-lg-flex align-items-center gap-1" aria-label="Main Navigation">
+          <a href="#work" class="nav-item-link interactive-hover">Work</a>
+          <a href="#services" class="nav-item-link interactive-hover">Services</a>
+          <a href="#process" class="nav-item-link interactive-hover">Process</a>
+          <a href="#pricing" class="nav-item-link interactive-hover">Pricing</a>
+          <a href="#about" class="nav-item-link interactive-hover">About</a>
+          <a href="#contact" class="nav-item-link interactive-hover">Contact</a>
         </nav>
 
-        <!-- Primary CTA & Mobile Toggle -->
+        <!-- Primary CTA + Mobile Hamburger -->
         <div class="d-flex align-items-center gap-2">
-          <a href="#contact" class="btn-studio-primary d-none d-sm-inline-flex interactive-hover">
+          <a href="#contact" class="btn-primary-warm d-none d-sm-inline-flex interactive-hover">
             <span>Start a Project</span>
             <i data-lucide="arrow-up-right" style="width: 16px; height: 16px;"></i>
           </a>
-          <button class="mobile-menu-toggle d-lg-none" id="openMobileMenu" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobileNavDrawer">
+          <button class="mobile-toggle-btn d-lg-none" id="mobileMenuOpen" aria-label="Open menu" aria-expanded="false" aria-controls="mobileDrawer">
             <i data-lucide="menu" style="width: 20px; height: 20px;"></i>
           </button>
         </div>
@@ -1026,29 +1036,29 @@
     </div>
   </header>
 
-  <!-- Mobile Fullscreen Navigation Drawer -->
-  <div class="mobile-nav-drawer" id="mobileNavDrawer" role="dialog" aria-modal="true" aria-label="Mobile Navigation">
+  <!-- Mobile Navigation Drawer -->
+  <div class="mobile-drawer" id="mobileDrawer" role="dialog" aria-modal="true" aria-label="Mobile Navigation">
     <div class="d-flex align-items-center justify-content-between">
-      <a href="#top" class="studio-brand mobile-nav-close">
-        <span class="brand-mark"><i data-lucide="layers" style="width: 16px; height: 16px;"></i></span>
-        <span>KINETIC<span style="color: var(--accent-warm);">.</span>STUDIO</span>
+      <a href="#top" class="brand-logo drawer-close-link">
+        <span class="brand-monogram">VW</span>
+        <span>Vicky<span style="color: var(--accent-sand);">.</span>Works</span>
       </a>
-      <button class="mobile-menu-toggle" id="closeMobileMenu" aria-label="Close navigation menu">
+      <button class="mobile-toggle-btn" id="mobileMenuClose" aria-label="Close menu">
         <i data-lucide="x" style="width: 20px; height: 20px;"></i>
       </button>
     </div>
 
-    <nav class="mobile-nav-links my-auto" aria-label="Mobile Menu Links">
-      <a href="#work" class="mobile-nav-close">Work</a>
-      <a href="#services" class="mobile-nav-close">Services</a>
-      <a href="#process" class="mobile-nav-close">Process</a>
-      <a href="#pricing" class="mobile-nav-close">Pricing</a>
-      <a href="#about" class="mobile-nav-close">About</a>
-      <a href="#contact" class="mobile-nav-close">Contact</a>
+    <nav class="mobile-drawer-nav my-auto" aria-label="Mobile Links">
+      <a href="#work" class="drawer-close-link"><span>Work</span><i data-lucide="arrow-up-right" style="width: 20px; height: 20px;"></i></a>
+      <a href="#services" class="drawer-close-link"><span>Services</span><i data-lucide="arrow-up-right" style="width: 20px; height: 20px;"></i></a>
+      <a href="#process" class="drawer-close-link"><span>Process</span><i data-lucide="arrow-up-right" style="width: 20px; height: 20px;"></i></a>
+      <a href="#pricing" class="drawer-close-link"><span>Pricing (₹)</span><i data-lucide="arrow-up-right" style="width: 20px; height: 20px;"></i></a>
+      <a href="#about" class="drawer-close-link"><span>About</span><i data-lucide="arrow-up-right" style="width: 20px; height: 20px;"></i></a>
+      <a href="#contact" class="drawer-close-link"><span>Contact</span><i data-lucide="arrow-up-right" style="width: 20px; height: 20px;"></i></a>
     </nav>
 
-    <div>
-      <a href="#contact" class="btn-studio-primary w-100 mobile-nav-close">
+    <div class="pt-3">
+      <a href="#contact" class="btn-primary-warm w-100 drawer-close-link">
         <span>Start a Project</span>
         <i data-lucide="arrow-up-right" style="width: 16px; height: 16px;"></i>
       </a>
@@ -1059,136 +1069,132 @@
     <!-- ======================================================================
          2. HERO SECTION
          ====================================================================== -->
-    <section class="hero-section">
-      <div class="hero-ambient-light" aria-hidden="true"></div>
-      <div class="container position-relative" style="z-index: 1;">
+    <section class="hero-wrap">
+      <div class="hero-subtle-glow" aria-hidden="true"></div>
+      <div class="container position-relative">
         <div class="row align-items-center g-5">
+          <!-- Left Editorial Column -->
           <div class="col-lg-7">
-            <div class="studio-tagline-pill gsap-hero">
-              <span class="status-dot" aria-hidden="true"></span>
+            <div class="tagline-badge anim-hero">
+              <span class="live-pulse" aria-hidden="true"></span>
               <span>We turn business ideas into powerful digital experiences.</span>
             </div>
 
-            <h1 class="hero-headline gsap-hero">
-              Your Next Big Idea Deserves a <span class="text-gradient-subtle">Better Digital Experience.</span>
+            <h1 class="hero-title anim-hero">
+              Your Next Big Idea Deserves a <em>Better</em> Digital Experience.
             </h1>
 
-            <p class="hero-subtext gsap-hero">
+            <p class="hero-lead anim-hero">
               We design and develop modern websites and digital products that help ambitious businesses grow, connect with customers and stand out online.
             </p>
 
-            <div class="d-flex flex-wrap align-items-center gap-3 gsap-hero">
-              <a href="#contact" class="btn-studio-primary interactive-hover">
+            <div class="d-flex flex-wrap align-items-center gap-3 anim-hero">
+              <a href="#contact" class="btn-primary-warm interactive-hover">
                 <span>Let's Build Something</span>
                 <i data-lucide="arrow-right" style="width: 17px; height: 17px;"></i>
               </a>
-              <a href="#work" class="btn-studio-secondary interactive-hover">
+              <a href="#work" class="btn-outline-warm interactive-hover">
                 <span>Explore Our Work</span>
               </a>
             </div>
 
-            <div class="mt-4 pt-2 d-flex flex-wrap align-items-center gap-3 text-secondary small gsap-hero" style="font-family: var(--font-mono); font-size: 0.76rem;">
-              <span>AVAILABLE FOR GLOBAL PROJECTS</span>
-              <span style="color: var(--text-muted);">•</span>
-              <span>USA · UK · CANADA · AUSTRALIA · INDIA</span>
+            <div class="mt-4 pt-2 d-flex flex-wrap align-items-center gap-2 gap-sm-3 anim-hero" style="font-family: var(--font-mono); font-size: 0.76rem; color: var(--text-muted);">
+              <span>WORKING WITH CLIENTS ACROSS</span>
+              <span style="color: var(--text-body);">INDIA · USA · UK · CANADA · AUSTRALIA</span>
             </div>
           </div>
 
-          <!-- Interactive Browser Stage Composition -->
-          <div class="col-lg-5 gsap-hero">
-            <div class="hero-stage-wrapper" id="heroStageWrapper">
-              <div class="browser-stage" id="heroBrowserStage">
-                <div class="browser-chrome">
-                  <div class="window-dots" aria-hidden="true">
+          <!-- Right Interactive Browser Preview -->
+          <div class="col-lg-5 anim-hero">
+            <div id="heroStageArea">
+              <div class="hero-browser-shell" id="heroBrowserCard">
+                <div class="browser-top-bar">
+                  <div class="dots-trio" aria-hidden="true">
                     <span></span><span></span><span></span>
                   </div>
-                  <div class="browser-url-bar" id="stageUrlDisplay">studio.build/architecture</div>
-                  <i data-lucide="sparkles" style="width: 14px; height: 14px; color: var(--accent-warm);"></i>
+                  <div class="url-pill" id="stageUrlText">vicky.works/architecture</div>
+                  <i data-lucide="layout" style="width: 14px; height: 14px; color: var(--accent-sand);"></i>
                 </div>
 
-                <!-- Interactive Mode Switcher Tabs -->
-                <div class="browser-tabs" role="tablist" aria-label="Interactive System Preview">
-                  <button class="stage-tab-btn active interactive-hover" role="tab" aria-selected="true" data-stage="design" data-url="studio.build/ui-systems">01. UI Systems</button>
-                  <button class="stage-tab-btn interactive-hover" role="tab" aria-selected="false" data-stage="web" data-url="studio.build/web-apps">02. Web Apps</button>
-                  <button class="stage-tab-btn interactive-hover" role="tab" aria-selected="false" data-stage="commerce" data-url="studio.build/catalogues">03. Catalogues</button>
+                <div class="browser-tab-strip" role="tablist" aria-label="Capabilities Preview">
+                  <button class="stage-tab active interactive-hover" role="tab" aria-selected="true" data-pane="pane-websites" data-url="vicky.works/websites">Websites</button>
+                  <button class="stage-tab interactive-hover" role="tab" aria-selected="false" data-pane="pane-catalogues" data-url="vicky.works/catalogues">Catalogues</button>
+                  <button class="stage-tab interactive-hover" role="tab" aria-selected="false" data-pane="pane-webapps" data-url="vicky.works/web-apps">Web Apps</button>
                 </div>
 
-                <div class="stage-canvas">
-                  <!-- Tab 1: UI Systems -->
-                  <div class="stage-view active" id="stage-design">
-                    <div class="mock-wireframe-hero">
-                      <span class="mock-pill">RESPONSIVE ARCHITECTURE</span>
-                      <div class="fw-semibold text-white mb-1" style="font-size: 1.05rem;">Editorial Grid & Tactile Interfaces</div>
-                      <p class="small text-secondary mb-3">Clean visual hierarchy engineered for clarity across desktop, tablet, and mobile viewports.</p>
-                      <div class="d-flex gap-2">
-                        <span class="badge bg-light text-dark fw-medium px-2 py-1">Mobile-First</span>
-                        <span class="badge bg-dark border border-secondary text-light fw-normal px-2 py-1">Semantic HTML5</span>
-                      </div>
+                <div class="stage-panel-body">
+                  <!-- Pane 1 -->
+                  <div class="stage-pane active" id="pane-websites">
+                    <div class="wireframe-box">
+                      <span class="wireframe-tag">01 / Brand & Business Sites</span>
+                      <div class="fw-semibold mb-1" style="color: var(--text-ink); font-size: 1.05rem;">Built for Clarity & First Impressions</div>
+                      <p class="small mb-0" style="color: var(--text-body);">Thoughtful typography, clear calls-to-action, and fast mobile responsiveness tailored to your audience.</p>
                     </div>
-                    <div class="mock-card-grid">
-                      <div class="mock-mini-card">
-                        <div class="mock-bar" style="width: 55%; background: var(--accent-warm);"></div>
-                        <div class="mock-bar" style="width: 85%;"></div>
-                        <div class="mock-bar mb-0" style="width: 70%; opacity: 0.5;"></div>
+                    <div class="mini-metric-grid">
+                      <div class="mini-metric-tile">
+                        <div class="small fw-semibold" style="color: var(--text-ink);">Mobile-First</div>
+                        <div style="font-size: 0.72rem; color: var(--text-muted);">All Screens</div>
                       </div>
-                      <div class="mock-mini-card">
-                        <div class="mock-bar" style="width: 45%; background: var(--accent-emerald);"></div>
-                        <div class="mock-bar" style="width: 90%;"></div>
-                        <div class="mock-bar mb-0" style="width: 60%; opacity: 0.5;"></div>
+                      <div class="mini-metric-tile">
+                        <div class="small fw-semibold" style="color: var(--text-ink);">Clean Code</div>
+                        <div style="font-size: 0.72rem; color: var(--text-muted);">Fast Loading</div>
                       </div>
-                      <div class="mock-mini-card">
-                        <div class="mock-bar" style="width: 65%; background: var(--accent-sky);"></div>
-                        <div class="mock-bar" style="width: 80%;"></div>
-                        <div class="mock-bar mb-0" style="width: 75%; opacity: 0.5;"></div>
+                      <div class="mini-metric-tile">
+                        <div class="small fw-semibold" style="color: var(--text-ink);">Direct Leads</div>
+                        <div style="font-size: 0.72rem; color: var(--text-muted);">WhatsApp & Email</div>
                       </div>
                     </div>
                   </div>
 
-                  <!-- Tab 2: Web Apps -->
-                  <div class="stage-view" id="stage-web">
-                    <div class="mock-wireframe-hero">
-                      <span class="mock-pill" style="color: var(--accent-sky); background: rgba(56, 189, 248, 0.12);">CUSTOM WEB APPLICATIONS</span>
-                      <div class="fw-semibold text-white mb-1" style="font-size: 1.05rem;">Structured Workflows & Interactive Tools</div>
-                      <p class="small text-secondary mb-0">Tailored frontends connected to lightweight, scalable cloud backends without unnecessary bloat.</p>
+                  <!-- Pane 2 -->
+                  <div class="stage-pane" id="pane-catalogues">
+                    <div class="wireframe-box">
+                      <span class="wireframe-tag">02 / Cafés & Digital Catalogues</span>
+                      <div class="fw-semibold mb-1" style="color: var(--text-ink); font-size: 1.05rem;">Interactive Menus & Product Showcases</div>
+                      <p class="small mb-0" style="color: var(--text-body);">Structured categories, photo galleries, and one-tap reservation or enquiry links for hospitality and retail.</p>
                     </div>
-                    <div class="d-flex flex-column gap-2">
-                      <div class="mock-mini-card d-flex align-items-center justify-content-between">
-                        <span class="small text-light">Interactive Filtering & Search</span>
-                        <span class="font-mono small" style="color: var(--accent-emerald);">READY</span>
+                    <div class="mini-metric-grid">
+                      <div class="mini-metric-tile">
+                        <div class="small fw-semibold" style="color: var(--text-ink);">Categories</div>
+                        <div style="font-size: 0.72rem; color: var(--text-muted);">Easy Browsing</div>
                       </div>
-                      <div class="mock-mini-card d-flex align-items-center justify-content-between">
-                        <span class="small text-light">Direct Booking & Lead Capture</span>
-                        <span class="font-mono small" style="color: var(--accent-emerald);">READY</span>
+                      <div class="mini-metric-tile">
+                        <div class="small fw-semibold" style="color: var(--text-ink);">Gallery</div>
+                        <div style="font-size: 0.72rem; color: var(--text-muted);">Visual Story</div>
                       </div>
-                    </div>
-                  </div>
-
-                  <!-- Tab 3: Digital Catalogues -->
-                  <div class="stage-view" id="stage-commerce">
-                    <div class="mock-wireframe-hero">
-                      <span class="mock-pill" style="color: var(--accent-emerald); background: rgba(52, 211, 153, 0.12);">HOSPITALITY & RETAIL</span>
-                      <div class="fw-semibold text-white mb-1" style="font-size: 1.05rem;">Interactive Menus & Product Showcases</div>
-                      <p class="small text-secondary mb-0">Fast-loading category browsing, gallery highlights, and direct reservation integrations.</p>
-                    </div>
-                    <div class="mock-card-grid">
-                      <div class="mock-mini-card text-center">
-                        <i data-lucide="utensils" class="mb-1" style="width: 16px; height: 16px; color: var(--accent-warm);"></i>
-                        <div class="small text-light">Menus</div>
-                      </div>
-                      <div class="mock-mini-card text-center">
-                        <i data-lucide="image" class="mb-1" style="width: 16px; height: 16px; color: var(--accent-warm);"></i>
-                        <div class="small text-light">Galleries</div>
-                      </div>
-                      <div class="mock-mini-card text-center">
-                        <i data-lucide="calendar-check" class="mb-1" style="width: 16px; height: 16px; color: var(--accent-warm);"></i>
-                        <div class="small text-light">Booking</div>
+                      <div class="mini-metric-tile">
+                        <div class="small fw-semibold" style="color: var(--text-ink);">Booking</div>
+                        <div style="font-size: 0.72rem; color: var(--text-muted);">Direct Links</div>
                       </div>
                     </div>
                   </div>
 
-                  <div class="stage-footer-meta">
-                    <span>LIGHTWEIGHT · ZERO BLOAT</span>
-                    <span>INTERACTIVE PREVIEW</span>
+                  <!-- Pane 3 -->
+                  <div class="stage-pane" id="pane-webapps">
+                    <div class="wireframe-box">
+                      <span class="wireframe-tag">03 / Custom Web Applications</span>
+                      <div class="fw-semibold mb-1" style="color: var(--text-ink); font-size: 1.05rem;">Interactive Browser Tools & Platforms</div>
+                      <p class="small mb-0" style="color: var(--text-body);">Custom workflows, search and filtering interfaces, and structured information hubs built around your process.</p>
+                    </div>
+                    <div class="mini-metric-grid">
+                      <div class="mini-metric-tile">
+                        <div class="small fw-semibold" style="color: var(--text-ink);">Custom Logic</div>
+                        <div style="font-size: 0.72rem; color: var(--text-muted);">Tailored Flows</div>
+                      </div>
+                      <div class="mini-metric-tile">
+                        <div class="small fw-semibold" style="color: var(--text-ink);">Modular</div>
+                        <div style="font-size: 0.72rem; color: var(--text-muted);">Scalable UI</div>
+                      </div>
+                      <div class="mini-metric-tile">
+                        <div class="small fw-semibold" style="color: var(--text-ink);">Handover</div>
+                        <div style="font-size: 0.72rem; color: var(--text-muted);">Full Ownership</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="d-flex align-items-center justify-content-between pt-3 mt-3 border-top" style="border-color: var(--border-hairline) !important; font-family: var(--font-mono); font-size: 0.7rem; color: var(--text-muted);">
+                    <span>DIRECT STUDIO COLLABORATION</span>
+                    <span>NO TEMPLATE BLOAT</span>
                   </div>
                 </div>
               </div>
@@ -1201,66 +1207,66 @@
     <!-- ======================================================================
          3. TRUST / VALUE SECTION
          ====================================================================== -->
-    <section class="section-padding border-top" style="border-color: var(--border-subtle) !important; background-color: var(--bg-secondary);">
+    <section class="section-space border-top" style="border-color: var(--border-hairline) !important; background-color: var(--bg-elevated);">
       <div class="container">
-        <div class="row justify-content-between align-items-end mb-5 gsap-reveal">
+        <div class="row justify-content-between align-items-end section-header-gap anim-reveal">
           <div class="col-lg-7">
-            <span class="eyebrow">Our Philosophy</span>
-            <h2 class="display-5 fw-bold mb-0">More Than Just Another Website.</h2>
+            <span class="section-kicker">What Matters</span>
+            <h2 class="display-5 mb-0">More Than Just Another Website.</h2>
           </div>
           <div class="col-lg-4 mt-3 mt-lg-0">
-            <p class="text-secondary mb-0">
-              A website should work as a dependable business asset—communicating credibility clearly and guiding visitors toward action.
+            <p class="mb-0" style="color: var(--text-body);">
+              Good design isn't decoration—it is how clearly your visitors understand what you offer and how easily they can reach you.
             </p>
           </div>
         </div>
 
         <div class="row g-4">
-          <div class="col-md-6 col-lg-4 gsap-reveal">
-            <div class="value-card">
-              <div class="icon-box"><i data-lucide="target" style="width: 20px; height: 20px;"></i></div>
-              <h3 class="h5 fw-bold mb-2">Business-Focused Design</h3>
-              <p class="text-secondary small mb-0">Every layout decision, headline hierarchy, and call-to-action is structured around how your customers evaluate and choose your business.</p>
+          <div class="col-md-6 col-lg-4 anim-reveal">
+            <div class="studio-card">
+              <div class="icon-badge mb-3"><i data-lucide="compass" style="width: 20px; height: 20px;"></i></div>
+              <h3 class="h5 mb-2">Business-Focused Design</h3>
+              <p class="small mb-0" style="color: var(--text-body);">Layouts and content hierarchy shaped around real customer questions, trust signals, and clear enquiry paths.</p>
             </div>
           </div>
 
-          <div class="col-md-6 col-lg-4 gsap-reveal">
-            <div class="value-card">
-              <div class="icon-box"><i data-lucide="smartphone" style="width: 20px; height: 20px;"></i></div>
-              <h3 class="h5 fw-bold mb-2">Responsive Experiences</h3>
-              <p class="text-secondary small mb-0">Engineered mobile-first so your site feels natural, readable, and effortless to navigate on smartphones, tablets, and wide desktop screens.</p>
+          <div class="col-md-6 col-lg-4 anim-reveal">
+            <div class="studio-card">
+              <div class="icon-badge mb-3"><i data-lucide="smartphone" style="width: 20px; height: 20px;"></i></div>
+              <h3 class="h5 mb-2">Responsive Experiences</h3>
+              <p class="small mb-0" style="color: var(--text-body);">Tested carefully across mobile phones, tablets, and desktops so typography, spacing, and buttons feel comfortable everywhere.</p>
             </div>
           </div>
 
-          <div class="col-md-6 col-lg-4 gsap-reveal">
-            <div class="value-card">
-              <div class="icon-box"><i data-lucide="gauge" style="width: 20px; height: 20px;"></i></div>
-              <h3 class="h5 fw-bold mb-2">Performance & Usability</h3>
-              <p class="text-secondary small mb-0">Clean semantic code, optimized assets, and intuitive navigation keep load times fast and reduce friction for international visitors.</p>
+          <div class="col-md-6 col-lg-4 anim-reveal">
+            <div class="studio-card">
+              <div class="icon-badge mb-3"><i data-lucide="gauge" style="width: 20px; height: 20px;"></i></div>
+              <h3 class="h5 mb-2">Performance & Usability</h3>
+              <p class="small mb-0" style="color: var(--text-body);">Lightweight frontend engineering that loads quickly even on mobile networks without heavy, unnecessary dependencies.</p>
             </div>
           </div>
 
-          <div class="col-md-6 col-lg-4 gsap-reveal">
-            <div class="value-card">
-              <div class="icon-box"><i data-lucide="blocks" style="width: 20px; height: 20px;"></i></div>
-              <h3 class="h5 fw-bold mb-2">Scalable Architecture</h3>
-              <p class="text-secondary small mb-0">Modular codebases built so you can expand pages, add digital catalogues, or integrate new workflows as your requirements evolve.</p>
+          <div class="col-md-6 col-lg-4 anim-reveal">
+            <div class="studio-card">
+              <div class="icon-badge mb-3"><i data-lucide="layers" style="width: 20px; height: 20px;"></i></div>
+              <h3 class="h5 mb-2">Scalable Architecture</h3>
+              <p class="small mb-0" style="color: var(--text-body);">Clean, readable code structure that makes future page additions, menu updates, or feature expansions straightforward.</p>
             </div>
           </div>
 
-          <div class="col-md-6 col-lg-4 gsap-reveal">
-            <div class="value-card">
-              <div class="icon-box"><i data-lucide="message-square" style="width: 20px; height: 20px;"></i></div>
-              <h3 class="h5 fw-bold mb-2">Clear Communication</h3>
-              <p class="text-secondary small mb-0">Direct, jargon-free updates throughout planning, design, and development so you always know what is being built and why.</p>
+          <div class="col-md-6 col-lg-4 anim-reveal">
+            <div class="studio-card">
+              <div class="icon-badge mb-3"><i data-lucide="message-square" style="width: 20px; height: 20px;"></i></div>
+              <h3 class="h5 mb-2">Clear Communication</h3>
+              <p class="small mb-0" style="color: var(--text-body);">You talk directly with the builder—getting honest timelines, plain-English updates, and quick feedback loops.</p>
             </div>
           </div>
 
-          <div class="col-md-6 col-lg-4 gsap-reveal">
-            <div class="value-card">
-              <div class="icon-box"><i data-lucide="shield-check" style="width: 20px; height: 20px;"></i></div>
-              <h3 class="h5 fw-bold mb-2">Reliable Delivery</h3>
-              <p class="text-secondary small mb-0">Structured milestones, thorough cross-device testing, and clean deployment handovers you can count on.</p>
+          <div class="col-md-6 col-lg-4 anim-reveal">
+            <div class="studio-card">
+              <div class="icon-badge mb-3"><i data-lucide="shield-check" style="width: 20px; height: 20px;"></i></div>
+              <h3 class="h5 mb-2">Reliable Delivery</h3>
+              <p class="small mb-0" style="color: var(--text-body);">Step-by-step milestones from wireframe to live deployment, with complete ownership handed over at launch.</p>
             </div>
           </div>
         </div>
@@ -1268,153 +1274,153 @@
     </section>
 
     <!-- ======================================================================
-         4. PORTFOLIO SECTION (REAL DEPLOYED PROJECTS)
+         4. PORTFOLIO SECTION (LEAF CAFÉ + HAPPYPAWS ONGOING)
          ====================================================================== -->
-    <section id="work" class="section-padding border-top" style="border-color: var(--border-subtle) !important;">
+    <section id="work" class="section-space border-top" style="border-color: var(--border-hairline) !important;">
       <div class="container">
-        <div class="row justify-content-between align-items-end mb-5 gsap-reveal">
+        <div class="row justify-content-between align-items-end section-header-gap anim-reveal">
           <div class="col-lg-7">
-            <span class="eyebrow">Selected Work</span>
-            <h2 class="display-5 fw-bold mb-0">Live Projects Built & Deployed.</h2>
+            <span class="section-kicker">Selected Work</span>
+            <h2 class="display-5 mb-0">Recent & Ongoing Projects.</h2>
           </div>
           <div class="col-lg-4 mt-3 mt-lg-0">
-            <p class="text-secondary mb-0">
-              Explore live web experiences crafted with responsive layouts, clean UI architecture, and practical user journeys.
+            <p class="mb-0" style="color: var(--text-body);">
+              Real web experiences built with attention to mobile usability, clear information structure, and visual polish.
             </p>
           </div>
         </div>
 
-        <div class="row g-5">
+        <div class="row g-4 g-lg-5">
           <!-- PROJECT 1: LEAF CAFÉ -->
-          <div class="col-lg-6 gsap-reveal">
-            <article class="project-showcase-card h-100 d-flex flex-column">
-              <!-- Architectural Browser Frame Mockup -->
-              <div class="project-browser-frame">
-                <div class="project-window">
-                  <div class="project-window-header">
-                    <div class="window-dots" aria-hidden="true">
+          <div class="col-lg-6 anim-reveal">
+            <article class="work-card">
+              <div class="work-frame-outer">
+                <div class="work-browser-window">
+                  <div class="work-browser-bar">
+                    <div class="dots-trio" aria-hidden="true">
                       <span></span><span></span><span></span>
                     </div>
-                    <div class="project-url-pill">imvicky2115.github.io/LeafCafe/</div>
-                    <a href="https://imvicky2115.github.io/LeafCafe/" target="_blank" rel="noopener noreferrer" class="text-secondary" aria-label="Open Leaf Café in new tab">
+                    <div class="work-url">imvicky2115.github.io/LeafCafe/</div>
+                    <a href="https://imvicky2115.github.io/LeafCafe/" target="_blank" rel="noopener noreferrer" style="color: var(--text-body);" aria-label="Open Leaf Café in new tab">
                       <i data-lucide="external-link" style="width: 14px; height: 14px;"></i>
                     </a>
                   </div>
 
-                  <div class="preview-leaf-cafe">
+                  <div class="mockup-leaf">
                     <div>
-                      <div class="d-flex align-items-center justify-content-between mb-3">
-                        <span class="leaf-badge">
+                      <div class="d-flex flex-wrap align-items-center justify-content-between gap-2 mb-3">
+                        <span class="status-pill-live">
                           <i data-lucide="leaf" style="width: 12px; height: 12px;"></i>
-                          <span>Leaf Café</span>
+                          <span>Leaf Café · Live</span>
                         </span>
-                        <span class="font-mono small" style="color: #a1a1aa; font-size: 0.7rem;">HOSPITALITY & DINING</span>
+                        <span style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--text-muted);">CAFÉ & HOSPITALITY</span>
                       </div>
-                      <h4 class="h4 fw-bold text-white mb-2" style="font-family: var(--font-display);">Interactive Menu, Gallery & Table Reservations</h4>
-                      <div class="leaf-menu-pills">
-                        <span>Food Categories</span>
-                        <span>Menu Highlights</span>
-                        <span>Interior Gallery</span>
-                        <span>Café Info</span>
+                      <h4 class="h4 mb-1 font-serif-editorial" style="color: var(--text-ink);">Interactive Menu, Gallery & Reservation Links</h4>
+                      <div class="chip-row">
+                        <span class="chip-item">Food Categories</span>
+                        <span class="chip-item">Interactive Menu</span>
+                        <span class="chip-item">Photo Gallery</span>
+                        <span class="chip-item">Café Info</span>
                       </div>
                     </div>
 
-                    <div class="leaf-booking-strip">
-                      <div class="leaf-booking-chip">Menu Discovery</div>
-                      <div class="leaf-booking-chip">Visual Gallery</div>
-                      <div class="leaf-booking-chip">Reservation Links</div>
+                    <div class="mockup-footer-bar">
+                      <div class="mockup-footer-cell">Menu Browsing</div>
+                      <div class="mockup-footer-cell">Space Gallery</div>
+                      <div class="mockup-footer-cell">Table Booking</div>
                     </div>
                   </div>
                 </div>
               </div>
 
-              <!-- Project Details -->
-              <div class="project-body flex-grow-1 d-flex flex-column justify-content-between">
+              <div class="work-card-body">
                 <div>
-                  <span class="project-category-tag">Restaurant & Café Website</span>
-                  <h3 class="h3 fw-bold mb-3">Leaf Café</h3>
-                  <p class="text-secondary mb-4">
-                    A modern café website featuring an interactive menu, food categories, gallery, café information and reservation links. Designed for effortless browsing on mobile devices and desktops alike.
+                  <div class="d-flex align-items-center justify-content-between gap-2 mb-2">
+                    <span style="font-family: var(--font-mono); font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent-sand);">Restaurant & Café Website</span>
+                  </div>
+                  <h3 class="h3 mb-3 font-serif-editorial">Leaf Café</h3>
+                  <p class="mb-4" style="color: var(--text-body);">
+                    A modern café website featuring an interactive menu, food categories, gallery, café information and reservation links—crafted for smooth mobile and desktop browsing.
                   </p>
                 </div>
 
-                <div class="pt-3 border-top d-flex align-items-center justify-content-between" style="border-color: var(--border-subtle) !important;">
-                  <a href="https://imvicky2115.github.io/LeafCafe/" target="_blank" rel="noopener noreferrer" class="btn-studio-primary interactive-hover">
+                <div class="pt-3 border-top d-flex flex-wrap align-items-center justify-content-between gap-3" style="border-color: var(--border-hairline) !important;">
+                  <a href="https://imvicky2115.github.io/LeafCafe/" target="_blank" rel="noopener noreferrer" class="btn-primary-warm interactive-hover">
                     <span>View Live Project</span>
                     <i data-lucide="arrow-up-right" style="width: 16px; height: 16px;"></i>
                   </a>
-                  <span class="font-mono small text-muted">LIVE DEPLOYMENT</span>
+                  <span style="font-family: var(--font-mono); font-size: 0.74rem; color: var(--text-muted);">DEPLOYED</span>
                 </div>
               </div>
             </article>
           </div>
 
-          <!-- PROJECT 2: HAPPYPAWS -->
-          <div class="col-lg-6 gsap-reveal">
-            <article class="project-showcase-card h-100 d-flex flex-column">
-              <!-- Architectural Browser Frame Mockup -->
-              <div class="project-browser-frame">
-                <div class="project-window">
-                  <div class="project-window-header">
-                    <div class="window-dots" aria-hidden="true">
+          <!-- PROJECT 2: HAPPYPAWS (ONGOING PROJECT) -->
+          <div class="col-lg-6 anim-reveal">
+            <article class="work-card">
+              <div class="work-frame-outer">
+                <div class="work-browser-window">
+                  <div class="work-browser-bar">
+                    <div class="dots-trio" aria-hidden="true">
                       <span></span><span></span><span></span>
                     </div>
-                    <div class="project-url-pill">imvicky2115.github.io/HappyPaws/</div>
-                    <a href="https://imvicky2115.github.io/HappyPaws/" target="_blank" rel="noopener noreferrer" class="text-secondary" aria-label="Open HappyPaws in new tab">
+                    <div class="work-url">imvicky2115.github.io/HappyPaws/</div>
+                    <a href="https://imvicky2115.github.io/HappyPaws/" target="_blank" rel="noopener noreferrer" style="color: var(--text-body);" aria-label="Open HappyPaws in new tab">
                       <i data-lucide="external-link" style="width: 14px; height: 14px;"></i>
                     </a>
                   </div>
 
-                  <div class="preview-happypaws">
+                  <div class="mockup-paws">
                     <div>
-                      <div class="d-flex align-items-center justify-content-between mb-3">
-                        <span class="paws-badge">
-                          <i data-lucide="heart" style="width: 12px; height: 12px;"></i>
-                          <span>HappyPaws</span>
+                      <div class="d-flex flex-wrap align-items-center justify-content-between gap-2 mb-3">
+                        <span class="status-pill-ongoing">
+                          <i data-lucide="loader" style="width: 12px; height: 12px;"></i>
+                          <span>Ongoing Project</span>
                         </span>
-                        <span class="font-mono small" style="color: #a1a1aa; font-size: 0.7rem;">PET DISCOVERY PLATFORM</span>
+                        <span style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--text-muted);">WEB EXPERIENCE</span>
                       </div>
-                      <h4 class="h4 fw-bold text-white mb-2" style="font-family: var(--font-display);">Accessible Animal Information & Discovery</h4>
+                      <h4 class="h4 mb-1 font-serif-editorial" style="color: var(--text-ink);">Accessible Animal Information & Discovery</h4>
                     </div>
 
-                    <div class="paws-modules-grid">
-                      <div class="paws-module-item">
-                        <i data-lucide="search" style="width: 14px; height: 14px; color: #fdba74;"></i>
+                    <div class="paws-grid">
+                      <div class="paws-cell">
+                        <i data-lucide="search" style="width: 14px; height: 14px; color: #fcd34d;"></i>
                         <span>Pet Discovery</span>
                       </div>
-                      <div class="paws-module-item">
-                        <i data-lucide="book-open" style="width: 14px; height: 14px; color: #fdba74;"></i>
-                        <span>Structured Info</span>
+                      <div class="paws-cell">
+                        <i data-lucide="book-open" style="width: 14px; height: 14px; color: #fcd34d;"></i>
+                        <span>Clear Information</span>
                       </div>
-                      <div class="paws-module-item">
-                        <i data-lucide="smartphone" style="width: 14px; height: 14px; color: #fdba74;"></i>
-                        <span>Mobile-First UI</span>
+                      <div class="paws-cell">
+                        <i data-lucide="smartphone" style="width: 14px; height: 14px; color: #fcd34d;"></i>
+                        <span>Mobile-First Layout</span>
                       </div>
-                      <div class="paws-module-item">
-                        <i data-lucide="compass" style="width: 14px; height: 14px; color: #fdba74;"></i>
-                        <span>Guided Navigation</span>
+                      <div class="paws-cell">
+                        <i data-lucide="sparkles" style="width: 14px; height: 14px; color: #fcd34d;"></i>
+                        <span>Active Iteration</span>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
 
-              <!-- Project Details -->
-              <div class="project-body flex-grow-1 d-flex flex-column justify-content-between">
+              <div class="work-card-body">
                 <div>
-                  <span class="project-category-tag">Custom Web Experience</span>
-                  <h3 class="h3 fw-bold mb-3">HappyPaws</h3>
-                  <p class="text-secondary mb-4">
-                    A pet-related web experience designed to make animal-related information and discovery more accessible through clear visual hierarchy and intuitive mobile-first navigation.
+                  <div class="d-flex align-items-center justify-content-between gap-2 mb-2">
+                    <span style="font-family: var(--font-mono); font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent-sand);">Ongoing Web Application</span>
+                  </div>
+                  <h3 class="h3 mb-3 font-serif-editorial">HappyPaws</h3>
+                  <p class="mb-4" style="color: var(--text-body);">
+                    An ongoing pet-related web experience designed to make animal-related information and discovery more accessible, with continuous UI refinements and feature expansion underway.
                   </p>
                 </div>
 
-                <div class="pt-3 border-top d-flex align-items-center justify-content-between" style="border-color: var(--border-subtle) !important;">
-                  <a href="https://imvicky2115.github.io/HappyPaws/" target="_blank" rel="noopener noreferrer" class="btn-studio-primary interactive-hover">
+                <div class="pt-3 border-top d-flex flex-wrap align-items-center justify-content-between gap-3" style="border-color: var(--border-hairline) !important;">
+                  <a href="https://imvicky2115.github.io/HappyPaws/" target="_blank" rel="noopener noreferrer" class="btn-primary-warm interactive-hover">
                     <span>View Live Project</span>
                     <i data-lucide="arrow-up-right" style="width: 16px; height: 16px;"></i>
                   </a>
-                  <span class="font-mono small text-muted">LIVE DEPLOYMENT</span>
+                  <span style="font-family: var(--font-mono); font-size: 0.74rem; color: #fcd34d;">IN ACTIVE DEVELOPMENT</span>
                 </div>
               </div>
             </article>
@@ -1424,137 +1430,161 @@
     </section>
 
     <!-- ======================================================================
-         5. SERVICES SECTION
+         5. SERVICES SECTION (WITH FREELANCE STANDARD INR STARTING RATES)
          ====================================================================== -->
-    <section id="services" class="section-padding border-top" style="border-color: var(--border-subtle) !important; background-color: var(--bg-secondary);">
+    <section id="services" class="section-space border-top" style="border-color: var(--border-hairline) !important; background-color: var(--bg-elevated);">
       <div class="container">
-        <div class="row justify-content-between align-items-end mb-5 gsap-reveal">
+        <div class="row justify-content-between align-items-end section-header-gap anim-reveal">
           <div class="col-lg-7">
-            <span class="eyebrow">Capabilities</span>
-            <h2 class="display-5 fw-bold mb-0">Focused Digital Services.</h2>
+            <span class="section-kicker">Services & Freelance Rates</span>
+            <h2 class="display-5 mb-0">What We Build & Indicative Pricing.</h2>
           </div>
           <div class="col-lg-4 mt-3 mt-lg-0">
-            <p class="text-secondary mb-0">
-              Practical, end-to-end web design and frontend engineering tailored for small businesses, hospitality brands, and founders.
+            <p class="mb-0" style="color: var(--text-body);">
+              Transparent freelance starting rates in Indian Rupees (₹). Final quotes are shared after reviewing your exact pages and features.
             </p>
           </div>
         </div>
 
         <div class="row g-4">
-          <!-- Service A -->
-          <div class="col-md-6 col-lg-4 gsap-reveal">
-            <div class="service-card">
+          <!-- A. Business Websites -->
+          <div class="col-md-6 col-lg-4 anim-reveal">
+            <div class="service-card-item">
               <div>
-                <div class="d-flex align-items-center justify-content-between mb-4">
-                  <div class="icon-box mb-0"><i data-lucide="globe" style="width: 20px; height: 20px;"></i></div>
-                  <span class="service-num">01</span>
+                <div class="d-flex align-items-center justify-content-between mb-3">
+                  <div class="icon-badge"><i data-lucide="globe" style="width: 20px; height: 20px;"></i></div>
+                  <span style="font-family: var(--font-mono); font-size: 0.76rem; color: var(--text-muted);">01</span>
                 </div>
-                <h3 class="h4 fw-bold mb-2">Business Websites</h3>
-                <p class="text-secondary small mb-0">Modern websites for small and growing businesses built to establish credibility, explain services clearly, and generate enquiries.</p>
+                <h3 class="h5 mb-2">Business Websites</h3>
+                <p class="small mb-0" style="color: var(--text-body);">Modern, multi-section websites for small and growing businesses designed to build credibility and convert visitors into enquiries.</p>
+                <div class="rate-pill">
+                  <span>Starts at</span>
+                  <strong style="color: var(--text-ink);">₹12,000+</strong>
+                </div>
               </div>
-              <div class="mt-4 pt-3 border-top" style="border-color: var(--border-subtle) !important;">
-                <a href="#contact" class="text-decoration-none small fw-medium d-inline-flex align-items-center gap-1 interactive-hover" style="color: var(--accent-warm);">
-                  <span>Discuss a business site</span>
+              <div class="mt-4 pt-3 border-top" style="border-color: var(--border-hairline) !important;">
+                <a href="#contact" class="text-decoration-none small fw-semibold d-inline-flex align-items-center gap-1 interactive-hover prefill-service" data-service="Business Website" style="color: var(--accent-sand);">
+                  <span>Enquire about Business Website</span>
                   <i data-lucide="arrow-right" style="width: 14px; height: 14px;"></i>
                 </a>
               </div>
             </div>
           </div>
 
-          <!-- Service B -->
-          <div class="col-md-6 col-lg-4 gsap-reveal">
-            <div class="service-card">
+          <!-- B. Website Redesign -->
+          <div class="col-md-6 col-lg-4 anim-reveal">
+            <div class="service-card-item">
               <div>
-                <div class="d-flex align-items-center justify-content-between mb-4">
-                  <div class="icon-box mb-0"><i data-lucide="refresh-cw" style="width: 20px; height: 20px;"></i></div>
-                  <span class="service-num">02</span>
+                <div class="d-flex align-items-center justify-content-between mb-3">
+                  <div class="icon-badge"><i data-lucide="refresh-cw" style="width: 20px; height: 20px;"></i></div>
+                  <span style="font-family: var(--font-mono); font-size: 0.76rem; color: var(--text-muted);">02</span>
                 </div>
-                <h3 class="h4 fw-bold mb-2">Website Redesign</h3>
-                <p class="text-secondary small mb-0">Transform outdated websites into modern experiences with sharper typography, mobile responsiveness, and cleaner user journeys.</p>
+                <h3 class="h5 mb-2">Website Redesign</h3>
+                <p class="small mb-0" style="color: var(--text-body);">Transform outdated, slow, or non-responsive websites into clean, mobile-friendly digital experiences with modern typography.</p>
+                <div class="rate-pill">
+                  <span>Starts at</span>
+                  <strong style="color: var(--text-ink);">₹10,000+</strong>
+                </div>
               </div>
-              <div class="mt-4 pt-3 border-top" style="border-color: var(--border-subtle) !important;">
-                <a href="#contact" class="text-decoration-none small fw-medium d-inline-flex align-items-center gap-1 interactive-hover" style="color: var(--accent-warm);">
-                  <span>Plan a redesign</span>
+              <div class="mt-4 pt-3 border-top" style="border-color: var(--border-hairline) !important;">
+                <a href="#contact" class="text-decoration-none small fw-semibold d-inline-flex align-items-center gap-1 interactive-hover prefill-service" data-service="Website Redesign" style="color: var(--accent-sand);">
+                  <span>Enquire about Website Redesign</span>
                   <i data-lucide="arrow-right" style="width: 14px; height: 14px;"></i>
                 </a>
               </div>
             </div>
           </div>
 
-          <!-- Service C -->
-          <div class="col-md-6 col-lg-4 gsap-reveal">
-            <div class="service-card">
+          <!-- C. Landing Pages -->
+          <div class="col-md-6 col-lg-4 anim-reveal">
+            <div class="service-card-item">
               <div>
-                <div class="d-flex align-items-center justify-content-between mb-4">
-                  <div class="icon-box mb-0"><i data-lucide="layout-template" style="width: 20px; height: 20px;"></i></div>
-                  <span class="service-num">03</span>
+                <div class="d-flex align-items-center justify-content-between mb-3">
+                  <div class="icon-badge"><i data-lucide="layout-template" style="width: 20px; height: 20px;"></i></div>
+                  <span style="font-family: var(--font-mono); font-size: 0.76rem; color: var(--text-muted);">03</span>
                 </div>
-                <h3 class="h4 fw-bold mb-2">Landing Pages</h3>
-                <p class="text-secondary small mb-0">Conversion-focused landing pages for products and services designed around a single clear objective and fast load speeds.</p>
+                <h3 class="h5 mb-2">Landing Pages</h3>
+                <p class="small mb-0" style="color: var(--text-body);">Focused, high-clarity single-page websites built for product launches, service campaigns, or lead generation.</p>
+                <div class="rate-pill">
+                  <span>Starts at</span>
+                  <strong style="color: var(--text-ink);">₹7,500+</strong>
+                </div>
               </div>
-              <div class="mt-4 pt-3 border-top" style="border-color: var(--border-subtle) !important;">
-                <a href="#contact" class="text-decoration-none small fw-medium d-inline-flex align-items-center gap-1 interactive-hover" style="color: var(--accent-warm);">
-                  <span>Launch a landing page</span>
+              <div class="mt-4 pt-3 border-top" style="border-color: var(--border-hairline) !important;">
+                <a href="#contact" class="text-decoration-none small fw-semibold d-inline-flex align-items-center gap-1 interactive-hover prefill-service" data-service="Landing Page" style="color: var(--accent-sand);">
+                  <span>Enquire about Landing Page</span>
                   <i data-lucide="arrow-right" style="width: 14px; height: 14px;"></i>
                 </a>
               </div>
             </div>
           </div>
 
-          <!-- Service D -->
-          <div class="col-md-6 col-lg-4 gsap-reveal">
-            <div class="service-card">
+          <!-- D. Custom Web Applications -->
+          <div class="col-md-6 col-lg-4 anim-reveal">
+            <div class="service-card-item">
               <div>
-                <div class="d-flex align-items-center justify-content-between mb-4">
-                  <div class="icon-box mb-0"><i data-lucide="cpu" style="width: 20px; height: 20px;"></i></div>
-                  <span class="service-num">04</span>
+                <div class="d-flex align-items-center justify-content-between mb-3">
+                  <div class="icon-badge"><i data-lucide="cpu" style="width: 20px; height: 20px;"></i></div>
+                  <span style="font-family: var(--font-mono); font-size: 0.76rem; color: var(--text-muted);">04</span>
                 </div>
-                <h3 class="h4 fw-bold mb-2">Custom Web Applications</h3>
-                <p class="text-secondary small mb-0">Interactive applications built around business requirements, custom data workflows, booking flows, and browser-based tools.</p>
+                <h3 class="h5 mb-2">Custom Web Applications</h3>
+                <p class="small mb-0" style="color: var(--text-body);">Interactive browser applications, custom booking or intake workflows, and tailored tools built around business logic.</p>
+                <div class="rate-pill">
+                  <span>Starts at</span>
+                  <strong style="color: var(--text-ink);">₹25,000+</strong>
+                </div>
               </div>
-              <div class="mt-4 pt-3 border-top" style="border-color: var(--border-subtle) !important;">
-                <a href="#contact" class="text-decoration-none small fw-medium d-inline-flex align-items-center gap-1 interactive-hover" style="color: var(--accent-warm);">
-                  <span>Scope a web app</span>
+              <div class="mt-4 pt-3 border-top" style="border-color: var(--border-hairline) !important;">
+                <a href="#contact" class="text-decoration-none small fw-semibold d-inline-flex align-items-center gap-1 interactive-hover prefill-service" data-service="Custom Web Application" style="color: var(--accent-sand);">
+                  <span>Enquire about Web App</span>
                   <i data-lucide="arrow-right" style="width: 14px; height: 14px;"></i>
                 </a>
               </div>
             </div>
           </div>
 
-          <!-- Service E -->
-          <div class="col-md-6 col-lg-4 gsap-reveal">
-            <div class="service-card">
+          <!-- E. Digital Catalogues -->
+          <div class="col-md-6 col-lg-4 anim-reveal">
+            <div class="service-card-item">
               <div>
-                <div class="d-flex align-items-center justify-content-between mb-4">
-                  <div class="icon-box mb-0"><i data-lucide="book-open-check" style="width: 20px; height: 20px;"></i></div>
-                  <span class="service-num">05</span>
+                <div class="d-flex align-items-center justify-content-between mb-3">
+                  <div class="icon-badge"><i data-lucide="book-open-check" style="width: 20px; height: 20px;"></i></div>
+                  <span style="font-family: var(--font-mono); font-size: 0.76rem; color: var(--text-muted);">05</span>
                 </div>
-                <h3 class="h4 fw-bold mb-2">Digital Catalogues</h3>
-                <p class="text-secondary small mb-0">Online product and service catalogues, café menus, and structured directories that make browsing effortless on mobile.</p>
+                <h3 class="h5 mb-2">Digital Catalogues</h3>
+                <p class="small mb-0" style="color: var(--text-body);">Interactive restaurant & café menus, product showcases, and service directories with WhatsApp or reservation links.</p>
+                <div class="rate-pill">
+                  <span>Starts at</span>
+                  <strong style="color: var(--text-ink);">₹9,000+</strong>
+                </div>
               </div>
-              <div class="mt-4 pt-3 border-top" style="border-color: var(--border-subtle) !important;">
-                <a href="#contact" class="text-decoration-none small fw-medium d-inline-flex align-items-center gap-1 interactive-hover" style="color: var(--accent-warm);">
-                  <span>Build a catalogue</span>
+              <div class="mt-4 pt-3 border-top" style="border-color: var(--border-hairline) !important;">
+                <a href="#contact" class="text-decoration-none small fw-semibold d-inline-flex align-items-center gap-1 interactive-hover prefill-service" data-service="Digital Catalogue" style="color: var(--accent-sand);">
+                  <span>Enquire about Digital Catalogue</span>
                   <i data-lucide="arrow-right" style="width: 14px; height: 14px;"></i>
                 </a>
               </div>
             </div>
           </div>
 
-          <!-- Service F -->
-          <div class="col-md-6 col-lg-4 gsap-reveal">
-            <div class="service-card">
+          <!-- F. Website Maintenance -->
+          <div class="col-md-6 col-lg-4 anim-reveal">
+            <div class="service-card-item">
               <div>
-                <div class="d-flex align-items-center justify-content-between mb-4">
-                  <div class="icon-box mb-0"><i data-lucide="wrench" style="width: 20px; height: 20px;"></i></div>
-                  <span class="service-num">06</span>
+                <div class="d-flex align-items-center justify-content-between mb-3">
+                  <div class="icon-badge"><i data-lucide="wrench" style="width: 20px; height: 20px;"></i></div>
+                  <span style="font-family: var(--font-mono); font-size: 0.76rem; color: var(--text-muted);">06</span>
                 </div>
-                <h3 class="h4 fw-bold mb-2">Website Maintenance</h3>
-                <p class="text-secondary small mb-0">Ongoing technical support and content updates to keep your site accurate, responsive, and running smoothly after launch.</p>
+                <h3 class="h5 mb-2">Website Maintenance</h3>
+                <p class="small mb-0" style="color: var(--text-body);">Ongoing technical support, content & menu updates, speed checks, and layout tweaks to keep your site reliable.</p>
+                <div class="rate-pill">
+                  <span>Starts at</span>
+                  <strong style="color: var(--text-ink);">₹2,500 / mo</strong>
+                </div>
               </div>
-              <div class="mt-4 pt-3 border-top" style="border-color: var(--border-subtle) !important;">
-                <a href="#contact" class="text-decoration-none small fw-medium d-inline-flex align-items-center gap-1 interactive-hover" style="color: var(--accent-warm);">
-                  <span>Request support</span>
+              <div class="mt-4 pt-3 border-top" style="border-color: var(--border-hairline) !important;">
+                <a href="#contact" class="text-decoration-none small fw-semibold d-inline-flex align-items-center gap-1 interactive-hover prefill-service" data-service="Website Maintenance" style="color: var(--accent-sand);">
+                  <span>Enquire about Maintenance</span>
                   <i data-lucide="arrow-right" style="width: 14px; height: 14px;"></i>
                 </a>
               </div>
@@ -1567,80 +1597,80 @@
     <!-- ======================================================================
          6. WHY CHOOSE US
          ====================================================================== -->
-    <section class="section-padding border-top" style="border-color: var(--border-subtle) !important;">
+    <section class="section-space border-top" style="border-color: var(--border-hairline) !important;">
       <div class="container">
         <div class="row g-5 align-items-center">
-          <div class="col-lg-5 gsap-reveal">
-            <span class="eyebrow">Why Work With Us</span>
-            <h2 class="display-5 fw-bold mb-4">Crafted With Intention, Built for Clarity.</h2>
-            <p class="text-secondary mb-4">
-              You collaborate directly with the person designing and engineering your product—eliminating agency bloat, handoff delays, and cookie-cutter templates.
+          <div class="col-lg-5 anim-reveal">
+            <span class="section-kicker">Why Work With Us</span>
+            <h2 class="display-5 mb-4">Thoughtful Craft, Direct Accountability.</h2>
+            <p class="mb-4" style="color: var(--text-body);">
+              When you hire an independent studio, your project doesn't get passed down a chain of junior handoffs. You work directly with the designer and developer building your site.
             </p>
-            <a href="#contact" class="btn-studio-secondary interactive-hover">
-              <span>Start a Conversation</span>
+            <a href="#contact" class="btn-outline-warm interactive-hover">
+              <span>Discuss Your Project</span>
               <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i>
             </a>
           </div>
 
           <div class="col-lg-7">
-            <div class="row g-3">
-              <div class="col-sm-6 gsap-reveal">
-                <div class="value-card p-4">
+            <div class="row g-3 g-md-4">
+              <div class="col-sm-6 anim-reveal">
+                <div class="studio-card p-4">
                   <div class="d-flex align-items-center gap-2 mb-2">
-                    <i data-lucide="code-2" style="width: 18px; height: 18px; color: var(--accent-warm);"></i>
-                    <h3 class="h6 fw-bold mb-0">Custom-Built Experiences</h3>
+                    <i data-lucide="code-2" style="width: 18px; height: 18px; color: var(--accent-sand);"></i>
+                    <h3 class="h6 mb-0">Custom-Built Experiences</h3>
                   </div>
-                  <p class="text-secondary small mb-0">Tailored layouts and clean code written specifically around your brand and content.</p>
+                  <p class="small mb-0" style="color: var(--text-body);">Tailored layouts and clean code written around your actual content and brand identity.</p>
                 </div>
               </div>
 
-              <div class="col-sm-6 gsap-reveal">
-                <div class="value-card p-4">
+              <div class="col-sm-6 anim-reveal">
+                <div class="studio-card p-4">
                   <div class="d-flex align-items-center gap-2 mb-2">
-                    <i data-lucide="smartphone" style="width: 18px; height: 18px; color: var(--accent-warm);"></i>
-                    <h3 class="h6 fw-bold mb-0">Mobile-First Approach</h3>
+                    <i data-lucide="smartphone" style="width: 18px; height: 18px; color: var(--accent-sand);"></i>
+                    <h3 class="h6 mb-0">Mobile-First Approach</h3>
                   </div>
-                  <p class="text-secondary small mb-0">Designed for handheld screens first so every tap target, menu, and layout feels natural.</p>
+                  <p class="small mb-0" style="color: var(--text-body);">Designed for smartphone screens first so spacing, readability, and touch targets feel effortless.</p>
                 </div>
               </div>
 
-              <div class="col-sm-6 gsap-reveal">
-                <div class="value-card p-4">
+              <div class="col-sm-6 anim-reveal">
+                <div class="studio-card p-4">
                   <div class="d-flex align-items-center gap-2 mb-2">
-                    <i data-lucide="zap" style="width: 18px; height: 18px; color: var(--accent-warm);"></i>
-                    <h3 class="h6 fw-bold mb-0">Performance-Conscious</h3>
+                    <i data-lucide="zap" style="width: 18px; height: 18px; color: var(--accent-sand);"></i>
+                    <h3 class="h6 mb-0">Performance-Conscious</h3>
                   </div>
-                  <p class="text-secondary small mb-0">Lightweight architecture avoiding heavy, unnecessary frameworks that slow down your site.</p>
+                  <p class="small mb-0" style="color: var(--text-body);">Lean, well-structured frontend code without bloated plugins that slow down page loads.</p>
                 </div>
               </div>
 
-              <div class="col-sm-6 gsap-reveal">
-                <div class="value-card p-4">
+              <div class="col-sm-6 anim-reveal">
+                <div class="studio-card p-4">
                   <div class="d-flex align-items-center gap-2 mb-2">
-                    <i data-lucide="receipt" style="width: 18px; height: 18px; color: var(--accent-warm);"></i>
-                    <h3 class="h6 fw-bold mb-0">Transparent Pricing</h3>
+                    <i data-lucide="indian-rupee" style="width: 18px; height: 18px; color: var(--accent-sand);"></i>
+                    <h3 class="h6 mb-0">Transparent Pricing</h3>
                   </div>
-                  <p class="text-secondary small mb-0">Clear scope definitions and upfront quotes before development begins—no surprise fees.</p>
+                  <p class="small mb-0" style="color: var(--text-body);">Clear starting rates in ₹ and written scope agreement before work begins—no hidden costs.</p>
                 </div>
               </div>
 
-              <div class="col-sm-6 gsap-reveal">
-                <div class="value-card p-4">
+              <div class="col-sm-6 anim-reveal">
+                <div class="studio-card p-4">
                   <div class="d-flex align-items-center gap-2 mb-2">
-                    <i data-lucide="user-check" style="width: 18px; height: 18px; color: var(--accent-warm);"></i>
-                    <h3 class="h6 fw-bold mb-0">Direct Communication</h3>
+                    <i data-lucide="user-check" style="width: 18px; height: 18px; color: var(--accent-sand);"></i>
+                    <h3 class="h6 mb-0">Direct Communication</h3>
                   </div>
-                  <p class="text-secondary small mb-0">Work directly with your designer and developer across time zones with clear progress checkpoints.</p>
+                  <p class="small mb-0" style="color: var(--text-body);">Fast, clear updates via WhatsApp, email, or call across Indian and international time zones.</p>
                 </div>
               </div>
 
-              <div class="col-sm-6 gsap-reveal">
-                <div class="value-card p-4">
+              <div class="col-sm-6 anim-reveal">
+                <div class="studio-card p-4">
                   <div class="d-flex align-items-center gap-2 mb-2">
-                    <i data-lucide="life-buoy" style="width: 18px; height: 18px; color: var(--accent-warm);"></i>
-                    <h3 class="h6 fw-bold mb-0">Post-Launch Support</h3>
+                    <i data-lucide="life-buoy" style="width: 18px; height: 18px; color: var(--accent-sand);"></i>
+                    <h3 class="h6 mb-0">Post-Launch Support</h3>
                   </div>
-                  <p class="text-secondary small mb-0">Smooth handover documentation plus ongoing maintenance options whenever you need updates.</p>
+                  <p class="small mb-0" style="color: var(--text-body);">Smooth deployment handover plus flexible maintenance support whenever your business grows.</p>
                 </div>
               </div>
             </div>
@@ -1652,58 +1682,58 @@
     <!-- ======================================================================
          7. OUR PROCESS (ANIMATED TIMELINE)
          ====================================================================== -->
-    <section id="process" class="section-padding border-top" style="border-color: var(--border-subtle) !important; background-color: var(--bg-secondary);">
+    <section id="process" class="section-space border-top" style="border-color: var(--border-hairline) !important; background-color: var(--bg-elevated);">
       <div class="container">
-        <div class="row justify-content-between align-items-end mb-5 gsap-reveal">
+        <div class="row justify-content-between align-items-end section-header-gap anim-reveal">
           <div class="col-lg-7">
-            <span class="eyebrow">How We Work</span>
-            <h2 class="display-5 fw-bold mb-0">A Clear Five-Step Process.</h2>
+            <span class="section-kicker">How It Works</span>
+            <h2 class="display-5 mb-0">A Simple, Five-Step Process.</h2>
           </div>
           <div class="col-lg-4 mt-3 mt-lg-0">
-            <p class="text-secondary mb-0">
-              From initial idea to live deployment, every stage is structured to keep decisions simple and momentum steady.
+            <p class="mb-0" style="color: var(--text-body);">
+              Every project follows a clear sequence so you always know what stage we are in and what comes next.
             </p>
           </div>
         </div>
 
         <div class="row g-4">
-          <div class="col-md-6 col-lg gsap-process">
-            <div class="process-step">
-              <span class="step-number">01</span>
-              <h3 class="h5 fw-bold mb-2">Discovery</h3>
-              <p class="text-secondary small mb-0">Understand the business, target audience, goals, and functional requirements.</p>
+          <div class="col-md-6 col-lg anim-step">
+            <div class="process-card">
+              <span class="process-num">01</span>
+              <h3 class="h5 mb-2">Discovery</h3>
+              <p class="small mb-0" style="color: var(--text-body);">Understand your business, customers, goals, and functional requirements.</p>
             </div>
           </div>
 
-          <div class="col-md-6 col-lg gsap-process">
-            <div class="process-step">
-              <span class="step-number">02</span>
-              <h3 class="h5 fw-bold mb-2">Planning</h3>
-              <p class="text-secondary small mb-0">Define features, content structure, user flows, and technical architecture.</p>
+          <div class="col-md-6 col-lg anim-step">
+            <div class="process-card">
+              <span class="process-num">02</span>
+              <h3 class="h5 mb-2">Planning</h3>
+              <p class="small mb-0" style="color: var(--text-body);">Define pages, features, content flow, and technical structure.</p>
             </div>
           </div>
 
-          <div class="col-md-6 col-lg gsap-process">
-            <div class="process-step">
-              <span class="step-number">03</span>
-              <h3 class="h5 fw-bold mb-2">Design & Dev</h3>
-              <p class="text-secondary small mb-0">Craft the visual interface and build the responsive, interactive experience.</p>
+          <div class="col-md-6 col-lg anim-step">
+            <div class="process-card">
+              <span class="process-num">03</span>
+              <h3 class="h5 mb-2">Design & Dev</h3>
+              <p class="small mb-0" style="color: var(--text-body);">Design the visual interface and build the responsive, interactive site.</p>
             </div>
           </div>
 
-          <div class="col-md-6 col-lg gsap-process">
-            <div class="process-step">
-              <span class="step-number">04</span>
-              <h3 class="h5 fw-bold mb-2">Testing</h3>
-              <p class="text-secondary small mb-0">Check mobile responsiveness, cross-browser functionality, accessibility, and speed.</p>
+          <div class="col-md-6 col-lg anim-step">
+            <div class="process-card">
+              <span class="process-num">04</span>
+              <h3 class="h5 mb-2">Testing</h3>
+              <p class="small mb-0" style="color: var(--text-body);">Verify mobile responsiveness, browser compatibility, links, and load speed.</p>
             </div>
           </div>
 
-          <div class="col-md-12 col-lg gsap-process">
-            <div class="process-step">
-              <span class="step-number">05</span>
-              <h3 class="h5 fw-bold mb-2">Launch</h3>
-              <p class="text-secondary small mb-0">Deploy the live website, verify domain setup, and hand over full control.</p>
+          <div class="col-md-12 col-lg anim-step">
+            <div class="process-card">
+              <span class="process-num">05</span>
+              <h3 class="h5 mb-2">Launch</h3>
+              <p class="small mb-0" style="color: var(--text-body);">Deploy the live website, connect your domain, and hand over full access.</p>
             </div>
           </div>
         </div>
@@ -1711,97 +1741,95 @@
     </section>
 
     <!-- ======================================================================
-         8. PRICING SECTION
+         8. PRICING PACKAGES (FREELANCE STANDARD INR)
          ====================================================================== -->
-    <section id="pricing" class="section-padding border-top" style="border-color: var(--border-subtle) !important;">
+    <section id="pricing" class="section-space border-top" style="border-color: var(--border-hairline) !important;">
       <div class="container">
-        <div class="row justify-content-between align-items-end mb-5 gsap-reveal">
+        <div class="row justify-content-between align-items-end section-header-gap anim-reveal">
           <div class="col-lg-7">
-            <span class="eyebrow">Indicative Investment</span>
-            <h2 class="display-5 fw-bold mb-0">Transparent Starting Packages.</h2>
+            <span class="section-kicker">Packages</span>
+            <h2 class="display-5 mb-0">Indicative Project Packages in ₹.</h2>
           </div>
           <div class="col-lg-4 mt-3 mt-lg-0">
-            <p class="text-secondary mb-0">
-              All rates are listed in USD. Final pricing depends on project scope, page count, and custom feature requirements.
+            <p class="mb-0" style="color: var(--text-body);">
+              Standard freelance starting tiers in Indian Rupees. Final pricing depends on exact scope, content, and custom integrations.
             </p>
           </div>
         </div>
 
         <div class="row g-4 align-items-stretch">
           <!-- Tier 1: Starter Website -->
-          <div class="col-lg-4 gsap-reveal">
-            <div class="pricing-card">
+          <div class="col-lg-4 anim-reveal">
+            <div class="package-card">
               <div>
-                <span class="font-mono small text-uppercase" style="color: var(--text-muted);">Tier 01</span>
-                <h3 class="h4 fw-bold mt-1">Starter Website</h3>
-                <div class="price-amount">$100<span class="fs-4 text-secondary fw-normal">+</span></div>
-                <p class="text-secondary small">Ideal for landing pages, personal brands, and early-stage businesses needing a sharp online presence.</p>
+                <span style="font-family: var(--font-mono); font-size: 0.74rem; color: var(--text-muted); text-transform: uppercase;">Package 01</span>
+                <h3 class="h4 mt-1">Starter Website</h3>
+                <div class="package-price">₹8,000<span class="fs-4 fw-normal" style="color: var(--text-muted);">+</span></div>
+                <p class="small" style="color: var(--text-body);">Best for landing pages, personal brands, and early-stage businesses needing a clean online presence.</p>
 
-                <ul class="pricing-list">
-                  <li><i data-lucide="check" style="width: 16px; height: 16px;"></i><span>Responsive single-page or compact site</span></li>
-                  <li><i data-lucide="check" style="width: 16px; height: 16px;"></i><span>Modern editorial design & typography</span></li>
-                  <li><i data-lucide="check" style="width: 16px; height: 16px;"></i><span>Mobile-first layout & speed optimization</span></li>
-                  <li><i data-lucide="check" style="width: 16px; height: 16px;"></i><span>Contact / enquiry integration</span></li>
+                <ul class="check-list">
+                  <li><i data-lucide="check" style="width: 16px; height: 16px;"></i><span>Responsive single-page or compact website</span></li>
+                  <li><i data-lucide="check" style="width: 16px; height: 16px;"></i><span>Modern typography & mobile-first layout</span></li>
+                  <li><i data-lucide="check" style="width: 16px; height: 16px;"></i><span>WhatsApp & direct email enquiry integration</span></li>
+                  <li><i data-lucide="check" style="width: 16px; height: 16px;"></i><span>Fast loading & basic SEO metadata setup</span></li>
                 </ul>
               </div>
 
-              <a href="#contact" class="btn-studio-secondary w-100 interactive-hover select-package-btn" data-package="Starter Website ($100+)">
+              <a href="#contact" class="btn-outline-warm w-100 interactive-hover select-budget-btn" data-budget="Starter Website (₹8,000+)">
                 <span>Request a Quote</span>
               </a>
             </div>
           </div>
 
           <!-- Tier 2: Business Website -->
-          <div class="col-lg-4 gsap-reveal">
-            <div class="pricing-card featured">
+          <div class="col-lg-4 anim-reveal">
+            <div class="package-card is-featured">
               <div>
-                <div class="d-flex align-items-center justify-content-between">
-                  <span class="font-mono small text-uppercase" style="color: var(--accent-warm);">Tier 02 · Most Requested</span>
-                </div>
-                <h3 class="h4 fw-bold mt-1">Business Website</h3>
-                <div class="price-amount">$200<span class="fs-4 text-secondary fw-normal">+</span></div>
-                <p class="text-secondary small">Built for established businesses, cafés, restaurants, and service providers seeking a complete digital home.</p>
+                <span style="font-family: var(--font-mono); font-size: 0.74rem; color: var(--accent-sand); text-transform: uppercase;">Package 02 · Most Chosen</span>
+                <h3 class="h4 mt-1">Business Website</h3>
+                <div class="package-price">₹15,000<span class="fs-4 fw-normal" style="color: var(--text-muted);">+</span></div>
+                <p class="small" style="color: var(--text-body);">Ideal for cafés, restaurants, clinics, and growing businesses looking for a complete, high-trust digital home.</p>
 
-                <ul class="pricing-list">
-                  <li><i data-lucide="check" style="width: 16px; height: 16px;"></i><span>Multi-section or multi-page architecture</span></li>
-                  <li><i data-lucide="check" style="width: 16px; height: 16px;"></i><span>Interactive menu, gallery, or service catalogue</span></li>
-                  <li><i data-lucide="check" style="width: 16px; height: 16px;"></i><span>Booking, reservation, or WhatsApp links</span></li>
-                  <li><i data-lucide="check" style="width: 16px; height: 16px;"></i><span>On-page SEO metadata & clean deployment</span></li>
+                <ul class="check-list">
+                  <li><i data-lucide="check" style="width: 16px; height: 16px;"></i><span>Multi-section or multi-page custom website</span></li>
+                  <li><i data-lucide="check" style="width: 16px; height: 16px;"></i><span>Interactive menu, gallery, or digital catalogue</span></li>
+                  <li><i data-lucide="check" style="width: 16px; height: 16px;"></i><span>Reservation, booking, or lead capture flows</span></li>
+                  <li><i data-lucide="check" style="width: 16px; height: 16px;"></i><span>Cross-device testing & live domain deployment</span></li>
                 </ul>
               </div>
 
-              <a href="#contact" class="btn-studio-primary w-100 interactive-hover select-package-btn" data-package="Business Website ($200+)">
+              <a href="#contact" class="btn-primary-warm w-100 interactive-hover select-budget-btn" data-budget="Business Website (₹15,000+)">
                 <span>Request a Quote</span>
               </a>
             </div>
           </div>
 
           <!-- Tier 3: Advanced Web Application -->
-          <div class="col-lg-4 gsap-reveal">
-            <div class="pricing-card">
+          <div class="col-lg-4 anim-reveal">
+            <div class="package-card">
               <div>
-                <span class="font-mono small text-uppercase" style="color: var(--text-muted);">Tier 03</span>
-                <h3 class="h4 fw-bold mt-1">Advanced Web Application</h3>
-                <div class="price-amount">$500<span class="fs-4 text-secondary fw-normal">+</span></div>
-                <p class="text-secondary small">For custom web applications, interactive platforms, data-driven tools, and tailored digital workflows.</p>
+                <span style="font-family: var(--font-mono); font-size: 0.74rem; color: var(--text-muted); text-transform: uppercase;">Package 03</span>
+                <h3 class="h4 mt-1">Advanced Web Application</h3>
+                <div class="package-price">₹30,000<span class="fs-4 fw-normal" style="color: var(--text-muted);">+</span></div>
+                <p class="small" style="color: var(--text-body);">Built for custom web applications, interactive platforms, data workflows, and specialized business tools.</p>
 
-                <ul class="pricing-list">
-                  <li><i data-lucide="check" style="width: 16px; height: 16px;"></i><span>Custom UI/UX & interactive user workflows</span></li>
-                  <li><i data-lucide="check" style="width: 16px; height: 16px;"></i><span>Dynamic filtering, forms & state logic</span></li>
-                  <li><i data-lucide="check" style="width: 16px; height: 16px;"></i><span>API / cloud backend integration support</span></li>
-                  <li><i data-lucide="check" style="width: 16px; height: 16px;"></i><span>Cross-device testing & handover documentation</span></li>
+                <ul class="check-list">
+                  <li><i data-lucide="check" style="width: 16px; height: 16px;"></i><span>Custom UI/UX & multi-step user workflows</span></li>
+                  <li><i data-lucide="check" style="width: 16px; height: 16px;"></i><span>Interactive filtering, search & dynamic states</span></li>
+                  <li><i data-lucide="check" style="width: 16px; height: 16px;"></i><span>Cloud database / API integration support</span></li>
+                  <li><i data-lucide="check" style="width: 16px; height: 16px;"></i><span>Complete handover & post-launch walkthrough</span></li>
                 </ul>
               </div>
 
-              <a href="#contact" class="btn-studio-secondary w-100 interactive-hover select-package-btn" data-package="Advanced Web Application ($500+)">
+              <a href="#contact" class="btn-outline-warm w-100 interactive-hover select-budget-btn" data-budget="Advanced Web Application (₹30,000+)">
                 <span>Request a Quote</span>
               </a>
             </div>
           </div>
         </div>
 
-        <p class="text-center text-secondary small mt-4 mb-0">
-          Note: All prices above are indicative starting points in USD. Final pricing depends on exact scope, functionality, and content requirements.
+        <p class="text-center small mt-4 mb-0" style="color: var(--text-muted);">
+          All prices shown are indicative freelance starting rates in INR (₹). Final pricing depends on project scope, page count, and specific feature requirements.
         </p>
       </div>
     </section>
@@ -1809,17 +1837,17 @@
     <!-- ======================================================================
          9. ABOUT SECTION
          ====================================================================== -->
-    <section id="about" class="section-padding border-top" style="border-color: var(--border-subtle) !important; background-color: var(--bg-secondary);">
+    <section id="about" class="section-space border-top" style="border-color: var(--border-hairline) !important; background-color: var(--bg-elevated);">
       <div class="container">
         <div class="row justify-content-center">
-          <div class="col-lg-9 text-center gsap-reveal">
-            <span class="eyebrow">About the Studio</span>
-            <h2 class="display-5 fw-bold mb-4">Design Thinking Meets Modern Web Engineering.</h2>
-            <p class="lead text-light mb-4" style="font-size: clamp(1.15rem, 1.8vw, 1.42rem); line-height: 1.75;">
+          <div class="col-lg-9 text-center anim-reveal">
+            <span class="section-kicker">About the Studio</span>
+            <h2 class="display-5 mb-4">Design Thinking Meets Modern Web Craft.</h2>
+            <p class="font-serif-editorial mb-4" style="font-size: clamp(1.22rem, 2vw, 1.55rem); line-height: 1.65; color: var(--text-ink);">
               “We are an independent digital development studio passionate about building useful, thoughtful and visually engaging digital experiences. We combine design thinking, modern web technologies and AI-assisted workflows to turn ideas into working products.”
             </p>
-            <p class="text-secondary mx-auto mb-0" style="max-width: 660px;">
-              Whether launching a new venture in New York, refreshing a local hospitality brand in London or Sydney, or building a custom web platform in Toronto or Bengaluru, we focus on clarity, speed, and real-world usability.
+            <p class="mx-auto mb-0" style="max-width: 640px; color: var(--text-body);">
+              Every project is approached with practical problem-solving—focusing on clean structure, honest communication, and digital products that businesses can actually rely on.
             </p>
           </div>
         </div>
@@ -1827,152 +1855,174 @@
     </section>
 
     <!-- ======================================================================
-         10. CONTACT SECTION (HONEST MAILTO FLOW + VALIDATION + WHATSAPP)
+         10. CONTACT SECTION (DIRECT PHONE, EMAIL, WHATSAPP & HONEST MAILTO FLOW)
          ====================================================================== -->
-    <section id="contact" class="section-padding border-top" style="border-color: var(--border-subtle) !important;">
+    <section id="contact" class="section-space border-top" style="border-color: var(--border-hairline) !important;">
       <div class="container">
         <div class="row g-5">
-          <!-- Left Column: Direct Info & WhatsApp -->
-          <div class="col-lg-5 gsap-reveal">
-            <span class="eyebrow">Start a Project</span>
-            <h2 class="display-5 fw-bold mb-3">Let's Build Your Next Digital Experience.</h2>
-            <p class="text-secondary mb-4">
-              Share your project goals, timeline, and budget range. You will receive a clear, structured response outlining recommended next steps and scope.
+          <!-- Left Column: Direct Contact Channels -->
+          <div class="col-lg-5 anim-reveal">
+            <span class="section-kicker">Get In Touch</span>
+            <h2 class="display-5 mb-3">Let's Talk About Your Project.</h2>
+            <p class="mb-4" style="color: var(--text-body);">
+              Send over your project idea, timeline, and budget range. You will get a clear, direct reply with recommended steps and an accurate quote.
             </p>
 
-            <!-- WhatsApp Direct Option -->
-            <div class="whatsapp-card mb-4">
+            <!-- Direct WhatsApp & Phone Card -->
+            <div class="contact-channel-card">
               <div class="d-flex align-items-start gap-3">
-                <div class="icon-box mb-0" style="background: rgba(52, 211, 153, 0.14); border-color: rgba(52, 211, 153, 0.3); color: var(--accent-emerald);">
+                <div class="icon-badge" style="background-color: rgba(74, 222, 128, 0.12); border-color: rgba(74, 222, 128, 0.25); color: var(--accent-sage);">
                   <i data-lucide="message-circle" style="width: 20px; height: 20px;"></i>
                 </div>
                 <div>
-                  <h3 class="h6 fw-bold text-white mb-1">Prefer a Quick Chat on WhatsApp?</h3>
-                  <p class="text-secondary small mb-3">
-                    Message directly to discuss a website idea or ask a quick question.
+                  <h3 class="h6 mb-1">WhatsApp & Direct Call</h3>
+                  <p class="small mb-3" style="color: var(--text-body);">
+                    Reach out directly on WhatsApp or phone for quick discussions.
                   </p>
-                  <!-- Replace 15550192834 with your actual WhatsApp number (country code + number, no + or spaces) -->
-                  <a href="https://wa.me/15550192834?text=Hi%20Kinetic%20Studio%2C%20I%27d%20like%20to%20discuss%20a%20web%20project." target="_blank" rel="noopener noreferrer" class="btn-studio-secondary py-2 px-3 small interactive-hover" style="border-color: rgba(52, 211, 153, 0.35);">
-                    <span>Chat on WhatsApp (+1 555-019-2834 — Placeholder)</span>
-                    <i data-lucide="arrow-up-right" style="width: 14px; height: 14px;"></i>
+                  <div class="d-flex flex-wrap gap-2">
+                    <a href="https://wa.me/918788337049?text=Hi%2C%20I%27d%20like%20to%20discuss%20a%20website%20project." target="_blank" rel="noopener noreferrer" class="btn-outline-warm py-2 px-3 small interactive-hover" style="border-color: rgba(74, 222, 128, 0.35);">
+                      <span>WhatsApp: +91 87883 37049</span>
+                      <i data-lucide="arrow-up-right" style="width: 14px; height: 14px;"></i>
+                    </a>
+                    <a href="tel:+918788337049" class="btn-outline-warm py-2 px-3 small interactive-hover">
+                      <i data-lucide="phone" style="width: 14px; height: 14px;"></i>
+                      <span>Call</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Direct Email Card -->
+            <div class="contact-channel-card">
+              <div class="d-flex align-items-start gap-3">
+                <div class="icon-badge">
+                  <i data-lucide="mail" style="width: 20px; height: 20px;"></i>
+                </div>
+                <div>
+                  <h3 class="h6 mb-1">Direct Email</h3>
+                  <p class="small mb-2" style="color: var(--text-body);">
+                    Prefer writing directly? Send your project brief anytime.
+                  </p>
+                  <a href="mailto:rajkumarashish75@gmail.com" class="text-decoration-none fw-medium small interactive-hover" style="color: var(--accent-sand); word-break: break-all;">
+                    rajkumarashish75@gmail.com
                   </a>
                 </div>
               </div>
             </div>
 
-            <!-- Backend Setup Transparency Note -->
-            <div class="backend-note-box">
-              <div class="d-flex align-items-center gap-2 text-white fw-semibold mb-1">
-                <i data-lucide="info" style="width: 15px; height: 15px; color: var(--accent-warm);"></i>
-                <span>How This Enquiry Form Works</span>
+            <!-- Honest Mailto / Backend Explanation -->
+            <div class="info-callout">
+              <div class="d-flex align-items-center gap-2 fw-semibold mb-1" style="color: var(--text-ink);">
+                <i data-lucide="info" style="width: 15px; height: 15px; color: var(--accent-sand);"></i>
+                <span>How Form Submission Works</span>
               </div>
               <p class="mb-0 small">
-                Because this site runs as a fast static frontend without a server database, submitting this form validates your inputs and opens your default email client pre-filled with your structured project brief. To connect automated form submissions later, replace the form handler with a <strong>Formspree</strong> endpoint (<code>action="https://formspree.io/f/YOUR_ID" method="POST"</code>) or Web3Forms.
+                To keep this website fast with zero third-party tracking, submitting the form validates your details and opens your email app pre-addressed to <strong>rajkumarashish75@gmail.com</strong>. If you ever want silent background submissions later, simply add <code>action="https://formspree.io/f/YOUR_FORM_ID" method="POST"</code> to the <code>&lt;form&gt;</code> tag.
               </p>
             </div>
           </div>
 
-          <!-- Right Column: Interactive Project Enquiry Form -->
-          <div class="col-lg-7 gsap-reveal">
-            <div class="contact-panel">
-              <form id="projectEnquiryForm" novalidate>
-                <div class="row g-3">
+          <!-- Right Column: Project Enquiry Form -->
+          <div class="col-lg-7 anim-reveal">
+            <div class="enquiry-box">
+              <form id="enquiryForm" novalidate>
+                <div class="row g-3 g-md-4">
                   <!-- Full Name -->
                   <div class="col-md-6">
-                    <label for="fullName" class="form-label-custom">Full Name *</label>
-                    <input type="text" class="form-control-studio" id="fullName" name="fullName" placeholder="Alex Morgan" required />
-                    <div class="invalid-feedback-custom">Please enter your full name.</div>
+                    <label for="fullName" class="field-label">Full Name *</label>
+                    <input type="text" class="field-input" id="fullName" name="fullName" placeholder="Your full name" required />
+                    <div class="error-msg">Please enter your full name.</div>
                   </div>
 
                   <!-- Email Address -->
                   <div class="col-md-6">
-                    <label for="emailAddress" class="form-label-custom">Email Address *</label>
-                    <input type="email" class="form-control-studio" id="emailAddress" name="emailAddress" placeholder="alex@company.com" required />
-                    <div class="invalid-feedback-custom">Please enter a valid email address.</div>
+                    <label for="emailAddress" class="field-label">Email Address *</label>
+                    <input type="email" class="field-input" id="emailAddress" name="emailAddress" placeholder="you@company.com" required />
+                    <div class="error-msg">Please enter a valid email address.</div>
                   </div>
 
                   <!-- Business Name -->
                   <div class="col-md-6">
-                    <label for="businessName" class="form-label-custom">Business / Brand Name</label>
-                    <input type="text" class="form-control-studio" id="businessName" name="businessName" placeholder="Morgan Roasters Ltd." />
+                    <label for="businessName" class="field-label">Business Name</label>
+                    <input type="text" class="field-input" id="businessName" name="businessName" placeholder="Your business or brand" />
                   </div>
 
                   <!-- Country -->
                   <div class="col-md-6">
-                    <label for="country" class="form-label-custom">Country *</label>
-                    <select class="form-select-studio" id="country" name="country" required>
+                    <label for="country" class="field-label">Country *</label>
+                    <select class="field-select" id="country" name="country" required>
                       <option value="" selected disabled>Select your country</option>
+                      <option value="India">India</option>
                       <option value="United States">United States</option>
                       <option value="United Kingdom">United Kingdom</option>
                       <option value="Canada">Canada</option>
                       <option value="Australia">Australia</option>
-                      <option value="India">India</option>
                       <option value="Other International">Other International</option>
                     </select>
-                    <div class="invalid-feedback-custom">Please select your country.</div>
+                    <div class="error-msg">Please select your country.</div>
                   </div>
 
                   <!-- Project Type -->
                   <div class="col-md-6">
-                    <label for="projectType" class="form-label-custom">Project Type *</label>
-                    <select class="form-select-studio" id="projectType" name="projectType" required>
+                    <label for="projectType" class="field-label">Project Type *</label>
+                    <select class="field-select" id="projectType" name="projectType" required>
                       <option value="" selected disabled>Select project type</option>
                       <option value="Business Website">Business Website</option>
-                      <option value="Restaurant / Café Website">Restaurant / Café Website</option>
                       <option value="Website Redesign">Website Redesign</option>
                       <option value="Landing Page">Landing Page</option>
                       <option value="Custom Web Application">Custom Web Application</option>
                       <option value="Digital Catalogue">Digital Catalogue</option>
                       <option value="Website Maintenance">Website Maintenance</option>
                     </select>
-                    <div class="invalid-feedback-custom">Please select a project type.</div>
+                    <div class="error-msg">Please choose a project type.</div>
                   </div>
 
-                  <!-- Estimated Budget -->
+                  <!-- Estimated Budget (INR) -->
                   <div class="col-md-6">
-                    <label for="estimatedBudget" class="form-label-custom">Estimated Budget (USD) *</label>
-                    <select class="form-select-studio" id="estimatedBudget" name="estimatedBudget" required>
+                    <label for="estimatedBudget" class="field-label">Estimated Budget (₹) *</label>
+                    <select class="field-select" id="estimatedBudget" name="estimatedBudget" required>
                       <option value="" selected disabled>Select budget range</option>
-                      <option value="Starter Website ($100+)">Starter Website ($100+)</option>
-                      <option value="Business Website ($200+)">Business Website ($200+)</option>
-                      <option value="Advanced Web Application ($500+)">Advanced Web Application ($500+)</option>
+                      <option value="Starter Website (₹8,000+)">Starter Website (₹8,000+)</option>
+                      <option value="Business Website (₹15,000+)">Business Website (₹15,000+)</option>
+                      <option value="Advanced Web Application (₹30,000+)">Advanced Web Application (₹30,000+)</option>
                       <option value="Custom Scope / Flexible">Custom Scope / Flexible</option>
                     </select>
-                    <div class="invalid-feedback-custom">Please select an estimated budget.</div>
+                    <div class="error-msg">Please select an estimated budget.</div>
                   </div>
 
                   <!-- Expected Timeline -->
                   <div class="col-12">
-                    <label for="timeline" class="form-label-custom">Expected Timeline *</label>
-                    <select class="form-select-studio" id="timeline" name="timeline" required>
-                      <option value="" selected disabled>When would you like to launch?</option>
-                      <option value="As soon as possible (1–2 weeks)">As soon as possible (1–2 weeks)</option>
-                      <option value="Within 1 month">Within 1 month</option>
-                      <option value="1–2 months">1–2 months</option>
-                      <option value="Flexible / Exploring options">Flexible / Exploring options</option>
+                    <label for="expectedTimeline" class="field-label">Expected Timeline *</label>
+                    <select class="field-select" id="expectedTimeline" name="expectedTimeline" required>
+                      <option value="" selected disabled>Select expected timeline</option>
+                      <option value="1–2 Weeks">1–2 Weeks</option>
+                      <option value="2–4 Weeks">2–4 Weeks</option>
+                      <option value="1–2 Months">1–2 Months</option>
+                      <option value="Flexible / Exploring">Flexible / Exploring</option>
                     </select>
-                    <div class="invalid-feedback-custom">Please select an expected timeline.</div>
+                    <div class="error-msg">Please select your expected timeline.</div>
                   </div>
 
                   <!-- Project Description -->
                   <div class="col-12">
-                    <label for="projectDescription" class="form-label-custom">Project Description *</label>
-                    <textarea class="form-control-studio" id="projectDescription" name="projectDescription" rows="4" placeholder="Tell us about your business, key features you need, or any reference links..." required></textarea>
-                    <div class="invalid-feedback-custom">Please briefly describe your project requirements.</div>
+                    <label for="projectDescription" class="field-label">Project Description *</label>
+                    <textarea class="field-input" id="projectDescription" name="projectDescription" rows="4" placeholder="Tell us about your business, what pages or features you need, and any links you like..." required></textarea>
+                    <div class="error-msg">Please describe your project requirements.</div>
                   </div>
 
-                  <!-- Submit Action -->
+                  <!-- Submit Button -->
                   <div class="col-12 pt-2">
-                    <button type="submit" class="btn-studio-primary w-100 py-3 interactive-hover">
-                      <span>Compose Project Enquiry Email</span>
+                    <button type="submit" class="btn-primary-warm w-100 py-3 interactive-hover">
+                      <span>Send Project Enquiry via Email</span>
                       <i data-lucide="send" style="width: 16px; height: 16px;"></i>
                     </button>
                   </div>
                 </div>
 
-                <!-- Feedback Banner after Mailto Launch -->
-                <div id="formStatusMessage" class="mt-3 p-3 rounded-3 d-none" style="background: rgba(52, 211, 153, 0.1); border: 1px solid rgba(52, 211, 153, 0.28); color: #d1fae5; font-size: 0.88rem;" role="status">
-                  Your email client has been opened with your formatted project brief. If it did not launch automatically, please email your details directly to <strong>hello@kineticstudio.example</strong>.
+                <!-- Mailto Confirmation Feedback -->
+                <div id="formFeedback" class="mt-3 p-3 rounded-3 d-none" style="background-color: rgba(74, 222, 128, 0.1); border: 1px solid rgba(74, 222, 128, 0.25); color: #dcfce7; font-size: 0.88rem;" role="status">
+                  Your email client has been opened with your formatted enquiry addressed to <strong>rajkumarashish75@gmail.com</strong>. You can also message directly on WhatsApp at <strong>+91 87883 37049</strong>.
                 </div>
               </form>
             </div>
@@ -1985,187 +2035,181 @@
   <!-- ========================================================================
        11. FOOTER
        ======================================================================== -->
-  <footer class="site-footer">
+  <footer class="footer-area">
     <div class="container">
       <div class="row g-4 pb-5">
         <div class="col-lg-4">
-          <a href="#top" class="studio-brand mb-3">
-            <span class="brand-mark"><i data-lucide="layers" style="width: 16px; height: 16px;"></i></span>
-            <span>KINETIC<span style="color: var(--accent-warm);">.</span>STUDIO</span>
+          <a href="#top" class="brand-logo mb-3">
+            <span class="brand-monogram">VW</span>
+            <span>Vicky<span style="color: var(--accent-sand);">.</span>Works</span>
           </a>
-          <p class="text-secondary small mb-3" style="max-width: 320px;">
-            We turn business ideas into powerful digital experiences. Independent digital design and web development studio serving global clients.
+          <p class="small mb-3" style="color: var(--text-body); max-width: 320px;">
+            We turn business ideas into powerful digital experiences. Independent web design and development studio.
           </p>
-          <p class="font-mono small text-muted mb-0">
-            USA · UK · CANADA · AUSTRALIA · INDIA
+          <p style="font-family: var(--font-mono); font-size: 0.74rem; color: var(--text-muted);" class="mb-0">
+            INDIA · USA · UK · CANADA · AUSTRALIA
           </p>
         </div>
 
         <div class="col-6 col-md-4 col-lg-2">
-          <h4 class="h6 fw-bold text-white mb-3">Navigation</h4>
+          <h4 class="h6 mb-3">Navigation</h4>
           <ul class="list-unstyled mb-0">
-            <li><a href="#work" class="footer-link">Work</a></li>
-            <li><a href="#services" class="footer-link">Services</a></li>
-            <li><a href="#process" class="footer-link">Process</a></li>
-            <li><a href="#pricing" class="footer-link">Pricing</a></li>
-            <li><a href="#about" class="footer-link">About</a></li>
-            <li><a href="#contact" class="footer-link">Contact</a></li>
+            <li><a href="#work" class="footer-nav-link">Work</a></li>
+            <li><a href="#services" class="footer-nav-link">Services</a></li>
+            <li><a href="#process" class="footer-nav-link">Process</a></li>
+            <li><a href="#pricing" class="footer-nav-link">Pricing</a></li>
+            <li><a href="#about" class="footer-nav-link">About</a></li>
+            <li><a href="#contact" class="footer-nav-link">Contact</a></li>
           </ul>
         </div>
 
         <div class="col-6 col-md-4 col-lg-3">
-          <h4 class="h6 fw-bold text-white mb-3">Services</h4>
+          <h4 class="h6 mb-3">Services</h4>
           <ul class="list-unstyled mb-0">
-            <li><a href="#services" class="footer-link">Business Websites</a></li>
-            <li><a href="#services" class="footer-link">Website Redesign</a></li>
-            <li><a href="#services" class="footer-link">Landing Pages</a></li>
-            <li><a href="#services" class="footer-link">Custom Web Applications</a></li>
-            <li><a href="#services" class="footer-link">Digital Catalogues</a></li>
-            <li><a href="#services" class="footer-link">Website Maintenance</a></li>
+            <li><a href="#services" class="footer-nav-link">Business Websites</a></li>
+            <li><a href="#services" class="footer-nav-link">Website Redesign</a></li>
+            <li><a href="#services" class="footer-nav-link">Landing Pages</a></li>
+            <li><a href="#services" class="footer-nav-link">Custom Web Applications</a></li>
+            <li><a href="#services" class="footer-nav-link">Digital Catalogues</a></li>
+            <li><a href="#services" class="footer-nav-link">Website Maintenance</a></li>
           </ul>
         </div>
 
         <div class="col-md-4 col-lg-3">
-          <h4 class="h6 fw-bold text-white mb-3">Contact & Social</h4>
+          <h4 class="h6 mb-3">Direct Contact</h4>
           <ul class="list-unstyled mb-3">
             <li>
-              <a href="mailto:hello@kineticstudio.example" class="footer-link">
-                hello@kineticstudio.example (Placeholder)
+              <a href="mailto:rajkumarashish75@gmail.com" class="footer-nav-link" style="word-break: break-all;">
+                rajkumarashish75@gmail.com
               </a>
             </li>
             <li>
-              <a href="https://wa.me/15550192834" target="_blank" rel="noopener noreferrer" class="footer-link">
-                WhatsApp: +1 555-019-2834 (Placeholder)
+              <a href="https://wa.me/918788337049" target="_blank" rel="noopener noreferrer" class="footer-nav-link">
+                +91 87883 37049 (WhatsApp / Call)
               </a>
             </li>
           </ul>
           <div class="d-flex gap-2">
-            <a href="#contact" class="icon-box mb-0 interactive-hover" aria-label="GitHub Profile Placeholder">
+            <a href="https://github.com/imvicky2115" target="_blank" rel="noopener noreferrer" class="icon-badge interactive-hover" aria-label="GitHub">
               <i data-lucide="github" style="width: 17px; height: 17px;"></i>
             </a>
-            <a href="#contact" class="icon-box mb-0 interactive-hover" aria-label="LinkedIn Profile Placeholder">
-              <i data-lucide="linkedin" style="width: 17px; height: 17px;"></i>
+            <a href="mailto:rajkumarashish75@gmail.com" class="icon-badge interactive-hover" aria-label="Email">
+              <i data-lucide="mail" style="width: 17px; height: 17px;"></i>
             </a>
-            <a href="#contact" class="icon-box mb-0 interactive-hover" aria-label="Instagram Profile Placeholder">
-              <i data-lucide="instagram" style="width: 17px; height: 17px;"></i>
+            <a href="https://wa.me/918788337049" target="_blank" rel="noopener noreferrer" class="icon-badge interactive-hover" aria-label="WhatsApp">
+              <i data-lucide="message-circle" style="width: 17px; height: 17px;"></i>
             </a>
           </div>
         </div>
       </div>
 
-      <div class="pt-4 border-top d-flex flex-column flex-sm-row align-items-center justify-content-between gap-2 text-secondary small" style="border-color: var(--border-subtle) !important;">
-        <div>
-          &copy; <span id="currentYear"></span> KINETIC.STUDIO. All rights reserved.
-        </div>
-        <div class="font-mono" style="font-size: 0.75rem;">
-          DESIGNED & ENGINEERED WITH PRECISION
-        </div>
+      <div class="pt-4 border-top d-flex flex-column flex-sm-row align-items-center justify-content-between gap-2 small" style="border-color: var(--border-hairline) !important; color: var(--text-muted);">
+        <div>&copy; <span id="copyrightYear"></span> Vicky.Works. All rights reserved.</div>
+        <div style="font-family: var(--font-mono); font-size: 0.74rem;">CRAFTED FOR CLARITY & SPEED</div>
       </div>
     </div>
   </footer>
 
   <!-- ========================================================================
-       JAVASCRIPT: INTERACTIVITY, ANIMATIONS, VALIDATION & ACCESSIBILITY
+       JAVASCRIPT: INTERACTIVITY, VALIDATION & ANIMATIONS
        ======================================================================== -->
   <script>
     document.addEventListener("DOMContentLoaded", () => {
-      // 1. Initialize Lucide Icons
+      // 1. Render Lucide Icons
       if (window.lucide) {
         lucide.createIcons();
       }
 
       // 2. Dynamic Copyright Year
-      const yearEl = document.getElementById("currentYear");
-      if (yearEl) {
-        yearEl.textContent = new Date().getFullYear();
+      const yearSpan = document.getElementById("copyrightYear");
+      if (yearSpan) {
+        yearSpan.textContent = new Date().getFullYear();
       }
 
-      // 3. Header Scroll State
-      const siteHeader = document.getElementById("siteHeader");
-      const updateHeaderScroll = () => {
-        if (window.scrollY > 24) {
-          siteHeader.classList.add("scrolled");
+      // 3. Sticky Navigation Scroll Styling
+      const siteNav = document.getElementById("siteNav");
+      const onScrollNav = () => {
+        if (window.scrollY > 20) {
+          siteNav.classList.add("is-scrolled");
         } else {
-          siteHeader.classList.remove("scrolled");
+          siteNav.classList.remove("is-scrolled");
         }
       };
-      window.addEventListener("scroll", updateHeaderScroll, { passive: true });
-      updateHeaderScroll();
+      window.addEventListener("scroll", onScrollNav, { passive: true });
+      onScrollNav();
 
       // 4. Mobile Navigation Drawer
-      const openMenuBtn = document.getElementById("openMobileMenu");
-      const closeMenuBtn = document.getElementById("closeMobileMenu");
-      const mobileDrawer = document.getElementById("mobileNavDrawer");
-      const mobileCloseLinks = document.querySelectorAll(".mobile-nav-close");
+      const openBtn = document.getElementById("mobileMenuOpen");
+      const closeBtn = document.getElementById("mobileMenuClose");
+      const drawer = document.getElementById("mobileDrawer");
+      const drawerLinks = document.querySelectorAll(".drawer-close-link");
 
-      const toggleMobileMenu = (show) => {
-        if (!mobileDrawer) return;
-        mobileDrawer.classList.toggle("active", show);
-        openMenuBtn.setAttribute("aria-expanded", String(show));
-        document.body.style.overflow = show ? "hidden" : "";
+      const setDrawerState = (open) => {
+        if (!drawer) return;
+        drawer.classList.toggle("is-open", open);
+        openBtn.setAttribute("aria-expanded", String(open));
+        document.body.style.overflow = open ? "hidden" : "";
       };
 
-      if (openMenuBtn) openMenuBtn.addEventListener("click", () => toggleMobileMenu(true));
-      if (closeMenuBtn) closeMenuBtn.addEventListener("click", () => toggleMobileMenu(false));
-      mobileCloseLinks.forEach((link) => {
-        link.addEventListener("click", () => toggleMobileMenu(false));
-      });
+      if (openBtn) openBtn.addEventListener("click", () => setDrawerState(true));
+      if (closeBtn) closeBtn.addEventListener("click", () => setDrawerState(false));
+      drawerLinks.forEach((link) => link.addEventListener("click", () => setDrawerState(false)));
 
       document.addEventListener("keydown", (e) => {
-        if (e.key === "Escape" && mobileDrawer.classList.contains("active")) {
-          toggleMobileMenu(false);
+        if (e.key === "Escape" && drawer.classList.contains("is-open")) {
+          setDrawerState(false);
         }
       });
 
-      // 5. Interactive Hero Browser Tabs & Subtle 3D Tilt
-      const stageTabs = document.querySelectorAll(".stage-tab-btn");
-      const stageViews = document.querySelectorAll(".stage-view");
-      const stageUrlDisplay = document.getElementById("stageUrlDisplay");
+      // 5. Interactive Hero Browser Tabs & Gentle Desktop Tilt
+      const stageTabs = document.querySelectorAll(".stage-tab");
+      const stagePanes = document.querySelectorAll(".stage-pane");
+      const stageUrlText = document.getElementById("stageUrlText");
 
       stageTabs.forEach((tab) => {
         tab.addEventListener("click", () => {
-          const targetId = `stage-${tab.dataset.stage}`;
+          const targetPane = tab.dataset.pane;
           const targetUrl = tab.dataset.url;
 
-          stageTabs.forEach((btn) => {
-            btn.classList.remove("active");
-            btn.setAttribute("aria-selected", "false");
+          stageTabs.forEach((t) => {
+            t.classList.remove("active");
+            t.setAttribute("aria-selected", "false");
           });
           tab.classList.add("active");
           tab.setAttribute("aria-selected", "true");
 
-          stageViews.forEach((view) => {
-            view.classList.toggle("active", view.id === targetId);
+          stagePanes.forEach((pane) => {
+            pane.classList.toggle("active", pane.id === targetPane);
           });
 
-          if (stageUrlDisplay && targetUrl) {
-            stageUrlDisplay.textContent = targetUrl;
+          if (stageUrlText && targetUrl) {
+            stageUrlText.textContent = targetUrl;
           }
         });
       });
 
-      const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-      const stageWrapper = document.getElementById("heroStageWrapper");
-      const browserStage = document.getElementById("heroBrowserStage");
+      const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      const stageArea = document.getElementById("heroStageArea");
+      const browserCard = document.getElementById("heroBrowserCard");
 
-      if (!prefersReducedMotion && stageWrapper && browserStage && window.matchMedia("(hover: hover)").matches) {
-        stageWrapper.addEventListener("mousemove", (e) => {
-          const rect = stageWrapper.getBoundingClientRect();
+      if (!reducedMotion && stageArea && browserCard && window.matchMedia("(hover: hover)").matches) {
+        stageArea.addEventListener("mousemove", (e) => {
+          const rect = stageArea.getBoundingClientRect();
           const x = (e.clientX - rect.left) / rect.width - 0.5;
           const y = (e.clientY - rect.top) / rect.height - 0.5;
-          browserStage.style.transform = `rotateY(${x * 6}deg) rotateX(${-y * 6}deg)`;
+          browserCard.style.transform = `perspective(1000px) rotateY(${x * 5}deg) rotateX(${-y * 5}deg)`;
         });
 
-        stageWrapper.addEventListener("mouseleave", () => {
-          browserStage.style.transform = "rotateY(0deg) rotateX(0deg)";
+        stageArea.addEventListener("mouseleave", () => {
+          browserCard.style.transform = "perspective(1000px) rotateY(0deg) rotateX(0deg)";
         });
       }
 
-      // 6. Custom Desktop Cursor
+      // 6. Custom Cursor on Desktop
       const cursorDot = document.getElementById("cursorDot");
       const cursorRing = document.getElementById("cursorRing");
 
-      if (!prefersReducedMotion && cursorDot && cursorRing && window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+      if (!reducedMotion && cursorDot && cursorRing && window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
         let mouseX = 0, mouseY = 0;
         let ringX = 0, ringY = 0;
 
@@ -2176,14 +2220,14 @@
           cursorDot.style.top = `${mouseY}px`;
         }, { passive: true });
 
-        const animateCursorRing = () => {
+        const renderRing = () => {
           ringX += (mouseX - ringX) * 0.18;
           ringY += (mouseY - ringY) * 0.18;
           cursorRing.style.left = `${ringX}px`;
           cursorRing.style.top = `${ringY}px`;
-          requestAnimationFrame(animateCursorRing);
+          requestAnimationFrame(renderRing);
         };
-        requestAnimationFrame(animateCursorRing);
+        requestAnimationFrame(renderRing);
 
         document.querySelectorAll("a, button, input, select, textarea, .interactive-hover").forEach((el) => {
           el.addEventListener("mouseenter", () => document.body.classList.add("cursor-hover"));
@@ -2191,60 +2235,69 @@
         });
       }
 
-      // 7. GSAP Scroll & Entrance Animations (Respecting Reduced Motion)
-      if (!prefersReducedMotion && window.gsap) {
+      // 7. GSAP Entrance & Scroll Animations
+      if (!reducedMotion && window.gsap) {
         gsap.registerPlugin(ScrollTrigger);
 
-        gsap.from(".gsap-hero", {
-          y: 26,
+        gsap.from(".anim-hero", {
+          y: 22,
           opacity: 0,
-          duration: 0.85,
+          duration: 0.8,
           stagger: 0.1,
           ease: "power3.out"
         });
 
-        gsap.utils.toArray(".gsap-reveal").forEach((elem) => {
-          gsap.from(elem, {
+        gsap.utils.toArray(".anim-reveal").forEach((item) => {
+          gsap.from(item, {
             scrollTrigger: {
-              trigger: elem,
+              trigger: item,
               start: "top 86%",
               once: true
             },
-            y: 28,
+            y: 24,
             opacity: 0,
-            duration: 0.75,
+            duration: 0.7,
             ease: "power2.out"
           });
         });
 
-        gsap.from(".gsap-process", {
+        gsap.from(".anim-step", {
           scrollTrigger: {
             trigger: "#process",
             start: "top 82%",
             once: true
           },
-          y: 24,
+          y: 20,
           opacity: 0,
-          duration: 0.65,
-          stagger: 0.12,
+          duration: 0.6,
+          stagger: 0.1,
           ease: "power2.out"
         });
       }
 
-      // 8. Pre-select Budget Tier when clicking "Request a Quote"
+      // 8. Auto-fill Service or Budget Dropdown from Quick Links
+      const serviceSelect = document.getElementById("projectType");
       const budgetSelect = document.getElementById("estimatedBudget");
-      document.querySelectorAll(".select-package-btn").forEach((btn) => {
-        btn.addEventListener("click", () => {
-          const pkg = btn.dataset.package;
-          if (budgetSelect && pkg) {
-            budgetSelect.value = pkg;
+
+      document.querySelectorAll(".prefill-service").forEach((link) => {
+        link.addEventListener("click", () => {
+          if (serviceSelect && link.dataset.service) {
+            serviceSelect.value = link.dataset.service;
           }
         });
       });
 
-      // 9. Honest Mailto Project Enquiry Flow with Validation
-      const enquiryForm = document.getElementById("projectEnquiryForm");
-      const statusMessage = document.getElementById("formStatusMessage");
+      document.querySelectorAll(".select-budget-btn").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          if (budgetSelect && btn.dataset.budget) {
+            budgetSelect.value = btn.dataset.budget;
+          }
+        });
+      });
+
+      // 9. Honest Mailto Enquiry Flow with Form Validation
+      const enquiryForm = document.getElementById("enquiryForm");
+      const formFeedback = document.getElementById("formFeedback");
 
       if (enquiryForm) {
         enquiryForm.addEventListener("submit", (e) => {
@@ -2263,38 +2316,33 @@
           const country = document.getElementById("country").value;
           const projectType = document.getElementById("projectType").value;
           const estimatedBudget = document.getElementById("estimatedBudget").value;
-          const timeline = document.getElementById("timeline").value;
+          const expectedTimeline = document.getElementById("expectedTimeline").value;
           const projectDescription = document.getElementById("projectDescription").value.trim();
 
-          // Replace placeholder email below with your studio email address
-          const studioRecipient = "hello@kineticstudio.example";
-          const subject = encodeURIComponent(`Project Enquiry: ${projectType} — ${fullName} (${country})`);
-          const bodyLines = [
-            `Hello KINETIC.STUDIO,`,
+          const recipient = "rajkumarashish75@gmail.com";
+          const subject = encodeURIComponent(`New Project Enquiry: ${projectType} — ${fullName}`);
+          const body = [
+            `Hi Ashish,`,
             ``,
-            `I would like to discuss a new web project. Here are the details:`,
+            `I'd like to discuss a new web project. Here are the details:`,
             ``,
             `Full Name: ${fullName}`,
-            `Email Address: ${emailAddress}`,
+            `Email: ${emailAddress}`,
             `Business Name: ${businessName}`,
             `Country: ${country}`,
             `Project Type: ${projectType}`,
             `Estimated Budget: ${estimatedBudget}`,
-            `Expected Timeline: ${timeline}`,
+            `Expected Timeline: ${expectedTimeline}`,
             ``,
             `Project Description:`,
-            `${projectDescription}`,
-            ``,
-            `Sent via KINETIC.STUDIO Website`
-          ];
+            `${projectDescription}`
+          ].join("\n");
 
-          const mailtoUri = `mailto:${studioRecipient}?subject=${subject}&body=${encodeURIComponent(bodyLines.join("\n"))}`;
-
-          if (statusMessage) {
-            statusMessage.classList.remove("d-none");
+          if (formFeedback) {
+            formFeedback.classList.remove("d-none");
           }
 
-          window.location.href = mailtoUri;
+          window.location.href = `mailto:${recipient}?subject=${subject}&body=${encodeURIComponent(body)}`;
         });
       }
     });
