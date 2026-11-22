@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NOAH — Independent Web Developer &amp; Designer | Ashish Rajkumar</title>
-  <meta name="description" content="Independent freelance web designer and developer building fast, custom websites, redesigns, digital catalogues, and web apps with AI-assisted workflows and personal implementation." />
+  <title>NOAH — Independent Web Design &amp; Development</title>
+  <meta name="description" content="Independent freelance web designer and developer. I design websites, develop websites, redesign existing websites, and build custom web applications." />
 
   <!-- Open Graph Metadata -->
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="NOAH — Independent Web Developer & Designer" />
-  <meta property="og:description" content="We design websites, develop websites, redesign existing websites, and build custom web applications." />
+  <meta property="og:title" content="NOAH — Independent Web Design & Development" />
+  <meta property="og:description" content="I design websites, develop websites, redesign existing websites, and build custom web applications." />
 
   <!-- Architectural Typography: Space Grotesk (Display & Body) + JetBrains Mono (Technical Spec & Meta) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -28,7 +28,7 @@
 
   <style>
     /* ==========================================================================
-       1. DESIGN TOKENS — PRESERVED DARK BRUTALIST ATELIER PALETTE
+       1. DESIGN TOKENS — PRESERVED NOAH DARK BRUTALIST ATELIER PALETTE
        ========================================================================== */
     :root {
       --bg-void: #080809;
@@ -344,7 +344,7 @@
     }
 
     /* ==========================================================================
-       5. HERO SECTION — AUTHENTIC, HUMAN, NON-GENERIC + REFINED 4-CAPABILITY CARDS
+       5. HERO SECTION — FIRST-PERSON CLARITY + 4 CAPABILITY CARDS
        ========================================================================== */
     .hero-section {
       padding-top: 7.25rem;
@@ -384,6 +384,7 @@
       background-color: var(--signal-mint);
       border-radius: 50%;
       box-shadow: 0 0 0 3px rgba(52, 211, 153, 0.18);
+      flex-shrink: 0;
     }
 
     .hero-display-headline {
@@ -406,7 +407,6 @@
       line-height: 1.65;
     }
 
-    /* Upgraded 4-Card Capability Grid with Framed Icon Badges */
     .core-capabilities-grid {
       display: grid;
       grid-template-columns: 1fr;
@@ -549,7 +549,7 @@
     }
 
     /* ==========================================================================
-       6. PORTFOLIO SECTION — FULL-WIDTH MOBILE SWIPE CARDS + 2-COL DESKTOP GRID
+       6. PORTFOLIO SECTION — ALIGNED CARDS & FULL-WIDTH MOBILE SWIPE
        ========================================================================== */
     .portfolio-track {
       display: flex;
@@ -560,13 +560,13 @@
       -webkit-overflow-scrolling: touch;
       scrollbar-width: none;
       padding-bottom: 0.5rem;
+      align-items: stretch;
     }
 
     .portfolio-track::-webkit-scrollbar {
       display: none;
     }
 
-    /* Full 100% card visibility on mobile so zero text or edges clip */
     .portfolio-slide {
       flex: 0 0 100%;
       width: 100%;
@@ -582,6 +582,7 @@
         overflow-x: visible;
         scroll-snap-type: none;
         padding-bottom: 0;
+        align-items: stretch;
       }
 
       .portfolio-slide {
@@ -641,7 +642,7 @@
     }
 
     .portfolio-stage {
-      padding: 1.1rem 1.1rem 0;
+      padding: 1.15rem 1.15rem 0;
       background-color: #0b0b0e;
       border-bottom: 1px solid var(--line-grid);
     }
@@ -675,77 +676,46 @@
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
-      max-width: 210px;
+      max-width: 215px;
     }
 
-    /* Visual Mockup 1: Leaf Café */
+    /* Aligned Equal-Height Visual Mockups */
+    .visual-leaf,
+    .visual-paws {
+      padding: 1.35rem 1.25rem;
+      height: 295px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
     .visual-leaf {
-      padding: 1.35rem 1.2rem;
-      min-height: 265px;
       background:
         radial-gradient(circle at 90% 10%, rgba(52, 211, 153, 0.2), transparent 55%),
         linear-gradient(165deg, #101b15 0%, #0b0f0d 100%);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
     }
 
-    .leaf-showcase-menu {
-      display: flex;
-      flex-direction: column;
-      gap: 0.45rem;
-      margin-top: 0.95rem;
-    }
-
-    .leaf-menu-strip {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 0.5rem;
-      padding: 0.55rem 0.75rem;
-      background-color: rgba(255, 255, 255, 0.045);
-      border: 1px solid rgba(52, 211, 153, 0.22);
-      border-radius: 4px;
-      font-size: 0.8rem;
-    }
-
-    .leaf-tag-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.35rem;
-      margin-top: 0.7rem;
-    }
-
-    .leaf-mini-tag {
-      font-family: var(--font-mono);
-      font-size: 0.64rem;
-      padding: 0.2rem 0.48rem;
-      background-color: rgba(52, 211, 153, 0.12);
-      color: #a7f3d0;
-      border-radius: 2px;
-    }
-
-    /* Visual Mockup 2: HappyPaws (Ongoing) */
     .visual-paws {
-      padding: 1.35rem 1.2rem;
-      min-height: 265px;
       background:
         radial-gradient(circle at 90% 10%, rgba(251, 191, 36, 0.18), transparent 55%),
         linear-gradient(165deg, #1d1610 0%, #0f0d0b 100%);
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
     }
 
-    .paws-cards-preview {
+    .mockup-feature-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 0.55rem;
-      margin-top: 0.95rem;
+    }
+
+    .leaf-feature-tile {
+      padding: 0.68rem 0.75rem;
+      background-color: rgba(255, 255, 255, 0.045);
+      border: 1px solid rgba(52, 211, 153, 0.22);
+      border-radius: 4px;
     }
 
     .paws-feature-tile {
-      padding: 0.7rem;
+      padding: 0.68rem 0.75rem;
       background-color: rgba(255, 255, 255, 0.045);
       border: 1px solid rgba(251, 191, 36, 0.24);
       border-radius: 4px;
@@ -790,7 +760,7 @@
     }
 
     /* ==========================================================================
-       7. SERVICES, PRICING & DELIVERY TIMELINE MATRIX
+       7. SERVICES, PRICING & INTERACTIVE PROJECT COST ESTIMATOR
        ========================================================================== */
     .service-matrix-card {
       background-color: var(--bg-panel);
@@ -839,7 +809,113 @@
       margin-bottom: 0.85rem;
     }
 
-    /* Delivery Timeline Table Box */
+    /* Interactive Cost Estimator Box */
+    .estimator-panel {
+      background-color: var(--bg-panel);
+      border: 1px solid var(--line-strong);
+      border-radius: var(--radius-card);
+      padding: 1.65rem;
+    }
+
+    @media (min-width: 768px) {
+      .estimator-panel {
+        padding: 2.25rem;
+      }
+    }
+
+    .est-step-block {
+      margin-bottom: 1.75rem;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--line-grid);
+    }
+
+    .est-step-block:last-of-type {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .est-option-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 0.55rem;
+    }
+
+    @media (min-width: 576px) {
+      .est-option-grid.cols-2 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .est-option-grid.cols-3 {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .est-radio-label,
+    .est-check-label {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      padding: 0.78rem 0.95rem;
+      background-color: var(--bg-void);
+      border: 1px solid var(--line-grid);
+      border-radius: var(--radius-sharp);
+      cursor: pointer;
+      transition: border-color 0.2s ease, background-color 0.2s ease;
+      user-select: none;
+    }
+
+    .est-radio-label:hover,
+    .est-check-label:hover {
+      border-color: var(--line-strong);
+    }
+
+    .est-radio-label.is-selected,
+    .est-check-label.is-selected {
+      border-color: var(--signal-amber);
+      background-color: rgba(255, 107, 44, 0.08);
+    }
+
+    .est-indicator-circle {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      border: 1px solid var(--line-strong);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      transition: background-color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .is-selected .est-indicator-circle {
+      background-color: var(--signal-amber);
+      border-color: var(--signal-amber);
+      color: #080809;
+    }
+
+    .est-summary-card {
+      background-color: var(--bg-atelier);
+      border: 1px solid var(--signal-amber);
+      border-radius: var(--radius-card);
+      padding: 1.65rem;
+      position: sticky;
+      top: 100px;
+    }
+
+    .est-total-range {
+      font-family: var(--font-sans);
+      font-size: clamp(2rem, 3.2vw, 2.65rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      color: var(--ink-primary);
+      line-height: 1.1;
+      margin: 0.5rem 0;
+    }
+
+    /* ==========================================================================
+       8. ALIGNED DELIVERY TIMELINE & WORKFLOW
+       ========================================================================== */
     .timeline-table-wrap {
       background-color: var(--bg-panel);
       border: 1px solid var(--line-strong);
@@ -848,11 +924,11 @@
     }
 
     .timeline-row-item {
-      display: flex;
+      display: grid;
+      grid-template-columns: 1fr auto;
       align-items: center;
-      justify-content: space-between;
       gap: 1rem;
-      padding: 1rem 1.35rem;
+      padding: 1.05rem 1.35rem;
       border-bottom: 1px solid var(--line-grid);
     }
 
@@ -860,9 +936,14 @@
       border-bottom: none;
     }
 
-    /* ==========================================================================
-       8. PROCESS & CONTACT FORM
-       ========================================================================== */
+    .timeline-duration-badge {
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      color: var(--signal-mint);
+      text-align: right;
+      white-space: nowrap;
+    }
+
     .brutalist-box {
       background-color: var(--bg-panel);
       border: 1px solid var(--line-grid);
@@ -885,6 +966,9 @@
       margin-bottom: 0.65rem;
     }
 
+    /* ==========================================================================
+       9. CONTACT FORM & FOOTER
+       ========================================================================== */
     .form-wrapper {
       background-color: var(--bg-panel);
       border: 1px solid var(--line-strong);
@@ -949,9 +1033,6 @@
       display: block;
     }
 
-    /* ==========================================================================
-       9. FOOTER & REDUCED MOTION
-       ========================================================================== */
     .atelier-footer {
       border-top: 1px solid var(--line-grid);
       background-color: var(--bg-atelier);
@@ -1002,8 +1083,9 @@
 
         <nav class="d-none d-lg-flex align-items-center gap-1" aria-label="Primary Navigation">
           <a href="#work" class="nav-link-item hover-target">Work</a>
-          <a href="#services" class="nav-link-item hover-target">Services &amp; Pricing</a>
-          <a href="#timeline" class="nav-link-item hover-target">Delivery &amp; Process</a>
+          <a href="#services" class="nav-link-item hover-target">Services</a>
+          <a href="#estimator" class="nav-link-item hover-target">Cost Estimator</a>
+          <a href="#timeline" class="nav-link-item hover-target">Delivery</a>
           <a href="#about" class="nav-link-item hover-target">About</a>
           <a href="#contact" class="nav-link-item hover-target">Contact</a>
         </nav>
@@ -1036,9 +1118,10 @@
     <nav class="mobile-sheet-links my-auto" aria-label="Mobile Navigation Links">
       <a href="#work" class="close-sheet"><span>Work</span><span class="idx">01</span></a>
       <a href="#services" class="close-sheet"><span>Services &amp; Pricing</span><span class="idx">02</span></a>
-      <a href="#timeline" class="close-sheet"><span>Delivery &amp; Process</span><span class="idx">03</span></a>
-      <a href="#about" class="close-sheet"><span>About</span><span class="idx">04</span></a>
-      <a href="#contact" class="close-sheet"><span>Contact</span><span class="idx">05</span></a>
+      <a href="#estimator" class="close-sheet"><span>Cost Estimator</span><span class="idx">03</span></a>
+      <a href="#timeline" class="close-sheet"><span>Delivery &amp; Process</span><span class="idx">04</span></a>
+      <a href="#about" class="close-sheet"><span>About</span><span class="idx">05</span></a>
+      <a href="#contact" class="close-sheet"><span>Contact</span><span class="idx">06</span></a>
     </nav>
 
     <div>
@@ -1051,7 +1134,7 @@
 
   <main id="top">
     <!-- ======================================================================
-         2. HERO SECTION (AUTHENTIC STUDENT BUILDER POSITIONING + 4 CAPABILITY CARDS)
+         2. HERO SECTION (FIRST-PERSON "I", NAME REMOVED, 4 CAPABILITIES)
          ====================================================================== -->
     <section class="hero-section">
       <div class="atelier-container">
@@ -1060,7 +1143,7 @@
           <div class="col-lg-7">
             <div class="availability-pill reveal-hero">
               <span class="status-dot-live" aria-hidden="true"></span>
-              <span>ASHISH RAJKUMAR · OPEN FOR FREELANCE PROJECTS</span>
+              <span>OPEN FOR FREELANCE PROJECTS</span>
             </div>
 
             <h1 class="hero-display-headline reveal-hero">
@@ -1071,30 +1154,30 @@
               I’m a final-year computer applications student building real-world websites and web tools—combining AI-assisted speed with personal implementation, testing, and full project ownership.
             </p>
 
-            <!-- Improved 4 Capability Cards with Framed Icons -->
+            <!-- 4 First-Person Capabilities -->
             <div class="core-capabilities-grid reveal-hero" aria-label="Core Services">
               <div class="capability-card-chip">
                 <span class="cap-icon-box"><i data-lucide="pen-tool" style="width: 16px; height: 16px;"></i></span>
-                <span>We design websites.</span>
+                <span>I design websites.</span>
               </div>
               <div class="capability-card-chip">
                 <span class="cap-icon-box"><i data-lucide="code-2" style="width: 16px; height: 16px;"></i></span>
-                <span>We develop websites.</span>
+                <span>I develop websites.</span>
               </div>
               <div class="capability-card-chip">
                 <span class="cap-icon-box"><i data-lucide="refresh-cw" style="width: 16px; height: 16px;"></i></span>
-                <span>We redesign existing websites.</span>
+                <span>I redesign existing websites.</span>
               </div>
               <div class="capability-card-chip">
                 <span class="cap-icon-box"><i data-lucide="cpu" style="width: 16px; height: 16px;"></i></span>
-                <span>We build custom web applications.</span>
+                <span>I build custom web applications.</span>
               </div>
             </div>
 
             <div class="d-flex flex-wrap align-items-center gap-3 reveal-hero">
-              <a href="#contact" class="btn-forge-solid hover-target">
-                <span>Start a Project</span>
-                <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i>
+              <a href="#estimator" class="btn-forge-solid hover-target">
+                <span>Estimate Project Cost</span>
+                <i data-lucide="calculator" style="width: 16px; height: 16px;"></i>
               </a>
               <a href="#work" class="btn-forge-outline hover-target">
                 <span>See Live Work</span>
@@ -1171,7 +1254,7 @@
     </section>
 
     <!-- ======================================================================
-         3. PORTFOLIO SECTION (FULL-WIDTH MOBILE SWIPEABLE CARDS + 2-COL DESKTOP)
+         3. PORTFOLIO SECTION (ALIGNED CARDS + MOBILE SWIPE)
          ====================================================================== -->
     <section id="work" class="section-block" style="background-color: var(--bg-atelier);">
       <div class="atelier-container">
@@ -1187,7 +1270,6 @@
           </div>
         </div>
 
-        <!-- Swipeable Track on Mobile (100% card width) / 2-Column Side-by-Side on Desktop -->
         <div class="portfolio-track" id="portfolioTrack">
           <!-- PROJECT 1: LEAF CAFÉ -->
           <div class="portfolio-slide reveal-up" data-slide-index="0">
@@ -1214,25 +1296,26 @@
                         <span style="font-family: var(--font-mono); font-size: 0.68rem; color: var(--ink-muted);">CAFÉ WEBSITE</span>
                       </div>
 
-                      <h3 class="h4 mb-1" style="color: var(--ink-primary);">Leaf Café — Digital Menu &amp; Reservations</h3>
-                      <p class="small mb-0" style="color: var(--ink-secondary);">Interactive food categories, gallery, café details, and table reservation links.</p>
-
-                      <div class="leaf-tag-row">
-                        <span class="leaf-mini-tag">Interactive Menu</span>
-                        <span class="leaf-mini-tag">Food Categories</span>
-                        <span class="leaf-mini-tag">Gallery</span>
-                        <span class="leaf-mini-tag">Reservations</span>
-                      </div>
+                      <h3 class="h4 mb-2" style="color: var(--ink-primary);">Leaf Café — Digital Menu &amp; Reservations</h3>
+                      <p class="small mb-0" style="color: var(--ink-secondary);">Interactive food categories, ambience gallery, café info, and table reservation links.</p>
                     </div>
 
-                    <div class="leaf-showcase-menu">
-                      <div class="leaf-menu-strip">
-                        <span style="color: var(--ink-primary); font-weight: 500;">01 / Menu &amp; Categories</span>
-                        <span style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--signal-mint);">RESPONSIVE UI</span>
+                    <div class="mockup-feature-grid">
+                      <div class="leaf-feature-tile">
+                        <div style="font-family: var(--font-mono); font-size: 0.65rem; color: var(--signal-mint);">MENU</div>
+                        <div class="small fw-semibold mt-1">Food Categories</div>
                       </div>
-                      <div class="leaf-menu-strip">
-                        <span style="color: var(--ink-primary); font-weight: 500;">02 / Gallery &amp; Booking Links</span>
-                        <span style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--signal-mint);">LIVE SITE</span>
+                      <div class="leaf-feature-tile">
+                        <div style="font-family: var(--font-mono); font-size: 0.65rem; color: var(--signal-mint);">GALLERY</div>
+                        <div class="small fw-semibold mt-1">Space &amp; Ambience</div>
+                      </div>
+                      <div class="leaf-feature-tile">
+                        <div style="font-family: var(--font-mono); font-size: 0.65rem; color: var(--signal-mint);">BOOKING</div>
+                        <div class="small fw-semibold mt-1">Reservation Links</div>
+                      </div>
+                      <div class="leaf-feature-tile">
+                        <div style="font-family: var(--font-mono); font-size: 0.65rem; color: var(--signal-mint);">LAYOUT</div>
+                        <div class="small fw-semibold mt-1">Mobile &amp; Desktop</div>
                       </div>
                     </div>
                   </div>
@@ -1284,11 +1367,11 @@
                         <span style="font-family: var(--font-mono); font-size: 0.68rem; color: var(--ink-muted);">WEB EXPERIENCE</span>
                       </div>
 
-                      <h3 class="h4 mb-1" style="color: var(--ink-primary);">HappyPaws — Pet Discovery &amp; Info Hub</h3>
+                      <h3 class="h4 mb-2" style="color: var(--ink-primary);">HappyPaws — Pet Discovery &amp; Info Hub</h3>
                       <p class="small mb-0" style="color: var(--ink-secondary);">Making animal-related information and discovery simpler to explore on mobile and desktop.</p>
                     </div>
 
-                    <div class="paws-cards-preview">
+                    <div class="mockup-feature-grid">
                       <div class="paws-feature-tile">
                         <div style="font-family: var(--font-mono); font-size: 0.65rem; color: var(--signal-gold);">DISCOVERY</div>
                         <div class="small fw-semibold mt-1">Structured Pet Info</div>
@@ -1351,7 +1434,7 @@
     </section>
 
     <!-- ======================================================================
-         4. SERVICES & PRICING MATRIX (UPDATED WITH YOUR RECOMMENDED RATES)
+         4. SERVICES & PRICING MATRIX
          ====================================================================== -->
     <section id="services" class="section-block">
       <div class="atelier-container">
@@ -1510,13 +1593,233 @@
     </section>
 
     <!-- ======================================================================
-         5. ESTIMATED DELIVERY TIMELINE (MATCHING YOUR SCREENSHOT) + 5-STEP WORKFLOW
+         5. INTERACTIVE PROJECT COST ESTIMATOR (INDICATIVE BALLPARK ONLY)
          ====================================================================== -->
-    <section id="timeline" class="section-block" style="background-color: var(--bg-atelier);">
+    <section id="estimator" class="section-block" style="background-color: var(--bg-atelier);">
       <div class="atelier-container">
         <div class="row align-items-end justify-content-between section-top-bar reveal-up">
           <div class="col-lg-7">
-            <span class="mono-label d-block mb-2">03 / Timeline &amp; Process</span>
+            <span class="mono-label d-block mb-2">03 / Interactive Estimator</span>
+            <h2 class="section-heading mb-0">Project Cost Estimator.</h2>
+          </div>
+          <div class="col-lg-4 mt-3 mt-lg-0">
+            <p class="mb-0" style="color: var(--ink-secondary);">
+              Configure your project scope below to see an indicative ballpark range before requesting an exact quote.
+            </p>
+          </div>
+        </div>
+
+        <div class="row g-4 g-lg-5 align-items-start">
+          <!-- Left: 4 Configuration Steps -->
+          <div class="col-lg-7 reveal-up">
+            <div class="estimator-panel">
+              <!-- Step 1: Project Type -->
+              <div class="est-step-block">
+                <span class="mono-label d-block mb-1">1. Project Type</span>
+                <p class="small mb-3" style="color: var(--ink-secondary);">Choose the core build you need.</p>
+                <div class="est-option-grid cols-2" id="estTypeGroup">
+                  <label class="est-radio-label is-selected hover-target">
+                    <div>
+                      <div class="fw-semibold small">Single-Page / Landing</div>
+                      <div style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--ink-muted);">Base: ₹3,000 – ₹5,000</div>
+                    </div>
+                    <input type="radio" name="estProjectType" value="Single-Page / Landing" data-min="3000" data-max="5000" checked class="d-none" />
+                    <span class="est-indicator-circle"><i data-lucide="check" style="width: 11px; height: 11px;"></i></span>
+                  </label>
+
+                  <label class="est-radio-label hover-target">
+                    <div>
+                      <div class="fw-semibold small">Digital Catalogue</div>
+                      <div style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--ink-muted);">Base: ₹5,000 – ₹8,000</div>
+                    </div>
+                    <input type="radio" name="estProjectType" value="Digital Catalogue" data-min="5000" data-max="8000" class="d-none" />
+                    <span class="est-indicator-circle"><i data-lucide="check" style="width: 11px; height: 11px;"></i></span>
+                  </label>
+
+                  <label class="est-radio-label hover-target">
+                    <div>
+                      <div class="fw-semibold small">Website Redesign</div>
+                      <div style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--ink-muted);">Base: ₹5,000 – ₹9,000</div>
+                    </div>
+                    <input type="radio" name="estProjectType" value="Website Redesign" data-min="5000" data-max="9000" class="d-none" />
+                    <span class="est-indicator-circle"><i data-lucide="check" style="width: 11px; height: 11px;"></i></span>
+                  </label>
+
+                  <label class="est-radio-label hover-target">
+                    <div>
+                      <div class="fw-semibold small">Small Business Website</div>
+                      <div style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--ink-muted);">Base: ₹6,000 – ₹10,000</div>
+                    </div>
+                    <input type="radio" name="estProjectType" value="Small Business Website" data-min="6000" data-max="10000" class="d-none" />
+                    <span class="est-indicator-circle"><i data-lucide="check" style="width: 11px; height: 11px;"></i></span>
+                  </label>
+
+                  <label class="est-radio-label hover-target" style="grid-column: 1 / -1;">
+                    <div>
+                      <div class="fw-semibold small">Basic Custom Web App</div>
+                      <div style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--ink-muted);">Base: ₹12,000 – ₹20,000</div>
+                    </div>
+                    <input type="radio" name="estProjectType" value="Basic Custom Web App" data-min="12000" data-max="20000" class="d-none" />
+                    <span class="est-indicator-circle"><i data-lucide="check" style="width: 11px; height: 11px;"></i></span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Step 2: Page / Screen Count -->
+              <div class="est-step-block">
+                <span class="mono-label d-block mb-1">2. Number of Pages / Views</span>
+                <p class="small mb-3" style="color: var(--ink-secondary);">Estimated page count or app screens.</p>
+                <div class="est-option-grid cols-3" id="estPagesGroup">
+                  <label class="est-radio-label is-selected hover-target">
+                    <div>
+                      <div class="fw-semibold small">1–3 Pages</div>
+                      <div style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--ink-muted);">Included</div>
+                    </div>
+                    <input type="radio" name="estPages" value="1–3 Pages" data-add="0" checked class="d-none" />
+                    <span class="est-indicator-circle"><i data-lucide="check" style="width: 11px; height: 11px;"></i></span>
+                  </label>
+
+                  <label class="est-radio-label hover-target">
+                    <div>
+                      <div class="fw-semibold small">4–6 Pages</div>
+                      <div style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--ink-muted);">+₹1,500</div>
+                    </div>
+                    <input type="radio" name="estPages" value="4–6 Pages" data-add="1500" class="d-none" />
+                    <span class="est-indicator-circle"><i data-lucide="check" style="width: 11px; height: 11px;"></i></span>
+                  </label>
+
+                  <label class="est-radio-label hover-target">
+                    <div>
+                      <div class="fw-semibold small">7+ Pages</div>
+                      <div style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--ink-muted);">+₹3,000</div>
+                    </div>
+                    <input type="radio" name="estPages" value="7+ Pages" data-add="3000" class="d-none" />
+                    <span class="est-indicator-circle"><i data-lucide="check" style="width: 11px; height: 11px;"></i></span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Step 3: Design Preference -->
+              <div class="est-step-block">
+                <span class="mono-label d-block mb-1">3. Design Preference</span>
+                <p class="small mb-3" style="color: var(--ink-secondary);">Visual complexity and interaction depth.</p>
+                <div class="est-option-grid cols-3" id="estDesignGroup">
+                  <label class="est-radio-label is-selected hover-target">
+                    <div>
+                      <div class="fw-semibold small">Clean &amp; Minimal</div>
+                      <div style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--ink-muted);">Standard</div>
+                    </div>
+                    <input type="radio" name="estDesign" value="Clean & Minimal" data-add="0" checked class="d-none" />
+                    <span class="est-indicator-circle"><i data-lucide="check" style="width: 11px; height: 11px;"></i></span>
+                  </label>
+
+                  <label class="est-radio-label hover-target">
+                    <div>
+                      <div class="fw-semibold small">Custom Editorial</div>
+                      <div style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--ink-muted);">+₹1,500</div>
+                    </div>
+                    <input type="radio" name="estDesign" value="Custom Editorial" data-add="1500" class="d-none" />
+                    <span class="est-indicator-circle"><i data-lucide="check" style="width: 11px; height: 11px;"></i></span>
+                  </label>
+
+                  <label class="est-radio-label hover-target">
+                    <div>
+                      <div class="fw-semibold small">Motion &amp; Interactive</div>
+                      <div style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--ink-muted);">+₹2,500</div>
+                    </div>
+                    <input type="radio" name="estDesign" value="Motion & Interactive" data-add="2500" class="d-none" />
+                    <span class="est-indicator-circle"><i data-lucide="check" style="width: 11px; height: 11px;"></i></span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Step 4: Additional Features (Matching Your Screenshot) -->
+              <div class="est-step-block">
+                <span class="mono-label d-block mb-1">4. Additional Features</span>
+                <p class="small mb-3" style="color: var(--ink-secondary);">Select the functionality you need.</p>
+                <div class="est-option-grid cols-2" id="estFeaturesGroup">
+                  <label class="est-check-label hover-target">
+                    <span class="small fw-medium">Contact / enquiry form (+₹1,000)</span>
+                    <input type="checkbox" value="Contact / enquiry form" data-add="1000" class="d-none est-feature-cb" />
+                    <span class="est-indicator-circle"><i data-lucide="check" style="width: 11px; height: 11px;"></i></span>
+                  </label>
+
+                  <label class="est-check-label is-selected hover-target">
+                    <span class="small fw-medium">WhatsApp integration (+₹500)</span>
+                    <input type="checkbox" value="WhatsApp integration" data-add="500" checked class="d-none est-feature-cb" />
+                    <span class="est-indicator-circle"><i data-lucide="check" style="width: 11px; height: 11px;"></i></span>
+                  </label>
+
+                  <label class="est-check-label hover-target">
+                    <span class="small fw-medium">Photo gallery (+₹1,000)</span>
+                    <input type="checkbox" value="Photo gallery" data-add="1000" class="d-none est-feature-cb" />
+                    <span class="est-indicator-circle"><i data-lucide="check" style="width: 11px; height: 11px;"></i></span>
+                  </label>
+
+                  <label class="est-check-label hover-target">
+                    <span class="small fw-medium">Booking system (+₹2,500)</span>
+                    <input type="checkbox" value="Booking system" data-add="2500" class="d-none est-feature-cb" />
+                    <span class="est-indicator-circle"><i data-lucide="check" style="width: 11px; height: 11px;"></i></span>
+                  </label>
+
+                  <label class="est-check-label hover-target">
+                    <span class="small fw-medium">Content management system (+₹5,000)</span>
+                    <input type="checkbox" value="Content management system" data-add="5000" class="d-none est-feature-cb" />
+                    <span class="est-indicator-circle"><i data-lucide="check" style="width: 11px; height: 11px;"></i></span>
+                  </label>
+
+                  <label class="est-check-label hover-target">
+                    <span class="small fw-medium">User login / accounts (+₹4,000)</span>
+                    <input type="checkbox" value="User login / accounts" data-add="4000" class="d-none est-feature-cb" />
+                    <span class="est-indicator-circle"><i data-lucide="check" style="width: 11px; height: 11px;"></i></span>
+                  </label>
+
+                  <label class="est-check-label hover-target" style="grid-column: 1 / -1;">
+                    <span class="small fw-medium">Payment integration (+₹5,000)</span>
+                    <input type="checkbox" value="Payment integration" data-add="5000" class="d-none est-feature-cb" />
+                    <span class="est-indicator-circle"><i data-lucide="check" style="width: 11px; height: 11px;"></i></span>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Live Estimate Summary & Honest Disclaimer -->
+          <div class="col-lg-5 reveal-up">
+            <div class="est-summary-card">
+              <span class="mono-label d-block">INDICATIVE BALLPARK ESTIMATE</span>
+              <div class="est-total-range" id="estRangeDisplay">₹3,500 – ₹5,500</div>
+              <p class="small mb-3" style="color: var(--ink-secondary);" id="estSelectionSummary">
+                Single-Page / Landing · 1–3 Pages · Clean &amp; Minimal + WhatsApp integration
+              </p>
+
+              <!-- Honest Non-Binding Disclaimer -->
+              <div class="p-3 mb-4" style="background-color: var(--bg-void); border: 1px solid var(--line-strong); border-radius: var(--radius-sharp); font-size: 0.8rem; color: var(--ink-secondary);">
+                <div class="d-flex align-items-center gap-2 mb-1" style="color: var(--signal-amber); font-family: var(--font-mono); font-size: 0.7rem;">
+                  <i data-lucide="alert-circle" style="width: 14px; height: 14px;"></i>
+                  <span>SUBJECT TO REQUIREMENT REVIEW</span>
+                </div>
+                This figure is a rough indicative guide only—not a fixed price quote. Final pricing depends on exact feature complexity, third-party integrations, and content scope after reviewing your requirements.
+              </div>
+
+              <a href="#contact" class="btn-forge-solid w-100 hover-target" id="applyEstimateBtn">
+                <span>Send This Scope for Exact Quote</span>
+                <i data-lucide="arrow-down-right" style="width: 16px; height: 16px;"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         6. ALIGNED DELIVERY TIMELINE & 4-STEP WORKFLOW
+         ====================================================================== -->
+    <section id="timeline" class="section-block">
+      <div class="atelier-container">
+        <div class="row align-items-end justify-content-between section-top-bar reveal-up">
+          <div class="col-lg-7">
+            <span class="mono-label d-block mb-2">04 / Timeline &amp; Process</span>
             <h2 class="section-heading mb-0">Estimated Delivery &amp; Workflow.</h2>
           </div>
           <div class="col-lg-4 mt-3 mt-lg-0">
@@ -1526,67 +1829,67 @@
           </div>
         </div>
 
-        <div class="row g-4 g-lg-5 align-items-start mb-5">
-          <!-- Left: Exact Estimated Delivery Table from your Screenshot -->
-          <div class="col-lg-6 reveal-up">
-            <div class="d-flex align-items-center justify-content-between mb-3">
+        <div class="row g-4 g-lg-5 align-items-stretch">
+          <!-- Left: Perfectly Aligned Estimated Delivery Table -->
+          <div class="col-lg-6 reveal-up d-flex flex-column">
+            <div class="d-flex align-items-center justify-content-between mb-3 px-1">
               <span class="mono-label">PROJECT</span>
               <span class="mono-label">ESTIMATED DELIVERY</span>
             </div>
 
-            <div class="timeline-table-wrap">
+            <div class="timeline-table-wrap flex-grow-1 d-flex flex-column justify-content-between">
               <div class="timeline-row-item">
                 <span class="fw-semibold" style="color: var(--ink-primary);">Landing page</span>
-                <span style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--signal-mint);">3–5 working days</span>
+                <span class="timeline-duration-badge">3–5 working days</span>
               </div>
               <div class="timeline-row-item">
                 <span class="fw-semibold" style="color: var(--ink-primary);">Small business website</span>
-                <span style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--signal-mint);">7–10 working days</span>
+                <span class="timeline-duration-badge">7–10 working days</span>
               </div>
               <div class="timeline-row-item">
                 <span class="fw-semibold" style="color: var(--ink-primary);">Digital catalogue</span>
-                <span style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--signal-mint);">5–8 working days</span>
+                <span class="timeline-duration-badge">5–8 working days</span>
               </div>
               <div class="timeline-row-item">
                 <span class="fw-semibold" style="color: var(--ink-primary);">Website redesign</span>
-                <span style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--signal-mint);">5–10 working days</span>
+                <span class="timeline-duration-badge">5–10 working days</span>
               </div>
               <div class="timeline-row-item">
                 <span class="fw-semibold" style="color: var(--ink-primary);">Basic custom web app</span>
-                <span style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--signal-amber);">2–4 weeks</span>
+                <span class="timeline-duration-badge" style="color: var(--signal-amber);">2–4 weeks</span>
               </div>
             </div>
           </div>
 
-          <!-- Right: How Each Project Is Executed -->
-          <div class="col-lg-6 reveal-up">
-            <span class="mono-label d-block mb-3">HOW I WORK WITH YOU</span>
-            <div class="row g-3">
+          <!-- Right: Aligned 2x2 Execution Grid -->
+          <div class="col-lg-6 reveal-up d-flex flex-column">
+            <span class="mono-label d-block mb-3 px-1">HOW I WORK WITH YOU</span>
+            <div class="row g-3 flex-grow-1">
               <div class="col-sm-6">
                 <div class="brutalist-box">
                   <span class="step-code">01 / DISCOVERY</span>
-                  <h3 class="h6 mb-1">Understand Goals</h3>
+                  <h3 class="h6 mb-2">Understand Goals</h3>
                   <p class="small mb-0" style="color: var(--ink-secondary);">Clarify pages, features, and content before writing code.</p>
                 </div>
               </div>
               <div class="col-sm-6">
                 <div class="brutalist-box">
                   <span class="step-code">02 / STRUCTURE</span>
-                  <h3 class="h6 mb-1">Plan &amp; Wireframe</h3>
+                  <h3 class="h6 mb-2">Plan &amp; Wireframe</h3>
                   <p class="small mb-0" style="color: var(--ink-secondary);">Map out mobile-first layout and user navigation flow.</p>
                 </div>
               </div>
               <div class="col-sm-6">
                 <div class="brutalist-box">
                   <span class="step-code">03 / BUILD</span>
-                  <h3 class="h6 mb-1">AI-Assisted + Hand-Built</h3>
+                  <h3 class="h6 mb-2">AI-Assisted + Hand-Built</h3>
                   <p class="small mb-0" style="color: var(--ink-secondary);">Fast iteration paired with personal code implementation.</p>
                 </div>
               </div>
               <div class="col-sm-6">
                 <div class="brutalist-box">
                   <span class="step-code">04 / TEST &amp; LAUNCH</span>
-                  <h3 class="h6 mb-1">QA &amp; Handover</h3>
+                  <h3 class="h6 mb-2">QA &amp; Handover</h3>
                   <p class="small mb-0" style="color: var(--ink-secondary);">Tested on real phones &amp; desktops, then deployed live.</p>
                 </div>
               </div>
@@ -1597,16 +1900,16 @@
     </section>
 
     <!-- ======================================================================
-         6. ABOUT SECTION (HONEST STUDENT BUILDER POSITIONING)
+         7. ABOUT SECTION (HONEST STUDENT BUILDER POSITIONING, NO NAME)
          ====================================================================== -->
-    <section id="about" class="section-block">
+    <section id="about" class="section-block" style="background-color: var(--bg-atelier);">
       <div class="atelier-container">
         <div class="row align-items-center g-4 g-lg-5">
           <div class="col-lg-4 reveal-up">
-            <span class="mono-label d-block mb-2">04 / About NOAH</span>
+            <span class="mono-label d-block mb-2">05 / About NOAH</span>
             <h2 class="section-heading mb-3">Built by a Student Builder, Not a Big Agency.</h2>
             <p class="small mb-0" style="color: var(--ink-muted); font-family: var(--font-mono);">
-              ASHISH RAJKUMAR · FINAL-YEAR BCA STUDENT · PUNE, INDIA
+              FINAL-YEAR BCA STUDENT · PUNE, INDIA
             </p>
           </div>
           <div class="col-lg-8 reveal-up">
@@ -1622,13 +1925,13 @@
     </section>
 
     <!-- ======================================================================
-         7. CONTACT SECTION
+         8. CONTACT SECTION
          ====================================================================== -->
-    <section id="contact" class="section-block" style="background-color: var(--bg-atelier);">
+    <section id="contact" class="section-block">
       <div class="atelier-container">
         <div class="row g-5">
           <div class="col-lg-5 reveal-up">
-            <span class="mono-label d-block mb-2">05 / Contact</span>
+            <span class="mono-label d-block mb-2">06 / Contact</span>
             <h2 class="section-heading mb-3">Let's Discuss Your Project.</h2>
             <p class="mb-4" style="color: var(--ink-secondary);">
               Send your website or web app idea, timeline, and budget range. You’ll get a direct, honest reply from me.
@@ -1646,7 +1949,7 @@
                   <span>rajkumarashish75@gmail.com</span>
                 </a>
               </div>
-              <a href="https://wa.me/918788337049?text=Hi%20Ashish%2C%20I%20saw%20NOAH%20and%20would%20like%20to%20discuss%20a%20website%20project." target="_blank" rel="noopener noreferrer" class="btn-forge-outline w-100 hover-target" style="border-color: rgba(52, 211, 153, 0.4);">
+              <a href="https://wa.me/918788337049?text=Hi%2C%20I%20saw%20NOAH%20and%20would%20like%20to%20discuss%20a%20website%20project." target="_blank" rel="noopener noreferrer" class="btn-forge-outline w-100 hover-target" style="border-color: rgba(52, 211, 153, 0.4);">
                 <i data-lucide="message-circle" style="width: 16px; height: 16px; color: var(--signal-mint);"></i>
                 <span>Message on WhatsApp</span>
               </a>
@@ -1714,6 +2017,7 @@
                       <option value="₹5,000 – ₹9,000">₹5,000 – ₹9,000</option>
                       <option value="₹6,000 – ₹10,000">₹6,000 – ₹10,000</option>
                       <option value="₹12,000 – ₹20,000+">₹12,000 – ₹20,000+</option>
+                      <option value="From Cost Estimator">From Cost Estimator (See Description)</option>
                     </select>
                     <div class="field-error">Please select a budget range.</div>
                   </div>
@@ -1757,7 +2061,7 @@
   </main>
 
   <!-- ========================================================================
-       8. FOOTER
+       9. FOOTER
        ======================================================================== -->
   <footer class="atelier-footer">
     <div class="atelier-container">
@@ -1768,7 +2072,7 @@
             <span>NOAH</span>
           </a>
           <p class="small mb-2" style="color: var(--ink-secondary); max-width: 310px;">
-            Independent web design &amp; development portfolio by Ashish Rajkumar.
+            Independent web design &amp; development portfolio.
           </p>
           <p class="mono-label mb-0" style="font-size: 0.68rem; color: var(--ink-muted);">
             INDIA · USA · UK · CANADA · AUSTRALIA
@@ -1779,8 +2083,9 @@
           <h4 class="mono-label mb-3" style="font-size: 0.72rem; color: var(--ink-primary);">Index</h4>
           <ul class="list-unstyled mb-0">
             <li><a href="#work" class="footer-item-link">Work</a></li>
-            <li><a href="#services" class="footer-item-link">Services &amp; Pricing</a></li>
-            <li><a href="#timeline" class="footer-item-link">Delivery &amp; Process</a></li>
+            <li><a href="#services" class="footer-item-link">Services</a></li>
+            <li><a href="#estimator" class="footer-item-link">Cost Estimator</a></li>
+            <li><a href="#timeline" class="footer-item-link">Delivery</a></li>
             <li><a href="#about" class="footer-item-link">About</a></li>
             <li><a href="#contact" class="footer-item-link">Contact</a></li>
           </ul>
@@ -1818,14 +2123,14 @@
       </div>
 
       <div class="pt-4 border-top d-flex flex-column flex-sm-row align-items-center justify-content-between gap-2 small" style="border-color: var(--line-grid) !important; color: var(--ink-muted);">
-        <div>&copy; <span id="yearNow"></span> NOAH. Built by Ashish Rajkumar.</div>
+        <div>&copy; <span id="yearNow"></span> NOAH. All rights reserved.</div>
         <div style="font-family: var(--font-mono); font-size: 0.72rem;">INDEPENDENT FREELANCE PORTFOLIO</div>
       </div>
     </div>
   </footer>
 
   <!-- ========================================================================
-       JAVASCRIPT: MOBILE SWIPE, TABS, VALIDATION & SUBTLE MOTION
+       JAVASCRIPT: ESTIMATOR LOGIC, MOBILE SWIPE, VALIDATION & MOTION
        ======================================================================== -->
   <script>
     document.addEventListener("DOMContentLoaded", () => {
@@ -1916,6 +2221,80 @@
         }, { passive: true });
       }
 
+      // Interactive Project Cost Estimator
+      const rangeDisplay = document.getElementById("estRangeDisplay");
+      const summaryDisplay = document.getElementById("estSelectionSummary");
+      const applyEstimateBtn = document.getElementById("applyEstimateBtn");
+
+      const formatINR = (num) => "₹" + num.toLocaleString("en-IN");
+
+      const updateEstimator = () => {
+        const selectedType = document.querySelector('input[name="estProjectType"]:checked');
+        const selectedPages = document.querySelector('input[name="estPages"]:checked');
+        const selectedDesign = document.querySelector('input[name="estDesign"]:checked');
+        const checkedFeatures = Array.from(document.querySelectorAll(".est-feature-cb:checked"));
+
+        // Toggle active visual borders on radio groups
+        document.querySelectorAll("#estTypeGroup .est-radio-label").forEach((lbl) => {
+          lbl.classList.toggle("is-selected", lbl.querySelector("input").checked);
+        });
+        document.querySelectorAll("#estPagesGroup .est-radio-label").forEach((lbl) => {
+          lbl.classList.toggle("is-selected", lbl.querySelector("input").checked);
+        });
+        document.querySelectorAll("#estDesignGroup .est-radio-label").forEach((lbl) => {
+          lbl.classList.toggle("is-selected", lbl.querySelector("input").checked);
+        });
+        document.querySelectorAll("#estFeaturesGroup .est-check-label").forEach((lbl) => {
+          lbl.classList.toggle("is-selected", lbl.querySelector("input").checked);
+        });
+
+        if (!selectedType || !selectedPages || !selectedDesign) return;
+
+        const baseMin = Number(selectedType.dataset.min || 0);
+        const baseMax = Number(selectedType.dataset.max || 0);
+        const pagesAdd = Number(selectedPages.dataset.add || 0);
+        const designAdd = Number(selectedDesign.dataset.add || 0);
+        const featuresAdd = checkedFeatures.reduce((sum, cb) => sum + Number(cb.dataset.add || 0), 0);
+
+        const totalMin = baseMin + pagesAdd + designAdd + featuresAdd;
+        const totalMax = baseMax + pagesAdd + designAdd + featuresAdd;
+
+        if (rangeDisplay) {
+          rangeDisplay.textContent = `${formatINR(totalMin)} – ${formatINR(totalMax)}`;
+        }
+
+        const featureNames = checkedFeatures.length
+          ? checkedFeatures.map((cb) => cb.value).join(", ")
+          : "No extra add-ons";
+
+        if (summaryDisplay) {
+          summaryDisplay.textContent = `${selectedType.value} · ${selectedPages.value} · ${selectedDesign.value} · Features: ${featureNames}`;
+        }
+
+        return {
+          rangeText: `${formatINR(totalMin)} – ${formatINR(totalMax)}`,
+          summaryText: `${selectedType.value} | ${selectedPages.value} | ${selectedDesign.value} | Add-ons: ${featureNames}`
+        };
+      };
+
+      document.querySelectorAll('input[name="estProjectType"], input[name="estPages"], input[name="estDesign"], .est-feature-cb').forEach((input) => {
+        input.addEventListener("change", updateEstimator);
+      });
+      updateEstimator();
+
+      // Transfer Estimator Output into Contact Form
+      if (applyEstimateBtn) {
+        applyEstimateBtn.addEventListener("click", () => {
+          const result = updateEstimator();
+          const budgetSelect = document.getElementById("estimatedBudget");
+          const descField = document.getElementById("projectDescription");
+          if (budgetSelect) budgetSelect.value = "From Cost Estimator";
+          if (descField && result) {
+            descField.value = `Indicative Estimator Selection: ${result.summaryText}\nBallpark Range Shown: ${result.rangeText} (Subject to requirement review)\n\nAdditional details about my project: `;
+          }
+        });
+      }
+
       // Pre-select Service Dropdown when clicking "Request Quote"
       const serviceDropdown = document.getElementById("projectType");
       document.querySelectorAll(".select-service-btn").forEach((btn) => {
@@ -1950,7 +2329,7 @@
         };
         requestAnimationFrame(tick);
 
-        document.querySelectorAll("a, button, input, select, textarea, .hover-target").forEach((el) => {
+        document.querySelectorAll("a, button, input, select, textarea, label, .hover-target").forEach((el) => {
           el.addEventListener("mouseenter", () => document.body.classList.add("cursor-active"));
           el.addEventListener("mouseleave", () => document.body.classList.remove("cursor-active"));
         });
@@ -2009,7 +2388,7 @@
 
           const subject = encodeURIComponent(`Project Enquiry: ${projectType} — ${fullName}`);
           const body = [
-            `Hi Ashish,`,
+            `Hi,`,
             ``,
             `I saw NOAH and would like to discuss a project:`,
             ``,
