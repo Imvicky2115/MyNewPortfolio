@@ -3,1195 +3,2301 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Leaf — A Café by Advanced Nature | Pune</title>
-  <meta name="description" content="Food • Art • Community — An eco-conscious industrial-art café in Hadapsar, Pune by Advanced Nature." />
+  <title>KINETIC / STUDIO — Independent Digital Development Studio</title>
+  <meta name="description" content="We turn business ideas into powerful digital experiences. Independent web design and development studio building custom websites, web applications, and digital products for ambitious global businesses." />
   
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,900&display=swap" rel="stylesheet">
-  
-  <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  
+  <!-- Open Graph / Social Metadata -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="KINETIC / STUDIO — Digital Design & Engineering" />
+  <meta property="og:description" content="We turn business ideas into powerful digital experiences. Custom websites, web applications, and digital catalogues." />
+  <meta property="og:site_name" content="KINETIC / STUDIO" />
+
+  <!-- Typography: Syne (Editorial Display) + Plus Jakarta Sans (Clean UI) + JetBrains Mono (Technical Accents) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
+
+  <!-- Bootstrap 5 Grid & Utilities (Scoped & Customized) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
+
   <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
 
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            leafolive: '#556B2F',
-            forest: '#1A281E',
-            moss: '#3B5224',
-            sage: '#9EB384',
-            cream: '#F9F7F2',
-            sand: '#EFECE2',
-            terracotta: '#C86D51',
-            charcoal: '#181A18',
-            swiggy: '#FC8019',
-            zomato: '#E23744',
-            district: '#6D17E8'
-          },
-          fontFamily: {
-            logo: ['"Cinzel"', 'Georgia', 'serif'],
-            serif: ['"Cormorant Garamond"', 'Georgia', 'serif'],
-            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
-          },
-          boxShadow: {
-            'editorial': '0 20px 50px -15px rgba(26, 40, 30, 0.08)',
-            'card': '0 4px 20px -2px rgba(26, 40, 30, 0.04)',
-          }
-        }
-      }
-    }
-  </script>
+  <!-- GSAP & ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 
   <style>
-    @keyframes floatSlow {
-      0%, 100% { transform: translateY(0px) rotate(0deg); }
-      50% { transform: translateY(-12px) rotate(2.5deg); }
-    }
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(18px) scale(0.98); }
-      to { opacity: 1; transform: translateY(0) scale(1); }
+    /* ==========================================================================
+       1. DESIGN TOKENS & BASE SYSTEM
+       ========================================================================== */
+    :root {
+      --bg-primary: #09090b;
+      --bg-secondary: #0f0f12;
+      --bg-surface: #141418;
+      --bg-surface-elevated: #1b1b20;
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --border-hover: rgba(255, 255, 255, 0.18);
+      
+      --text-primary: #f4f4f6;
+      --text-secondary: #a1a1aa;
+      --text-muted: #71717a;
+      
+      --accent-primary: #e2e8f0;
+      --accent-warm: #d4a373;       /* Subtle architectural bronze/amber */
+      --accent-emerald: #34d399;    /* Live status / Leaf Cafe subtle cue */
+      --accent-sky: #38bdf8;        /* Subtle engineering highlight */
+
+      --font-display: 'Syne', sans-serif;
+      --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 22px;
+      --transition-smooth: cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    .animate-float-slow { animation: floatSlow 7.5s ease-in-out infinite; }
-
-    /* Translucent Frosted Glass Top Bar */
-    .glass-nav {
-      background: rgba(249, 247, 242, 0.55);
-      backdrop-filter: blur(18px) saturate(165%);
-      -webkit-backdrop-filter: blur(18px) saturate(165%);
-      border: 1px solid rgba(255, 255, 255, 0.65);
-      box-shadow: 0 8px 30px -6px rgba(26, 40, 30, 0.07);
+    *, *::before, *::after {
+      box-sizing: border-box;
     }
 
-    /* Senior-Grade Smooth Reveal Choreography */
-    .reveal {
-      opacity: 0;
-      transform: translateY(24px);
-      transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+    html {
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      overflow-x: hidden;
+      scroll-padding-top: 90px;
     }
-    .reveal.active {
-      opacity: 1;
-      transform: translateY(0);
-    }
-    .reveal-delay-1 { transition-delay: 0.1s; }
-    .reveal-delay-2 { transition-delay: 0.2s; }
-    .reveal-delay-3 { transition-delay: 0.3s; }
 
-    /* Tactile Paper Grain Overlay */
-    .bg-grain::before {
+    body {
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      line-height: 1.65;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    ::selection {
+      background: rgba(212, 163, 115, 0.28);
+      color: #fff;
+    }
+
+    /* Subtle Architectural Grid Background */
+    .bg-grid-pattern {
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+      background-size: 64px 64px;
+    }
+
+    /* Typography Hierarchy */
+    h1, h2, h3, .font-display {
+      font-family: var(--font-display);
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      color: var(--text-primary);
+    }
+
+    .eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--accent-warm);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .eyebrow::before {
       content: "";
+      width: 18px;
+      height: 1px;
+      background-color: var(--accent-warm);
+      display: inline-block;
+    }
+
+    .section-padding {
+      padding: 6.5rem 0;
+    }
+
+    @media (min-width: 992px) {
+      .section-padding {
+        padding: 8.5rem 0;
+      }
+    }
+
+    /* ==========================================================================
+       2. CUSTOM DESKTOP CURSOR
+       ========================================================================== */
+    .cursor-dot,
+    .cursor-ring {
+      position: fixed;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: 9999;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      display: none;
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      .cursor-dot {
+        display: block;
+        width: 6px;
+        height: 6px;
+        background-color: var(--text-primary);
+        transition: transform 0.15s ease, background-color 0.2s ease;
+      }
+      .cursor-ring {
+        display: block;
+        width: 34px;
+        height: 34px;
+        border: 1px solid rgba(255, 255, 255, 0.28);
+        transition: width 0.25s var(--transition-smooth), 
+                    height 0.25s var(--transition-smooth), 
+                    border-color 0.25s ease,
+                    background-color 0.25s ease;
+      }
+      body.cursor-hover .cursor-ring {
+        width: 54px;
+        height: 54px;
+        border-color: var(--accent-warm);
+        background-color: rgba(212, 163, 115, 0.08);
+      }
+      body.cursor-hover .cursor-dot {
+        background-color: var(--accent-warm);
+      }
+    }
+
+    /* ==========================================================================
+       3. NAVIGATION BAR
+       ========================================================================== */
+    .site-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1030;
+      padding: 1.15rem 0;
+      transition: background-color 0.35s ease, border-color 0.35s ease, padding 0.35s ease;
+      border-bottom: 1px solid transparent;
+    }
+
+    .site-header.scrolled {
+      background-color: rgba(9, 9, 11, 0.84);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom-color: var(--border-subtle);
+      padding: 0.85rem 0;
+    }
+
+    .studio-brand {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 1.25rem;
+      letter-spacing: -0.04em;
+      color: var(--text-primary);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+    }
+
+    .brand-mark {
+      width: 28px;
+      height: 28px;
+      border-radius: 7px;
+      background: linear-gradient(135deg, #27272a 0%, #18181b 100%);
+      border: 1px solid var(--border-hover);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent-warm);
+    }
+
+    .nav-link-custom {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.92rem;
+      font-weight: 500;
+      padding: 0.4rem 0.85rem;
+      transition: color 0.25s ease;
+      position: relative;
+    }
+
+    .nav-link-custom:hover,
+    .nav-link-custom:focus-visible {
+      color: var(--text-primary);
+    }
+
+    /* Buttons */
+    .btn-studio-primary {
+      background-color: var(--text-primary);
+      color: var(--bg-primary);
+      font-weight: 600;
+      font-size: 0.92rem;
+      padding: 0.78rem 1.5rem;
+      border-radius: 999px;
+      border: 1px solid var(--text-primary);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.55rem;
+      transition: transform 0.3s var(--transition-smooth), background-color 0.25s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+
+    .btn-studio-primary:hover {
+      background-color: #ffffff;
+      color: #000000;
+      transform: translateY(-2px);
+      box-shadow: 0 10px 26px rgba(255, 255, 255, 0.12);
+    }
+
+    .btn-studio-secondary {
+      background-color: rgba(255, 255, 255, 0.03);
+      color: var(--text-primary);
+      font-weight: 500;
+      font-size: 0.92rem;
+      padding: 0.78rem 1.5rem;
+      border-radius: 999px;
+      border: 1px solid var(--border-hover);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.55rem;
+      transition: transform 0.3s var(--transition-smooth), background-color 0.25s ease, border-color 0.25s ease;
+      cursor: pointer;
+    }
+
+    .btn-studio-secondary:hover {
+      background-color: rgba(255, 255, 255, 0.08);
+      border-color: rgba(255, 255, 255, 0.32);
+      color: #ffffff;
+      transform: translateY(-2px);
+    }
+
+    /* Mobile Drawer */
+    .mobile-menu-toggle {
+      background: transparent;
+      border: 1px solid var(--border-hover);
+      color: var(--text-primary);
+      width: 42px;
+      height: 42px;
+      border-radius: 10px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .mobile-nav-drawer {
       position: fixed;
       inset: 0;
-      pointer-events: none;
-      z-index: 50;
-      opacity: 0.022;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+      background-color: rgba(9, 9, 11, 0.97);
+      backdrop-filter: blur(18px);
+      z-index: 1040;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 1.5rem;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
     }
 
-    .no-scrollbar::-webkit-scrollbar { display: none; }
-    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    .mobile-nav-drawer.active {
+      opacity: 1;
+      visibility: visible;
+    }
 
-    /* Active Nav Link Indicator */
-    .nav-link {
+    .mobile-nav-links a {
+      display: block;
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      text-decoration: none;
+      padding: 0.65rem 0;
+      border-bottom: 1px solid var(--border-subtle);
+      transition: color 0.2s ease, padding-left 0.25s ease;
+    }
+
+    .mobile-nav-links a:hover {
+      color: var(--accent-warm);
+      padding-left: 0.5rem;
+    }
+
+    /* ==========================================================================
+       4. HERO SECTION & INTERACTIVE BROWSER STAGE
+       ========================================================================== */
+    .hero-section {
       position: relative;
-      padding-bottom: 2px;
+      padding-top: 8.5rem;
+      padding-bottom: 5.5rem;
+      overflow: hidden;
     }
-    .nav-link::after {
-      content: "";
+
+    @media (min-width: 992px) {
+      .hero-section {
+        padding-top: 10.5rem;
+        padding-bottom: 7.5rem;
+      }
+    }
+
+    .hero-ambient-light {
       position: absolute;
-      bottom: -2px;
-      left: 50%;
-      width: 0;
-      height: 1.5px;
-      background-color: #556B2F;
-      transition: width 0.3s ease, left 0.3s ease;
+      top: -120px;
+      right: -100px;
+      width: 560px;
+      height: 560px;
+      background: radial-gradient(circle, rgba(212, 163, 115, 0.11) 0%, rgba(9, 9, 11, 0) 70%);
+      pointer-events: none;
+      z-index: 0;
     }
-    .nav-link:hover::after,
-    .nav-link.active::after {
+
+    .hero-headline {
+      font-size: clamp(2.45rem, 5.2vw, 4.35rem);
+      font-weight: 800;
+      line-height: 1.06;
+      letter-spacing: -0.035em;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-headline .text-gradient-subtle {
+      background: linear-gradient(135deg, #ffffff 30%, #a1a1aa 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-subtext {
+      font-size: clamp(1.02rem, 1.4vw, 1.2rem);
+      color: var(--text-secondary);
+      max-width: 560px;
+      margin-bottom: 2.25rem;
+      line-height: 1.7;
+    }
+
+    .studio-tagline-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.42rem 0.95rem;
+      border-radius: 999px;
+      background-color: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-subtle);
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+      margin-bottom: 1.5rem;
+    }
+
+    .status-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background-color: var(--accent-emerald);
+      box-shadow: 0 0 8px rgba(52, 211, 153, 0.6);
+    }
+
+    /* Interactive Hero Browser Composition */
+    .hero-stage-wrapper {
+      position: relative;
+      perspective: 1200px;
+      padding: 1rem 0;
+    }
+
+    .browser-stage {
+      position: relative;
+      background: linear-gradient(160deg, rgba(27, 27, 32, 0.9) 0%, rgba(15, 15, 18, 0.95) 100%);
+      border: 1px solid var(--border-hover);
+      border-radius: var(--radius-lg);
+      box-shadow: 0 30px 70px rgba(0, 0, 0, 0.65);
+      overflow: hidden;
+      transform-style: preserve-3d;
+      transition: transform 0.25s ease-out;
+    }
+
+    .browser-chrome {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.8rem 1.1rem;
+      background-color: rgba(255, 255, 255, 0.03);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .window-dots {
+      display: flex;
+      gap: 6px;
+    }
+
+    .window-dots span {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.16);
+    }
+
+    .browser-url-bar {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      background-color: rgba(0, 0, 0, 0.35);
+      padding: 0.28rem 0.9rem;
+      border-radius: 6px;
+      border: 1px solid var(--border-subtle);
+    }
+
+    .browser-tabs {
+      display: flex;
+      gap: 0.4rem;
+      padding: 0.65rem 1.1rem 0;
+      border-bottom: 1px solid var(--border-subtle);
+      background-color: rgba(0, 0, 0, 0.2);
+    }
+
+    .stage-tab-btn {
+      background: transparent;
+      border: 1px solid transparent;
+      border-bottom: none;
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+      font-size: 0.73rem;
+      padding: 0.45rem 0.85rem;
+      border-radius: 8px 8px 0 0;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .stage-tab-btn.active {
+      background-color: var(--bg-surface);
+      color: var(--text-primary);
+      border-color: var(--border-subtle);
+    }
+
+    .stage-canvas {
+      padding: 1.5rem;
+      min-height: 295px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background-color: var(--bg-surface);
+    }
+
+    .stage-view {
+      display: none;
+      animation: fadeSlideUp 0.35s var(--transition-smooth) forwards;
+    }
+
+    .stage-view.active {
+      display: block;
+    }
+
+    @keyframes fadeSlideUp {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Abstract Wireframe Elements Inside Hero Stage */
+    .mock-wireframe-hero {
+      padding: 1.25rem;
+      border-radius: var(--radius-md);
+      background: linear-gradient(135deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.01) 100%);
+      border: 1px solid var(--border-subtle);
+      margin-bottom: 1rem;
+    }
+
+    .mock-pill {
+      display: inline-block;
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      padding: 0.2rem 0.55rem;
+      border-radius: 4px;
+      background: rgba(212, 163, 115, 0.14);
+      color: var(--accent-warm);
+      margin-bottom: 0.6rem;
+    }
+
+    .mock-bar {
+      height: 8px;
+      border-radius: 4px;
+      background: rgba(255, 255, 255, 0.14);
+      margin-bottom: 0.5rem;
+    }
+
+    .mock-card-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.65rem;
+    }
+
+    .mock-mini-card {
+      background: rgba(255, 255, 255, 0.025);
+      border: 1px solid var(--border-subtle);
+      border-radius: 10px;
+      padding: 0.85rem;
+    }
+
+    .stage-footer-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 1rem;
+      margin-top: 1rem;
+      border-top: 1px solid var(--border-subtle);
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--text-muted);
+    }
+
+    /* ==========================================================================
+       5. TRUST & VALUE PROPOSITION SECTION
+       ========================================================================== */
+    .value-card {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 1.75rem;
+      height: 100%;
+      transition: border-color 0.3s ease, transform 0.3s var(--transition-smooth), background-color 0.3s ease;
+    }
+
+    .value-card:hover {
+      border-color: var(--border-hover);
+      background-color: var(--bg-surface-elevated);
+      transform: translateY(-4px);
+    }
+
+    .icon-box {
+      width: 44px;
+      height: 44px;
+      border-radius: 11px;
+      background-color: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-subtle);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent-warm);
+      margin-bottom: 1.25rem;
+    }
+
+    /* ==========================================================================
+       6. PORTFOLIO SHOWCASE (AUTHENTIC PROJECT MOCKUPS)
+       ========================================================================== */
+    .project-showcase-card {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      transition: border-color 0.35s ease, transform 0.35s var(--transition-smooth);
+    }
+
+    .project-showcase-card:hover {
+      border-color: var(--border-hover);
+    }
+
+    .project-browser-frame {
+      background-color: #0c0c0e;
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 1.25rem 1.25rem 0;
+    }
+
+    .project-window {
+      background-color: #131317;
+      border: 1px solid var(--border-hover);
+      border-bottom: none;
+      border-radius: 14px 14px 0 0;
+      overflow: hidden;
+    }
+
+    .project-window-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.7rem 1rem;
+      background-color: rgba(255, 255, 255, 0.03);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .project-url-pill {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--text-secondary);
+      background: rgba(0, 0, 0, 0.45);
+      padding: 0.22rem 0.75rem;
+      border-radius: 999px;
+      border: 1px solid var(--border-subtle);
+      max-width: 240px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    /* Leaf Cafe Bespoke Architectural UI Preview (No fabricated screenshots) */
+    .preview-leaf-cafe {
+      padding: 1.65rem 1.5rem;
+      background: linear-gradient(155deg, #141c17 0%, #0f1311 100%);
+      min-height: 270px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .leaf-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #86efac;
+      background: rgba(134, 239, 172, 0.1);
+      border: 1px solid rgba(134, 239, 172, 0.22);
+      padding: 0.25rem 0.65rem;
+      border-radius: 999px;
+    }
+
+    .leaf-menu-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.45rem;
+      margin: 1rem 0;
+    }
+
+    .leaf-menu-pills span {
+      font-size: 0.74rem;
+      padding: 0.3rem 0.7rem;
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: #e4e4e7;
+    }
+
+    .leaf-booking-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.5rem;
+      padding-top: 0.85rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .leaf-booking-chip {
+      text-align: center;
+      font-size: 0.72rem;
+      font-weight: 500;
+      padding: 0.45rem 0.4rem;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.04);
+      color: #d4d4d8;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    /* HappyPaws Bespoke Architectural UI Preview */
+    .preview-happypaws {
+      padding: 1.65rem 1.5rem;
+      background: linear-gradient(155deg, #1d1714 0%, #12100e 100%);
+      min-height: 270px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .paws-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #fdba74;
+      background: rgba(253, 186, 116, 0.1);
+      border: 1px solid rgba(253, 186, 116, 0.22);
+      padding: 0.25rem 0.65rem;
+      border-radius: 999px;
+    }
+
+    .paws-modules-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.55rem;
+      margin-top: 1rem;
+    }
+
+    .paws-module-item {
+      padding: 0.65rem 0.75rem;
+      border-radius: 9px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      font-size: 0.76rem;
+      color: #e4e4e7;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .project-body {
+      padding: 2rem;
+    }
+
+    .project-category-tag {
+      font-family: var(--font-mono);
+      font-size: 0.74rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--accent-warm);
+      margin-bottom: 0.6rem;
+      display: block;
+    }
+
+    /* ==========================================================================
+       7. SERVICES SECTION
+       ========================================================================== */
+    .service-card {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 2rem;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: border-color 0.3s ease, transform 0.3s var(--transition-smooth);
+    }
+
+    .service-card:hover {
+      border-color: rgba(212, 163, 115, 0.45);
+      transform: translateY(-4px);
+    }
+
+    .service-num {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--text-muted);
+    }
+
+    /* ==========================================================================
+       8. PROCESS TIMELINE
+       ========================================================================== */
+    .process-step {
+      position: relative;
+      padding: 1.75rem;
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      height: 100%;
+      transition: border-color 0.3s ease;
+    }
+
+    .process-step:hover {
+      border-color: var(--border-hover);
+    }
+
+    .step-number {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 800;
+      color: var(--accent-warm);
+      line-height: 1;
+      margin-bottom: 1rem;
+      display: block;
+    }
+
+    /* ==========================================================================
+       9. PRICING PACKAGES
+       ========================================================================== */
+    .pricing-card {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 2.25rem;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.3s var(--transition-smooth), border-color 0.3s ease;
+    }
+
+    .pricing-card.featured {
+      background: linear-gradient(180deg, rgba(212, 163, 115, 0.08) 0%, var(--bg-surface) 100%);
+      border-color: rgba(212, 163, 115, 0.4);
+    }
+
+    .pricing-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--border-hover);
+    }
+
+    .price-amount {
+      font-family: var(--font-display);
+      font-size: 2.75rem;
+      font-weight: 800;
+      color: var(--text-primary);
+      line-height: 1.1;
+      margin: 0.75rem 0;
+    }
+
+    .pricing-list {
+      list-style: none;
+      padding: 0;
+      margin: 1.5rem 0 2rem;
+    }
+
+    .pricing-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.65rem;
+      color: var(--text-secondary);
+      font-size: 0.92rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .pricing-list li i {
+      color: var(--accent-warm);
+      flex-shrink: 0;
+      margin-top: 3px;
+    }
+
+    /* ==========================================================================
+       10. CONTACT FORM & ENQUIRY FLOW
+       ========================================================================== */
+    .contact-panel {
+      background-color: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+    }
+
+    @media (min-width: 768px) {
+      .contact-panel {
+        padding: 3rem;
+      }
+    }
+
+    .form-label-custom {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      margin-bottom: 0.45rem;
+      display: block;
+    }
+
+    .form-control-studio,
+    .form-select-studio {
       width: 100%;
-      left: 0;
+      background-color: var(--bg-primary);
+      border: 1px solid var(--border-subtle);
+      border-radius: 10px;
+      padding: 0.78rem 1rem;
+      color: var(--text-primary);
+      font-family: var(--font-sans);
+      font-size: 0.94rem;
+      transition: border-color 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .form-control-studio:focus,
+    .form-select-studio:focus {
+      outline: none;
+      border-color: var(--accent-warm);
+      box-shadow: 0 0 0 3px rgba(212, 163, 115, 0.14);
+    }
+
+    .form-control-studio::placeholder {
+      color: var(--text-muted);
+    }
+
+    .form-select-studio option {
+      background-color: var(--bg-surface);
+      color: var(--text-primary);
+    }
+
+    .invalid-feedback-custom {
+      color: #f87171;
+      font-size: 0.8rem;
+      margin-top: 0.35rem;
+      display: none;
+    }
+
+    .was-validated .form-control-studio:invalid + .invalid-feedback-custom,
+    .was-validated .form-select-studio:invalid + .invalid-feedback-custom {
+      display: block;
+    }
+
+    .backend-note-box {
+      background-color: rgba(255, 255, 255, 0.025);
+      border: 1px dashed var(--border-hover);
+      border-radius: 12px;
+      padding: 1rem 1.25rem;
+      font-size: 0.84rem;
+      color: var(--text-secondary);
+    }
+
+    .whatsapp-card {
+      background-color: rgba(52, 211, 153, 0.06);
+      border: 1px solid rgba(52, 211, 153, 0.22);
+      border-radius: var(--radius-md);
+      padding: 1.5rem;
+    }
+
+    /* ==========================================================================
+       11. FOOTER & REDUCED MOTION
+       ========================================================================== */
+    .site-footer {
+      border-top: 1px solid var(--border-subtle);
+      background-color: var(--bg-secondary);
+      padding: 4.5rem 0 2.5rem;
+    }
+
+    .footer-link {
+      color: var(--text-secondary);
+      text-decoration: none;
+      font-size: 0.9rem;
+      display: inline-block;
+      margin-bottom: 0.55rem;
+      transition: color 0.2s ease;
+    }
+
+    .footer-link:hover {
+      color: var(--text-primary);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+      .cursor-dot, .cursor-ring {
+        display: none !important;
+      }
     }
   </style>
 </head>
-<body class="bg-cream text-charcoal font-sans antialiased selection:bg-leafolive selection:text-white bg-grain overflow-x-hidden">
+<body class="bg-grid-pattern">
 
-  <!-- Top Navigation Bar (Translucent Frosted Glass + Scroll Progress Hairline) -->
-  <header id="navbar" class="fixed top-0 w-full z-40 transition-all duration-300 py-3 px-3 sm:px-6 md:px-10">
-    <div class="max-w-7xl mx-auto relative overflow-hidden flex items-center justify-between gap-2 glass-nav rounded-full px-3.5 sm:px-6 py-2">
-      <!-- Subtle Scroll Progress Bar -->
-      <div id="scroll-progress" class="absolute bottom-0 left-0 h-[2px] bg-leafolive/75 transition-all duration-150" style="width: 0%;"></div>
+  <!-- Custom Desktop Cursor -->
+  <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
+  <div class="cursor-ring" id="cursorRing" aria-hidden="true"></div>
 
-      <!-- Brand Logo -->
-      <a href="#" class="flex items-center gap-2.5 sm:gap-3 group shrink-0">
-        <div class="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-leafolive flex items-center justify-center shadow-sm transition-transform duration-500 group-hover:scale-105 shrink-0">
-          <svg viewBox="0 0 100 100" class="w-6 h-6 sm:w-7 sm:h-7 text-white fill-current">
-            <path d="M52,18 C72,18 85,32 85,50 C85,66 72,76 58,76 C47,76 39,68 39,58 C39,50 45,44 53,44 C59,44 64,49 64,55 C64,59 60,62 56,62 C53,62 51,60 51,57 C51,55 53,54 54,54 C53,52 49,53 48,57 C47,62 51,67 57,67 C65,67 71,60 71,52 C71,40 61,32 49,32 C34,32 23,44 23,60 C23,72 28,83 36,90 C32,78 33,63 40,51 C30,60 25,74 28,88 C18,78 14,62 18,46 C23,28 37,18 52,18 Z" />
-          </svg>
+  <!-- ========================================================================
+       1. NAVIGATION
+       ======================================================================== -->
+  <header class="site-header" id="siteHeader">
+    <div class="container">
+      <div class="d-flex align-items-center justify-content-between">
+        <!-- Studio Logo (Easy to rename here) -->
+        <a href="#top" class="studio-brand interactive-hover" aria-label="Kinetic Studio Home">
+          <span class="brand-mark">
+            <i data-lucide="layers" style="width: 16px; height: 16px;"></i>
+          </span>
+          <span>KINETIC<span style="color: var(--accent-warm);">.</span>STUDIO</span>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <nav class="d-none d-lg-flex align-items-center gap-1" aria-label="Primary Navigation">
+          <a href="#work" class="nav-link-custom interactive-hover">Work</a>
+          <a href="#services" class="nav-link-custom interactive-hover">Services</a>
+          <a href="#process" class="nav-link-custom interactive-hover">Process</a>
+          <a href="#pricing" class="nav-link-custom interactive-hover">Pricing</a>
+          <a href="#about" class="nav-link-custom interactive-hover">About</a>
+          <a href="#contact" class="nav-link-custom interactive-hover">Contact</a>
+        </nav>
+
+        <!-- Primary CTA & Mobile Toggle -->
+        <div class="d-flex align-items-center gap-2">
+          <a href="#contact" class="btn-studio-primary d-none d-sm-inline-flex interactive-hover">
+            <span>Start a Project</span>
+            <i data-lucide="arrow-up-right" style="width: 16px; height: 16px;"></i>
+          </a>
+          <button class="mobile-menu-toggle d-lg-none" id="openMobileMenu" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobileNavDrawer">
+            <i data-lucide="menu" style="width: 20px; height: 20px;"></i>
+          </button>
         </div>
-        <div class="flex flex-col">
-          <span class="font-logo text-base sm:text-xl font-bold tracking-[0.15em] text-forest leading-none">LEAF</span>
-          <span class="text-[8px] sm:text-[9.5px] uppercase tracking-[0.16em] sm:tracking-[0.22em] text-leafolive font-semibold mt-1 whitespace-nowrap">FOOD &bull; ART &bull; COMMUNITY</span>
-        </div>
-      </a>
-
-      <!-- Desktop Navigation Links -->
-      <nav class="hidden md:flex items-center gap-7 lg:gap-9 text-sm font-medium text-forest/85">
-        <a href="#highlights" class="nav-link hover:text-leafolive transition-colors">Highlights</a>
-        <a href="#menu" class="nav-link hover:text-leafolive transition-colors">Menu</a>
-        <a href="#space" class="nav-link hover:text-leafolive transition-colors">The Space</a>
-        <a href="#visit" class="nav-link hover:text-leafolive transition-colors">Visit</a>
-        <button onclick="openFeedbackModal()" class="nav-link hover:text-leafolive transition-colors cursor-pointer">Feedback</button>
-      </nav>
-
-      <!-- Mobile Hamburger Toggle -->
-      <button id="mobile-menu-btn" aria-label="Open Navigation" class="md:hidden p-2 text-forest rounded-full hover:bg-white/50 transition-colors shrink-0 cursor-pointer">
-        <i data-lucide="menu" class="w-5 h-5"></i>
-      </button>
+      </div>
     </div>
   </header>
 
-  <!-- Compact Mobile Navigation Popover -->
-  <div id="mobile-drawer" class="fixed inset-0 z-50 hidden bg-black/45 backdrop-blur-xs px-4 pt-20 md:hidden">
-    <div id="mobile-drawer-card" class="max-w-md mx-auto bg-forest text-cream rounded-3xl p-6 shadow-2xl border border-sage/20 animate-[fadeUp_0.22s_ease]">
-      <div class="flex items-center justify-between pb-4 border-b border-cream/10">
-        <div class="flex items-center gap-2.5">
-          <div class="w-8 h-8 rounded-full bg-leafolive flex items-center justify-center shrink-0">
-            <svg viewBox="0 0 100 100" class="w-5 h-5 text-white fill-current">
-              <path d="M52,18 C72,18 85,32 85,50 C85,66 72,76 58,76 C47,76 39,68 39,58 C39,50 45,44 53,44 C59,44 64,49 64,55 C64,59 60,62 56,62 C53,62 51,60 51,57 C51,55 53,54 54,54 C53,52 49,53 48,57 C47,62 51,67 57,67 C65,67 71,60 71,52 C71,40 61,32 49,32 C34,32 23,44 23,60 C23,72 28,83 36,90 C32,78 33,63 40,51 C30,60 25,74 28,88 C18,78 14,62 18,46 C23,28 37,18 52,18 Z" />
-            </svg>
-          </div>
-          <span class="font-logo text-sm font-bold tracking-[0.14em] text-white">LEAF MENU</span>
-        </div>
-        <button id="close-drawer-btn" aria-label="Close Menu" class="w-8 h-8 rounded-full bg-cream/10 hover:bg-cream/20 text-cream flex items-center justify-center transition-colors cursor-pointer">
-          <i data-lucide="x" class="w-4 h-4"></i>
-        </button>
-      </div>
+  <!-- Mobile Fullscreen Navigation Drawer -->
+  <div class="mobile-nav-drawer" id="mobileNavDrawer" role="dialog" aria-modal="true" aria-label="Mobile Navigation">
+    <div class="d-flex align-items-center justify-content-between">
+      <a href="#top" class="studio-brand mobile-nav-close">
+        <span class="brand-mark"><i data-lucide="layers" style="width: 16px; height: 16px;"></i></span>
+        <span>KINETIC<span style="color: var(--accent-warm);">.</span>STUDIO</span>
+      </a>
+      <button class="mobile-menu-toggle" id="closeMobileMenu" aria-label="Close navigation menu">
+        <i data-lucide="x" style="width: 20px; height: 20px;"></i>
+      </button>
+    </div>
 
-      <nav class="flex flex-col divide-y divide-cream/10 my-2">
-        <a href="#highlights" class="mobile-link py-3.5 flex items-center justify-between group">
-          <span class="font-serif text-xl font-medium text-white group-hover:text-sage transition-colors">Menu Highlights</span>
-          <i data-lucide="chevron-right" class="w-4 h-4 text-sage"></i>
-        </a>
-        <a href="#menu" class="mobile-link py-3.5 flex items-center justify-between group">
-          <span class="font-serif text-xl font-medium text-white group-hover:text-sage transition-colors">Full Café Menu</span>
-          <i data-lucide="chevron-right" class="w-4 h-4 text-sage"></i>
-        </a>
-        <a href="#space" class="mobile-link py-3.5 flex items-center justify-between group">
-          <span class="font-serif text-xl font-medium text-white group-hover:text-sage transition-colors">The Space &amp; Gallery</span>
-          <i data-lucide="chevron-right" class="w-4 h-4 text-sage"></i>
-        </a>
-        <a href="#visit" class="mobile-link py-3.5 flex items-center justify-between group">
-          <span class="font-serif text-xl font-medium text-white group-hover:text-sage transition-colors">Location &amp; Hours</span>
-          <i data-lucide="chevron-right" class="w-4 h-4 text-sage"></i>
-        </a>
-        <button onclick="closeDrawer(); openFeedbackModal();" class="py-3.5 flex items-center justify-between group text-left w-full cursor-pointer">
-          <span class="font-serif text-xl font-medium text-white group-hover:text-sage transition-colors">Share Feedback</span>
-          <i data-lucide="message-square-heart" class="w-4 h-4 text-sage"></i>
-        </button>
-      </nav>
+    <nav class="mobile-nav-links my-auto" aria-label="Mobile Menu Links">
+      <a href="#work" class="mobile-nav-close">Work</a>
+      <a href="#services" class="mobile-nav-close">Services</a>
+      <a href="#process" class="mobile-nav-close">Process</a>
+      <a href="#pricing" class="mobile-nav-close">Pricing</a>
+      <a href="#about" class="mobile-nav-close">About</a>
+      <a href="#contact" class="mobile-nav-close">Contact</a>
+    </nav>
 
-      <div class="grid grid-cols-2 gap-2.5 pt-4 border-t border-cream/10">
-        <button onclick="closeDrawer(); openTableModal();" class="py-3 px-4 bg-leafolive hover:bg-moss text-white text-xs font-semibold rounded-full flex items-center justify-center gap-1.5 transition-colors cursor-pointer">
-          <span>Find a Table</span>
-          <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
-        </button>
-        <a href="https://www.instagram.com/leafcafepune?jplx=MTdoM2ZxcGtmaDhmbg==" target="_blank" rel="noopener noreferrer" class="py-3 px-4 bg-cream/10 hover:bg-cream/20 text-white text-xs font-medium rounded-full flex items-center justify-center gap-1.5 transition-colors">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-sage shrink-0">
-            <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
-            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-            <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
-          </svg>
-          <span>Instagram</span>
-        </a>
-      </div>
+    <div>
+      <a href="#contact" class="btn-studio-primary w-100 mobile-nav-close">
+        <span>Start a Project</span>
+        <i data-lucide="arrow-up-right" style="width: 16px; height: 16px;"></i>
+      </a>
     </div>
   </div>
 
-  <!-- Editorial Hero Section -->
-  <section class="relative pt-24 pb-12 sm:pt-28 sm:pb-16 md:pt-32 md:pb-20 px-4 sm:px-8 md:px-10 overflow-hidden">
-    <!-- Ambient Botanical Watermark -->
-    <svg class="absolute top-16 right-[-60px] md:right-8 w-64 md:w-[26rem] h-64 md:h-[26rem] text-leafolive/[0.08] animate-float-slow pointer-events-none" viewBox="0 0 200 200" fill="currentColor">
-      <path d="M100,15 C145,15 180,55 180,105 C180,155 135,185 100,185 C100,130 130,85 100,15 Z" />
-      <path d="M95,35 C55,40 25,80 30,125 C35,165 75,185 98,185 C95,135 70,95 95,35 Z" opacity="0.6" />
-    </svg>
-
-    <div class="max-w-7xl mx-auto w-full grid grid-cols-1 md:grid-cols-12 gap-10 lg:gap-14 items-center relative z-10">
-      <!-- Left Editorial Copy -->
-      <div class="md:col-span-7 space-y-6">
-        <div class="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.24em] text-leafolive font-semibold">
-          <span class="w-6 h-[1.5px] bg-leafolive"></span>
-          <span>Hadapsar Industrial Estate, Pune</span>
-        </div>
-
-        <h1 class="font-serif text-[2.75rem] sm:text-6xl lg:text-[4.5rem] font-semibold text-forest leading-[1.04] tracking-tight">
-          Food, Art &amp; <span class="italic font-normal text-leafolive">Community</span> under handcrafted lanterns.
-        </h1>
-
-        <p class="text-base sm:text-lg text-charcoal/75 max-w-xl leading-relaxed font-normal">
-          A café by <strong class="font-semibold text-forest">Advanced Nature</strong>. Experience upcycled industrial artistry, artisanal South Indian filter brews, and soulful global plates in a serene green sanctuary.
-        </p>
-
-        <div class="flex flex-wrap items-center gap-3.5 pt-2">
-          <button onclick="openTableModal()" class="px-7 py-4 bg-leafolive hover:bg-forest text-white rounded-full font-medium text-sm sm:text-base transition-all duration-300 shadow-md hover:shadow-xl hover:-translate-y-0.5 flex items-center gap-2 cursor-pointer">
-            <span>Find a Table</span>
-            <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
-          </button>
-          <a href="#menu" class="px-7 py-4 bg-white/90 hover:bg-white border border-forest/15 hover:border-forest/40 text-forest rounded-full font-medium text-sm sm:text-base transition-all duration-300 shadow-2xs">
-            Explore Menu
-          </a>
-        </div>
-      </div>
-
-      <!-- Right Editorial Visual Frame -->
-      <div class="md:col-span-5 relative flex justify-center">
-        <div class="relative rounded-[2.25rem] overflow-hidden shadow-editorial border-[5px] border-white aspect-[4/5] w-full max-w-sm lg:max-w-md bg-sand group">
-          <img 
-            src="assets/cafe-ceiling.webp" 
-            onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=900&q=80';"
-            alt="Leaf Café hanging sculptural lamps, mezzanine and rustic art" 
-            class="w-full h-full object-cover transition-transform duration-1000 ease-out group-hover:scale-105"
-          />
-          <div class="absolute inset-0 bg-gradient-to-t from-forest/90 via-forest/20 to-transparent"></div>
-          
-          <!-- Official Circular Emblem Overlay -->
-          <div class="absolute top-4 right-4 w-28 h-28 lg:w-36 lg:h-36 rounded-full bg-leafolive/95 backdrop-blur-xs shadow-xl border-2 border-white/30 flex flex-col items-center justify-center px-2 text-white text-center animate-float-slow">
-            <div class="flex items-center gap-1.5">
-              <svg viewBox="0 0 100 100" class="w-5 h-5 lg:w-7 lg:h-7 fill-current shrink-0">
-                <path d="M52,18 C72,18 85,32 85,50 C85,66 72,76 58,76 C47,76 39,68 39,58 C39,50 45,44 53,44 C59,44 64,49 64,55 C64,59 60,62 56,62 C53,62 51,60 51,57 C51,55 53,54 54,54 C53,52 49,53 48,57 C47,62 51,67 57,67 C65,67 71,60 71,52 C71,40 61,32 49,32 C34,32 23,44 23,60 C23,72 28,83 36,90 C32,78 33,63 40,51 C30,60 25,74 28,88 C18,78 14,62 18,46 C23,28 37,18 52,18 Z" />
-              </svg>
-              <span class="font-logo text-base lg:text-xl font-bold tracking-[0.12em]">LEAF</span>
+  <main id="top">
+    <!-- ======================================================================
+         2. HERO SECTION
+         ====================================================================== -->
+    <section class="hero-section">
+      <div class="hero-ambient-light" aria-hidden="true"></div>
+      <div class="container position-relative" style="z-index: 1;">
+        <div class="row align-items-center g-5">
+          <div class="col-lg-7">
+            <div class="studio-tagline-pill gsap-hero">
+              <span class="status-dot" aria-hidden="true"></span>
+              <span>We turn business ideas into powerful digital experiences.</span>
             </div>
-            <span class="text-[5px] lg:text-[6.2px] uppercase tracking-[0.13em] mt-1.5 text-white/95 font-semibold whitespace-nowrap">FOOD . ART . COMMUNITY</span>
-            <span class="text-[5.8px] lg:text-[7px] text-white/85 mt-1 font-sans whitespace-nowrap">A café by Advanced Nature</span>
-          </div>
 
-          <div class="absolute bottom-6 left-6 right-6 text-cream">
-            <p class="text-[11px] uppercase tracking-[0.2em] text-sage font-medium mb-1">Advanced Nature Studio</p>
-            <p class="font-serif text-xl lg:text-2xl leading-snug">Sculptural lanterns, mezzanine loft &amp; soulful conversations.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+            <h1 class="hero-headline gsap-hero">
+              Your Next Big Idea Deserves a <span class="text-gradient-subtle">Better Digital Experience.</span>
+            </h1>
 
-  <!-- Google Rating & Diner Highlights Section -->
-  <section class="py-10 sm:py-14 px-4 sm:px-8 md:px-10 bg-white border-y border-forest/[0.07]">
-    <div class="max-w-6xl mx-auto rounded-3xl bg-cream/80 border border-leafolive/15 p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6 lg:gap-8 reveal shadow-card">
-      
-      <!-- Score + Distribution -->
-      <div class="flex items-center gap-5 shrink-0">
-        <div class="text-center shrink-0">
-          <div class="font-serif text-5xl sm:text-6xl font-bold text-forest leading-none">4.7</div>
-          <div class="flex items-center justify-center gap-0.5 text-amber-500 mt-2">
-            <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-            <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-            <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-            <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-            <i data-lucide="star" class="w-4 h-4 fill-amber-400"></i>
-          </div>
-          <p class="text-xs text-charcoal/65 mt-1.5 font-medium">456 Google Reviews</p>
-        </div>
+            <p class="hero-subtext gsap-hero">
+              We design and develop modern websites and digital products that help ambitious businesses grow, connect with customers and stand out online.
+            </p>
 
-        <div class="space-y-1.5 w-32 sm:w-40 text-[11px] text-charcoal/70 border-l border-forest/10 pl-4">
-          <div class="flex items-center gap-2">
-            <span class="w-3 font-semibold text-forest">5</span>
-            <div class="flex-1 h-2 bg-sand rounded-full overflow-hidden"><div class="bg-amber-400 h-full w-[82%] rounded-full"></div></div>
-          </div>
-          <div class="flex items-center gap-2">
-            <span class="w-3 font-semibold text-forest">4</span>
-            <div class="flex-1 h-2 bg-sand rounded-full overflow-hidden"><div class="bg-amber-400 h-full w-[13%] rounded-full"></div></div>
-          </div>
-          <div class="flex items-center gap-2">
-            <span class="w-3 font-semibold text-forest">3</span>
-            <div class="flex-1 h-2 bg-sand rounded-full overflow-hidden"><div class="bg-amber-400 h-full w-[3%] rounded-full"></div></div>
-          </div>
-          <div class="flex items-center gap-2">
-            <span class="w-3 font-semibold text-forest">2</span>
-            <div class="flex-1 h-2 bg-sand rounded-full overflow-hidden"><div class="bg-amber-400 h-full w-[1%] rounded-full"></div></div>
-          </div>
-          <div class="flex items-center gap-2">
-            <span class="w-3 font-semibold text-forest">1</span>
-            <div class="flex-1 h-2 bg-sand rounded-full overflow-hidden"><div class="bg-amber-400 h-full w-[1%] rounded-full"></div></div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Verified Diner Quote Cards -->
-      <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 w-full md:w-auto flex-1 max-w-xl">
-        <div class="bg-white rounded-2xl p-4 border border-forest/[0.08] shadow-2xs text-center sm:text-left hover:border-leafolive/30 transition-colors">
-          <p class="text-xs font-medium text-forest leading-relaxed">&ldquo;Unmatched aesthetic &amp; calm vibe&rdquo;</p>
-          <span class="text-[10px] text-leafolive font-semibold mt-1.5 block uppercase tracking-wider">Ambience &amp; Art</span>
-        </div>
-        <div class="bg-white rounded-2xl p-4 border border-forest/[0.08] shadow-2xs text-center sm:text-left hover:border-leafolive/30 transition-colors">
-          <p class="text-xs font-medium text-forest leading-relaxed">&ldquo;Best Filter Coffee &amp; Khao Suey&rdquo;</p>
-          <span class="text-[10px] text-leafolive font-semibold mt-1.5 block uppercase tracking-wider">Food &amp; Brews</span>
-        </div>
-        <div class="bg-white rounded-2xl p-4 border border-forest/[0.08] shadow-2xs text-center sm:text-left hover:border-leafolive/30 transition-colors">
-          <p class="text-xs font-medium text-forest leading-relaxed">&ldquo;Hidden gem in Hadapsar&rdquo;</p>
-          <span class="text-[10px] text-leafolive font-semibold mt-1.5 block uppercase tracking-wider">Pune Diners</span>
-        </div>
-      </div>
-
-      <!-- Review Action Button -->
-      <div class="shrink-0 w-full sm:w-auto">
-        <a href="https://maps.google.com/?q=Leaf+-+A+café+by+Advanced+Nature+Hadapsar+Pune" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto px-5 py-3 rounded-full bg-white hover:bg-forest hover:text-white border border-forest/20 text-xs font-semibold text-forest inline-flex items-center justify-center gap-2 transition-all shadow-2xs whitespace-nowrap">
-          <span>Read Google Reviews</span>
-          <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Menu Highlights Section -->
-  <section id="highlights" class="py-16 sm:py-24 px-4 sm:px-8 md:px-10 bg-sand/60 border-b border-forest/[0.07]">
-    <div class="max-w-7xl mx-auto">
-      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4 reveal">
-        <div>
-          <span class="text-xs uppercase tracking-[0.25em] text-leafolive font-bold">Guest Favorites</span>
-          <h2 class="font-serif text-4xl sm:text-5xl font-semibold text-forest mt-1.5">Menu Highlights</h2>
-        </div>
-        <p class="text-sm text-charcoal/70 max-w-md leading-relaxed">
-          Most-loved plates and signature South Indian filter brews crafted fresh in our kitchen.
-        </p>
-      </div>
-
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        <div class="bg-white rounded-3xl overflow-hidden border border-forest/[0.08] shadow-card hover:shadow-editorial transition-all duration-300 hover:-translate-y-1 group reveal">
-          <div class="aspect-[4/3] overflow-hidden relative">
-            <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=700&q=80" alt="Chipotle falafel sliders" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" />
-            <span class="absolute top-3 left-3 bg-forest/90 backdrop-blur-xs text-white text-[10px] uppercase tracking-wider px-3 py-1 rounded-full font-medium">Slider &amp; Sandwiches</span>
-          </div>
-          <div class="p-5">
-            <div class="flex justify-between items-baseline gap-2 mb-2">
-              <h3 class="font-serif text-xl font-bold text-forest">Chipotle falafel sliders</h3>
-              <span class="font-semibold text-sm text-leafolive shrink-0 bg-leafolive/10 px-2.5 py-0.5 rounded-full">₹450</span>
+            <div class="d-flex flex-wrap align-items-center gap-3 gsap-hero">
+              <a href="#contact" class="btn-studio-primary interactive-hover">
+                <span>Let's Build Something</span>
+                <i data-lucide="arrow-right" style="width: 17px; height: 17px;"></i>
+              </a>
+              <a href="#work" class="btn-studio-secondary interactive-hover">
+                <span>Explore Our Work</span>
+              </a>
             </div>
-            <p class="text-xs text-charcoal/70 leading-relaxed">Mini chickpea patties, golden and crispy with fresh lettuce, ripe tomatoes, and creamy tahini sauce inside soft slider buns.</p>
-          </div>
-        </div>
 
-        <div class="bg-white rounded-3xl overflow-hidden border border-forest/[0.08] shadow-card hover:shadow-editorial transition-all duration-300 hover:-translate-y-1 group reveal reveal-delay-1">
-          <div class="aspect-[4/3] overflow-hidden relative">
-            <img src="https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=700&q=80" alt="Khao Suey" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" />
-            <span class="absolute top-3 left-3 bg-forest/90 backdrop-blur-xs text-white text-[10px] uppercase tracking-wider px-3 py-1 rounded-full font-medium">Main Course</span>
-          </div>
-          <div class="p-5">
-            <div class="flex justify-between items-baseline gap-2 mb-2">
-              <h3 class="font-serif text-xl font-bold text-forest">Khao Suey</h3>
-              <span class="font-semibold text-sm text-leafolive shrink-0 bg-leafolive/10 px-2.5 py-0.5 rounded-full">₹350</span>
-            </div>
-            <p class="text-xs text-charcoal/70 leading-relaxed">A rice noodles-inspired one-bowl meal featuring noodles served in a fragrant coconut curry broth, infused with garlic, ginger, and lemongrass.</p>
-          </div>
-        </div>
-
-        <div class="bg-white rounded-3xl overflow-hidden border border-forest/[0.08] shadow-card hover:shadow-editorial transition-all duration-300 hover:-translate-y-1 group reveal reveal-delay-2">
-          <div class="aspect-[4/3] overflow-hidden relative">
-            <img src="https://images.unsplash.com/photo-1533134242443-d4fd215305ad?auto=format&fit=crop&w=700&q=80" alt="Lotus Biscoff Cheesecake" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" />
-            <span class="absolute top-3 left-3 bg-terracotta/95 backdrop-blur-xs text-white text-[10px] uppercase tracking-wider px-3 py-1 rounded-full font-medium">Signature Dessert</span>
-          </div>
-          <div class="p-5">
-            <div class="flex justify-between items-baseline gap-2 mb-2">
-              <h3 class="font-serif text-xl font-bold text-forest">Lotus Biscoff Cheesecake</h3>
-              <span class="font-semibold text-sm text-leafolive shrink-0 bg-leafolive/10 px-2.5 py-0.5 rounded-full">₹319</span>
-            </div>
-            <p class="text-xs text-charcoal/70 leading-relaxed">A Biscoff biscuit base, topped with a velvety smooth cream cheese layer infused with cookie crumbs for crushed Lotus Biscoff cookies.</p>
-          </div>
-        </div>
-
-        <div class="bg-white rounded-3xl overflow-hidden border border-forest/[0.08] shadow-card hover:shadow-editorial transition-all duration-300 hover:-translate-y-1 group reveal reveal-delay-3">
-          <div class="aspect-[4/3] overflow-hidden relative">
-            <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=700&q=80" alt="Coconut Filter Cold Coffee" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" />
-            <span class="absolute top-3 left-3 bg-leafolive/95 backdrop-blur-xs text-white text-[10px] uppercase tracking-wider px-3 py-1 rounded-full font-medium">Tea &amp; Coffee</span>
-          </div>
-          <div class="p-5">
-            <div class="flex justify-between items-baseline gap-2 mb-2">
-              <h3 class="font-serif text-xl font-bold text-forest">Coconut Filter Cold Coffee</h3>
-              <span class="font-semibold text-sm text-leafolive shrink-0 bg-leafolive/10 px-2.5 py-0.5 rounded-full">₹210</span>
-            </div>
-            <p class="text-xs text-charcoal/70 leading-relaxed">Authentic South Indian filter coffee decoction blended with chilled coconut notes for a smooth, refreshing finish.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Swipeable Horizontal Full Café Menu -->
-  <section id="menu" class="py-16 sm:py-24 px-4 sm:px-8 md:px-10">
-    <div class="max-w-6xl mx-auto">
-      <div class="text-center max-w-2xl mx-auto space-y-3 mb-8 reveal">
-        <span class="text-xs uppercase tracking-[0.25em] text-leafolive font-bold">Leaf Kitchen &amp; Coffee Bar</span>
-        <h2 class="font-serif text-4xl sm:text-5xl font-semibold text-forest">Full Café Menu</h2>
-        <p class="text-sm text-charcoal/70">Please inform your server of any allergies or intolerances. Government taxes as applicable.</p>
-      </div>
-
-      <!-- Search + Category Filter Pills -->
-      <div class="space-y-4 mb-8 reveal">
-        <div class="max-w-md mx-auto relative">
-          <i data-lucide="search" class="w-4 h-4 text-charcoal/45 absolute left-4 top-1/2 -translate-y-1/2"></i>
-          <input 
-            type="text" 
-            id="menu-search" 
-            placeholder="Search dishes, soups, filter coffee, desserts..." 
-            class="w-full pl-11 pr-4 py-3.5 rounded-full bg-white border border-forest/15 text-sm focus:outline-none focus:border-leafolive focus:ring-2 focus:ring-leafolive/15 shadow-2xs transition-all"
-          />
-        </div>
-
-        <div class="flex items-center justify-start md:justify-center gap-2 overflow-x-auto no-scrollbar pb-1" id="menu-tabs">
-          <button data-cat="soups" class="menu-tab active shrink-0 px-4 py-2 rounded-full text-xs sm:text-sm font-medium bg-forest text-white shadow-2xs transition-all cursor-pointer">Soups</button>
-          <button data-cat="sliders" class="menu-tab shrink-0 px-4 py-2 rounded-full text-xs sm:text-sm font-medium bg-sand text-forest hover:bg-leafolive/15 transition-all cursor-pointer">Slider &amp; Sandwiches</button>
-          <button data-cat="mains" class="menu-tab shrink-0 px-4 py-2 rounded-full text-xs sm:text-sm font-medium bg-sand text-forest hover:bg-leafolive/15 transition-all cursor-pointer">Main Course</button>
-          <button data-cat="salads" class="menu-tab shrink-0 px-4 py-2 rounded-full text-xs sm:text-sm font-medium bg-sand text-forest hover:bg-leafolive/15 transition-all cursor-pointer">Fresh Salads &amp; Bowls</button>
-          <button data-cat="appetizers" class="menu-tab shrink-0 px-4 py-2 rounded-full text-xs sm:text-sm font-medium bg-sand text-forest hover:bg-leafolive/15 transition-all cursor-pointer">Appetizers</button>
-          <button data-cat="desserts" class="menu-tab shrink-0 px-4 py-2 rounded-full text-xs sm:text-sm font-medium bg-sand text-forest hover:bg-leafolive/15 transition-all cursor-pointer">Signature Desserts</button>
-          <button data-cat="drinks" class="menu-tab shrink-0 px-4 py-2 rounded-full text-xs sm:text-sm font-medium bg-sand text-forest hover:bg-leafolive/15 transition-all cursor-pointer">Smoothies &amp; Coolers</button>
-          <button data-cat="coffee" class="menu-tab shrink-0 px-4 py-2 rounded-full text-xs sm:text-sm font-medium bg-sand text-forest hover:bg-leafolive/15 transition-all cursor-pointer">Tea, Coffee &amp; Water</button>
-        </div>
-      </div>
-
-      <!-- Swipe Controls & Indicator Bar -->
-      <div id="menu-swipe-controls" class="flex items-center justify-between mb-4 px-1">
-        <div class="flex items-center gap-2 text-xs text-charcoal/65 font-medium">
-          <i data-lucide="move-horizontal" class="w-4 h-4 text-leafolive"></i>
-          <span id="menu-page-indicator">Swipe left or right &bull; 1 of 8</span>
-        </div>
-        <div class="flex items-center gap-2">
-          <button id="menu-prev-btn" aria-label="Previous Menu Category" class="w-9 h-9 rounded-full bg-white hover:bg-forest hover:text-white border border-forest/15 flex items-center justify-center text-forest transition-colors shadow-2xs cursor-pointer">
-            <i data-lucide="chevron-left" class="w-4 h-4"></i>
-          </button>
-          <button id="menu-next-btn" aria-label="Next Menu Category" class="w-9 h-9 rounded-full bg-white hover:bg-forest hover:text-white border border-forest/15 flex items-center justify-center text-forest transition-colors shadow-2xs cursor-pointer">
-            <i data-lucide="chevron-right" class="w-4 h-4"></i>
-          </button>
-        </div>
-      </div>
-
-      <!-- Horizontal Swipe Track -->
-      <div id="menu-sections-container" class="flex gap-6 overflow-x-auto snap-x snap-mandatory scroll-smooth no-scrollbar pb-2"></div>
-
-      <div id="menu-empty" class="hidden text-center py-12">
-        <p class="font-serif text-2xl text-forest">No matching dishes found.</p>
-        <button onclick="resetMenuFilters()" class="mt-3 text-sm text-leafolive underline font-medium cursor-pointer">Show all menu items</button>
-      </div>
-    </div>
-  </section>
-
-  <!-- Authentic Google Photos Gallery Section (With Interactive Lightbox) -->
-  <section id="space" class="py-16 sm:py-24 px-4 sm:px-8 md:px-10 bg-forest text-cream">
-    <div class="max-w-7xl mx-auto">
-      <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6 reveal">
-        <div>
-          <span class="text-xs uppercase tracking-[0.25em] text-sage font-bold">Advanced Nature Studio</span>
-          <h2 class="font-serif text-4xl sm:text-5xl font-semibold text-white mt-1.5">Inside Leaf Café</h2>
-        </div>
-        <p class="text-sm text-cream/75 max-w-md leading-relaxed">
-          Handcrafted sculptural lanterns, upcycled industrial columns, and warm terracotta dining tables. Tap any photo to inspect full screen.
-        </p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <button type="button" onclick="openLightbox('assets/cafe-ceiling.webp', 'Sculptural Canopy', 'Handcrafted Lotus & Lantern Ceiling')" class="text-left rounded-3xl overflow-hidden aspect-[3/4] relative group border border-white/10 reveal cursor-pointer focus:outline-none">
-          <img 
-            src="assets/cafe-ceiling.webp" 
-            onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=800&q=80';"
-            alt="Sculptural lotus-leaf hanging lamps and wooden mezzanine at Leaf Café" 
-            class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" 
-          />
-          <div class="absolute top-4 right-4 w-9 h-9 rounded-full bg-black/40 backdrop-blur-xs text-white/90 flex items-center justify-center opacity-80 group-hover:opacity-100 transition-opacity">
-            <i data-lucide="maximize-2" class="w-4 h-4"></i>
-          </div>
-          <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-transparent flex items-end p-6">
-            <div>
-              <p class="text-[11px] uppercase tracking-widest text-sage font-medium">Sculptural Canopy</p>
-              <p class="font-serif text-2xl text-white mt-0.5">Handcrafted Lotus &amp; Lantern Ceiling</p>
+            <div class="mt-4 pt-2 d-flex flex-wrap align-items-center gap-3 text-secondary small gsap-hero" style="font-family: var(--font-mono); font-size: 0.76rem;">
+              <span>AVAILABLE FOR GLOBAL PROJECTS</span>
+              <span style="color: var(--text-muted);">•</span>
+              <span>USA · UK · CANADA · AUSTRALIA · INDIA</span>
             </div>
           </div>
-        </button>
 
-        <button type="button" onclick="openLightbox('assets/cafe-dining.webp', 'Artisan Dining', 'Upcycled Tables & Terracotta Glow')" class="text-left rounded-3xl overflow-hidden aspect-[3/4] relative group border border-white/10 reveal reveal-delay-1 cursor-pointer focus:outline-none">
-          <img 
-            src="assets/cafe-dining.webp" 
-            onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1445116572660-236099ec97a0?auto=format&fit=crop&w=800&q=80';"
-            alt="Warm pendant lamps and hand-painted dining tables at Leaf Café" 
-            class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" 
-          />
-          <div class="absolute top-4 right-4 w-9 h-9 rounded-full bg-black/40 backdrop-blur-xs text-white/90 flex items-center justify-center opacity-80 group-hover:opacity-100 transition-opacity">
-            <i data-lucide="maximize-2" class="w-4 h-4"></i>
-          </div>
-          <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-transparent flex items-end p-6">
-            <div>
-              <p class="text-[11px] uppercase tracking-widest text-sage font-medium">Artisan Dining</p>
-              <p class="font-serif text-2xl text-white mt-0.5">Upcycled Tables &amp; Terracotta Glow</p>
-            </div>
-          </div>
-        </button>
+          <!-- Interactive Browser Stage Composition -->
+          <div class="col-lg-5 gsap-hero">
+            <div class="hero-stage-wrapper" id="heroStageWrapper">
+              <div class="browser-stage" id="heroBrowserStage">
+                <div class="browser-chrome">
+                  <div class="window-dots" aria-hidden="true">
+                    <span></span><span></span><span></span>
+                  </div>
+                  <div class="browser-url-bar" id="stageUrlDisplay">studio.build/architecture</div>
+                  <i data-lucide="sparkles" style="width: 14px; height: 14px; color: var(--accent-warm);"></i>
+                </div>
 
-        <button type="button" onclick="openLightbox('assets/cafe-mezzanine.webp', 'Mezzanine Loft', 'Community Art & Quiet Corners')" class="text-left rounded-3xl overflow-hidden aspect-[3/4] relative group border border-white/10 reveal reveal-delay-2 cursor-pointer focus:outline-none">
-          <img 
-            src="assets/cafe-mezzanine.webp" 
-            onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=800&q=80';"
-            alt="Mezzanine overhead view of Leaf Café Pune" 
-            class="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105" 
-          />
-          <div class="absolute top-4 right-4 w-9 h-9 rounded-full bg-black/40 backdrop-blur-xs text-white/90 flex items-center justify-center opacity-80 group-hover:opacity-100 transition-opacity">
-            <i data-lucide="maximize-2" class="w-4 h-4"></i>
-          </div>
-          <div class="absolute inset-0 bg-gradient-to-t from-black/85 via-transparent to-transparent flex items-end p-6">
-            <div>
-              <p class="text-[11px] uppercase tracking-widest text-sage font-medium">Mezzanine Loft</p>
-              <p class="font-serif text-2xl text-white mt-0.5">Community Art &amp; Quiet Corners</p>
-            </div>
-          </div>
-        </button>
-      </div>
-    </div>
-  </section>
+                <!-- Interactive Mode Switcher Tabs -->
+                <div class="browser-tabs" role="tablist" aria-label="Interactive System Preview">
+                  <button class="stage-tab-btn active interactive-hover" role="tab" aria-selected="true" data-stage="design" data-url="studio.build/ui-systems">01. UI Systems</button>
+                  <button class="stage-tab-btn interactive-hover" role="tab" aria-selected="false" data-stage="web" data-url="studio.build/web-apps">02. Web Apps</button>
+                  <button class="stage-tab-btn interactive-hover" role="tab" aria-selected="false" data-stage="commerce" data-url="studio.build/catalogues">03. Catalogues</button>
+                </div>
 
-  <!-- Direct Table Booking Banner -->
-  <section class="py-14 sm:py-16 px-4 sm:px-8 md:px-10 bg-sand/70 border-b border-forest/[0.07]">
-    <div class="max-w-6xl mx-auto rounded-[2rem] bg-white border border-leafolive/20 p-7 sm:p-10 flex flex-col lg:flex-row items-center justify-between gap-8 shadow-card reveal">
-      <div class="space-y-3 text-center lg:text-left max-w-lg">
-        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-leafolive/10 text-leafolive text-xs font-bold">
-          <i data-lucide="sparkles" class="w-3.5 h-3.5"></i>
-          <span>Exciting Dining Offers</span>
-        </div>
-        <h2 class="font-serif text-3xl sm:text-4xl font-semibold text-forest">Reserve Your Table Online</h2>
-        <p class="text-sm text-charcoal/75 leading-relaxed">
-          Book directly through Swiggy Dineout, Zomato, or District to unlock instant dining offers, or follow us on Instagram for weekend workshop updates.
-        </p>
-      </div>
+                <div class="stage-canvas">
+                  <!-- Tab 1: UI Systems -->
+                  <div class="stage-view active" id="stage-design">
+                    <div class="mock-wireframe-hero">
+                      <span class="mock-pill">RESPONSIVE ARCHITECTURE</span>
+                      <div class="fw-semibold text-white mb-1" style="font-size: 1.05rem;">Editorial Grid & Tactile Interfaces</div>
+                      <p class="small text-secondary mb-3">Clean visual hierarchy engineered for clarity across desktop, tablet, and mobile viewports.</p>
+                      <div class="d-flex gap-2">
+                        <span class="badge bg-light text-dark fw-medium px-2 py-1">Mobile-First</span>
+                        <span class="badge bg-dark border border-secondary text-light fw-normal px-2 py-1">Semantic HTML5</span>
+                      </div>
+                    </div>
+                    <div class="mock-card-grid">
+                      <div class="mock-mini-card">
+                        <div class="mock-bar" style="width: 55%; background: var(--accent-warm);"></div>
+                        <div class="mock-bar" style="width: 85%;"></div>
+                        <div class="mock-bar mb-0" style="width: 70%; opacity: 0.5;"></div>
+                      </div>
+                      <div class="mock-mini-card">
+                        <div class="mock-bar" style="width: 45%; background: var(--accent-emerald);"></div>
+                        <div class="mock-bar" style="width: 90%;"></div>
+                        <div class="mock-bar mb-0" style="width: 60%; opacity: 0.5;"></div>
+                      </div>
+                      <div class="mock-mini-card">
+                        <div class="mock-bar" style="width: 65%; background: var(--accent-sky);"></div>
+                        <div class="mock-bar" style="width: 80%;"></div>
+                        <div class="mock-bar mb-0" style="width: 75%; opacity: 0.5;"></div>
+                      </div>
+                    </div>
+                  </div>
 
-      <div class="flex flex-col sm:flex-row sm:flex-wrap lg:flex-nowrap items-stretch sm:items-center justify-center gap-3 w-full lg:w-auto shrink-0">
-        <!-- Swiggy -->
-        <a href="https://www.swiggy.com/restaurants" target="_blank" rel="noopener noreferrer" class="px-5 py-3.5 bg-swiggy hover:bg-[#e8700c] text-white rounded-2xl flex items-center justify-between sm:justify-center gap-3 shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-0.5 group">
-          <span class="w-10 h-10 rounded-xl bg-swiggy border border-white/30 flex items-center justify-center shadow-2xs shrink-0">
-            <svg viewBox="0 0 40 48" class="w-6 h-7">
-              <path fill="#FFFFFF" d="M20 2C10.06 2 2 9.86 2 19.56C2 31.3 17.85 44.3 18.52 44.85C19.38 45.55 20.62 45.55 21.48 44.85C22.15 44.3 38 31.3 38 19.56C38 9.86 29.94 2 20 2Z"/>
-              <path fill="none" stroke="#FC8019" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M20 11.5V18.5H27.5M20 34.5V27.5H12.5"/>
-            </svg>
-          </span>
-          <div class="text-left">
-            <span class="block text-sm font-bold leading-tight whitespace-nowrap">Book on Swiggy</span>
-            <span class="block text-[10px] text-white/90 font-medium whitespace-nowrap">Dineout &bull; Flat 15% Off</span>
-          </div>
-          <i data-lucide="arrow-up-right" class="w-4 h-4 text-white/90 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 shrink-0"></i>
-        </a>
+                  <!-- Tab 2: Web Apps -->
+                  <div class="stage-view" id="stage-web">
+                    <div class="mock-wireframe-hero">
+                      <span class="mock-pill" style="color: var(--accent-sky); background: rgba(56, 189, 248, 0.12);">CUSTOM WEB APPLICATIONS</span>
+                      <div class="fw-semibold text-white mb-1" style="font-size: 1.05rem;">Structured Workflows & Interactive Tools</div>
+                      <p class="small text-secondary mb-0">Tailored frontends connected to lightweight, scalable cloud backends without unnecessary bloat.</p>
+                    </div>
+                    <div class="d-flex flex-column gap-2">
+                      <div class="mock-mini-card d-flex align-items-center justify-content-between">
+                        <span class="small text-light">Interactive Filtering & Search</span>
+                        <span class="font-mono small" style="color: var(--accent-emerald);">READY</span>
+                      </div>
+                      <div class="mock-mini-card d-flex align-items-center justify-content-between">
+                        <span class="small text-light">Direct Booking & Lead Capture</span>
+                        <span class="font-mono small" style="color: var(--accent-emerald);">READY</span>
+                      </div>
+                    </div>
+                  </div>
 
-        <!-- Zomato -->
-        <a href="https://www.zomato.com/pune/leaf-a-cafe-by-advanced-nature-hadapsar" target="_blank" rel="noopener noreferrer" class="px-5 py-3.5 bg-zomato hover:bg-[#cb2633] text-white rounded-2xl flex items-center justify-between sm:justify-center gap-3 shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-0.5 group">
-          <span class="w-10 h-10 rounded-xl bg-white flex items-center justify-center shadow-2xs shrink-0 px-1">
-            <span class="text-[#EF4F5F] font-sans font-black italic tracking-tighter text-[10.5px] leading-none">zomato</span>
-          </span>
-          <div class="text-left">
-            <span class="block text-sm font-bold leading-tight whitespace-nowrap">Book on Zomato</span>
-            <span class="block text-[10px] text-white/90 font-medium whitespace-nowrap">Instant Table Booking</span>
-          </div>
-          <i data-lucide="arrow-up-right" class="w-4 h-4 text-white/90 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 shrink-0"></i>
-        </a>
+                  <!-- Tab 3: Digital Catalogues -->
+                  <div class="stage-view" id="stage-commerce">
+                    <div class="mock-wireframe-hero">
+                      <span class="mock-pill" style="color: var(--accent-emerald); background: rgba(52, 211, 153, 0.12);">HOSPITALITY & RETAIL</span>
+                      <div class="fw-semibold text-white mb-1" style="font-size: 1.05rem;">Interactive Menus & Product Showcases</div>
+                      <p class="small text-secondary mb-0">Fast-loading category browsing, gallery highlights, and direct reservation integrations.</p>
+                    </div>
+                    <div class="mock-card-grid">
+                      <div class="mock-mini-card text-center">
+                        <i data-lucide="utensils" class="mb-1" style="width: 16px; height: 16px; color: var(--accent-warm);"></i>
+                        <div class="small text-light">Menus</div>
+                      </div>
+                      <div class="mock-mini-card text-center">
+                        <i data-lucide="image" class="mb-1" style="width: 16px; height: 16px; color: var(--accent-warm);"></i>
+                        <div class="small text-light">Galleries</div>
+                      </div>
+                      <div class="mock-mini-card text-center">
+                        <i data-lucide="calendar-check" class="mb-1" style="width: 16px; height: 16px; color: var(--accent-warm);"></i>
+                        <div class="small text-light">Booking</div>
+                      </div>
+                    </div>
+                  </div>
 
-        <!-- District by Zomato -->
-        <a href="https://www.district.in/" target="_blank" rel="noopener noreferrer" class="px-5 py-3.5 bg-district hover:bg-[#5811c4] text-white rounded-2xl flex items-center justify-between sm:justify-center gap-3 shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-0.5 group">
-          <span class="w-10 h-10 rounded-xl bg-[#6D17E8] border border-white/30 flex flex-col items-center justify-center shadow-2xs shrink-0 px-1">
-            <span class="text-white font-sans font-black tracking-tight text-[8.5px] leading-none">district</span>
-            <span class="text-white/90 font-bold text-[4.3px] uppercase tracking-[0.12em] mt-0.5 leading-none">BY ZOMATO</span>
-          </span>
-          <div class="text-left">
-            <span class="block text-sm font-bold leading-tight whitespace-nowrap">Book on District</span>
-            <span class="block text-[10px] text-white/90 font-medium whitespace-nowrap">By Zomato &bull; Flat 10% Off</span>
-          </div>
-          <i data-lucide="arrow-up-right" class="w-4 h-4 text-white/90 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 shrink-0"></i>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Visit & Location -->
-  <section id="visit" class="py-16 sm:py-20 px-4 sm:px-8 md:px-10">
-    <div class="max-w-7xl mx-auto bg-white rounded-[2.5rem] p-7 sm:p-12 border border-forest/[0.08] shadow-card reveal">
-      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-10 items-center">
-        <div class="md:col-span-6 space-y-6">
-          <span class="text-xs uppercase tracking-[0.25em] text-leafolive font-bold">Find Us in Pune</span>
-          <h2 class="font-serif text-4xl font-semibold text-forest">Visit Leaf Café</h2>
-          
-          <div class="space-y-4 text-sm sm:text-base text-charcoal/80">
-            <div class="flex items-start gap-3.5">
-              <i data-lucide="map-pin" class="w-5 h-5 text-leafolive shrink-0 mt-1"></i>
-              <div>
-                <p class="font-semibold text-forest">Address</p>
-                <p>Plot 08, Hadapsar Industrial Estate, Hadapsar, Pune, Maharashtra 411013</p>
+                  <div class="stage-footer-meta">
+                    <span>LIGHTWEIGHT · ZERO BLOAT</span>
+                    <span>INTERACTIVE PREVIEW</span>
+                  </div>
+                </div>
               </div>
             </div>
-            <div class="flex items-start gap-3.5">
-              <i data-lucide="clock" class="w-5 h-5 text-leafolive shrink-0 mt-1"></i>
-              <div>
-                <p class="font-semibold text-forest">Hours</p>
-                <p>Tuesday – Sunday: 11:00 AM – 10:00 PM (Closed Mondays)</p>
-              </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         3. TRUST / VALUE SECTION
+         ====================================================================== -->
+    <section class="section-padding border-top" style="border-color: var(--border-subtle) !important; background-color: var(--bg-secondary);">
+      <div class="container">
+        <div class="row justify-content-between align-items-end mb-5 gsap-reveal">
+          <div class="col-lg-7">
+            <span class="eyebrow">Our Philosophy</span>
+            <h2 class="display-5 fw-bold mb-0">More Than Just Another Website.</h2>
+          </div>
+          <div class="col-lg-4 mt-3 mt-lg-0">
+            <p class="text-secondary mb-0">
+              A website should work as a dependable business asset—communicating credibility clearly and guiding visitors toward action.
+            </p>
+          </div>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-md-6 col-lg-4 gsap-reveal">
+            <div class="value-card">
+              <div class="icon-box"><i data-lucide="target" style="width: 20px; height: 20px;"></i></div>
+              <h3 class="h5 fw-bold mb-2">Business-Focused Design</h3>
+              <p class="text-secondary small mb-0">Every layout decision, headline hierarchy, and call-to-action is structured around how your customers evaluate and choose your business.</p>
             </div>
-            <div class="flex items-start gap-3.5">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5 text-leafolive shrink-0 mt-1">
-                <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
-                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
-              </svg>
+          </div>
+
+          <div class="col-md-6 col-lg-4 gsap-reveal">
+            <div class="value-card">
+              <div class="icon-box"><i data-lucide="smartphone" style="width: 20px; height: 20px;"></i></div>
+              <h3 class="h5 fw-bold mb-2">Responsive Experiences</h3>
+              <p class="text-secondary small mb-0">Engineered mobile-first so your site feels natural, readable, and effortless to navigate on smartphones, tablets, and wide desktop screens.</p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4 gsap-reveal">
+            <div class="value-card">
+              <div class="icon-box"><i data-lucide="gauge" style="width: 20px; height: 20px;"></i></div>
+              <h3 class="h5 fw-bold mb-2">Performance & Usability</h3>
+              <p class="text-secondary small mb-0">Clean semantic code, optimized assets, and intuitive navigation keep load times fast and reduce friction for international visitors.</p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4 gsap-reveal">
+            <div class="value-card">
+              <div class="icon-box"><i data-lucide="blocks" style="width: 20px; height: 20px;"></i></div>
+              <h3 class="h5 fw-bold mb-2">Scalable Architecture</h3>
+              <p class="text-secondary small mb-0">Modular codebases built so you can expand pages, add digital catalogues, or integrate new workflows as your requirements evolve.</p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4 gsap-reveal">
+            <div class="value-card">
+              <div class="icon-box"><i data-lucide="message-square" style="width: 20px; height: 20px;"></i></div>
+              <h3 class="h5 fw-bold mb-2">Clear Communication</h3>
+              <p class="text-secondary small mb-0">Direct, jargon-free updates throughout planning, design, and development so you always know what is being built and why.</p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4 gsap-reveal">
+            <div class="value-card">
+              <div class="icon-box"><i data-lucide="shield-check" style="width: 20px; height: 20px;"></i></div>
+              <h3 class="h5 fw-bold mb-2">Reliable Delivery</h3>
+              <p class="text-secondary small mb-0">Structured milestones, thorough cross-device testing, and clean deployment handovers you can count on.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         4. PORTFOLIO SECTION (REAL DEPLOYED PROJECTS)
+         ====================================================================== -->
+    <section id="work" class="section-padding border-top" style="border-color: var(--border-subtle) !important;">
+      <div class="container">
+        <div class="row justify-content-between align-items-end mb-5 gsap-reveal">
+          <div class="col-lg-7">
+            <span class="eyebrow">Selected Work</span>
+            <h2 class="display-5 fw-bold mb-0">Live Projects Built & Deployed.</h2>
+          </div>
+          <div class="col-lg-4 mt-3 mt-lg-0">
+            <p class="text-secondary mb-0">
+              Explore live web experiences crafted with responsive layouts, clean UI architecture, and practical user journeys.
+            </p>
+          </div>
+        </div>
+
+        <div class="row g-5">
+          <!-- PROJECT 1: LEAF CAFÉ -->
+          <div class="col-lg-6 gsap-reveal">
+            <article class="project-showcase-card h-100 d-flex flex-column">
+              <!-- Architectural Browser Frame Mockup -->
+              <div class="project-browser-frame">
+                <div class="project-window">
+                  <div class="project-window-header">
+                    <div class="window-dots" aria-hidden="true">
+                      <span></span><span></span><span></span>
+                    </div>
+                    <div class="project-url-pill">imvicky2115.github.io/LeafCafe/</div>
+                    <a href="https://imvicky2115.github.io/LeafCafe/" target="_blank" rel="noopener noreferrer" class="text-secondary" aria-label="Open Leaf Café in new tab">
+                      <i data-lucide="external-link" style="width: 14px; height: 14px;"></i>
+                    </a>
+                  </div>
+
+                  <div class="preview-leaf-cafe">
+                    <div>
+                      <div class="d-flex align-items-center justify-content-between mb-3">
+                        <span class="leaf-badge">
+                          <i data-lucide="leaf" style="width: 12px; height: 12px;"></i>
+                          <span>Leaf Café</span>
+                        </span>
+                        <span class="font-mono small" style="color: #a1a1aa; font-size: 0.7rem;">HOSPITALITY & DINING</span>
+                      </div>
+                      <h4 class="h4 fw-bold text-white mb-2" style="font-family: var(--font-display);">Interactive Menu, Gallery & Table Reservations</h4>
+                      <div class="leaf-menu-pills">
+                        <span>Food Categories</span>
+                        <span>Menu Highlights</span>
+                        <span>Interior Gallery</span>
+                        <span>Café Info</span>
+                      </div>
+                    </div>
+
+                    <div class="leaf-booking-strip">
+                      <div class="leaf-booking-chip">Menu Discovery</div>
+                      <div class="leaf-booking-chip">Visual Gallery</div>
+                      <div class="leaf-booking-chip">Reservation Links</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Project Details -->
+              <div class="project-body flex-grow-1 d-flex flex-column justify-content-between">
+                <div>
+                  <span class="project-category-tag">Restaurant & Café Website</span>
+                  <h3 class="h3 fw-bold mb-3">Leaf Café</h3>
+                  <p class="text-secondary mb-4">
+                    A modern café website featuring an interactive menu, food categories, gallery, café information and reservation links. Designed for effortless browsing on mobile devices and desktops alike.
+                  </p>
+                </div>
+
+                <div class="pt-3 border-top d-flex align-items-center justify-content-between" style="border-color: var(--border-subtle) !important;">
+                  <a href="https://imvicky2115.github.io/LeafCafe/" target="_blank" rel="noopener noreferrer" class="btn-studio-primary interactive-hover">
+                    <span>View Live Project</span>
+                    <i data-lucide="arrow-up-right" style="width: 16px; height: 16px;"></i>
+                  </a>
+                  <span class="font-mono small text-muted">LIVE DEPLOYMENT</span>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <!-- PROJECT 2: HAPPYPAWS -->
+          <div class="col-lg-6 gsap-reveal">
+            <article class="project-showcase-card h-100 d-flex flex-column">
+              <!-- Architectural Browser Frame Mockup -->
+              <div class="project-browser-frame">
+                <div class="project-window">
+                  <div class="project-window-header">
+                    <div class="window-dots" aria-hidden="true">
+                      <span></span><span></span><span></span>
+                    </div>
+                    <div class="project-url-pill">imvicky2115.github.io/HappyPaws/</div>
+                    <a href="https://imvicky2115.github.io/HappyPaws/" target="_blank" rel="noopener noreferrer" class="text-secondary" aria-label="Open HappyPaws in new tab">
+                      <i data-lucide="external-link" style="width: 14px; height: 14px;"></i>
+                    </a>
+                  </div>
+
+                  <div class="preview-happypaws">
+                    <div>
+                      <div class="d-flex align-items-center justify-content-between mb-3">
+                        <span class="paws-badge">
+                          <i data-lucide="heart" style="width: 12px; height: 12px;"></i>
+                          <span>HappyPaws</span>
+                        </span>
+                        <span class="font-mono small" style="color: #a1a1aa; font-size: 0.7rem;">PET DISCOVERY PLATFORM</span>
+                      </div>
+                      <h4 class="h4 fw-bold text-white mb-2" style="font-family: var(--font-display);">Accessible Animal Information & Discovery</h4>
+                    </div>
+
+                    <div class="paws-modules-grid">
+                      <div class="paws-module-item">
+                        <i data-lucide="search" style="width: 14px; height: 14px; color: #fdba74;"></i>
+                        <span>Pet Discovery</span>
+                      </div>
+                      <div class="paws-module-item">
+                        <i data-lucide="book-open" style="width: 14px; height: 14px; color: #fdba74;"></i>
+                        <span>Structured Info</span>
+                      </div>
+                      <div class="paws-module-item">
+                        <i data-lucide="smartphone" style="width: 14px; height: 14px; color: #fdba74;"></i>
+                        <span>Mobile-First UI</span>
+                      </div>
+                      <div class="paws-module-item">
+                        <i data-lucide="compass" style="width: 14px; height: 14px; color: #fdba74;"></i>
+                        <span>Guided Navigation</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Project Details -->
+              <div class="project-body flex-grow-1 d-flex flex-column justify-content-between">
+                <div>
+                  <span class="project-category-tag">Custom Web Experience</span>
+                  <h3 class="h3 fw-bold mb-3">HappyPaws</h3>
+                  <p class="text-secondary mb-4">
+                    A pet-related web experience designed to make animal-related information and discovery more accessible through clear visual hierarchy and intuitive mobile-first navigation.
+                  </p>
+                </div>
+
+                <div class="pt-3 border-top d-flex align-items-center justify-content-between" style="border-color: var(--border-subtle) !important;">
+                  <a href="https://imvicky2115.github.io/HappyPaws/" target="_blank" rel="noopener noreferrer" class="btn-studio-primary interactive-hover">
+                    <span>View Live Project</span>
+                    <i data-lucide="arrow-up-right" style="width: 16px; height: 16px;"></i>
+                  </a>
+                  <span class="font-mono small text-muted">LIVE DEPLOYMENT</span>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         5. SERVICES SECTION
+         ====================================================================== -->
+    <section id="services" class="section-padding border-top" style="border-color: var(--border-subtle) !important; background-color: var(--bg-secondary);">
+      <div class="container">
+        <div class="row justify-content-between align-items-end mb-5 gsap-reveal">
+          <div class="col-lg-7">
+            <span class="eyebrow">Capabilities</span>
+            <h2 class="display-5 fw-bold mb-0">Focused Digital Services.</h2>
+          </div>
+          <div class="col-lg-4 mt-3 mt-lg-0">
+            <p class="text-secondary mb-0">
+              Practical, end-to-end web design and frontend engineering tailored for small businesses, hospitality brands, and founders.
+            </p>
+          </div>
+        </div>
+
+        <div class="row g-4">
+          <!-- Service A -->
+          <div class="col-md-6 col-lg-4 gsap-reveal">
+            <div class="service-card">
               <div>
-                <p class="font-semibold text-forest">Instagram Community</p>
-                <a href="https://www.instagram.com/leafcafepune?jplx=MTdoM2ZxcGtmaDhmbg==" target="_blank" rel="noopener noreferrer" class="text-leafolive hover:underline font-medium inline-flex items-center gap-1.5 mt-0.5">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 shrink-0">
-                    <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
-                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                    <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
-                  </svg>
-                  <span>@leafcafepune &mdash; Follow for art events &amp; seasonal specials</span>
+                <div class="d-flex align-items-center justify-content-between mb-4">
+                  <div class="icon-box mb-0"><i data-lucide="globe" style="width: 20px; height: 20px;"></i></div>
+                  <span class="service-num">01</span>
+                </div>
+                <h3 class="h4 fw-bold mb-2">Business Websites</h3>
+                <p class="text-secondary small mb-0">Modern websites for small and growing businesses built to establish credibility, explain services clearly, and generate enquiries.</p>
+              </div>
+              <div class="mt-4 pt-3 border-top" style="border-color: var(--border-subtle) !important;">
+                <a href="#contact" class="text-decoration-none small fw-medium d-inline-flex align-items-center gap-1 interactive-hover" style="color: var(--accent-warm);">
+                  <span>Discuss a business site</span>
+                  <i data-lucide="arrow-right" style="width: 14px; height: 14px;"></i>
                 </a>
               </div>
             </div>
           </div>
 
-          <div class="pt-2">
-            <a href="https://maps.google.com/?q=Leaf+-+A+café+by+Advanced+Nature+Hadapsar+Pune" target="_blank" rel="noopener noreferrer" class="px-7 py-3.5 bg-forest hover:bg-leafolive text-white rounded-full text-sm font-medium inline-flex items-center gap-2 transition-colors shadow-sm whitespace-nowrap">
-              <i data-lucide="navigation" class="w-4 h-4"></i>
-              <span>Google Maps Directions</span>
+          <!-- Service B -->
+          <div class="col-md-6 col-lg-4 gsap-reveal">
+            <div class="service-card">
+              <div>
+                <div class="d-flex align-items-center justify-content-between mb-4">
+                  <div class="icon-box mb-0"><i data-lucide="refresh-cw" style="width: 20px; height: 20px;"></i></div>
+                  <span class="service-num">02</span>
+                </div>
+                <h3 class="h4 fw-bold mb-2">Website Redesign</h3>
+                <p class="text-secondary small mb-0">Transform outdated websites into modern experiences with sharper typography, mobile responsiveness, and cleaner user journeys.</p>
+              </div>
+              <div class="mt-4 pt-3 border-top" style="border-color: var(--border-subtle) !important;">
+                <a href="#contact" class="text-decoration-none small fw-medium d-inline-flex align-items-center gap-1 interactive-hover" style="color: var(--accent-warm);">
+                  <span>Plan a redesign</span>
+                  <i data-lucide="arrow-right" style="width: 14px; height: 14px;"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Service C -->
+          <div class="col-md-6 col-lg-4 gsap-reveal">
+            <div class="service-card">
+              <div>
+                <div class="d-flex align-items-center justify-content-between mb-4">
+                  <div class="icon-box mb-0"><i data-lucide="layout-template" style="width: 20px; height: 20px;"></i></div>
+                  <span class="service-num">03</span>
+                </div>
+                <h3 class="h4 fw-bold mb-2">Landing Pages</h3>
+                <p class="text-secondary small mb-0">Conversion-focused landing pages for products and services designed around a single clear objective and fast load speeds.</p>
+              </div>
+              <div class="mt-4 pt-3 border-top" style="border-color: var(--border-subtle) !important;">
+                <a href="#contact" class="text-decoration-none small fw-medium d-inline-flex align-items-center gap-1 interactive-hover" style="color: var(--accent-warm);">
+                  <span>Launch a landing page</span>
+                  <i data-lucide="arrow-right" style="width: 14px; height: 14px;"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Service D -->
+          <div class="col-md-6 col-lg-4 gsap-reveal">
+            <div class="service-card">
+              <div>
+                <div class="d-flex align-items-center justify-content-between mb-4">
+                  <div class="icon-box mb-0"><i data-lucide="cpu" style="width: 20px; height: 20px;"></i></div>
+                  <span class="service-num">04</span>
+                </div>
+                <h3 class="h4 fw-bold mb-2">Custom Web Applications</h3>
+                <p class="text-secondary small mb-0">Interactive applications built around business requirements, custom data workflows, booking flows, and browser-based tools.</p>
+              </div>
+              <div class="mt-4 pt-3 border-top" style="border-color: var(--border-subtle) !important;">
+                <a href="#contact" class="text-decoration-none small fw-medium d-inline-flex align-items-center gap-1 interactive-hover" style="color: var(--accent-warm);">
+                  <span>Scope a web app</span>
+                  <i data-lucide="arrow-right" style="width: 14px; height: 14px;"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Service E -->
+          <div class="col-md-6 col-lg-4 gsap-reveal">
+            <div class="service-card">
+              <div>
+                <div class="d-flex align-items-center justify-content-between mb-4">
+                  <div class="icon-box mb-0"><i data-lucide="book-open-check" style="width: 20px; height: 20px;"></i></div>
+                  <span class="service-num">05</span>
+                </div>
+                <h3 class="h4 fw-bold mb-2">Digital Catalogues</h3>
+                <p class="text-secondary small mb-0">Online product and service catalogues, café menus, and structured directories that make browsing effortless on mobile.</p>
+              </div>
+              <div class="mt-4 pt-3 border-top" style="border-color: var(--border-subtle) !important;">
+                <a href="#contact" class="text-decoration-none small fw-medium d-inline-flex align-items-center gap-1 interactive-hover" style="color: var(--accent-warm);">
+                  <span>Build a catalogue</span>
+                  <i data-lucide="arrow-right" style="width: 14px; height: 14px;"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Service F -->
+          <div class="col-md-6 col-lg-4 gsap-reveal">
+            <div class="service-card">
+              <div>
+                <div class="d-flex align-items-center justify-content-between mb-4">
+                  <div class="icon-box mb-0"><i data-lucide="wrench" style="width: 20px; height: 20px;"></i></div>
+                  <span class="service-num">06</span>
+                </div>
+                <h3 class="h4 fw-bold mb-2">Website Maintenance</h3>
+                <p class="text-secondary small mb-0">Ongoing technical support and content updates to keep your site accurate, responsive, and running smoothly after launch.</p>
+              </div>
+              <div class="mt-4 pt-3 border-top" style="border-color: var(--border-subtle) !important;">
+                <a href="#contact" class="text-decoration-none small fw-medium d-inline-flex align-items-center gap-1 interactive-hover" style="color: var(--accent-warm);">
+                  <span>Request support</span>
+                  <i data-lucide="arrow-right" style="width: 14px; height: 14px;"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         6. WHY CHOOSE US
+         ====================================================================== -->
+    <section class="section-padding border-top" style="border-color: var(--border-subtle) !important;">
+      <div class="container">
+        <div class="row g-5 align-items-center">
+          <div class="col-lg-5 gsap-reveal">
+            <span class="eyebrow">Why Work With Us</span>
+            <h2 class="display-5 fw-bold mb-4">Crafted With Intention, Built for Clarity.</h2>
+            <p class="text-secondary mb-4">
+              You collaborate directly with the person designing and engineering your product—eliminating agency bloat, handoff delays, and cookie-cutter templates.
+            </p>
+            <a href="#contact" class="btn-studio-secondary interactive-hover">
+              <span>Start a Conversation</span>
+              <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i>
+            </a>
+          </div>
+
+          <div class="col-lg-7">
+            <div class="row g-3">
+              <div class="col-sm-6 gsap-reveal">
+                <div class="value-card p-4">
+                  <div class="d-flex align-items-center gap-2 mb-2">
+                    <i data-lucide="code-2" style="width: 18px; height: 18px; color: var(--accent-warm);"></i>
+                    <h3 class="h6 fw-bold mb-0">Custom-Built Experiences</h3>
+                  </div>
+                  <p class="text-secondary small mb-0">Tailored layouts and clean code written specifically around your brand and content.</p>
+                </div>
+              </div>
+
+              <div class="col-sm-6 gsap-reveal">
+                <div class="value-card p-4">
+                  <div class="d-flex align-items-center gap-2 mb-2">
+                    <i data-lucide="smartphone" style="width: 18px; height: 18px; color: var(--accent-warm);"></i>
+                    <h3 class="h6 fw-bold mb-0">Mobile-First Approach</h3>
+                  </div>
+                  <p class="text-secondary small mb-0">Designed for handheld screens first so every tap target, menu, and layout feels natural.</p>
+                </div>
+              </div>
+
+              <div class="col-sm-6 gsap-reveal">
+                <div class="value-card p-4">
+                  <div class="d-flex align-items-center gap-2 mb-2">
+                    <i data-lucide="zap" style="width: 18px; height: 18px; color: var(--accent-warm);"></i>
+                    <h3 class="h6 fw-bold mb-0">Performance-Conscious</h3>
+                  </div>
+                  <p class="text-secondary small mb-0">Lightweight architecture avoiding heavy, unnecessary frameworks that slow down your site.</p>
+                </div>
+              </div>
+
+              <div class="col-sm-6 gsap-reveal">
+                <div class="value-card p-4">
+                  <div class="d-flex align-items-center gap-2 mb-2">
+                    <i data-lucide="receipt" style="width: 18px; height: 18px; color: var(--accent-warm);"></i>
+                    <h3 class="h6 fw-bold mb-0">Transparent Pricing</h3>
+                  </div>
+                  <p class="text-secondary small mb-0">Clear scope definitions and upfront quotes before development begins—no surprise fees.</p>
+                </div>
+              </div>
+
+              <div class="col-sm-6 gsap-reveal">
+                <div class="value-card p-4">
+                  <div class="d-flex align-items-center gap-2 mb-2">
+                    <i data-lucide="user-check" style="width: 18px; height: 18px; color: var(--accent-warm);"></i>
+                    <h3 class="h6 fw-bold mb-0">Direct Communication</h3>
+                  </div>
+                  <p class="text-secondary small mb-0">Work directly with your designer and developer across time zones with clear progress checkpoints.</p>
+                </div>
+              </div>
+
+              <div class="col-sm-6 gsap-reveal">
+                <div class="value-card p-4">
+                  <div class="d-flex align-items-center gap-2 mb-2">
+                    <i data-lucide="life-buoy" style="width: 18px; height: 18px; color: var(--accent-warm);"></i>
+                    <h3 class="h6 fw-bold mb-0">Post-Launch Support</h3>
+                  </div>
+                  <p class="text-secondary small mb-0">Smooth handover documentation plus ongoing maintenance options whenever you need updates.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         7. OUR PROCESS (ANIMATED TIMELINE)
+         ====================================================================== -->
+    <section id="process" class="section-padding border-top" style="border-color: var(--border-subtle) !important; background-color: var(--bg-secondary);">
+      <div class="container">
+        <div class="row justify-content-between align-items-end mb-5 gsap-reveal">
+          <div class="col-lg-7">
+            <span class="eyebrow">How We Work</span>
+            <h2 class="display-5 fw-bold mb-0">A Clear Five-Step Process.</h2>
+          </div>
+          <div class="col-lg-4 mt-3 mt-lg-0">
+            <p class="text-secondary mb-0">
+              From initial idea to live deployment, every stage is structured to keep decisions simple and momentum steady.
+            </p>
+          </div>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-md-6 col-lg gsap-process">
+            <div class="process-step">
+              <span class="step-number">01</span>
+              <h3 class="h5 fw-bold mb-2">Discovery</h3>
+              <p class="text-secondary small mb-0">Understand the business, target audience, goals, and functional requirements.</p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg gsap-process">
+            <div class="process-step">
+              <span class="step-number">02</span>
+              <h3 class="h5 fw-bold mb-2">Planning</h3>
+              <p class="text-secondary small mb-0">Define features, content structure, user flows, and technical architecture.</p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg gsap-process">
+            <div class="process-step">
+              <span class="step-number">03</span>
+              <h3 class="h5 fw-bold mb-2">Design & Dev</h3>
+              <p class="text-secondary small mb-0">Craft the visual interface and build the responsive, interactive experience.</p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg gsap-process">
+            <div class="process-step">
+              <span class="step-number">04</span>
+              <h3 class="h5 fw-bold mb-2">Testing</h3>
+              <p class="text-secondary small mb-0">Check mobile responsiveness, cross-browser functionality, accessibility, and speed.</p>
+            </div>
+          </div>
+
+          <div class="col-md-12 col-lg gsap-process">
+            <div class="process-step">
+              <span class="step-number">05</span>
+              <h3 class="h5 fw-bold mb-2">Launch</h3>
+              <p class="text-secondary small mb-0">Deploy the live website, verify domain setup, and hand over full control.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         8. PRICING SECTION
+         ====================================================================== -->
+    <section id="pricing" class="section-padding border-top" style="border-color: var(--border-subtle) !important;">
+      <div class="container">
+        <div class="row justify-content-between align-items-end mb-5 gsap-reveal">
+          <div class="col-lg-7">
+            <span class="eyebrow">Indicative Investment</span>
+            <h2 class="display-5 fw-bold mb-0">Transparent Starting Packages.</h2>
+          </div>
+          <div class="col-lg-4 mt-3 mt-lg-0">
+            <p class="text-secondary mb-0">
+              All rates are listed in USD. Final pricing depends on project scope, page count, and custom feature requirements.
+            </p>
+          </div>
+        </div>
+
+        <div class="row g-4 align-items-stretch">
+          <!-- Tier 1: Starter Website -->
+          <div class="col-lg-4 gsap-reveal">
+            <div class="pricing-card">
+              <div>
+                <span class="font-mono small text-uppercase" style="color: var(--text-muted);">Tier 01</span>
+                <h3 class="h4 fw-bold mt-1">Starter Website</h3>
+                <div class="price-amount">$100<span class="fs-4 text-secondary fw-normal">+</span></div>
+                <p class="text-secondary small">Ideal for landing pages, personal brands, and early-stage businesses needing a sharp online presence.</p>
+
+                <ul class="pricing-list">
+                  <li><i data-lucide="check" style="width: 16px; height: 16px;"></i><span>Responsive single-page or compact site</span></li>
+                  <li><i data-lucide="check" style="width: 16px; height: 16px;"></i><span>Modern editorial design & typography</span></li>
+                  <li><i data-lucide="check" style="width: 16px; height: 16px;"></i><span>Mobile-first layout & speed optimization</span></li>
+                  <li><i data-lucide="check" style="width: 16px; height: 16px;"></i><span>Contact / enquiry integration</span></li>
+                </ul>
+              </div>
+
+              <a href="#contact" class="btn-studio-secondary w-100 interactive-hover select-package-btn" data-package="Starter Website ($100+)">
+                <span>Request a Quote</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Tier 2: Business Website -->
+          <div class="col-lg-4 gsap-reveal">
+            <div class="pricing-card featured">
+              <div>
+                <div class="d-flex align-items-center justify-content-between">
+                  <span class="font-mono small text-uppercase" style="color: var(--accent-warm);">Tier 02 · Most Requested</span>
+                </div>
+                <h3 class="h4 fw-bold mt-1">Business Website</h3>
+                <div class="price-amount">$200<span class="fs-4 text-secondary fw-normal">+</span></div>
+                <p class="text-secondary small">Built for established businesses, cafés, restaurants, and service providers seeking a complete digital home.</p>
+
+                <ul class="pricing-list">
+                  <li><i data-lucide="check" style="width: 16px; height: 16px;"></i><span>Multi-section or multi-page architecture</span></li>
+                  <li><i data-lucide="check" style="width: 16px; height: 16px;"></i><span>Interactive menu, gallery, or service catalogue</span></li>
+                  <li><i data-lucide="check" style="width: 16px; height: 16px;"></i><span>Booking, reservation, or WhatsApp links</span></li>
+                  <li><i data-lucide="check" style="width: 16px; height: 16px;"></i><span>On-page SEO metadata & clean deployment</span></li>
+                </ul>
+              </div>
+
+              <a href="#contact" class="btn-studio-primary w-100 interactive-hover select-package-btn" data-package="Business Website ($200+)">
+                <span>Request a Quote</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Tier 3: Advanced Web Application -->
+          <div class="col-lg-4 gsap-reveal">
+            <div class="pricing-card">
+              <div>
+                <span class="font-mono small text-uppercase" style="color: var(--text-muted);">Tier 03</span>
+                <h3 class="h4 fw-bold mt-1">Advanced Web Application</h3>
+                <div class="price-amount">$500<span class="fs-4 text-secondary fw-normal">+</span></div>
+                <p class="text-secondary small">For custom web applications, interactive platforms, data-driven tools, and tailored digital workflows.</p>
+
+                <ul class="pricing-list">
+                  <li><i data-lucide="check" style="width: 16px; height: 16px;"></i><span>Custom UI/UX & interactive user workflows</span></li>
+                  <li><i data-lucide="check" style="width: 16px; height: 16px;"></i><span>Dynamic filtering, forms & state logic</span></li>
+                  <li><i data-lucide="check" style="width: 16px; height: 16px;"></i><span>API / cloud backend integration support</span></li>
+                  <li><i data-lucide="check" style="width: 16px; height: 16px;"></i><span>Cross-device testing & handover documentation</span></li>
+                </ul>
+              </div>
+
+              <a href="#contact" class="btn-studio-secondary w-100 interactive-hover select-package-btn" data-package="Advanced Web Application ($500+)">
+                <span>Request a Quote</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <p class="text-center text-secondary small mt-4 mb-0">
+          Note: All prices above are indicative starting points in USD. Final pricing depends on exact scope, functionality, and content requirements.
+        </p>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         9. ABOUT SECTION
+         ====================================================================== -->
+    <section id="about" class="section-padding border-top" style="border-color: var(--border-subtle) !important; background-color: var(--bg-secondary);">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-9 text-center gsap-reveal">
+            <span class="eyebrow">About the Studio</span>
+            <h2 class="display-5 fw-bold mb-4">Design Thinking Meets Modern Web Engineering.</h2>
+            <p class="lead text-light mb-4" style="font-size: clamp(1.15rem, 1.8vw, 1.42rem); line-height: 1.75;">
+              “We are an independent digital development studio passionate about building useful, thoughtful and visually engaging digital experiences. We combine design thinking, modern web technologies and AI-assisted workflows to turn ideas into working products.”
+            </p>
+            <p class="text-secondary mx-auto mb-0" style="max-width: 660px;">
+              Whether launching a new venture in New York, refreshing a local hospitality brand in London or Sydney, or building a custom web platform in Toronto or Bengaluru, we focus on clarity, speed, and real-world usability.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================================
+         10. CONTACT SECTION (HONEST MAILTO FLOW + VALIDATION + WHATSAPP)
+         ====================================================================== -->
+    <section id="contact" class="section-padding border-top" style="border-color: var(--border-subtle) !important;">
+      <div class="container">
+        <div class="row g-5">
+          <!-- Left Column: Direct Info & WhatsApp -->
+          <div class="col-lg-5 gsap-reveal">
+            <span class="eyebrow">Start a Project</span>
+            <h2 class="display-5 fw-bold mb-3">Let's Build Your Next Digital Experience.</h2>
+            <p class="text-secondary mb-4">
+              Share your project goals, timeline, and budget range. You will receive a clear, structured response outlining recommended next steps and scope.
+            </p>
+
+            <!-- WhatsApp Direct Option -->
+            <div class="whatsapp-card mb-4">
+              <div class="d-flex align-items-start gap-3">
+                <div class="icon-box mb-0" style="background: rgba(52, 211, 153, 0.14); border-color: rgba(52, 211, 153, 0.3); color: var(--accent-emerald);">
+                  <i data-lucide="message-circle" style="width: 20px; height: 20px;"></i>
+                </div>
+                <div>
+                  <h3 class="h6 fw-bold text-white mb-1">Prefer a Quick Chat on WhatsApp?</h3>
+                  <p class="text-secondary small mb-3">
+                    Message directly to discuss a website idea or ask a quick question.
+                  </p>
+                  <!-- Replace 15550192834 with your actual WhatsApp number (country code + number, no + or spaces) -->
+                  <a href="https://wa.me/15550192834?text=Hi%20Kinetic%20Studio%2C%20I%27d%20like%20to%20discuss%20a%20web%20project." target="_blank" rel="noopener noreferrer" class="btn-studio-secondary py-2 px-3 small interactive-hover" style="border-color: rgba(52, 211, 153, 0.35);">
+                    <span>Chat on WhatsApp (+1 555-019-2834 — Placeholder)</span>
+                    <i data-lucide="arrow-up-right" style="width: 14px; height: 14px;"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Backend Setup Transparency Note -->
+            <div class="backend-note-box">
+              <div class="d-flex align-items-center gap-2 text-white fw-semibold mb-1">
+                <i data-lucide="info" style="width: 15px; height: 15px; color: var(--accent-warm);"></i>
+                <span>How This Enquiry Form Works</span>
+              </div>
+              <p class="mb-0 small">
+                Because this site runs as a fast static frontend without a server database, submitting this form validates your inputs and opens your default email client pre-filled with your structured project brief. To connect automated form submissions later, replace the form handler with a <strong>Formspree</strong> endpoint (<code>action="https://formspree.io/f/YOUR_ID" method="POST"</code>) or Web3Forms.
+              </p>
+            </div>
+          </div>
+
+          <!-- Right Column: Interactive Project Enquiry Form -->
+          <div class="col-lg-7 gsap-reveal">
+            <div class="contact-panel">
+              <form id="projectEnquiryForm" novalidate>
+                <div class="row g-3">
+                  <!-- Full Name -->
+                  <div class="col-md-6">
+                    <label for="fullName" class="form-label-custom">Full Name *</label>
+                    <input type="text" class="form-control-studio" id="fullName" name="fullName" placeholder="Alex Morgan" required />
+                    <div class="invalid-feedback-custom">Please enter your full name.</div>
+                  </div>
+
+                  <!-- Email Address -->
+                  <div class="col-md-6">
+                    <label for="emailAddress" class="form-label-custom">Email Address *</label>
+                    <input type="email" class="form-control-studio" id="emailAddress" name="emailAddress" placeholder="alex@company.com" required />
+                    <div class="invalid-feedback-custom">Please enter a valid email address.</div>
+                  </div>
+
+                  <!-- Business Name -->
+                  <div class="col-md-6">
+                    <label for="businessName" class="form-label-custom">Business / Brand Name</label>
+                    <input type="text" class="form-control-studio" id="businessName" name="businessName" placeholder="Morgan Roasters Ltd." />
+                  </div>
+
+                  <!-- Country -->
+                  <div class="col-md-6">
+                    <label for="country" class="form-label-custom">Country *</label>
+                    <select class="form-select-studio" id="country" name="country" required>
+                      <option value="" selected disabled>Select your country</option>
+                      <option value="United States">United States</option>
+                      <option value="United Kingdom">United Kingdom</option>
+                      <option value="Canada">Canada</option>
+                      <option value="Australia">Australia</option>
+                      <option value="India">India</option>
+                      <option value="Other International">Other International</option>
+                    </select>
+                    <div class="invalid-feedback-custom">Please select your country.</div>
+                  </div>
+
+                  <!-- Project Type -->
+                  <div class="col-md-6">
+                    <label for="projectType" class="form-label-custom">Project Type *</label>
+                    <select class="form-select-studio" id="projectType" name="projectType" required>
+                      <option value="" selected disabled>Select project type</option>
+                      <option value="Business Website">Business Website</option>
+                      <option value="Restaurant / Café Website">Restaurant / Café Website</option>
+                      <option value="Website Redesign">Website Redesign</option>
+                      <option value="Landing Page">Landing Page</option>
+                      <option value="Custom Web Application">Custom Web Application</option>
+                      <option value="Digital Catalogue">Digital Catalogue</option>
+                      <option value="Website Maintenance">Website Maintenance</option>
+                    </select>
+                    <div class="invalid-feedback-custom">Please select a project type.</div>
+                  </div>
+
+                  <!-- Estimated Budget -->
+                  <div class="col-md-6">
+                    <label for="estimatedBudget" class="form-label-custom">Estimated Budget (USD) *</label>
+                    <select class="form-select-studio" id="estimatedBudget" name="estimatedBudget" required>
+                      <option value="" selected disabled>Select budget range</option>
+                      <option value="Starter Website ($100+)">Starter Website ($100+)</option>
+                      <option value="Business Website ($200+)">Business Website ($200+)</option>
+                      <option value="Advanced Web Application ($500+)">Advanced Web Application ($500+)</option>
+                      <option value="Custom Scope / Flexible">Custom Scope / Flexible</option>
+                    </select>
+                    <div class="invalid-feedback-custom">Please select an estimated budget.</div>
+                  </div>
+
+                  <!-- Expected Timeline -->
+                  <div class="col-12">
+                    <label for="timeline" class="form-label-custom">Expected Timeline *</label>
+                    <select class="form-select-studio" id="timeline" name="timeline" required>
+                      <option value="" selected disabled>When would you like to launch?</option>
+                      <option value="As soon as possible (1–2 weeks)">As soon as possible (1–2 weeks)</option>
+                      <option value="Within 1 month">Within 1 month</option>
+                      <option value="1–2 months">1–2 months</option>
+                      <option value="Flexible / Exploring options">Flexible / Exploring options</option>
+                    </select>
+                    <div class="invalid-feedback-custom">Please select an expected timeline.</div>
+                  </div>
+
+                  <!-- Project Description -->
+                  <div class="col-12">
+                    <label for="projectDescription" class="form-label-custom">Project Description *</label>
+                    <textarea class="form-control-studio" id="projectDescription" name="projectDescription" rows="4" placeholder="Tell us about your business, key features you need, or any reference links..." required></textarea>
+                    <div class="invalid-feedback-custom">Please briefly describe your project requirements.</div>
+                  </div>
+
+                  <!-- Submit Action -->
+                  <div class="col-12 pt-2">
+                    <button type="submit" class="btn-studio-primary w-100 py-3 interactive-hover">
+                      <span>Compose Project Enquiry Email</span>
+                      <i data-lucide="send" style="width: 16px; height: 16px;"></i>
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Feedback Banner after Mailto Launch -->
+                <div id="formStatusMessage" class="mt-3 p-3 rounded-3 d-none" style="background: rgba(52, 211, 153, 0.1); border: 1px solid rgba(52, 211, 153, 0.28); color: #d1fae5; font-size: 0.88rem;" role="status">
+                  Your email client has been opened with your formatted project brief. If it did not launch automatically, please email your details directly to <strong>hello@kineticstudio.example</strong>.
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========================================================================
+       11. FOOTER
+       ======================================================================== -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="row g-4 pb-5">
+        <div class="col-lg-4">
+          <a href="#top" class="studio-brand mb-3">
+            <span class="brand-mark"><i data-lucide="layers" style="width: 16px; height: 16px;"></i></span>
+            <span>KINETIC<span style="color: var(--accent-warm);">.</span>STUDIO</span>
+          </a>
+          <p class="text-secondary small mb-3" style="max-width: 320px;">
+            We turn business ideas into powerful digital experiences. Independent digital design and web development studio serving global clients.
+          </p>
+          <p class="font-mono small text-muted mb-0">
+            USA · UK · CANADA · AUSTRALIA · INDIA
+          </p>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-2">
+          <h4 class="h6 fw-bold text-white mb-3">Navigation</h4>
+          <ul class="list-unstyled mb-0">
+            <li><a href="#work" class="footer-link">Work</a></li>
+            <li><a href="#services" class="footer-link">Services</a></li>
+            <li><a href="#process" class="footer-link">Process</a></li>
+            <li><a href="#pricing" class="footer-link">Pricing</a></li>
+            <li><a href="#about" class="footer-link">About</a></li>
+            <li><a href="#contact" class="footer-link">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="col-6 col-md-4 col-lg-3">
+          <h4 class="h6 fw-bold text-white mb-3">Services</h4>
+          <ul class="list-unstyled mb-0">
+            <li><a href="#services" class="footer-link">Business Websites</a></li>
+            <li><a href="#services" class="footer-link">Website Redesign</a></li>
+            <li><a href="#services" class="footer-link">Landing Pages</a></li>
+            <li><a href="#services" class="footer-link">Custom Web Applications</a></li>
+            <li><a href="#services" class="footer-link">Digital Catalogues</a></li>
+            <li><a href="#services" class="footer-link">Website Maintenance</a></li>
+          </ul>
+        </div>
+
+        <div class="col-md-4 col-lg-3">
+          <h4 class="h6 fw-bold text-white mb-3">Contact & Social</h4>
+          <ul class="list-unstyled mb-3">
+            <li>
+              <a href="mailto:hello@kineticstudio.example" class="footer-link">
+                hello@kineticstudio.example (Placeholder)
+              </a>
+            </li>
+            <li>
+              <a href="https://wa.me/15550192834" target="_blank" rel="noopener noreferrer" class="footer-link">
+                WhatsApp: +1 555-019-2834 (Placeholder)
+              </a>
+            </li>
+          </ul>
+          <div class="d-flex gap-2">
+            <a href="#contact" class="icon-box mb-0 interactive-hover" aria-label="GitHub Profile Placeholder">
+              <i data-lucide="github" style="width: 17px; height: 17px;"></i>
+            </a>
+            <a href="#contact" class="icon-box mb-0 interactive-hover" aria-label="LinkedIn Profile Placeholder">
+              <i data-lucide="linkedin" style="width: 17px; height: 17px;"></i>
+            </a>
+            <a href="#contact" class="icon-box mb-0 interactive-hover" aria-label="Instagram Profile Placeholder">
+              <i data-lucide="instagram" style="width: 17px; height: 17px;"></i>
             </a>
           </div>
         </div>
-
-        <div class="md:col-span-6">
-          <div class="w-full h-80 rounded-3xl overflow-hidden border-4 border-sand shadow-inner">
-            <iframe 
-              title="Leaf Café Hadapsar Map"
-              src="https://www.google.com/maps?q=Leaf+-+A+cafe+by+Advanced+Nature,+Hadapsar+Industrial+Estate,+Pune&output=embed" 
-              class="w-full h-full border-0" 
-              loading="lazy">
-            </iframe>
-          </div>
-        </div>
       </div>
-    </div>
-  </section>
 
-  <!-- Clean Simplified Footer -->
-  <footer class="bg-forest text-cream/85 py-12 px-4 sm:px-8 md:px-10 border-t border-cream/10">
-    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6">
-      <div class="flex items-center gap-3">
-        <div class="w-9 h-9 rounded-full bg-leafolive flex items-center justify-center shrink-0">
-          <svg viewBox="0 0 100 100" class="w-6 h-6 text-white fill-current">
-            <path d="M52,18 C72,18 85,32 85,50 C85,66 72,76 58,76 C47,76 39,68 39,58 C39,50 45,44 53,44 C59,44 64,49 64,55 C64,59 60,62 56,62 C53,62 51,60 51,57 C51,55 53,54 54,54 C53,52 49,53 48,57 C47,62 51,67 57,67 C65,67 71,60 71,52 C71,40 61,32 49,32 C34,32 23,44 23,60 C23,72 28,83 36,90 C32,78 33,63 40,51 C30,60 25,74 28,88 C18,78 14,62 18,46 C23,28 37,18 52,18 Z" />
-          </svg>
-        </div>
+      <div class="pt-4 border-top d-flex flex-column flex-sm-row align-items-center justify-content-between gap-2 text-secondary small" style="border-color: var(--border-subtle) !important;">
         <div>
-          <span class="font-logo text-lg font-bold text-white tracking-[0.14em] block leading-none">LEAF</span>
-          <span class="text-xs text-sage block mt-1">A café by Advanced Nature</span>
+          &copy; <span id="currentYear"></span> KINETIC.STUDIO. All rights reserved.
+        </div>
+        <div class="font-mono" style="font-size: 0.75rem;">
+          DESIGNED & ENGINEERED WITH PRECISION
         </div>
       </div>
-
-      <a href="https://www.instagram.com/leafcafepune?jplx=MTdoM2ZxcGtmaDhmbg==" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-cream/10 hover:bg-leafolive text-white text-xs font-medium transition-colors">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 shrink-0">
-          <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
-          <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-          <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
-        </svg>
-        <span>@leafcafepune</span>
-      </a>
     </div>
   </footer>
 
-  <!-- Full-Screen Photo Lightbox Modal -->
-  <div id="lightbox-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/85 backdrop-blur-md p-4">
-    <div class="max-w-3xl w-full relative animate-[fadeUp_0.25s_ease]">
-      <button onclick="closeLightbox()" aria-label="Close photo preview" class="absolute -top-12 right-0 w-10 h-10 rounded-full bg-white/15 hover:bg-white/25 text-white flex items-center justify-center transition-colors cursor-pointer">
-        <i data-lucide="x" class="w-5 h-5"></i>
-      </button>
-      <div class="rounded-3xl overflow-hidden border border-white/15 bg-forest shadow-2xl">
-        <img id="lightbox-img" src="" alt="" class="w-full max-h-[75vh] object-contain bg-black" />
-        <div class="p-5 flex items-center justify-between text-cream">
-          <div>
-            <p id="lightbox-tag" class="text-[11px] uppercase tracking-widest text-sage font-semibold"></p>
-            <h4 id="lightbox-title" class="font-serif text-2xl text-white mt-0.5"></h4>
-          </div>
-          <span class="text-xs text-cream/60 hidden sm:inline">Leaf — Advanced Nature</span>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Find a Table Modal -->
-  <div id="table-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/60 backdrop-blur-sm p-4">
-    <div class="bg-cream border border-leafolive/20 rounded-3xl max-w-md w-full p-6 sm:p-8 shadow-2xl relative animate-[fadeUp_0.25s_ease]">
-      <button onclick="closeTableModal()" aria-label="Close modal" class="absolute top-5 right-5 p-2 rounded-full hover:bg-sand text-forest cursor-pointer">
-        <i data-lucide="x" class="w-5 h-5"></i>
-      </button>
-
-      <div class="flex items-center gap-2 text-leafolive text-xs font-bold uppercase tracking-wider mb-1">
-        <span>Table Reservation</span>
-      </div>
-      <h3 class="font-serif text-3xl font-bold text-forest mb-2">Find a Table</h3>
-      <p class="text-xs text-charcoal/70 mb-6">Choose your preferred platform to check live table availability and claim dining offers at Leaf Café, Pune.</p>
-
-      <div class="space-y-3">
-        <!-- Swiggy -->
-        <a href="https://www.swiggy.com/restaurants" target="_blank" rel="noopener noreferrer" class="w-full p-4 rounded-2xl bg-white hover:bg-swiggy/5 border border-swiggy/30 flex items-center justify-between transition-all group">
-          <div class="flex items-center gap-3.5">
-            <div class="w-11 h-11 rounded-xl bg-swiggy flex items-center justify-center shadow-sm shrink-0">
-              <svg viewBox="0 0 40 48" class="w-6 h-7">
-                <path fill="#FFFFFF" d="M20 2C10.06 2 2 9.86 2 19.56C2 31.3 17.85 44.3 18.52 44.85C19.38 45.55 20.62 45.55 21.48 44.85C22.15 44.3 38 31.3 38 19.56C38 9.86 29.94 2 20 2Z"/>
-                <path fill="none" stroke="#FC8019" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" d="M20 11.5V18.5H27.5M20 34.5V27.5H12.5"/>
-              </svg>
-            </div>
-            <div>
-              <p class="font-semibold text-forest text-sm group-hover:text-swiggy transition-colors">Book on Swiggy</p>
-              <p class="text-[11px] text-charcoal/60">Dineout &bull; Flat 15% off dining</p>
-            </div>
-          </div>
-          <i data-lucide="arrow-up-right" class="w-5 h-5 text-swiggy"></i>
-        </a>
-
-        <!-- Zomato -->
-        <a href="https://www.zomato.com/pune/leaf-a-cafe-by-advanced-nature-hadapsar" target="_blank" rel="noopener noreferrer" class="w-full p-4 rounded-2xl bg-white hover:bg-zomato/5 border border-zomato/30 flex items-center justify-between transition-all group">
-          <div class="flex items-center gap-3.5">
-            <div class="w-11 h-11 rounded-xl bg-white border border-zomato/25 flex items-center justify-center shadow-sm shrink-0 px-1">
-              <span class="text-[#EF4F5F] font-sans font-black italic tracking-tighter text-[11px] leading-none">zomato</span>
-            </div>
-            <div>
-              <p class="font-semibold text-forest text-sm group-hover:text-zomato transition-colors">Book on Zomato</p>
-              <p class="text-[11px] text-charcoal/60">Instant table booking &amp; offers</p>
-            </div>
-          </div>
-          <i data-lucide="arrow-up-right" class="w-5 h-5 text-zomato"></i>
-        </a>
-
-        <!-- District by Zomato -->
-        <a href="https://www.district.in/" target="_blank" rel="noopener noreferrer" class="w-full p-4 rounded-2xl bg-white hover:bg-district/5 border border-district/30 flex items-center justify-between transition-all group">
-          <div class="flex items-center gap-3.5">
-            <div class="w-11 h-11 rounded-xl bg-[#6D17E8] text-white flex flex-col items-center justify-center shadow-sm shrink-0 px-1">
-              <span class="font-sans font-black tracking-tight text-[9.5px] leading-none">district</span>
-              <span class="text-white/90 font-bold text-[4.6px] uppercase tracking-[0.12em] mt-0.5 leading-none">BY ZOMATO</span>
-            </div>
-            <div>
-              <p class="font-semibold text-forest text-sm group-hover:text-district transition-colors">Book on District</p>
-              <p class="text-[11px] text-charcoal/60">By Zomato &bull; Flat 10% off</p>
-            </div>
-          </div>
-          <i data-lucide="arrow-up-right" class="w-5 h-5 text-district"></i>
-        </a>
-      </div>
-    </div>
-  </div>
-
-  <!-- Guest Feedback Modal -->
-  <div id="feedback-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/60 backdrop-blur-sm p-4">
-    <div class="bg-cream border border-leafolive/20 rounded-3xl max-w-md w-full p-6 sm:p-8 shadow-2xl relative animate-[fadeUp_0.25s_ease]">
-      <button onclick="closeFeedbackModal()" aria-label="Close feedback modal" class="absolute top-5 right-5 p-2 rounded-full hover:bg-sand text-forest cursor-pointer">
-        <i data-lucide="x" class="w-5 h-5"></i>
-      </button>
-
-      <div class="flex items-center gap-2 text-leafolive text-xs font-bold uppercase tracking-wider mb-1">
-        <i data-lucide="message-square-heart" class="w-4 h-4"></i>
-        <span>Guest Experience</span>
-      </div>
-      <h3 class="font-serif text-3xl font-bold text-forest mb-1.5">Share Feedback</h3>
-      <p class="text-xs text-charcoal/70 mb-5">Tell the Leaf Café team about your coffee, food, or ambience experience.</p>
-
-      <form id="feedback-form" class="space-y-4">
-        <div>
-          <label class="block text-xs font-semibold text-forest mb-1.5">Your Rating</label>
-          <div class="flex items-center gap-1.5" id="feedback-stars">
-            <button type="button" data-rating="1" class="star-btn p-1.5 rounded-lg bg-white border border-forest/10 text-amber-500 cursor-pointer"><i data-lucide="star" class="w-5 h-5 fill-amber-400"></i></button>
-            <button type="button" data-rating="2" class="star-btn p-1.5 rounded-lg bg-white border border-forest/10 text-amber-500 cursor-pointer"><i data-lucide="star" class="w-5 h-5 fill-amber-400"></i></button>
-            <button type="button" data-rating="3" class="star-btn p-1.5 rounded-lg bg-white border border-forest/10 text-amber-500 cursor-pointer"><i data-lucide="star" class="w-5 h-5 fill-amber-400"></i></button>
-            <button type="button" data-rating="4" class="star-btn p-1.5 rounded-lg bg-white border border-forest/10 text-amber-500 cursor-pointer"><i data-lucide="star" class="w-5 h-5 fill-amber-400"></i></button>
-            <button type="button" data-rating="5" class="star-btn p-1.5 rounded-lg bg-white border border-forest/10 text-amber-500 cursor-pointer"><i data-lucide="star" class="w-5 h-5 fill-amber-400"></i></button>
-            <span id="rating-label" class="text-xs font-semibold text-leafolive ml-2">5 / 5 Stars</span>
-          </div>
-        </div>
-
-        <div>
-          <label class="block text-xs font-semibold text-forest mb-1">Your Name</label>
-          <input type="text" id="fb-name" required placeholder="Your name" class="w-full px-4 py-3 rounded-xl bg-white border border-forest/15 text-sm focus:outline-none focus:border-leafolive" />
-        </div>
-
-        <div>
-          <label class="block text-xs font-semibold text-forest mb-1">Your Message</label>
-          <textarea id="fb-message" rows="3" required placeholder="What did you love or what can we make even better?" class="w-full px-4 py-3 rounded-xl bg-white border border-forest/15 text-sm focus:outline-none focus:border-leafolive resize-none"></textarea>
-        </div>
-
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-1">
-          <button type="submit" class="py-3.5 px-4 bg-leafolive hover:bg-forest text-white font-semibold rounded-full text-xs flex items-center justify-center gap-2 shadow-sm transition-colors cursor-pointer">
-            <i data-lucide="send" class="w-3.5 h-3.5"></i>
-            <span>Send via WhatsApp</span>
-          </button>
-          <button type="button" onclick="sendFeedbackEmail()" class="py-3.5 px-4 bg-white hover:bg-sand text-forest border border-forest/20 font-semibold rounded-full text-xs flex items-center justify-center gap-2 transition-colors cursor-pointer">
-            <i data-lucide="mail" class="w-3.5 h-3.5 text-leafolive"></i>
-            <span>Send via Email</span>
-          </button>
-        </div>
-      </form>
-    </div>
-  </div>
-
+  <!-- ========================================================================
+       JAVASCRIPT: INTERACTIVITY, ANIMATIONS, VALIDATION & ACCESSIBILITY
+       ======================================================================== -->
   <script>
-    const CAFE_MENU = [
-      {
-        id: "soups",
-        title: "SOUPS",
-        items: [
-          { name: "Almond Broccoli Soup", price: "₹350", desc: "Classic puréed broccoli with a light, creamy base. Almonds— warm, simple, and comforting." },
-          { name: "Minestrone Soup", price: "₹350", desc: "Minestrone is a vibrant medley of seasonal vegetables, tender pasta, and hearty beans simmered in a rich tomato-based broth." },
-          { name: "Cream of Mushroom Soup", price: "₹375", desc: "A smooth, velvety blend of sautéed mushrooms, slow-simmered with onions, garlic, and herbs, then finished with fresh cream." }
-        ]
-      },
-      {
-        id: "sliders",
-        title: "SLIDER & SANDWICHES",
-        items: [
-          { name: "Caprese Panini", price: "₹415", desc: "Fresh mozzarella, sliced tomatoes, basil, and pesto on ciabatta, grilled to perfection." },
-          { name: "Cottage cheese Steak & Cheese Grilled", price: "₹415", desc: "Grilled cottage steak, caramelized onions, provolone cheese, and garlic aioli on sourdough." },
-          { name: "Mushroom & Swiss Grilled Sandwich", price: "₹415", desc: "Sautéed mushrooms, Swiss cheese, and truffle aioli on focaccia." },
-          { name: "Chipotle falafel sliders", price: "₹450", desc: "Mini chickpea patties, golden and crispy with fresh lettuce, ripe tomatoes, and creamy tahini sauce inside soft slider buns." }
-        ]
-      },
-      {
-        id: "mains",
-        title: "MAIN COURSE",
-        items: [
-          { name: "Vegetable Steak with Rice (Vegan / Non Vegan)", price: "₹299", desc: "A grilled vegetable patty made from a savory blend of mashed potatoes, carrots, beans, and herbs with rice." },
-          { name: "Veg Thai Curry with Jasmine Rice (Green curry / Yellow curry)", price: "₹499", desc: "Veg Thai Curry with Jasmine Rice (Green curry / Yellow curry) gently cooked in coconut milk infused with Thai herbs, lemongrass, and yellow or green curry paste." },
-          { name: "Khao Suey", price: "₹350", desc: "A rice noodles-inspired one-bowl meal featuring noodles served in a fragrant coconut curry broth, infused with garlic, ginger, and lemongrass." },
-          { name: "Arrabbiata sauce (Penne / Spaghetti / Fettuccine)", price: "₹415", desc: "Spicy tomato sauce with chili, garlic & basil." },
-          { name: "Alfredo sauce (Penne / Spaghetti / Fettuccine)", price: "₹415", desc: "Creamy Parmesan sauce with butter & black pepper." },
-          { name: "Mushroom Stroganoff (Vegan / Non Vegan)", price: "₹515", desc: "Creamy cashew-based sauce with sautéed mushrooms." },
-          { name: "French Fries (Salted / Peri Peri)", price: "₹150", desc: "Crispy golden fries seasoned with your choice of classic sea salt or spicy peri peri." }
-        ]
-      },
-      {
-        id: "salads",
-        title: "FRESH SALADS & BOWLS",
-        items: [
-          { name: "Avocado Power Bowl (Gluten Free)", price: "₹515", desc: "Quinoa, black beans, avocado, cherry tomatoes, corn, cilantro-lime dressing." },
-          { name: "Smoky Tofu and sprout Arugula", price: "₹465", desc: "Smoky Tofu with freshness of Sprouts, peppery arugula and Lemon-Ginger dressing." },
-          { name: "Garden Salad", price: "₹199", desc: "A vibrant mix of farm-fresh vegetables including crisp lettuce, tomatoes, cucumbers, bell peppers, and carrots, tossed in a light vinaigrette dressing." },
-          { name: "Caesar Salad", price: "₹350", desc: "A crisp romaine lettuce tossed in a creamy Caesar dressing, topped with crunchy garlic croutons and a generous sprinkle of Parmesan cheese." }
-        ]
-      },
-      {
-        id: "appetizers",
-        title: "APPETIZERS",
-        items: [
-          { name: "Bruschetta Trio (Cold)", price: "₹350", desc: "Tomato & Basil, Mushroom & Truffle, Avocado." },
-          { name: "Tex Mex Poppers", price: "₹400", desc: "Crispy golden bites bursting with a spicy Tex-Mex filling of creamy cheese, jalapeños, bell peppers, corn." },
-          { name: "Middle Eastern Mezze Platter", price: "₹515", desc: "Hummus, falafel, baba ghanoush, quinoa tabbouleh, and grilled pita." }
-        ]
-      },
-      {
-        id: "desserts",
-        title: "SIGNATURE DESSERTS",
-        items: [
-          { name: "Lotus Biscoff Cheesecake", price: "₹319", desc: "A Biscoff biscuit base, topped with a velvety smooth cream cheese layer infused with cookie crumbs for crushed Lotus Biscoff cookies." },
-          { name: "Tub Tim Grob", price: "₹299", desc: "Tub Tim Grob which combines crunchy water chestnuts with creamy coconut milk and chia seed." },
-          { name: "Pistachio Tart", price: "₹310", desc: "A buttery, crisp tart shell filled with a smooth and nutty pistachio cream, made from finely ground roasted pistachios and rich pastry custard." }
-        ]
-      },
-      {
-        id: "drinks",
-        title: "SMOOTHIES & COOLERS",
-        items: [
-          { name: "Mango Smoothie", price: "₹199", desc: "Smoothies" },
-          { name: "Chocolate Berry Banana Smoothie", price: "₹249", desc: "Smoothies" },
-          { name: "Guava Delight Punch", price: "₹199", desc: "Coolers & Refreshers" },
-          { name: "Watermelon juice", price: "₹199", desc: "Coolers & Refreshers" },
-          { name: "Blue Lagoon", price: "₹150", desc: "Coolers & Refreshers" },
-          { name: "Spicy Kokum Cooler", price: "₹150", desc: "Coolers & Refreshers" }
-        ]
-      },
-      {
-        id: "coffee",
-        title: "TEA, COFFEE & WATER",
-        items: [
-          { name: "Assorted Tea", price: "₹130", desc: "(Masala Chai, English breakfast Tea, Pure Chamomile, Lemon & Ginger, Earl Grey)" },
-          { name: "Sarita's Filter Coffee", price: "₹150", desc: "Traditional South Indian filter coffee." },
-          { name: "Black Coffee", price: "₹105", desc: "Freshly brewed black coffee." },
-          { name: "Filter Mocha Madras", price: "₹150", desc: "Filter coffee + dark chocolate ganache + steamed milk." },
-          { name: "Bournvita", price: "₹150", desc: "Classic malted chocolate drink." },
-          { name: "Classic Filter Cold Coffee", price: "₹210", desc: "Chilled South Indian filter coffee." },
-          { name: "Coconut Filter Cold Coffee", price: "₹210", desc: "Chilled filter coffee infused with coconut." },
-          { name: "Veen water (660 ML)", price: "₹199", desc: "Natural mineral water." }
-        ]
+    document.addEventListener("DOMContentLoaded", () => {
+      // 1. Initialize Lucide Icons
+      if (window.lucide) {
+        lucide.createIcons();
       }
-    ];
 
-    let searchQuery = "";
-    let visibleSections = [];
+      // 2. Dynamic Copyright Year
+      const yearEl = document.getElementById("currentYear");
+      if (yearEl) {
+        yearEl.textContent = new Date().getFullYear();
+      }
 
-    const container = document.getElementById("menu-sections-container");
-    const emptyState = document.getElementById("menu-empty");
-    const swipeControls = document.getElementById("menu-swipe-controls");
-    const pageIndicator = document.getElementById("menu-page-indicator");
-    const menuTabs = document.querySelectorAll(".menu-tab");
-
-    function setActiveTabByCat(catId) {
-      menuTabs.forEach(t => {
-        if (t.getAttribute("data-cat") === catId) {
-          t.classList.add("bg-forest", "text-white", "shadow-2xs");
-          t.classList.remove("bg-sand", "text-forest");
-          t.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
+      // 3. Header Scroll State
+      const siteHeader = document.getElementById("siteHeader");
+      const updateHeaderScroll = () => {
+        if (window.scrollY > 24) {
+          siteHeader.classList.add("scrolled");
         } else {
-          t.classList.remove("bg-forest", "text-white", "shadow-2xs");
-          t.classList.add("bg-sand", "text-forest");
+          siteHeader.classList.remove("scrolled");
         }
-      });
-    }
+      };
+      window.addEventListener("scroll", updateHeaderScroll, { passive: true });
+      updateHeaderScroll();
 
-    function updateSwipeIndicator() {
-      if (visibleSections.length === 0) return;
-      const cardWidth = container.clientWidth;
-      if (cardWidth === 0) return;
-      const currentIndex = Math.min(
-        visibleSections.length - 1,
-        Math.max(0, Math.round(container.scrollLeft / cardWidth))
-      );
-      pageIndicator.textContent = `Swipe left or right • ${currentIndex + 1} of ${visibleSections.length}`;
-      setActiveTabByCat(visibleSections[currentIndex].id);
-    }
+      // 4. Mobile Navigation Drawer
+      const openMenuBtn = document.getElementById("openMobileMenu");
+      const closeMenuBtn = document.getElementById("closeMobileMenu");
+      const mobileDrawer = document.getElementById("mobileNavDrawer");
+      const mobileCloseLinks = document.querySelectorAll(".mobile-nav-close");
 
-    function renderMenu() {
-      container.innerHTML = "";
-      visibleSections = [];
+      const toggleMobileMenu = (show) => {
+        if (!mobileDrawer) return;
+        mobileDrawer.classList.toggle("active", show);
+        openMenuBtn.setAttribute("aria-expanded", String(show));
+        document.body.style.overflow = show ? "hidden" : "";
+      };
 
-      CAFE_MENU.forEach(section => {
-        const filteredItems = section.items.filter(item => {
-          const q = searchQuery.toLowerCase();
-          return item.name.toLowerCase().includes(q) || item.desc.toLowerCase().includes(q);
-        });
-
-        if (filteredItems.length === 0) return;
-        visibleSections.push(section);
-
-        const sectionEl = document.createElement("div");
-        sectionEl.id = `menu-card-${section.id}`;
-        sectionEl.className = "w-full shrink-0 snap-center bg-white/95 backdrop-blur-sm rounded-3xl p-5 sm:p-9 border border-forest/[0.08] shadow-card flex flex-col justify-between";
-
-        let itemsHtml = filteredItems.map(item => `
-          <div class="py-3.5 sm:py-4 border-b border-forest/[0.08] last:border-b-0 flex flex-col sm:flex-row sm:items-baseline justify-between gap-1.5 sm:gap-4 group/item hover:bg-cream/45 rounded-xl px-2 -mx-2 transition-colors">
-            <div class="max-w-2xl">
-              <h4 class="font-serif text-xl sm:text-2xl font-bold text-forest leading-snug group-hover/item:text-leafolive transition-colors">${item.name}</h4>
-              ${item.desc ? `<p class="text-xs sm:text-sm text-charcoal/70 mt-1 leading-relaxed">${item.desc}</p>` : ""}
-            </div>
-            <div class="flex items-center gap-3 shrink-0">
-              <span class="hidden md:inline-block w-16 h-[1px] bg-forest/15"></span>
-              <span class="font-serif text-base sm:text-xl font-bold text-leafolive">${item.price}</span>
-            </div>
-          </div>
-        `).join("");
-
-        sectionEl.innerHTML = `
-          <div>
-            <div class="flex items-center justify-between gap-3 mb-4 pb-3 border-b-2 border-leafolive/25">
-              <div class="flex items-center gap-2.5">
-                <span class="w-2.5 h-2.5 rounded-full bg-leafolive shrink-0"></span>
-                <h3 class="font-logo text-base sm:text-xl font-bold tracking-[0.16em] text-forest">${section.title}</h3>
-              </div>
-              <span class="text-[11px] font-semibold text-leafolive bg-leafolive/10 px-2.5 py-0.5 rounded-full">${filteredItems.length} items</span>
-            </div>
-            <div class="divide-y divide-forest/5">
-              ${itemsHtml}
-            </div>
-          </div>
-        `;
-
-        container.appendChild(sectionEl);
+      if (openMenuBtn) openMenuBtn.addEventListener("click", () => toggleMobileMenu(true));
+      if (closeMenuBtn) closeMenuBtn.addEventListener("click", () => toggleMobileMenu(false));
+      mobileCloseLinks.forEach((link) => {
+        link.addEventListener("click", () => toggleMobileMenu(false));
       });
 
-      if (visibleSections.length === 0) {
-        emptyState.classList.remove("hidden");
-        swipeControls.classList.add("hidden");
-      } else {
-        emptyState.classList.add("hidden");
-        swipeControls.classList.remove("hidden");
-        container.scrollTo({ left: 0, behavior: "auto" });
-        pageIndicator.textContent = `Swipe left or right • 1 of ${visibleSections.length}`;
-        setActiveTabByCat(visibleSections[0].id);
-      }
-    }
-
-    menuTabs.forEach(tab => {
-      tab.addEventListener("click", () => {
-        const targetCat = tab.getAttribute("data-cat");
-        if (searchQuery !== "") {
-          searchQuery = "";
-          document.getElementById("menu-search").value = "";
-          renderMenu();
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && mobileDrawer.classList.contains("active")) {
+          toggleMobileMenu(false);
         }
-        const targetCard = document.getElementById(`menu-card-${targetCat}`);
-        if (targetCard) {
-          container.scrollTo({ left: targetCard.offsetLeft - container.offsetLeft, behavior: "smooth" });
-        }
-        setActiveTabByCat(targetCat);
       });
-    });
 
-    document.getElementById("menu-prev-btn").addEventListener("click", () => {
-      container.scrollBy({ left: -container.clientWidth, behavior: "smooth" });
-    });
-    document.getElementById("menu-next-btn").addEventListener("click", () => {
-      container.scrollBy({ left: container.clientWidth, behavior: "smooth" });
-    });
+      // 5. Interactive Hero Browser Tabs & Subtle 3D Tilt
+      const stageTabs = document.querySelectorAll(".stage-tab-btn");
+      const stageViews = document.querySelectorAll(".stage-view");
+      const stageUrlDisplay = document.getElementById("stageUrlDisplay");
 
-    let scrollTimeout;
-    container.addEventListener("scroll", () => {
-      clearTimeout(scrollTimeout);
-      scrollTimeout = setTimeout(updateSwipeIndicator, 80);
-    }, { passive: true });
+      stageTabs.forEach((tab) => {
+        tab.addEventListener("click", () => {
+          const targetId = `stage-${tab.dataset.stage}`;
+          const targetUrl = tab.dataset.url;
 
-    document.getElementById("menu-search").addEventListener("input", (e) => {
-      searchQuery = e.target.value.trim();
-      renderMenu();
-    });
+          stageTabs.forEach((btn) => {
+            btn.classList.remove("active");
+            btn.setAttribute("aria-selected", "false");
+          });
+          tab.classList.add("active");
+          tab.setAttribute("aria-selected", "true");
 
-    function resetMenuFilters() {
-      searchQuery = "";
-      document.getElementById("menu-search").value = "";
-      renderMenu();
-    }
+          stageViews.forEach((view) => {
+            view.classList.toggle("active", view.id === targetId);
+          });
 
-    renderMenu();
-    lucide.createIcons();
-
-    // Top Scroll Progress Bar
-    const scrollProgress = document.getElementById("scroll-progress");
-    window.addEventListener("scroll", () => {
-      const scrollTop = window.scrollY;
-      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-      if (docHeight > 0 && scrollProgress) {
-        const pct = Math.min(100, Math.max(0, (scrollTop / docHeight) * 100));
-        scrollProgress.style.width = `${pct}%`;
-      }
-    }, { passive: true });
-
-    // Mobile Popover Drawer Logic
-    const mobileMenuBtn = document.getElementById("mobile-menu-btn");
-    const closeDrawerBtn = document.getElementById("close-drawer-btn");
-    const mobileDrawer = document.getElementById("mobile-drawer");
-
-    function openDrawer() { mobileDrawer.classList.remove("hidden"); }
-    function closeDrawer() { mobileDrawer.classList.add("hidden"); }
-
-    mobileMenuBtn.addEventListener("click", openDrawer);
-    closeDrawerBtn.addEventListener("click", closeDrawer);
-    mobileDrawer.addEventListener("click", (e) => {
-      if (e.target === mobileDrawer) closeDrawer();
-    });
-    document.querySelectorAll(".mobile-link").forEach(l => l.addEventListener("click", closeDrawer));
-
-    // Photo Lightbox Modal Logic
-    const lightboxModal = document.getElementById("lightbox-modal");
-    const lightboxImg = document.getElementById("lightbox-img");
-    const lightboxTag = document.getElementById("lightbox-tag");
-    const lightboxTitle = document.getElementById("lightbox-title");
-
-    function openLightbox(src, tag, title) {
-      lightboxImg.src = src;
-      lightboxTag.textContent = tag;
-      lightboxTitle.textContent = title;
-      lightboxModal.classList.remove("hidden");
-      lightboxModal.classList.add("flex");
-    }
-    function closeLightbox() {
-      lightboxModal.classList.add("hidden");
-      lightboxModal.classList.remove("flex");
-    }
-    lightboxModal.addEventListener("click", (e) => {
-      if (e.target === lightboxModal) closeLightbox();
-    });
-
-    // Find a Table Modal
-    const tableModal = document.getElementById("table-modal");
-    function openTableModal() {
-      tableModal.classList.remove("hidden");
-      tableModal.classList.add("flex");
-    }
-    function closeTableModal() {
-      tableModal.classList.add("hidden");
-      tableModal.classList.remove("flex");
-    }
-    tableModal.addEventListener("click", (e) => {
-      if (e.target === tableModal) closeTableModal();
-    });
-
-    // Feedback Modal Logic
-    const feedbackModal = document.getElementById("feedback-modal");
-    let selectedRating = 5;
-
-    function openFeedbackModal() {
-      feedbackModal.classList.remove("hidden");
-      feedbackModal.classList.add("flex");
-    }
-    function closeFeedbackModal() {
-      feedbackModal.classList.add("hidden");
-      feedbackModal.classList.remove("flex");
-    }
-    feedbackModal.addEventListener("click", (e) => {
-      if (e.target === feedbackModal) closeFeedbackModal();
-    });
-
-    document.querySelectorAll(".star-btn").forEach(btn => {
-      btn.addEventListener("click", () => {
-        selectedRating = parseInt(btn.getAttribute("data-rating"), 10);
-        document.getElementById("rating-label").textContent = `${selectedRating} / 5 Stars`;
-        document.querySelectorAll(".star-btn").forEach(b => {
-          const val = parseInt(b.getAttribute("data-rating"), 10);
-          const svg = b.querySelector("svg");
-          if (val <= selectedRating) {
-            b.classList.add("text-amber-500");
-            b.classList.remove("text-charcoal/25");
-            if (svg) svg.classList.add("fill-amber-400");
-          } else {
-            b.classList.remove("text-amber-500");
-            b.classList.add("text-charcoal/25");
-            if (svg) svg.classList.remove("fill-amber-400");
+          if (stageUrlDisplay && targetUrl) {
+            stageUrlDisplay.textContent = targetUrl;
           }
         });
       });
-    });
 
-    const CAFE_WHATSAPP = "919822000000";
-    const CAFE_EMAIL = "leafcafepune@gmail.com";
+      const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      const stageWrapper = document.getElementById("heroStageWrapper");
+      const browserStage = document.getElementById("heroBrowserStage");
 
-    document.getElementById("feedback-form").addEventListener("submit", (e) => {
-      e.preventDefault();
-      const name = document.getElementById("fb-name").value.trim();
-      const msg = document.getElementById("fb-message").value.trim();
-      const text = `Hello Leaf Café! Guest Feedback:%0A%0A*Rating:* ${selectedRating}/5 ★%0A*Name:* ${encodeURIComponent(name)}%0A*Feedback:* ${encodeURIComponent(msg)}`;
-      window.open(`https://wa.me/${CAFE_WHATSAPP}?text=${text}`, "_blank");
-      closeFeedbackModal();
-    });
+      if (!prefersReducedMotion && stageWrapper && browserStage && window.matchMedia("(hover: hover)").matches) {
+        stageWrapper.addEventListener("mousemove", (e) => {
+          const rect = stageWrapper.getBoundingClientRect();
+          const x = (e.clientX - rect.left) / rect.width - 0.5;
+          const y = (e.clientY - rect.top) / rect.height - 0.5;
+          browserStage.style.transform = `rotateY(${x * 6}deg) rotateX(${-y * 6}deg)`;
+        });
 
-    function sendFeedbackEmail() {
-      const name = document.getElementById("fb-name").value.trim() || "Guest";
-      const msg = document.getElementById("fb-message").value.trim();
-      if (!msg) {
-        document.getElementById("fb-message").focus();
-        return;
+        stageWrapper.addEventListener("mouseleave", () => {
+          browserStage.style.transform = "rotateY(0deg) rotateX(0deg)";
+        });
       }
-      const subject = encodeURIComponent(`Leaf Café Feedback (${selectedRating}/5 Stars) from ${name}`);
-      const body = encodeURIComponent(`Rating: ${selectedRating}/5 Stars\nName: ${name}\n\nFeedback:\n${msg}`);
-      window.location.href = `mailto:${CAFE_EMAIL}?subject=${subject}&body=${body}`;
-      closeFeedbackModal();
-    }
 
-    const revealObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("active");
-          revealObserver.unobserve(entry.target);
-        }
+      // 6. Custom Desktop Cursor
+      const cursorDot = document.getElementById("cursorDot");
+      const cursorRing = document.getElementById("cursorRing");
+
+      if (!prefersReducedMotion && cursorDot && cursorRing && window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+        let mouseX = 0, mouseY = 0;
+        let ringX = 0, ringY = 0;
+
+        window.addEventListener("mousemove", (e) => {
+          mouseX = e.clientX;
+          mouseY = e.clientY;
+          cursorDot.style.left = `${mouseX}px`;
+          cursorDot.style.top = `${mouseY}px`;
+        }, { passive: true });
+
+        const animateCursorRing = () => {
+          ringX += (mouseX - ringX) * 0.18;
+          ringY += (mouseY - ringY) * 0.18;
+          cursorRing.style.left = `${ringX}px`;
+          cursorRing.style.top = `${ringY}px`;
+          requestAnimationFrame(animateCursorRing);
+        };
+        requestAnimationFrame(animateCursorRing);
+
+        document.querySelectorAll("a, button, input, select, textarea, .interactive-hover").forEach((el) => {
+          el.addEventListener("mouseenter", () => document.body.classList.add("cursor-hover"));
+          el.addEventListener("mouseleave", () => document.body.classList.remove("cursor-hover"));
+        });
+      }
+
+      // 7. GSAP Scroll & Entrance Animations (Respecting Reduced Motion)
+      if (!prefersReducedMotion && window.gsap) {
+        gsap.registerPlugin(ScrollTrigger);
+
+        gsap.from(".gsap-hero", {
+          y: 26,
+          opacity: 0,
+          duration: 0.85,
+          stagger: 0.1,
+          ease: "power3.out"
+        });
+
+        gsap.utils.toArray(".gsap-reveal").forEach((elem) => {
+          gsap.from(elem, {
+            scrollTrigger: {
+              trigger: elem,
+              start: "top 86%",
+              once: true
+            },
+            y: 28,
+            opacity: 0,
+            duration: 0.75,
+            ease: "power2.out"
+          });
+        });
+
+        gsap.from(".gsap-process", {
+          scrollTrigger: {
+            trigger: "#process",
+            start: "top 82%",
+            once: true
+          },
+          y: 24,
+          opacity: 0,
+          duration: 0.65,
+          stagger: 0.12,
+          ease: "power2.out"
+        });
+      }
+
+      // 8. Pre-select Budget Tier when clicking "Request a Quote"
+      const budgetSelect = document.getElementById("estimatedBudget");
+      document.querySelectorAll(".select-package-btn").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const pkg = btn.dataset.package;
+          if (budgetSelect && pkg) {
+            budgetSelect.value = pkg;
+          }
+        });
       });
-    }, { threshold: 0.1 });
 
-    document.querySelectorAll(".reveal").forEach(el => revealObserver.observe(el));
+      // 9. Honest Mailto Project Enquiry Flow with Validation
+      const enquiryForm = document.getElementById("projectEnquiryForm");
+      const statusMessage = document.getElementById("formStatusMessage");
+
+      if (enquiryForm) {
+        enquiryForm.addEventListener("submit", (e) => {
+          e.preventDefault();
+          enquiryForm.classList.add("was-validated");
+
+          if (!enquiryForm.checkValidity()) {
+            const firstInvalid = enquiryForm.querySelector(":invalid");
+            if (firstInvalid) firstInvalid.focus();
+            return;
+          }
+
+          const fullName = document.getElementById("fullName").value.trim();
+          const emailAddress = document.getElementById("emailAddress").value.trim();
+          const businessName = document.getElementById("businessName").value.trim() || "Not specified";
+          const country = document.getElementById("country").value;
+          const projectType = document.getElementById("projectType").value;
+          const estimatedBudget = document.getElementById("estimatedBudget").value;
+          const timeline = document.getElementById("timeline").value;
+          const projectDescription = document.getElementById("projectDescription").value.trim();
+
+          // Replace placeholder email below with your studio email address
+          const studioRecipient = "hello@kineticstudio.example";
+          const subject = encodeURIComponent(`Project Enquiry: ${projectType} — ${fullName} (${country})`);
+          const bodyLines = [
+            `Hello KINETIC.STUDIO,`,
+            ``,
+            `I would like to discuss a new web project. Here are the details:`,
+            ``,
+            `Full Name: ${fullName}`,
+            `Email Address: ${emailAddress}`,
+            `Business Name: ${businessName}`,
+            `Country: ${country}`,
+            `Project Type: ${projectType}`,
+            `Estimated Budget: ${estimatedBudget}`,
+            `Expected Timeline: ${timeline}`,
+            ``,
+            `Project Description:`,
+            `${projectDescription}`,
+            ``,
+            `Sent via KINETIC.STUDIO Website`
+          ];
+
+          const mailtoUri = `mailto:${studioRecipient}?subject=${subject}&body=${encodeURIComponent(bodyLines.join("\n"))}`;
+
+          if (statusMessage) {
+            statusMessage.classList.remove("d-none");
+          }
+
+          window.location.href = mailtoUri;
+        });
+      }
+    });
   </script>
 </body>
 </html>
