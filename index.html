@@ -3,13 +3,43 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NOAH — Independent Web Design &amp; Development</title>
-  <meta name="description" content="Independent freelance web designer and developer. I design websites, develop websites, redesign existing websites, and build custom web applications." />
+  <title>NoahStudio — Independent Web Design &amp; Development | Manipal University BCA Student</title>
+  
+  <!-- Comprehensive SEO Meta Tags -->
+  <meta name="description" content="NoahStudio — Independent freelance web design and development portfolio by a distance learning BCA student from Manipal University Jaipur. Custom business websites, redesigns, digital catalogues, and web applications in India." />
+  <meta name="keywords" content="NoahStudio, freelance web developer India, web design Pune, Manipal University BCA student developer, affordable business website India, digital catalogue, website redesign, custom web applications" />
+  <meta name="author" content="NoahStudio" />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#080809" />
+  <link rel="canonical" href="https://imvicky2115.github.io/" />
 
-  <!-- Open Graph Metadata -->
+  <!-- Open Graph / Social SEO Metadata -->
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="NOAH — Independent Web Design & Development" />
-  <meta property="og:description" content="I design websites, develop websites, redesign existing websites, and build custom web applications." />
+  <meta property="og:site_name" content="NoahStudio" />
+  <meta property="og:title" content="NoahStudio — Independent Web Design & Development" />
+  <meta property="og:description" content="I design websites, develop websites, redesign existing websites, and build custom web applications. Built by a distance learning BCA student from Manipal University." />
+  <meta property="og:url" content="https://imvicky2115.github.io/" />
+  <meta property="og:locale" content="en_IN" />
+
+  <!-- Twitter Card Metadata -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="NoahStudio — Independent Web Design & Development" />
+  <meta name="twitter:description" content="Custom websites, redesigns, digital catalogues, and web apps built with AI-assisted speed and hands-on ownership." />
+
+  <!-- Structured Data (JSON-LD) for Search Engines -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "NoahStudio",
+    "description": "Independent web design and development studio by a distance learning BCA student from Manipal University Jaipur.",
+    "areaServed": "India",
+    "telephone": "+91-8788337049",
+    "email": "rajkumarashish75@gmail.com",
+    "priceRange": "₹3,000 - ₹20,000",
+    "knowsAbout": ["Web Design", "Web Development", "Website Redesign", "Digital Catalogues", "Custom Web Applications"]
+  }
+  </script>
 
   <!-- Architectural Typography: Space Grotesk (Display & Body) + JetBrains Mono (Technical Spec & Meta) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -28,13 +58,17 @@
 
   <style>
     /* ==========================================================================
-       1. DESIGN TOKENS — PRESERVED NOAH DARK BRUTALIST ATELIER PALETTE
+       1. DESIGN TOKENS — PRESERVED DARK BRUTALIST ATELIER PALETTE + GLASS ACCENTS
        ========================================================================== */
     :root {
       --bg-void: #080809;
       --bg-atelier: #0e0e11;
       --bg-panel: #131317;
       --bg-panel-hover: #18181d;
+
+      --glass-surface: rgba(19, 19, 23, 0.62);
+      --glass-border: rgba(255, 255, 255, 0.14);
+      --glass-highlight: rgba(255, 255, 255, 0.05);
 
       --line-grid: rgba(255, 255, 255, 0.11);
       --line-strong: rgba(255, 255, 255, 0.24);
@@ -65,7 +99,7 @@
       color: var(--ink-primary);
       font-family: var(--font-sans);
       overflow-x: hidden;
-      scroll-padding-top: 84px;
+      scroll-padding-top: 88px;
     }
 
     body {
@@ -187,68 +221,96 @@
     }
 
     /* ==========================================================================
-       4. HEADER & MOBILE NAVIGATION
+       4. FLOATING GLASSMORPHISM HEADER (COMPACT ON DESKTOP, DOES NOT SPAN FULL SCREEN)
        ========================================================================== */
     .atelier-header {
       position: fixed;
-      top: 0;
+      top: 0.85rem;
       left: 0;
       right: 0;
       z-index: 1030;
-      background-color: rgba(8, 8, 9, 0.92);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--line-grid);
-      padding: 0.9rem 0;
+      pointer-events: none;
+      padding: 0 1rem;
+    }
+
+    .nav-glass-dock {
+      pointer-events: auto;
+      max-width: 1060px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.6rem 0.85rem 0.6rem 1.1rem;
+      background: linear-gradient(135deg, rgba(22, 22, 28, 0.72) 0%, rgba(12, 12, 16, 0.65) 100%);
+      backdrop-filter: blur(18px) saturate(140%);
+      -webkit-backdrop-filter: blur(18px) saturate(140%);
+      border: 1px solid var(--glass-border);
+      border-radius: 6px;
+      box-shadow:
+        0 14px 36px rgba(0, 0, 0, 0.55),
+        inset 0 1px 0 var(--glass-highlight);
     }
 
     .brand-wordmark {
       font-family: var(--font-sans);
       font-weight: 700;
-      font-size: 1.22rem;
-      letter-spacing: 0.06em;
+      font-size: 1.15rem;
+      letter-spacing: -0.02em;
       color: var(--ink-primary);
       text-decoration: none;
       display: inline-flex;
       align-items: center;
-      gap: 0.55rem;
+      gap: 0.5rem;
     }
 
     .brand-stamp {
       font-family: var(--font-mono);
-      font-size: 0.72rem;
+      font-size: 0.7rem;
       font-weight: 600;
-      padding: 0.2rem 0.45rem;
+      padding: 0.2rem 0.42rem;
       background-color: var(--signal-amber);
       color: #080809;
       border-radius: 2px;
       letter-spacing: 0.04em;
     }
 
+    .desktop-nav-pill-group {
+      display: flex;
+      align-items: center;
+      gap: 0.15rem;
+      padding: 0.25rem;
+      background-color: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 4px;
+    }
+
     .nav-link-item {
       font-family: var(--font-mono);
-      font-size: 0.76rem;
+      font-size: 0.73rem;
       text-transform: uppercase;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.07em;
       color: var(--ink-secondary);
       text-decoration: none;
-      padding: 0.45rem 0.85rem;
-      transition: color 0.2s ease;
+      padding: 0.4rem 0.72rem;
+      border-radius: 3px;
+      transition: color 0.2s ease, background-color 0.2s ease;
     }
 
     .nav-link-item:hover {
       color: var(--ink-primary);
+      background-color: rgba(255, 255, 255, 0.06);
     }
 
     .btn-forge-solid {
       background-color: var(--ink-primary);
       color: var(--bg-void);
       font-family: var(--font-mono);
-      font-size: 0.78rem;
+      font-size: 0.76rem;
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.06em;
-      padding: 0.8rem 1.35rem;
+      padding: 0.72rem 1.2rem;
       border: 1px solid var(--ink-primary);
       border-radius: var(--radius-sharp);
       text-decoration: none;
@@ -268,14 +330,16 @@
     }
 
     .btn-forge-outline {
-      background-color: transparent;
+      background-color: rgba(255, 255, 255, 0.02);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
       color: var(--ink-primary);
       font-family: var(--font-mono);
-      font-size: 0.78rem;
+      font-size: 0.76rem;
       font-weight: 500;
       text-transform: uppercase;
       letter-spacing: 0.06em;
-      padding: 0.8rem 1.35rem;
+      padding: 0.72rem 1.2rem;
       border: 1px solid var(--line-strong);
       border-radius: var(--radius-sharp);
       text-decoration: none;
@@ -289,15 +353,15 @@
 
     .btn-forge-outline:hover {
       border-color: var(--ink-primary);
-      background-color: rgba(255, 255, 255, 0.04);
+      background-color: rgba(255, 255, 255, 0.06);
       color: var(--ink-primary);
       transform: translateY(-2px);
     }
 
     .mobile-menu-btn {
-      width: 42px;
-      height: 42px;
-      background-color: var(--bg-panel);
+      width: 40px;
+      height: 40px;
+      background-color: rgba(255, 255, 255, 0.04);
       border: 1px solid var(--line-strong);
       border-radius: var(--radius-sharp);
       color: var(--ink-primary);
@@ -306,11 +370,14 @@
       justify-content: center;
     }
 
+    /* Glassmorphism Mobile Sheet */
     .mobile-sheet {
       position: fixed;
       inset: 0;
       z-index: 1050;
-      background-color: var(--bg-void);
+      background: rgba(8, 8, 10, 0.86);
+      backdrop-filter: blur(22px) saturate(140%);
+      -webkit-backdrop-filter: blur(22px) saturate(140%);
       padding: 1.5rem;
       display: flex;
       flex-direction: column;
@@ -344,21 +411,22 @@
     }
 
     /* ==========================================================================
-       5. HERO SECTION — FIRST-PERSON CLARITY + 4 CAPABILITY CARDS
+       5. HERO SECTION + GLASSMORPHISM SPEC & CAPABILITY CARDS
        ========================================================================== */
     .hero-section {
-      padding-top: 7.25rem;
+      padding-top: 7.5rem;
       padding-bottom: 4.75rem;
       position: relative;
       background-image:
+        radial-gradient(circle at 82% 22%, rgba(255, 107, 44, 0.09), transparent 42%),
         linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
         linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-      background-size: 48px 48px;
+      background-size: auto, 48px 48px, 48px 48px;
     }
 
     @media (min-width: 992px) {
       .hero-section {
-        padding-top: 9.25rem;
+        padding-top: 9.5rem;
         padding-bottom: 6.5rem;
       }
     }
@@ -368,14 +436,17 @@
       align-items: center;
       gap: 0.6rem;
       padding: 0.42rem 0.85rem;
-      background-color: var(--bg-panel);
-      border: 1px solid var(--line-strong);
+      background: var(--glass-surface);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--glass-border);
       border-radius: var(--radius-sharp);
       font-family: var(--font-mono);
       font-size: 0.72rem;
       font-weight: 500;
       color: var(--ink-secondary);
       margin-bottom: 1.45rem;
+      box-shadow: inset 0 1px 0 var(--glass-highlight);
     }
 
     .status-dot-live {
@@ -427,18 +498,21 @@
       align-items: center;
       gap: 0.75rem;
       padding: 0.72rem 0.85rem;
-      background-color: var(--bg-panel);
-      border: 1px solid var(--line-grid);
+      background: var(--glass-surface);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid var(--glass-border);
       border-radius: var(--radius-sharp);
       font-size: 0.92rem;
       font-weight: 500;
       color: var(--ink-primary);
+      box-shadow: inset 0 1px 0 var(--glass-highlight);
       transition: border-color 0.2s ease, background-color 0.2s ease, transform 0.2s var(--ease-snap);
     }
 
     .capability-card-chip:hover {
       border-color: var(--signal-amber);
-      background-color: var(--bg-panel-hover);
+      background-color: rgba(255, 107, 44, 0.06);
       transform: translateY(-2px);
     }
 
@@ -455,13 +529,17 @@
       flex-shrink: 0;
     }
 
-    /* Right Spec Window in Hero */
+    /* Glassmorphism Right Spec Window in Hero */
     .spec-window {
-      background-color: var(--bg-panel);
-      border: 1px solid var(--line-strong);
+      background: linear-gradient(155deg, rgba(24, 24, 30, 0.76) 0%, rgba(14, 14, 18, 0.72) 100%);
+      backdrop-filter: blur(18px) saturate(135%);
+      -webkit-backdrop-filter: blur(18px) saturate(135%);
+      border: 1px solid var(--glass-border);
       border-radius: var(--radius-card);
       overflow: hidden;
-      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
+      box-shadow:
+        0 24px 60px rgba(0, 0, 0, 0.55),
+        inset 0 1px 0 var(--glass-highlight);
     }
 
     .spec-window-header {
@@ -469,7 +547,7 @@
       align-items: center;
       justify-content: space-between;
       padding: 0.85rem 1.15rem;
-      background-color: var(--bg-atelier);
+      background-color: rgba(255, 255, 255, 0.025);
       border-bottom: 1px solid var(--line-grid);
     }
 
@@ -489,7 +567,7 @@
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       border-bottom: 1px solid var(--line-grid);
-      background-color: var(--bg-void);
+      background-color: rgba(8, 8, 9, 0.45);
     }
 
     .spec-tab-btn {
@@ -510,7 +588,7 @@
     }
 
     .spec-tab-btn.active {
-      background-color: var(--bg-panel);
+      background-color: rgba(255, 255, 255, 0.04);
       color: var(--signal-amber);
       font-weight: 600;
     }
@@ -660,7 +738,9 @@
       align-items: center;
       justify-content: space-between;
       padding: 0.6rem 0.85rem;
-      background-color: #15151a;
+      background-color: rgba(255, 255, 255, 0.03);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
       border-bottom: 1px solid var(--line-grid);
       gap: 0.5rem;
     }
@@ -679,7 +759,6 @@
       max-width: 215px;
     }
 
-    /* Aligned Equal-Height Visual Mockups */
     .visual-leaf,
     .visual-paws {
       padding: 1.35rem 1.25rem;
@@ -710,6 +789,8 @@
     .leaf-feature-tile {
       padding: 0.68rem 0.75rem;
       background-color: rgba(255, 255, 255, 0.045);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
       border: 1px solid rgba(52, 211, 153, 0.22);
       border-radius: 4px;
     }
@@ -717,6 +798,8 @@
     .paws-feature-tile {
       padding: 0.68rem 0.75rem;
       background-color: rgba(255, 255, 255, 0.045);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
       border: 1px solid rgba(251, 191, 36, 0.24);
       border-radius: 4px;
     }
@@ -895,12 +978,15 @@
     }
 
     .est-summary-card {
-      background-color: var(--bg-atelier);
+      background: linear-gradient(155deg, rgba(22, 22, 28, 0.85) 0%, rgba(14, 14, 18, 0.85) 100%);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
       border: 1px solid var(--signal-amber);
       border-radius: var(--radius-card);
       padding: 1.65rem;
       position: sticky;
-      top: 100px;
+      top: 96px;
+      box-shadow: inset 0 1px 0 var(--glass-highlight);
     }
 
     .est-total-range {
@@ -1071,34 +1157,32 @@
   <div class="cursor-crosshair" id="cursorCrosshair" aria-hidden="true"></div>
 
   <!-- ========================================================================
-       1. NAVIGATION (BRANDING: NOAH)
+       1. FLOATING GLASSMORPHISM HEADER (COMPACT DOCK ON DESKTOP)
        ======================================================================== -->
   <header class="atelier-header">
-    <div class="atelier-container">
-      <div class="d-flex align-items-center justify-content-between">
-        <a href="#top" class="brand-wordmark hover-target" aria-label="NOAH Home">
-          <span class="brand-stamp">N//</span>
-          <span>NOAH</span>
+    <div class="nav-glass-dock">
+      <a href="#top" class="brand-wordmark hover-target" aria-label="NoahStudio Home">
+        <span class="brand-stamp">NS</span>
+        <span>Noah<span style="color: var(--signal-amber);">Studio</span></span>
+      </a>
+
+      <nav class="d-none d-lg-flex desktop-nav-pill-group" aria-label="Primary Navigation">
+        <a href="#work" class="nav-link-item hover-target">Work</a>
+        <a href="#services" class="nav-link-item hover-target">Services</a>
+        <a href="#estimator" class="nav-link-item hover-target">Estimator</a>
+        <a href="#timeline" class="nav-link-item hover-target">Delivery</a>
+        <a href="#about" class="nav-link-item hover-target">About</a>
+        <a href="#contact" class="nav-link-item hover-target">Contact</a>
+      </nav>
+
+      <div class="d-flex align-items-center gap-2">
+        <a href="#contact" class="btn-forge-solid d-none d-sm-inline-flex hover-target">
+          <span>Start a Project</span>
+          <i data-lucide="arrow-up-right" style="width: 15px; height: 15px;"></i>
         </a>
-
-        <nav class="d-none d-lg-flex align-items-center gap-1" aria-label="Primary Navigation">
-          <a href="#work" class="nav-link-item hover-target">Work</a>
-          <a href="#services" class="nav-link-item hover-target">Services</a>
-          <a href="#estimator" class="nav-link-item hover-target">Cost Estimator</a>
-          <a href="#timeline" class="nav-link-item hover-target">Delivery</a>
-          <a href="#about" class="nav-link-item hover-target">About</a>
-          <a href="#contact" class="nav-link-item hover-target">Contact</a>
-        </nav>
-
-        <div class="d-flex align-items-center gap-2">
-          <a href="#contact" class="btn-forge-solid d-none d-sm-inline-flex hover-target">
-            <span>Start a Project</span>
-            <i data-lucide="arrow-up-right" style="width: 15px; height: 15px;"></i>
-          </a>
-          <button class="mobile-menu-btn d-lg-none" id="openMobileMenu" aria-label="Open menu" aria-expanded="false" aria-controls="mobileSheet">
-            <i data-lucide="menu" style="width: 20px; height: 20px;"></i>
-          </button>
-        </div>
+        <button class="mobile-menu-btn d-lg-none" id="openMobileMenu" aria-label="Open menu" aria-expanded="false" aria-controls="mobileSheet">
+          <i data-lucide="menu" style="width: 20px; height: 20px;"></i>
+        </button>
       </div>
     </div>
   </header>
@@ -1107,8 +1191,8 @@
   <div class="mobile-sheet" id="mobileSheet" role="dialog" aria-modal="true" aria-label="Mobile Menu">
     <div class="d-flex align-items-center justify-content-between">
       <a href="#top" class="brand-wordmark close-sheet">
-        <span class="brand-stamp">N//</span>
-        <span>NOAH</span>
+        <span class="brand-stamp">NS</span>
+        <span>Noah<span style="color: var(--signal-amber);">Studio</span></span>
       </a>
       <button class="mobile-menu-btn" id="closeMobileMenu" aria-label="Close menu">
         <i data-lucide="x" style="width: 20px; height: 20px;"></i>
@@ -1134,7 +1218,7 @@
 
   <main id="top">
     <!-- ======================================================================
-         2. HERO SECTION (FIRST-PERSON "I", NAME REMOVED, 4 CAPABILITIES)
+         2. HERO SECTION (MANIPAL UNIVERSITY DISTANCE LEARNING BCA STUDENT)
          ====================================================================== -->
     <section class="hero-section">
       <div class="atelier-container">
@@ -1151,7 +1235,7 @@
             </h1>
 
             <p class="hero-personal-note reveal-hero">
-              I’m a final-year computer applications student building real-world websites and web tools—combining AI-assisted speed with personal implementation, testing, and full project ownership.
+              I’m a distance learning BCA student from Manipal University building real-world websites and web tools—combining AI-assisted speed with personal implementation, testing, and full project ownership.
             </p>
 
             <!-- 4 First-Person Capabilities -->
@@ -1185,14 +1269,14 @@
             </div>
           </div>
 
-          <!-- Right Column: Interactive Spec Window -->
+          <!-- Right Column: Glassmorphism Spec Window -->
           <div class="col-lg-5 reveal-hero">
             <div class="spec-window">
               <div class="spec-window-header">
                 <div class="spec-dots" aria-hidden="true">
                   <span></span><span></span><span></span>
                 </div>
-                <span class="mono-label" style="font-size: 0.68rem;">NOAH // WORKFLOW_SPEC</span>
+                <span class="mono-label" style="font-size: 0.68rem;">NOAHSTUDIO // WORKFLOW</span>
               </div>
 
               <div class="spec-tabs" role="tablist" aria-label="How Projects Are Built">
@@ -1593,7 +1677,7 @@
     </section>
 
     <!-- ======================================================================
-         5. INTERACTIVE PROJECT COST ESTIMATOR (INDICATIVE BALLPARK ONLY)
+         5. INTERACTIVE PROJECT COST ESTIMATOR
          ====================================================================== -->
     <section id="estimator" class="section-block" style="background-color: var(--bg-atelier);">
       <div class="atelier-container">
@@ -1733,7 +1817,7 @@
                 </div>
               </div>
 
-              <!-- Step 4: Additional Features (Matching Your Screenshot) -->
+              <!-- Step 4: Additional Features -->
               <div class="est-step-block">
                 <span class="mono-label d-block mb-1">4. Additional Features</span>
                 <p class="small mb-3" style="color: var(--ink-secondary);">Select the functionality you need.</p>
@@ -1784,7 +1868,7 @@
             </div>
           </div>
 
-          <!-- Right: Live Estimate Summary & Honest Disclaimer -->
+          <!-- Right: Live Glassmorphism Estimate Summary -->
           <div class="col-lg-5 reveal-up">
             <div class="est-summary-card">
               <span class="mono-label d-block">INDICATIVE BALLPARK ESTIMATE</span>
@@ -1793,7 +1877,6 @@
                 Single-Page / Landing · 1–3 Pages · Clean &amp; Minimal + WhatsApp integration
               </p>
 
-              <!-- Honest Non-Binding Disclaimer -->
               <div class="p-3 mb-4" style="background-color: var(--bg-void); border: 1px solid var(--line-strong); border-radius: var(--radius-sharp); font-size: 0.8rem; color: var(--ink-secondary);">
                 <div class="d-flex align-items-center gap-2 mb-1" style="color: var(--signal-amber); font-family: var(--font-mono); font-size: 0.7rem;">
                   <i data-lucide="alert-circle" style="width: 14px; height: 14px;"></i>
@@ -1813,7 +1896,7 @@
     </section>
 
     <!-- ======================================================================
-         6. ALIGNED DELIVERY TIMELINE & 4-STEP WORKFLOW
+         6. ALIGNED DELIVERY TIMELINE & WORKFLOW
          ====================================================================== -->
     <section id="timeline" class="section-block">
       <div class="atelier-container">
@@ -1830,7 +1913,6 @@
         </div>
 
         <div class="row g-4 g-lg-5 align-items-stretch">
-          <!-- Left: Perfectly Aligned Estimated Delivery Table -->
           <div class="col-lg-6 reveal-up d-flex flex-column">
             <div class="d-flex align-items-center justify-content-between mb-3 px-1">
               <span class="mono-label">PROJECT</span>
@@ -1861,7 +1943,6 @@
             </div>
           </div>
 
-          <!-- Right: Aligned 2x2 Execution Grid -->
           <div class="col-lg-6 reveal-up d-flex flex-column">
             <span class="mono-label d-block mb-3 px-1">HOW I WORK WITH YOU</span>
             <div class="row g-3 flex-grow-1">
@@ -1900,21 +1981,21 @@
     </section>
 
     <!-- ======================================================================
-         7. ABOUT SECTION (HONEST STUDENT BUILDER POSITIONING, NO NAME)
+         7. ABOUT SECTION (DISTANCE LEARNING BCA STUDENT FROM MANIPAL UNIVERSITY)
          ====================================================================== -->
     <section id="about" class="section-block" style="background-color: var(--bg-atelier);">
       <div class="atelier-container">
         <div class="row align-items-center g-4 g-lg-5">
           <div class="col-lg-4 reveal-up">
-            <span class="mono-label d-block mb-2">05 / About NOAH</span>
+            <span class="mono-label d-block mb-2">05 / About NoahStudio</span>
             <h2 class="section-heading mb-3">Built by a Student Builder, Not a Big Agency.</h2>
             <p class="small mb-0" style="color: var(--ink-muted); font-family: var(--font-mono);">
-              FINAL-YEAR BCA STUDENT · PUNE, INDIA
+              DISTANCE LEARNING BCA STUDENT · MANIPAL UNIVERSITY
             </p>
           </div>
           <div class="col-lg-8 reveal-up">
             <p class="fs-4 fw-medium mb-3" style="line-height: 1.5; color: var(--ink-primary);">
-              I’m a computer applications student actively building my skills, portfolio, and real-world experience—taking on select freelance web projects with full personal ownership.
+              I’m a distance learning BCA student from Manipal University actively building my skills, portfolio, and real-world experience—taking on select freelance web projects with full personal ownership.
             </p>
             <p class="mb-0" style="color: var(--ink-secondary);">
               Instead of pretending to be a large agency, I keep things transparent: I combine modern AI-assisted development workflows with hands-on coding, thorough mobile and desktop testing, and direct 1-on-1 communication so small businesses and founders get reliable websites at fair, honest rates.
@@ -1925,7 +2006,7 @@
     </section>
 
     <!-- ======================================================================
-         8. CONTACT SECTION
+         8. CONTACT SECTION (FOCUSED ON INDIA / LOCAL CLIENTS — INTERNATIONAL REMOVED)
          ====================================================================== -->
     <section id="contact" class="section-block">
       <div class="atelier-container">
@@ -1949,7 +2030,7 @@
                   <span>rajkumarashish75@gmail.com</span>
                 </a>
               </div>
-              <a href="https://wa.me/918788337049?text=Hi%2C%20I%20saw%20NOAH%20and%20would%20like%20to%20discuss%20a%20website%20project." target="_blank" rel="noopener noreferrer" class="btn-forge-outline w-100 hover-target" style="border-color: rgba(52, 211, 153, 0.4);">
+              <a href="https://wa.me/918788337049?text=Hi%2C%20I%20visited%20NoahStudio%20and%20would%20like%20to%20discuss%20a%20website%20project." target="_blank" rel="noopener noreferrer" class="btn-forge-outline w-100 hover-target" style="border-color: rgba(52, 211, 153, 0.4);">
                 <i data-lucide="message-circle" style="width: 16px; height: 16px; color: var(--signal-mint);"></i>
                 <span>Message on WhatsApp</span>
               </a>
@@ -1982,17 +2063,9 @@
                   </div>
 
                   <div class="col-md-6">
-                    <label for="country" class="input-label">Country *</label>
-                    <select class="atelier-select" id="country" name="country" required>
-                      <option value="" selected disabled>Select country</option>
-                      <option value="India">India</option>
-                      <option value="United States">United States</option>
-                      <option value="United Kingdom">United Kingdom</option>
-                      <option value="Canada">Canada</option>
-                      <option value="Australia">Australia</option>
-                      <option value="Other">Other</option>
-                    </select>
-                    <div class="field-error">Please select a country.</div>
+                    <label for="cityLocation" class="input-label">City / Location *</label>
+                    <input type="text" class="atelier-input" id="cityLocation" name="cityLocation" placeholder="e.g. Pune, Mumbai, Bengaluru" required />
+                    <div class="field-error">Please enter your city.</div>
                   </div>
 
                   <div class="col-md-6">
@@ -2061,21 +2134,21 @@
   </main>
 
   <!-- ========================================================================
-       9. FOOTER
+       9. FOOTER (NOAHSTUDIO + WEBSITE BUILT BY MIT STUDENT JAIPUR)
        ======================================================================== -->
   <footer class="atelier-footer">
     <div class="atelier-container">
       <div class="row g-4 pb-4">
         <div class="col-lg-4">
           <a href="#top" class="brand-wordmark mb-3">
-            <span class="brand-stamp">N//</span>
-            <span>NOAH</span>
+            <span class="brand-stamp">NS</span>
+            <span>Noah<span style="color: var(--signal-amber);">Studio</span></span>
           </a>
           <p class="small mb-2" style="color: var(--ink-secondary); max-width: 310px;">
-            Independent web design &amp; development portfolio.
+            Independent web design &amp; development studio. Website built by MIT student Jaipur.
           </p>
           <p class="mono-label mb-0" style="font-size: 0.68rem; color: var(--ink-muted);">
-            INDIA · USA · UK · CANADA · AUSTRALIA
+            PUNE · JAIPUR · INDIA
           </p>
         </div>
 
@@ -2123,8 +2196,8 @@
       </div>
 
       <div class="pt-4 border-top d-flex flex-column flex-sm-row align-items-center justify-content-between gap-2 small" style="border-color: var(--line-grid) !important; color: var(--ink-muted);">
-        <div>&copy; <span id="yearNow"></span> NOAH. All rights reserved.</div>
-        <div style="font-family: var(--font-mono); font-size: 0.72rem;">INDEPENDENT FREELANCE PORTFOLIO</div>
+        <div>&copy; <span id="yearNow"></span> NoahStudio. All rights reserved.</div>
+        <div style="font-family: var(--font-mono); font-size: 0.72rem;">WEBSITE BUILT BY MIT STUDENT JAIPUR</div>
       </div>
     </div>
   </footer>
@@ -2234,7 +2307,6 @@
         const selectedDesign = document.querySelector('input[name="estDesign"]:checked');
         const checkedFeatures = Array.from(document.querySelectorAll(".est-feature-cb:checked"));
 
-        // Toggle active visual borders on radio groups
         document.querySelectorAll("#estTypeGroup .est-radio-label").forEach((lbl) => {
           lbl.classList.toggle("is-selected", lbl.querySelector("input").checked);
         });
@@ -2282,7 +2354,6 @@
       });
       updateEstimator();
 
-      // Transfer Estimator Output into Contact Form
       if (applyEstimateBtn) {
         applyEstimateBtn.addEventListener("click", () => {
           const result = updateEstimator();
@@ -2380,7 +2451,7 @@
           const fullName = document.getElementById("fullName").value.trim();
           const emailAddress = document.getElementById("emailAddress").value.trim();
           const businessName = document.getElementById("businessName").value.trim() || "Not specified";
-          const country = document.getElementById("country").value;
+          const cityLocation = document.getElementById("cityLocation").value.trim();
           const projectType = document.getElementById("projectType").value;
           const estimatedBudget = document.getElementById("estimatedBudget").value;
           const expectedTimeline = document.getElementById("expectedTimeline").value;
@@ -2390,12 +2461,12 @@
           const body = [
             `Hi,`,
             ``,
-            `I saw NOAH and would like to discuss a project:`,
+            `I visited NoahStudio and would like to discuss a project:`,
             ``,
             `Name: ${fullName}`,
             `Email: ${emailAddress}`,
             `Business: ${businessName}`,
-            `Country: ${country}`,
+            `City / Location: ${cityLocation}`,
             `Service: ${projectType}`,
             `Budget: ${estimatedBudget}`,
             `Timeline: ${expectedTimeline}`,
