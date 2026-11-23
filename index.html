@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NoahStudio — Independent Web Design &amp; Development | Manipal University BCA Student</title>
+  <title>NoahStudio — Web Design &amp; Development | Student at Manipal University Jaipur</title>
   
   <!-- Comprehensive SEO Meta Tags -->
-  <meta name="description" content="NoahStudio — Independent freelance web design and development portfolio by a distance learning BCA student from Manipal University Jaipur. Custom business websites, redesigns, digital catalogues, and web applications in India." />
-  <meta name="keywords" content="NoahStudio, freelance web developer India, web design Pune, Manipal University BCA student developer, affordable business website India, digital catalogue, website redesign, custom web applications" />
+  <meta name="description" content="NoahStudio — Independent web design and development portfolio by a student at Manipal University Jaipur. Custom business websites, redesigns, digital catalogues, and web applications built for growth." />
+  <meta name="keywords" content="NoahStudio, freelance web developer India, web design Pune, Manipal University Jaipur student developer, business website India, digital catalogue, website redesign, custom web applications" />
   <meta name="author" content="NoahStudio" />
   <meta name="robots" content="index, follow" />
   <meta name="theme-color" content="#080809" />
@@ -16,15 +16,15 @@
   <!-- Open Graph / Social SEO Metadata -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="NoahStudio" />
-  <meta property="og:title" content="NoahStudio — Independent Web Design & Development" />
-  <meta property="og:description" content="I design websites, develop websites, redesign existing websites, and build custom web applications. Built by a distance learning BCA student from Manipal University." />
+  <meta property="og:title" content="NoahStudio — Web Design & Development" />
+  <meta property="og:description" content="I design websites, develop websites, redesign existing websites, and build custom web applications. Built by a student at Manipal University Jaipur." />
   <meta property="og:url" content="https://imvicky2115.github.io/" />
   <meta property="og:locale" content="en_IN" />
 
   <!-- Twitter Card Metadata -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="NoahStudio — Independent Web Design & Development" />
-  <meta name="twitter:description" content="Custom websites, redesigns, digital catalogues, and web apps built with AI-assisted speed and hands-on ownership." />
+  <meta name="twitter:title" content="NoahStudio — Web Design & Development" />
+  <meta name="twitter:description" content="Fast, modern websites and custom web apps that bring you more customers." />
 
   <!-- Structured Data (JSON-LD) for Search Engines -->
   <script type="application/ld+json">
@@ -32,7 +32,7 @@
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
     "name": "NoahStudio",
-    "description": "Independent web design and development studio by a distance learning BCA student from Manipal University Jaipur.",
+    "description": "Independent web design and development portfolio by a student at Manipal University Jaipur.",
     "areaServed": "India",
     "telephone": "+91-8788337049",
     "email": "rajkumarashish75@gmail.com",
@@ -58,7 +58,7 @@
 
   <style>
     /* ==========================================================================
-       1. DESIGN TOKENS — PRESERVED DARK BRUTALIST ATELIER PALETTE + GLASS ACCENTS
+       1. DESIGN TOKENS — PRESERVED NOAHSTUDIO DARK BRUTALIST ATELIER PALETTE
        ========================================================================== */
     :root {
       --bg-void: #080809;
@@ -149,7 +149,7 @@
       font-size: clamp(1.9rem, 3.5vw, 3rem);
       font-weight: 700;
       letter-spacing: -0.03em;
-      line-height: 1.08;
+      line-height: 1.1;
     }
 
     .mono-label {
@@ -221,7 +221,7 @@
     }
 
     /* ==========================================================================
-       4. FLOATING GLASSMORPHISM HEADER (COMPACT ON DESKTOP, DOES NOT SPAN FULL SCREEN)
+       4. FLOATING GLASSMORPHISM HEADER & THUMB-FRIENDLY TOUCH TARGETS
        ========================================================================== */
     .atelier-header {
       position: fixed;
@@ -262,13 +262,14 @@
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
+      min-height: 44px;
     }
 
     .brand-stamp {
       font-family: var(--font-mono);
       font-size: 0.7rem;
       font-weight: 600;
-      padding: 0.2rem 0.42rem;
+      padding: 0.22rem 0.45rem;
       background-color: var(--signal-amber);
       color: #080809;
       border-radius: 2px;
@@ -292,7 +293,7 @@
       letter-spacing: 0.07em;
       color: var(--ink-secondary);
       text-decoration: none;
-      padding: 0.4rem 0.72rem;
+      padding: 0.45rem 0.72rem;
       border-radius: 3px;
       transition: color 0.2s ease, background-color 0.2s ease;
     }
@@ -302,24 +303,27 @@
       background-color: rgba(255, 255, 255, 0.06);
     }
 
+    /* Thumb-Friendly Buttons (Minimum 48px Touch Height) */
     .btn-forge-solid {
       background-color: var(--ink-primary);
       color: var(--bg-void);
       font-family: var(--font-mono);
-      font-size: 0.76rem;
+      font-size: 0.78rem;
       font-weight: 600;
       text-transform: uppercase;
       letter-spacing: 0.06em;
-      padding: 0.72rem 1.2rem;
+      min-height: 48px;
+      padding: 0.82rem 1.35rem;
       border: 1px solid var(--ink-primary);
       border-radius: var(--radius-sharp);
       text-decoration: none;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 0.5rem;
+      gap: 0.55rem;
       transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.2s var(--ease-snap);
       cursor: pointer;
+      touch-action: manipulation;
     }
 
     .btn-forge-solid:hover {
@@ -335,20 +339,22 @@
       -webkit-backdrop-filter: blur(8px);
       color: var(--ink-primary);
       font-family: var(--font-mono);
-      font-size: 0.76rem;
+      font-size: 0.78rem;
       font-weight: 500;
       text-transform: uppercase;
       letter-spacing: 0.06em;
-      padding: 0.72rem 1.2rem;
+      min-height: 48px;
+      padding: 0.82rem 1.35rem;
       border: 1px solid var(--line-strong);
       border-radius: var(--radius-sharp);
       text-decoration: none;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      gap: 0.5rem;
+      gap: 0.55rem;
       transition: border-color 0.2s ease, background-color 0.2s ease, transform 0.2s var(--ease-snap);
       cursor: pointer;
+      touch-action: manipulation;
     }
 
     .btn-forge-outline:hover {
@@ -359,8 +365,8 @@
     }
 
     .mobile-menu-btn {
-      width: 40px;
-      height: 40px;
+      width: 46px;
+      height: 46px;
       background-color: rgba(255, 255, 255, 0.04);
       border: 1px solid var(--line-strong);
       border-radius: var(--radius-sharp);
@@ -368,6 +374,7 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
+      touch-action: manipulation;
     }
 
     /* Glassmorphism Mobile Sheet */
@@ -375,7 +382,7 @@
       position: fixed;
       inset: 0;
       z-index: 1050;
-      background: rgba(8, 8, 10, 0.86);
+      background: rgba(8, 8, 10, 0.9);
       backdrop-filter: blur(22px) saturate(140%);
       -webkit-backdrop-filter: blur(22px) saturate(140%);
       padding: 1.5rem;
@@ -396,11 +403,12 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      font-size: 1.75rem;
+      font-size: 1.65rem;
       font-weight: 700;
       color: var(--ink-primary);
       text-decoration: none;
-      padding: 0.85rem 0;
+      min-height: 58px;
+      padding: 0.75rem 0;
       border-bottom: 1px solid var(--line-grid);
     }
 
@@ -411,7 +419,7 @@
     }
 
     /* ==========================================================================
-       5. HERO SECTION + GLASSMORPHISM SPEC & CAPABILITY CARDS
+       5. HERO SECTION — CLEAR BENEFIT-DRIVEN HEADLINE + THUMB-FRIENDLY CTAs
        ========================================================================== */
     .hero-section {
       padding-top: 7.5rem;
@@ -435,7 +443,7 @@
       display: inline-flex;
       align-items: center;
       gap: 0.6rem;
-      padding: 0.42rem 0.85rem;
+      padding: 0.45rem 0.85rem;
       background: var(--glass-surface);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
@@ -445,7 +453,7 @@
       font-size: 0.72rem;
       font-weight: 500;
       color: var(--ink-secondary);
-      margin-bottom: 1.45rem;
+      margin-bottom: 1.35rem;
       box-shadow: inset 0 1px 0 var(--glass-highlight);
     }
 
@@ -459,10 +467,10 @@
     }
 
     .hero-display-headline {
-      font-size: clamp(2.2rem, 4.4vw, 3.85rem);
+      font-size: clamp(2.15rem, 4.3vw, 3.75rem);
       font-weight: 700;
-      line-height: 1.07;
-      letter-spacing: -0.035em;
+      line-height: 1.09;
+      letter-spacing: -0.03em;
       margin-bottom: 1.15rem;
     }
 
@@ -497,6 +505,7 @@
       display: flex;
       align-items: center;
       gap: 0.75rem;
+      min-height: 48px;
       padding: 0.72rem 0.85rem;
       background: var(--glass-surface);
       backdrop-filter: blur(12px);
@@ -527,6 +536,19 @@
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
+    }
+
+    .hero-cta-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    @media (min-width: 576px) {
+      .hero-cta-group {
+        flex-direction: row;
+        align-items: center;
+      }
     }
 
     /* Glassmorphism Right Spec Window in Hero */
@@ -574,6 +596,7 @@
       background: transparent;
       border: none;
       border-right: 1px solid var(--line-grid);
+      min-height: 46px;
       padding: 0.7rem 0.5rem;
       font-family: var(--font-mono);
       font-size: 0.72rem;
@@ -581,6 +604,7 @@
       color: var(--ink-muted);
       cursor: pointer;
       transition: background-color 0.2s ease, color 0.2s ease;
+      touch-action: manipulation;
     }
 
     .spec-tab-btn:last-child {
@@ -685,20 +709,21 @@
     .swipe-dots {
       display: flex;
       align-items: center;
-      gap: 0.45rem;
+      gap: 0.55rem;
     }
 
     .swipe-dot {
-      width: 24px;
-      height: 3px;
+      width: 28px;
+      height: 6px;
       background-color: var(--line-strong);
       border: none;
       padding: 0;
+      border-radius: 2px;
       transition: background-color 0.25s ease, width 0.25s ease;
     }
 
     .swipe-dot.active {
-      width: 38px;
+      width: 44px;
       background-color: var(--signal-amber);
     }
 
@@ -892,12 +917,12 @@
       margin-bottom: 0.85rem;
     }
 
-    /* Interactive Cost Estimator Box */
+    /* Interactive Cost Estimator Box (Thumb-Friendly Tap Rows) */
     .estimator-panel {
       background-color: var(--bg-panel);
       border: 1px solid var(--line-strong);
       border-radius: var(--radius-card);
-      padding: 1.65rem;
+      padding: 1.5rem;
     }
 
     @media (min-width: 768px) {
@@ -921,7 +946,7 @@
     .est-option-grid {
       display: grid;
       grid-template-columns: 1fr;
-      gap: 0.55rem;
+      gap: 0.6rem;
     }
 
     @media (min-width: 576px) {
@@ -939,13 +964,15 @@
       align-items: center;
       justify-content: space-between;
       gap: 0.75rem;
-      padding: 0.78rem 0.95rem;
+      min-height: 52px;
+      padding: 0.8rem 1rem;
       background-color: var(--bg-void);
       border: 1px solid var(--line-grid);
       border-radius: var(--radius-sharp);
       cursor: pointer;
       transition: border-color 0.2s ease, background-color 0.2s ease;
       user-select: none;
+      touch-action: manipulation;
     }
 
     .est-radio-label:hover,
@@ -960,8 +987,8 @@
     }
 
     .est-indicator-circle {
-      width: 18px;
-      height: 18px;
+      width: 20px;
+      height: 20px;
       border-radius: 50%;
       border: 1px solid var(--line-strong);
       display: inline-flex;
@@ -1053,72 +1080,69 @@
     }
 
     /* ==========================================================================
-       9. CONTACT FORM & FOOTER
+       9. CLEANED UP 06 / CONTACT ACTION HUB (NO PERSONAL DATA FORM)
        ========================================================================== */
-    .form-wrapper {
-      background-color: var(--bg-panel);
+    .contact-hub-panel {
+      background: linear-gradient(155deg, rgba(22, 22, 28, 0.82) 0%, rgba(14, 14, 18, 0.82) 100%);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
       border: 1px solid var(--line-strong);
       border-radius: var(--radius-card);
-      padding: 1.65rem;
+      padding: 1.75rem;
+      box-shadow: inset 0 1px 0 var(--glass-highlight);
     }
 
     @media (min-width: 768px) {
-      .form-wrapper {
-        padding: 2.35rem;
+      .contact-hub-panel {
+        padding: 2.5rem;
       }
     }
 
-    .input-label {
-      display: block;
-      font-family: var(--font-mono);
-      font-size: 0.73rem;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      color: var(--ink-secondary);
-      margin-bottom: 0.45rem;
-    }
-
-    .atelier-input,
-    .atelier-select {
-      width: 100%;
+    .contact-action-tile {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      min-height: 68px;
+      padding: 1rem 1.2rem;
       background-color: var(--bg-void);
-      border: 1px solid var(--line-strong);
+      border: 1px solid var(--line-grid);
       border-radius: var(--radius-sharp);
-      padding: 0.78rem 0.95rem;
+      text-decoration: none;
       color: var(--ink-primary);
-      font-family: var(--font-sans);
-      font-size: 0.95rem;
-      transition: border-color 0.2s ease;
+      transition: border-color 0.2s ease, background-color 0.2s ease, transform 0.2s var(--ease-snap);
+      touch-action: manipulation;
     }
 
-    .atelier-input:focus,
-    .atelier-select:focus {
-      outline: none;
+    .contact-action-tile:hover {
       border-color: var(--signal-amber);
-    }
-
-    .atelier-input::placeholder {
-      color: var(--ink-muted);
-    }
-
-    .atelier-select option {
-      background-color: var(--bg-panel);
+      background-color: rgba(255, 107, 44, 0.05);
       color: var(--ink-primary);
+      transform: translateY(-2px);
     }
 
-    .field-error {
-      font-family: var(--font-mono);
-      font-size: 0.72rem;
-      color: #f87171;
-      margin-top: 0.35rem;
-      display: none;
+    .contact-tile-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 4px;
+      background-color: var(--signal-amber-dim);
+      border: 1px solid rgba(255, 107, 44, 0.28);
+      color: var(--signal-amber);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
     }
 
-    .was-validated .atelier-input:invalid + .field-error,
-    .was-validated .atelier-select:invalid + .field-error {
-      display: block;
+    .contact-tile-icon.mint {
+      background-color: rgba(52, 211, 153, 0.12);
+      border-color: rgba(52, 211, 153, 0.28);
+      color: var(--signal-mint);
     }
 
+    /* ==========================================================================
+       10. FOOTER & REDUCED MOTION
+       ========================================================================== */
     .atelier-footer {
       border-top: 1px solid var(--line-grid);
       background-color: var(--bg-atelier);
@@ -1129,8 +1153,9 @@
       color: var(--ink-secondary);
       text-decoration: none;
       font-size: 0.92rem;
-      display: inline-block;
-      margin-bottom: 0.5rem;
+      display: inline-flex;
+      align-items: center;
+      min-height: 36px;
       transition: color 0.2s ease;
     }
 
@@ -1157,7 +1182,7 @@
   <div class="cursor-crosshair" id="cursorCrosshair" aria-hidden="true"></div>
 
   <!-- ========================================================================
-       1. FLOATING GLASSMORPHISM HEADER (COMPACT DOCK ON DESKTOP)
+       1. FLOATING GLASSMORPHISM HEADER
        ======================================================================== -->
   <header class="atelier-header">
     <div class="nav-glass-dock">
@@ -1218,7 +1243,7 @@
 
   <main id="top">
     <!-- ======================================================================
-         2. HERO SECTION (MANIPAL UNIVERSITY DISTANCE LEARNING BCA STUDENT)
+         2. HERO SECTION (CLEAR BENEFIT-DRIVEN HEADLINE + THUMB-FRIENDLY CTAs)
          ====================================================================== -->
     <section class="hero-section">
       <div class="atelier-container">
@@ -1231,11 +1256,11 @@
             </div>
 
             <h1 class="hero-display-headline reveal-hero">
-              Hands-On Web Design &amp; Builds <span class="highlight-stroke">Without Agency Overhead.</span>
+              Fast, Modern Websites That <span class="highlight-stroke">Turn Visitors Into Customers.</span>
             </h1>
 
             <p class="hero-personal-note reveal-hero">
-              I’m a distance learning BCA student from Manipal University building real-world websites and web tools—combining AI-assisted speed with personal implementation, testing, and full project ownership.
+              I’m a student at Manipal University Jaipur building real-world websites and web tools—combining AI-assisted speed with personal coding, testing, and direct 1-on-1 support.
             </p>
 
             <!-- 4 First-Person Capabilities -->
@@ -1258,7 +1283,7 @@
               </div>
             </div>
 
-            <div class="d-flex flex-wrap align-items-center gap-3 reveal-hero">
+            <div class="hero-cta-group reveal-hero">
               <a href="#estimator" class="btn-forge-solid hover-target">
                 <span>Estimate Project Cost</span>
                 <i data-lucide="calculator" style="width: 16px; height: 16px;"></i>
@@ -1338,18 +1363,18 @@
     </section>
 
     <!-- ======================================================================
-         3. PORTFOLIO SECTION (ALIGNED CARDS + MOBILE SWIPE)
+         3. PORTFOLIO SECTION (BENEFIT-DRIVEN HEADLINE + MOBILE SWIPE)
          ====================================================================== -->
     <section id="work" class="section-block" style="background-color: var(--bg-atelier);">
       <div class="atelier-container">
         <div class="row align-items-end justify-content-between section-top-bar reveal-up">
           <div class="col-lg-7">
             <span class="mono-label d-block mb-2">01 / Portfolio</span>
-            <h2 class="section-heading mb-0">Live &amp; Ongoing Projects.</h2>
+            <h2 class="section-heading mb-0">Real Websites Built to Win Customers.</h2>
           </div>
           <div class="col-lg-4 mt-3 mt-lg-0">
             <p class="mb-0" style="color: var(--ink-secondary);">
-              Real web builds focused on clean UI, fast mobile browsing, and practical usability.
+              Live builds designed for fast mobile browsing, clear menus, and effortless user action.
             </p>
           </div>
         </div>
@@ -1498,19 +1523,19 @@
           </div>
         </div>
 
-        <!-- Mobile Swipe Indicator & Buttons -->
+        <!-- Thumb-Friendly Mobile Swipe Controls -->
         <div class="swipe-controls-mobile">
           <div class="swipe-dots" aria-label="Portfolio Slide Indicators">
             <button class="swipe-dot active" data-target-slide="0" aria-label="Show Leaf Café"></button>
             <button class="swipe-dot" data-target-slide="1" aria-label="Show HappyPaws"></button>
           </div>
           <div class="d-flex align-items-center gap-2">
-            <span style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--ink-muted);">SWIPE LEFT / RIGHT</span>
-            <button class="mobile-menu-btn" style="width: 36px; height: 36px;" id="prevProjectBtn" aria-label="Previous project">
-              <i data-lucide="chevron-left" style="width: 16px; height: 16px;"></i>
+            <span style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--ink-muted);">SWIPE</span>
+            <button class="mobile-menu-btn" id="prevProjectBtn" aria-label="Previous project">
+              <i data-lucide="chevron-left" style="width: 18px; height: 18px;"></i>
             </button>
-            <button class="mobile-menu-btn" style="width: 36px; height: 36px;" id="nextProjectBtn" aria-label="Next project">
-              <i data-lucide="chevron-right" style="width: 16px; height: 16px;"></i>
+            <button class="mobile-menu-btn" id="nextProjectBtn" aria-label="Next project">
+              <i data-lucide="chevron-right" style="width: 18px; height: 18px;"></i>
             </button>
           </div>
         </div>
@@ -1518,18 +1543,18 @@
     </section>
 
     <!-- ======================================================================
-         4. SERVICES & PRICING MATRIX
+         4. SERVICES & PRICING MATRIX (BENEFIT-DRIVEN HEADLINE)
          ====================================================================== -->
     <section id="services" class="section-block">
       <div class="atelier-container">
         <div class="row align-items-end justify-content-between section-top-bar reveal-up">
           <div class="col-lg-7">
             <span class="mono-label d-block mb-2">02 / Services &amp; Suggested Pricing</span>
-            <h2 class="section-heading mb-0">Simple Services. Honest Starting Rates.</h2>
+            <h2 class="section-heading mb-0">Everything You Need to Launch &amp; Grow Online.</h2>
           </div>
           <div class="col-lg-4 mt-3 mt-lg-0">
             <p class="mb-0" style="color: var(--ink-secondary);">
-              Suggested starting prices in ₹. Final quote depends on exact pages and features.
+              Honest student-builder starting rates in ₹. Final quote depends on exact pages and features.
             </p>
           </div>
         </div>
@@ -1552,7 +1577,7 @@
               </div>
               <div class="mt-4 pt-3 border-top" style="border-color: var(--line-grid) !important;">
                 <a href="#contact" class="btn-forge-outline w-100 hover-target select-service-btn" data-service="Single-Page Website (₹3,000–5,000)">
-                  <span>Request Quote</span>
+                  <span>Enquire Now</span>
                 </a>
               </div>
             </div>
@@ -1575,7 +1600,7 @@
               </div>
               <div class="mt-4 pt-3 border-top" style="border-color: var(--line-grid) !important;">
                 <a href="#contact" class="btn-forge-outline w-100 hover-target select-service-btn" data-service="Digital Catalogue (₹5,000–8,000)">
-                  <span>Request Quote</span>
+                  <span>Enquire Now</span>
                 </a>
               </div>
             </div>
@@ -1598,7 +1623,7 @@
               </div>
               <div class="mt-4 pt-3 border-top" style="border-color: var(--line-grid) !important;">
                 <a href="#contact" class="btn-forge-outline w-100 hover-target select-service-btn" data-service="Website Redesign (₹5,000–9,000)">
-                  <span>Request Quote</span>
+                  <span>Enquire Now</span>
                 </a>
               </div>
             </div>
@@ -1621,7 +1646,7 @@
               </div>
               <div class="mt-4 pt-3 border-top" style="border-color: var(--line-grid) !important;">
                 <a href="#contact" class="btn-forge-solid w-100 hover-target select-service-btn" data-service="Small Business Website (₹6,000–10,000)">
-                  <span>Request Quote</span>
+                  <span>Enquire Now</span>
                 </a>
               </div>
             </div>
@@ -1644,7 +1669,7 @@
               </div>
               <div class="mt-4 pt-3 border-top" style="border-color: var(--line-grid) !important;">
                 <a href="#contact" class="btn-forge-outline w-100 hover-target select-service-btn" data-service="Basic Custom Web App (₹12,000–20,000)">
-                  <span>Request Quote</span>
+                  <span>Enquire Now</span>
                 </a>
               </div>
             </div>
@@ -1667,7 +1692,7 @@
               </div>
               <div class="mt-4 pt-3 border-top" style="border-color: var(--line-grid) !important;">
                 <a href="#contact" class="btn-forge-outline w-100 hover-target select-service-btn" data-service="Website Maintenance & Updates">
-                  <span>Request Support</span>
+                  <span>Enquire Now</span>
                 </a>
               </div>
             </div>
@@ -1677,18 +1702,18 @@
     </section>
 
     <!-- ======================================================================
-         5. INTERACTIVE PROJECT COST ESTIMATOR
+         5. INTERACTIVE PROJECT COST ESTIMATOR (BENEFIT-DRIVEN HEADLINE)
          ====================================================================== -->
     <section id="estimator" class="section-block" style="background-color: var(--bg-atelier);">
       <div class="atelier-container">
         <div class="row align-items-end justify-content-between section-top-bar reveal-up">
           <div class="col-lg-7">
             <span class="mono-label d-block mb-2">03 / Interactive Estimator</span>
-            <h2 class="section-heading mb-0">Project Cost Estimator.</h2>
+            <h2 class="section-heading mb-0">Plan Your Budget Before You Commit.</h2>
           </div>
           <div class="col-lg-4 mt-3 mt-lg-0">
             <p class="mb-0" style="color: var(--ink-secondary);">
-              Configure your project scope below to see an indicative ballpark range before requesting an exact quote.
+              Tap your project options below to see an indicative ballpark range before requesting a quote.
             </p>
           </div>
         </div>
@@ -1886,8 +1911,8 @@
               </div>
 
               <a href="#contact" class="btn-forge-solid w-100 hover-target" id="applyEstimateBtn">
-                <span>Send This Scope for Exact Quote</span>
-                <i data-lucide="arrow-down-right" style="width: 16px; height: 16px;"></i>
+                <span>Send Scope via WhatsApp</span>
+                <i data-lucide="message-circle" style="width: 16px; height: 16px;"></i>
               </a>
             </div>
           </div>
@@ -1896,18 +1921,18 @@
     </section>
 
     <!-- ======================================================================
-         6. ALIGNED DELIVERY TIMELINE & WORKFLOW
+         6. ALIGNED DELIVERY TIMELINE & WORKFLOW (BENEFIT-DRIVEN HEADLINE)
          ====================================================================== -->
     <section id="timeline" class="section-block">
       <div class="atelier-container">
         <div class="row align-items-end justify-content-between section-top-bar reveal-up">
           <div class="col-lg-7">
             <span class="mono-label d-block mb-2">04 / Timeline &amp; Process</span>
-            <h2 class="section-heading mb-0">Estimated Delivery &amp; Workflow.</h2>
+            <h2 class="section-heading mb-0">Go Live in Days, Not Months.</h2>
           </div>
           <div class="col-lg-4 mt-3 mt-lg-0">
             <p class="mb-0" style="color: var(--ink-secondary);">
-              Realistic turnaround windows with personal testing and clear milestone check-ins.
+              Clear delivery estimates with personal testing and milestone updates at every step.
             </p>
           </div>
         </div>
@@ -1981,24 +2006,24 @@
     </section>
 
     <!-- ======================================================================
-         7. ABOUT SECTION (DISTANCE LEARNING BCA STUDENT FROM MANIPAL UNIVERSITY)
+         7. ABOUT SECTION (STUDENT AT MANIPAL UNIVERSITY JAIPUR — NO REPRESENTATION CLAIM)
          ====================================================================== -->
     <section id="about" class="section-block" style="background-color: var(--bg-atelier);">
       <div class="atelier-container">
         <div class="row align-items-center g-4 g-lg-5">
           <div class="col-lg-4 reveal-up">
             <span class="mono-label d-block mb-2">05 / About NoahStudio</span>
-            <h2 class="section-heading mb-3">Built by a Student Builder, Not a Big Agency.</h2>
+            <h2 class="section-heading mb-3">Direct 1-on-1 Execution With Zero Agency Markup.</h2>
             <p class="small mb-0" style="color: var(--ink-muted); font-family: var(--font-mono);">
-              DISTANCE LEARNING BCA STUDENT · MANIPAL UNIVERSITY
+              STUDENT AT MANIPAL UNIVERSITY JAIPUR
             </p>
           </div>
           <div class="col-lg-8 reveal-up">
             <p class="fs-4 fw-medium mb-3" style="line-height: 1.5; color: var(--ink-primary);">
-              I’m a distance learning BCA student from Manipal University actively building my skills, portfolio, and real-world experience—taking on select freelance web projects with full personal ownership.
+              I’m a student at Manipal University Jaipur actively building my skills, portfolio, and real-world experience—taking on select freelance web projects with full personal ownership.
             </p>
             <p class="mb-0" style="color: var(--ink-secondary);">
-              Instead of pretending to be a large agency, I keep things transparent: I combine modern AI-assisted development workflows with hands-on coding, thorough mobile and desktop testing, and direct 1-on-1 communication so small businesses and founders get reliable websites at fair, honest rates.
+              Instead of pretending to be a large agency, I keep things honest and direct: I combine modern AI-assisted development workflows with hands-on coding, thorough mobile and desktop testing, and clear communication so small businesses and founders get reliable websites at fair rates.
             </p>
           </div>
         </div>
@@ -2006,126 +2031,102 @@
     </section>
 
     <!-- ======================================================================
-         8. CONTACT SECTION (FOCUSED ON INDIA / LOCAL CLIENTS — INTERNATIONAL REMOVED)
+         8. CLEANED UP 06 / CONTACT SECTION (NO PERSONAL DATA FORM)
          ====================================================================== -->
     <section id="contact" class="section-block">
       <div class="atelier-container">
-        <div class="row g-5">
-          <div class="col-lg-5 reveal-up">
+        <div class="row align-items-end justify-content-between section-top-bar reveal-up">
+          <div class="col-lg-7">
             <span class="mono-label d-block mb-2">06 / Contact</span>
-            <h2 class="section-heading mb-3">Let's Discuss Your Project.</h2>
-            <p class="mb-4" style="color: var(--ink-secondary);">
-              Send your website or web app idea, timeline, and budget range. You’ll get a direct, honest reply from me.
+            <h2 class="section-heading mb-0">Ready to Launch? Let’s Talk Directly.</h2>
+          </div>
+          <div class="col-lg-4 mt-3 mt-lg-0">
+            <p class="mb-0" style="color: var(--ink-secondary);">
+              No long forms or personal data collection—reach out directly on WhatsApp, call, or email to discuss your idea.
             </p>
+          </div>
+        </div>
 
-            <div class="brutalist-box mb-3" style="height: auto;">
-              <span class="mono-label d-block mb-2" style="font-size: 0.7rem;">DIRECT CONTACT</span>
-              <div class="d-flex flex-column gap-2 mb-3">
-                <a href="tel:+918788337049" class="text-decoration-none d-inline-flex align-items-center gap-2 hover-target" style="color: var(--ink-primary); font-weight: 600;">
-                  <i data-lucide="phone" style="width: 16px; height: 16px; color: var(--signal-amber);"></i>
-                  <span>+91 87883 37049</span>
-                </a>
-                <a href="mailto:rajkumarashish75@gmail.com" class="text-decoration-none d-inline-flex align-items-center gap-2 hover-target" style="color: var(--ink-primary); font-weight: 600; word-break: break-all;">
-                  <i data-lucide="mail" style="width: 16px; height: 16px; color: var(--signal-amber);"></i>
-                  <span>rajkumarashish75@gmail.com</span>
-                </a>
+        <div class="row g-4 align-items-stretch">
+          <!-- Left: Primary Direct Action Card -->
+          <div class="col-lg-7 reveal-up">
+            <div class="contact-hub-panel h-100 d-flex flex-column justify-content-between">
+              <div>
+                <span class="mono-label d-block mb-2">FASTEST RESPONSE</span>
+                <h3 class="h3 mb-2">Start a Quick Conversation</h3>
+                <p class="mb-4" style="color: var(--ink-secondary);">
+                  Share what kind of website or web app you need, and I’ll reply with a clear timeline and quote.
+                </p>
+
+                <!-- Selected Scope Preview Banner (Populated if user clicked from Estimator or Service card) -->
+                <div id="selectedScopeBanner" class="p-3 mb-4 d-none" style="background-color: rgba(255, 107, 44, 0.08); border: 1px solid rgba(255, 107, 44, 0.35); border-radius: var(--radius-sharp); font-size: 0.86rem;">
+                  <div class="d-flex align-items-center justify-content-between mb-1">
+                    <span class="mono-label" style="font-size: 0.68rem;">SELECTED SCOPE READY TO SEND</span>
+                    <button type="button" id="clearScopeBtn" class="btn btn-link p-0 text-decoration-none" style="font-family: var(--font-mono); font-size: 0.68rem; color: var(--ink-muted);">CLEAR</button>
+                  </div>
+                  <div id="selectedScopeText" style="color: var(--ink-primary); font-weight: 500;"></div>
+                </div>
               </div>
-              <a href="https://wa.me/918788337049?text=Hi%2C%20I%20visited%20NoahStudio%20and%20would%20like%20to%20discuss%20a%20website%20project." target="_blank" rel="noopener noreferrer" class="btn-forge-outline w-100 hover-target" style="border-color: rgba(52, 211, 153, 0.4);">
-                <i data-lucide="message-circle" style="width: 16px; height: 16px; color: var(--signal-mint);"></i>
-                <span>Message on WhatsApp</span>
-              </a>
-            </div>
 
-            <div class="p-3" style="border: 1px dashed var(--line-strong); border-radius: var(--radius-sharp); font-size: 0.82rem; color: var(--ink-secondary);">
-              <strong style="color: var(--ink-primary);">Form Note:</strong> Submitting validates your details and opens your email app pre-addressed to <strong>rajkumarashish75@gmail.com</strong>. To connect silent background submissions later, add <code>action="https://formspree.io/f/YOUR_ID" method="POST"</code> to the form tag.
+              <div class="d-flex flex-column gap-3">
+                <a id="whatsappDirectBtn" href="https://wa.me/918788337049?text=Hi%2C%20I%20visited%20NoahStudio%20and%20would%20like%20to%20discuss%20a%20website%20project." target="_blank" rel="noopener noreferrer" class="btn-forge-solid w-100 hover-target" style="background-color: var(--signal-mint); border-color: var(--signal-mint); color: #080809;">
+                  <i data-lucide="message-circle" style="width: 18px; height: 18px;"></i>
+                  <span>Chat on WhatsApp (+91 87883 37049)</span>
+                </a>
+
+                <div class="row g-2">
+                  <div class="col-sm-6">
+                    <a id="emailDirectBtn" href="mailto:rajkumarashish75@gmail.com?subject=Project%20Enquiry%20—%20NoahStudio" class="btn-forge-outline w-100 hover-target">
+                      <i data-lucide="mail" style="width: 16px; height: 16px;"></i>
+                      <span>Send an Email</span>
+                    </a>
+                  </div>
+                  <div class="col-sm-6">
+                    <a href="tel:+918788337049" class="btn-forge-outline w-100 hover-target">
+                      <i data-lucide="phone" style="width: 16px; height: 16px;"></i>
+                      <span>Call Directly</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 
-          <div class="col-lg-7 reveal-up">
-            <div class="form-wrapper">
-              <form id="projectForm" novalidate>
-                <div class="row g-3">
-                  <div class="col-md-6">
-                    <label for="fullName" class="input-label">Full Name *</label>
-                    <input type="text" class="atelier-input" id="fullName" name="fullName" placeholder="Your name" required />
-                    <div class="field-error">Full name is required.</div>
-                  </div>
-
-                  <div class="col-md-6">
-                    <label for="emailAddress" class="input-label">Email Address *</label>
-                    <input type="email" class="atelier-input" id="emailAddress" name="emailAddress" placeholder="you@domain.com" required />
-                    <div class="field-error">Valid email is required.</div>
-                  </div>
-
-                  <div class="col-md-6">
-                    <label for="businessName" class="input-label">Business Name</label>
-                    <input type="text" class="atelier-input" id="businessName" name="businessName" placeholder="Brand or business" />
-                  </div>
-
-                  <div class="col-md-6">
-                    <label for="cityLocation" class="input-label">City / Location *</label>
-                    <input type="text" class="atelier-input" id="cityLocation" name="cityLocation" placeholder="e.g. Pune, Mumbai, Bengaluru" required />
-                    <div class="field-error">Please enter your city.</div>
-                  </div>
-
-                  <div class="col-md-6">
-                    <label for="projectType" class="input-label">Project Type *</label>
-                    <select class="atelier-select" id="projectType" name="projectType" required>
-                      <option value="" selected disabled>Select project type</option>
-                      <option value="Single-Page Website (₹3,000–5,000)">Single-Page Website (₹3,000–5,000)</option>
-                      <option value="Digital Catalogue (₹5,000–8,000)">Digital Catalogue (₹5,000–8,000)</option>
-                      <option value="Website Redesign (₹5,000–9,000)">Website Redesign (₹5,000–9,000)</option>
-                      <option value="Small Business Website (₹6,000–10,000)">Small Business Website (₹6,000–10,000)</option>
-                      <option value="Basic Custom Web App (₹12,000–20,000)">Basic Custom Web App (₹12,000–20,000)</option>
-                      <option value="Website Maintenance & Updates">Website Maintenance &amp; Updates</option>
-                    </select>
-                    <div class="field-error">Please select a project type.</div>
-                  </div>
-
-                  <div class="col-md-6">
-                    <label for="estimatedBudget" class="input-label">Estimated Budget (₹) *</label>
-                    <select class="atelier-select" id="estimatedBudget" name="estimatedBudget" required>
-                      <option value="" selected disabled>Select budget range</option>
-                      <option value="₹3,000 – ₹5,000">₹3,000 – ₹5,000</option>
-                      <option value="₹5,000 – ₹9,000">₹5,000 – ₹9,000</option>
-                      <option value="₹6,000 – ₹10,000">₹6,000 – ₹10,000</option>
-                      <option value="₹12,000 – ₹20,000+">₹12,000 – ₹20,000+</option>
-                      <option value="From Cost Estimator">From Cost Estimator (See Description)</option>
-                    </select>
-                    <div class="field-error">Please select a budget range.</div>
-                  </div>
-
-                  <div class="col-12">
-                    <label for="expectedTimeline" class="input-label">Expected Timeline *</label>
-                    <select class="atelier-select" id="expectedTimeline" name="expectedTimeline" required>
-                      <option value="" selected disabled>Select timeline</option>
-                      <option value="3–5 working days">3–5 working days</option>
-                      <option value="5–8 working days">5–8 working days</option>
-                      <option value="7–10 working days">7–10 working days</option>
-                      <option value="2–4 weeks">2–4 weeks</option>
-                      <option value="Flexible">Flexible</option>
-                    </select>
-                    <div class="field-error">Please select a timeline.</div>
-                  </div>
-
-                  <div class="col-12">
-                    <label for="projectDescription" class="input-label">Project Description *</label>
-                    <textarea class="atelier-input" id="projectDescription" name="projectDescription" rows="4" placeholder="Tell me about your website, redesign, or web app idea..." required></textarea>
-                    <div class="field-error">Please enter a brief project description.</div>
-                  </div>
-
-                  <div class="col-12 pt-2">
-                    <button type="submit" class="btn-forge-solid w-100 py-3 hover-target">
-                      <span>Open Pre-Filled Project Email</span>
-                      <i data-lucide="send" style="width: 15px; height: 15px;"></i>
-                    </button>
+          <!-- Right: Clean Contact Details Stack -->
+          <div class="col-lg-5 reveal-up">
+            <div class="d-flex flex-column gap-3 h-100 justify-content-between">
+              <a href="tel:+918788337049" class="contact-action-tile hover-target">
+                <div class="d-flex align-items-center gap-3">
+                  <span class="contact-tile-icon"><i data-lucide="phone" style="width: 18px; height: 18px;"></i></span>
+                  <div>
+                    <div style="font-family: var(--font-mono); font-size: 0.68rem; color: var(--ink-muted);">PHONE / WHATSAPP</div>
+                    <div class="fw-semibold">+91 87883 37049</div>
                   </div>
                 </div>
+                <i data-lucide="arrow-up-right" style="width: 16px; height: 16px; color: var(--ink-secondary);"></i>
+              </a>
 
-                <div id="mailtoNotice" class="mt-3 p-3 d-none" style="background-color: rgba(52, 211, 153, 0.1); border: 1px solid rgba(52, 211, 153, 0.3); border-radius: var(--radius-sharp); font-size: 0.86rem; color: #d1fae5;" role="status">
-                  Your email client has been opened with your formatted brief addressed to <strong>rajkumarashish75@gmail.com</strong>.
+              <a href="mailto:rajkumarashish75@gmail.com" class="contact-action-tile hover-target">
+                <div class="d-flex align-items-center gap-3" style="min-width: 0;">
+                  <span class="contact-tile-icon"><i data-lucide="mail" style="width: 18px; height: 18px;"></i></span>
+                  <div style="min-width: 0;">
+                    <div style="font-family: var(--font-mono); font-size: 0.68rem; color: var(--ink-muted);">EMAIL ADDRESS</div>
+                    <div class="fw-semibold text-truncate">rajkumarashish75@gmail.com</div>
+                  </div>
                 </div>
-              </form>
+                <i data-lucide="arrow-up-right" style="width: 16px; height: 16px; color: var(--ink-secondary); flex-shrink: 0;"></i>
+              </a>
+
+              <a href="https://github.com/imvicky2115" target="_blank" rel="noopener noreferrer" class="contact-action-tile hover-target">
+                <div class="d-flex align-items-center gap-3">
+                  <span class="contact-tile-icon mint"><i data-lucide="github" style="width: 18px; height: 18px;"></i></span>
+                  <div>
+                    <div style="font-family: var(--font-mono); font-size: 0.68rem; color: var(--ink-muted);">LIVE CODE &amp; PROJECTS</div>
+                    <div class="fw-semibold">github.com/imvicky2115</div>
+                  </div>
+                </div>
+                <i data-lucide="arrow-up-right" style="width: 16px; height: 16px; color: var(--ink-secondary);"></i>
+              </a>
             </div>
           </div>
         </div>
@@ -2134,7 +2135,7 @@
   </main>
 
   <!-- ========================================================================
-       9. FOOTER (NOAHSTUDIO + WEBSITE BUILT BY MIT STUDENT JAIPUR)
+       9. FOOTER (NOAHSTUDIO + MANIPAL UNIVERSITY JAIPUR)
        ======================================================================== -->
   <footer class="atelier-footer">
     <div class="atelier-container">
@@ -2144,8 +2145,8 @@
             <span class="brand-stamp">NS</span>
             <span>Noah<span style="color: var(--signal-amber);">Studio</span></span>
           </a>
-          <p class="small mb-2" style="color: var(--ink-secondary); max-width: 310px;">
-            Independent web design &amp; development studio. Website built by MIT student Jaipur.
+          <p class="small mb-2" style="color: var(--ink-secondary); max-width: 320px;">
+            Independent web design &amp; development portfolio by a student at Manipal University Jaipur.
           </p>
           <p class="mono-label mb-0" style="font-size: 0.68rem; color: var(--ink-muted);">
             PUNE · JAIPUR · INDIA
@@ -2197,13 +2198,13 @@
 
       <div class="pt-4 border-top d-flex flex-column flex-sm-row align-items-center justify-content-between gap-2 small" style="border-color: var(--line-grid) !important; color: var(--ink-muted);">
         <div>&copy; <span id="yearNow"></span> NoahStudio. All rights reserved.</div>
-        <div style="font-family: var(--font-mono); font-size: 0.72rem;">WEBSITE BUILT BY MIT STUDENT JAIPUR</div>
+        <div style="font-family: var(--font-mono); font-size: 0.72rem;">BUILT BY A STUDENT AT MANIPAL UNIVERSITY JAIPUR</div>
       </div>
     </div>
   </footer>
 
   <!-- ========================================================================
-       JAVASCRIPT: ESTIMATOR LOGIC, MOBILE SWIPE, VALIDATION & MOTION
+       JAVASCRIPT: ESTIMATOR LOGIC, MOBILE SWIPE, DIRECT SCOPE LINKS & MOTION
        ======================================================================== -->
   <script>
     document.addEventListener("DOMContentLoaded", () => {
@@ -2294,6 +2295,52 @@
         }, { passive: true });
       }
 
+      // Direct Contact Link Updater (Updates WhatsApp & Email links without collecting personal form data)
+      const scopeBanner = document.getElementById("selectedScopeBanner");
+      const scopeTextEl = document.getElementById("selectedScopeText");
+      const clearScopeBtn = document.getElementById("clearScopeBtn");
+      const whatsappDirectBtn = document.getElementById("whatsappDirectBtn");
+      const emailDirectBtn = document.getElementById("emailDirectBtn");
+
+      const defaultWaMsg = "Hi, I visited NoahStudio and would like to discuss a website project.";
+      const defaultMailSubject = "Project Enquiry — NoahStudio";
+      const defaultMailBody = "Hi,\n\nI visited NoahStudio and would like to discuss a website project.";
+
+      const setContactScope = (scopeSummary) => {
+        if (!whatsappDirectBtn || !emailDirectBtn) return;
+
+        if (!scopeSummary) {
+          if (scopeBanner) scopeBanner.classList.add("d-none");
+          whatsappDirectBtn.href = `https://wa.me/918788337049?text=${encodeURIComponent(defaultWaMsg)}`;
+          emailDirectBtn.href = `mailto:rajkumarashish75@gmail.com?subject=${encodeURIComponent(defaultMailSubject)}&body=${encodeURIComponent(defaultMailBody)}`;
+          return;
+        }
+
+        if (scopeBanner && scopeTextEl) {
+          scopeTextEl.textContent = scopeSummary;
+          scopeBanner.classList.remove("d-none");
+        }
+
+        const waMessage = `Hi, I visited NoahStudio and I'm interested in:\n${scopeSummary}\n\nLet's discuss the requirements.`;
+        const mailBody = `Hi,\n\nI visited NoahStudio and I'm interested in:\n${scopeSummary}\n\nLet's discuss the exact requirements and timeline.`;
+
+        whatsappDirectBtn.href = `https://wa.me/918788337049?text=${encodeURIComponent(waMessage)}`;
+        emailDirectBtn.href = `mailto:rajkumarashish75@gmail.com?subject=${encodeURIComponent("Project Enquiry — NoahStudio")}&body=${encodeURIComponent(mailBody)}`;
+      };
+
+      if (clearScopeBtn) {
+        clearScopeBtn.addEventListener("click", () => setContactScope(""));
+      }
+
+      // Service Cards -> Attach selected service to Contact section links
+      document.querySelectorAll(".select-service-btn").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          if (btn.dataset.service) {
+            setContactScope(`Service: ${btn.dataset.service}`);
+          }
+        });
+      });
+
       // Interactive Project Cost Estimator
       const rangeDisplay = document.getElementById("estRangeDisplay");
       const summaryDisplay = document.getElementById("estSelectionSummary");
@@ -2343,10 +2390,7 @@
           summaryDisplay.textContent = `${selectedType.value} · ${selectedPages.value} · ${selectedDesign.value} · Features: ${featureNames}`;
         }
 
-        return {
-          rangeText: `${formatINR(totalMin)} – ${formatINR(totalMax)}`,
-          summaryText: `${selectedType.value} | ${selectedPages.value} | ${selectedDesign.value} | Add-ons: ${featureNames}`
-        };
+        return `${selectedType.value} (${selectedPages.value}, ${selectedDesign.value}, Features: ${featureNames}) — Indicative Range: ${formatINR(totalMin)} – ${formatINR(totalMax)} (Subject to review)`;
       };
 
       document.querySelectorAll('input[name="estProjectType"], input[name="estPages"], input[name="estDesign"], .est-feature-cb').forEach((input) => {
@@ -2356,25 +2400,12 @@
 
       if (applyEstimateBtn) {
         applyEstimateBtn.addEventListener("click", () => {
-          const result = updateEstimator();
-          const budgetSelect = document.getElementById("estimatedBudget");
-          const descField = document.getElementById("projectDescription");
-          if (budgetSelect) budgetSelect.value = "From Cost Estimator";
-          if (descField && result) {
-            descField.value = `Indicative Estimator Selection: ${result.summaryText}\nBallpark Range Shown: ${result.rangeText} (Subject to requirement review)\n\nAdditional details about my project: `;
+          const scopeString = updateEstimator();
+          if (scopeString) {
+            setContactScope(scopeString);
           }
         });
       }
-
-      // Pre-select Service Dropdown when clicking "Request Quote"
-      const serviceDropdown = document.getElementById("projectType");
-      document.querySelectorAll(".select-service-btn").forEach((btn) => {
-        btn.addEventListener("click", () => {
-          if (serviceDropdown && btn.dataset.service) {
-            serviceDropdown.value = btn.dataset.service;
-          }
-        });
-      });
 
       // Desktop Crosshair Cursor
       const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -2430,53 +2461,6 @@
             duration: 0.6,
             ease: "power2.out"
           });
-        });
-      }
-
-      // Mailto Enquiry Submission with Validation
-      const form = document.getElementById("projectForm");
-      const notice = document.getElementById("mailtoNotice");
-
-      if (form) {
-        form.addEventListener("submit", (e) => {
-          e.preventDefault();
-          form.classList.add("was-validated");
-
-          if (!form.checkValidity()) {
-            const firstError = form.querySelector(":invalid");
-            if (firstError) firstError.focus();
-            return;
-          }
-
-          const fullName = document.getElementById("fullName").value.trim();
-          const emailAddress = document.getElementById("emailAddress").value.trim();
-          const businessName = document.getElementById("businessName").value.trim() || "Not specified";
-          const cityLocation = document.getElementById("cityLocation").value.trim();
-          const projectType = document.getElementById("projectType").value;
-          const estimatedBudget = document.getElementById("estimatedBudget").value;
-          const expectedTimeline = document.getElementById("expectedTimeline").value;
-          const projectDescription = document.getElementById("projectDescription").value.trim();
-
-          const subject = encodeURIComponent(`Project Enquiry: ${projectType} — ${fullName}`);
-          const body = [
-            `Hi,`,
-            ``,
-            `I visited NoahStudio and would like to discuss a project:`,
-            ``,
-            `Name: ${fullName}`,
-            `Email: ${emailAddress}`,
-            `Business: ${businessName}`,
-            `City / Location: ${cityLocation}`,
-            `Service: ${projectType}`,
-            `Budget: ${estimatedBudget}`,
-            `Timeline: ${expectedTimeline}`,
-            ``,
-            `Project Brief:`,
-            `${projectDescription}`
-          ].join("\n");
-
-          if (notice) notice.classList.remove("d-none");
-          window.location.href = `mailto:rajkumarashish75@gmail.com?subject=${subject}&body=${encodeURIComponent(body)}`;
         });
       }
     });
