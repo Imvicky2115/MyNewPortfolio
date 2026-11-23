@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>NoahStudio — Web Design &amp; Development | Student at Manipal University Jaipur</title>
-  
+
   <!-- Comprehensive SEO Meta Tags -->
-  <meta name="description" content="NoahStudio — Independent web design and development portfolio by a student at Manipal University Jaipur. Custom business websites, redesigns, digital catalogues, and web applications built for growth." />
+  <meta name="description" content="NoahStudio — Independent web design and development portfolio by a student at Manipal University Jaipur. Custom business websites, redesigns, digital catalogues, and web applications." />
   <meta name="keywords" content="NoahStudio, freelance web developer India, web design Pune, Manipal University Jaipur student developer, business website India, digital catalogue, website redesign, custom web applications" />
   <meta name="author" content="NoahStudio" />
   <meta name="robots" content="index, follow" />
-  <meta name="theme-color" content="#080809" />
+  <meta name="theme-color" content="#070709" />
   <link rel="canonical" href="https://imvicky2115.github.io/" />
 
   <!-- Open Graph / Social SEO Metadata -->
@@ -26,22 +26,7 @@
   <meta name="twitter:title" content="NoahStudio — Web Design & Development" />
   <meta name="twitter:description" content="Fast, modern websites and custom web apps that bring you more customers." />
 
-  <!-- Structured Data (JSON-LD) for Search Engines -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "ProfessionalService",
-    "name": "NoahStudio",
-    "description": "Independent web design and development portfolio by a student at Manipal University Jaipur.",
-    "areaServed": "India",
-    "telephone": "+91-8788337049",
-    "email": "rajkumarashish75@gmail.com",
-    "priceRange": "₹3,000 - ₹20,000",
-    "knowsAbout": ["Web Design", "Web Development", "Website Redesign", "Digital Catalogues", "Custom Web Applications"]
-  }
-  </script>
-
-  <!-- Architectural Typography: Space Grotesk (Display & Body) + JetBrains Mono (Technical Spec & Meta) -->
+  <!-- Architectural Typography: Space Grotesk + JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -58,24 +43,24 @@
 
   <style>
     /* ==========================================================================
-       1. DESIGN TOKENS — PRESERVED NOAHSTUDIO DARK BRUTALIST ATELIER PALETTE
+       1. DESIGN TOKENS — RARE ARCHITECTURAL DARK ATELIER SYSTEM
        ========================================================================== */
     :root {
-      --bg-void: #080809;
-      --bg-atelier: #0e0e11;
-      --bg-panel: #131317;
-      --bg-panel-hover: #18181d;
+      --bg-void: #070709;
+      --bg-atelier: #0c0c10;
+      --bg-panel: #111116;
+      --bg-panel-elevated: #17171e;
 
-      --glass-surface: rgba(19, 19, 23, 0.62);
-      --glass-border: rgba(255, 255, 255, 0.14);
-      --glass-highlight: rgba(255, 255, 255, 0.05);
+      --glass-surface: rgba(17, 17, 22, 0.68);
+      --glass-border: rgba(255, 255, 255, 0.12);
+      --glass-highlight: rgba(255, 255, 255, 0.06);
 
-      --line-grid: rgba(255, 255, 255, 0.11);
-      --line-strong: rgba(255, 255, 255, 0.24);
+      --line-grid: rgba(255, 255, 255, 0.09);
+      --line-strong: rgba(255, 255, 255, 0.22);
 
-      --ink-primary: #f4f3ef;
-      --ink-secondary: #b0aea8;
-      --ink-muted: #75736e;
+      --ink-primary: #f5f4f0;
+      --ink-secondary: #a8a6a0;
+      --ink-muted: #6f6d68;
 
       --signal-amber: #ff6b2c;
       --signal-amber-dim: rgba(255, 107, 44, 0.12);
@@ -87,7 +72,7 @@
 
       --radius-sharp: 4px;
       --radius-card: 8px;
-      --ease-snap: cubic-bezier(0.2, 0.8, 0.2, 1);
+      --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
     }
 
     *, *::before, *::after {
@@ -99,7 +84,8 @@
       color: var(--ink-primary);
       font-family: var(--font-sans);
       overflow-x: hidden;
-      scroll-padding-top: 88px;
+      scroll-behavior: smooth;
+      scroll-padding-top: 92px;
     }
 
     body {
@@ -115,15 +101,28 @@
 
     ::selection {
       background-color: var(--signal-amber);
-      color: #080809;
+      color: #070709;
     }
 
     /* ==========================================================================
-       2. CONTAINER & TYPOGRAPHY PROPORTIONS
+       2. RARE ARCHITECTURAL RAILS & CONTAINER SYSTEM (DESKTOP ELEVATION)
        ========================================================================== */
+    .atelier-frame {
+      position: relative;
+      max-width: 1320px;
+      margin: 0 auto;
+    }
+
+    @media (min-width: 1200px) {
+      .atelier-frame {
+        border-left: 1px solid var(--line-grid);
+        border-right: 1px solid var(--line-grid);
+      }
+    }
+
     .atelier-container {
       width: 100%;
-      max-width: 1240px;
+      max-width: 1220px;
       margin-left: auto;
       margin-right: auto;
       padding-left: 1.25rem;
@@ -132,9 +131,24 @@
 
     @media (min-width: 768px) {
       .atelier-container {
-        padding-left: 2rem;
-        padding-right: 2rem;
+        padding-left: 2.25rem;
+        padding-right: 2.25rem;
       }
+    }
+
+    /* Top Reading Progress Hairline */
+    .scroll-progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 2px;
+      width: 100%;
+      background: linear-gradient(90deg, var(--signal-amber), #ff9e6d);
+      transform-origin: 0 50%;
+      transform: scaleX(0);
+      z-index: 1060;
+      pointer-events: none;
+      will-change: transform;
     }
 
     h1, h2, h3, h4, h5, h6 {
@@ -149,7 +163,7 @@
       font-size: clamp(1.9rem, 3.5vw, 3rem);
       font-weight: 700;
       letter-spacing: -0.03em;
-      line-height: 1.1;
+      line-height: 1.08;
     }
 
     .mono-label {
@@ -164,6 +178,8 @@
     .section-block {
       padding: 4.5rem 0;
       border-top: 1px solid var(--line-grid);
+      content-visibility: auto;
+      contain-intrinsic-size: auto 600px;
     }
 
     @media (min-width: 992px) {
@@ -185,7 +201,7 @@
     }
 
     /* ==========================================================================
-       3. DESKTOP CUSTOM CURSOR
+       3. GPU-ACCELERATED DESKTOP CROSSHAIR CURSOR (ZERO LAYOUT THRASH)
        ========================================================================== */
     .cursor-dot,
     .cursor-crosshair {
@@ -194,7 +210,7 @@
       left: 0;
       pointer-events: none;
       z-index: 9999;
-      transform: translate(-50%, -50%);
+      will-change: transform;
       display: none;
     }
 
@@ -204,24 +220,26 @@
         width: 6px;
         height: 6px;
         background-color: var(--signal-amber);
+        margin-left: -3px;
+        margin-top: -3px;
       }
       .cursor-crosshair {
         display: block;
         width: 30px;
         height: 30px;
         border: 1px solid var(--line-strong);
-        transition: width 0.2s var(--ease-snap), height 0.2s var(--ease-snap), border-color 0.2s ease;
+        margin-left: -15px;
+        margin-top: -15px;
+        transition: border-color 0.2s ease, background-color 0.2s ease;
       }
       body.cursor-active .cursor-crosshair {
-        width: 46px;
-        height: 46px;
         border-color: var(--signal-amber);
-        background-color: rgba(255, 107, 44, 0.06);
+        background-color: rgba(255, 107, 44, 0.08);
       }
     }
 
     /* ==========================================================================
-       4. FLOATING GLASSMORPHISM HEADER & THUMB-FRIENDLY TOUCH TARGETS
+       4. COMPACT FLOATING GLASSMORPHISM HEADER
        ========================================================================== */
     .atelier-header {
       position: fixed;
@@ -235,21 +253,19 @@
 
     .nav-glass-dock {
       pointer-events: auto;
-      max-width: 1060px;
+      max-width: 1040px;
       margin: 0 auto;
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 1rem;
-      padding: 0.6rem 0.85rem 0.6rem 1.1rem;
-      background: linear-gradient(135deg, rgba(22, 22, 28, 0.72) 0%, rgba(12, 12, 16, 0.65) 100%);
-      backdrop-filter: blur(18px) saturate(140%);
-      -webkit-backdrop-filter: blur(18px) saturate(140%);
+      padding: 0.55rem 0.8rem 0.55rem 1.05rem;
+      background: rgba(16, 16, 21, 0.72);
+      backdrop-filter: blur(16px) saturate(135%);
+      -webkit-backdrop-filter: blur(16px) saturate(135%);
       border: 1px solid var(--glass-border);
       border-radius: 6px;
-      box-shadow:
-        0 14px 36px rgba(0, 0, 0, 0.55),
-        inset 0 1px 0 var(--glass-highlight);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5), inset 0 1px 0 var(--glass-highlight);
     }
 
     .brand-wordmark {
@@ -271,7 +287,7 @@
       font-weight: 600;
       padding: 0.22rem 0.45rem;
       background-color: var(--signal-amber);
-      color: #080809;
+      color: #070709;
       border-radius: 2px;
       letter-spacing: 0.04em;
     }
@@ -293,7 +309,7 @@
       letter-spacing: 0.07em;
       color: var(--ink-secondary);
       text-decoration: none;
-      padding: 0.45rem 0.72rem;
+      padding: 0.42rem 0.72rem;
       border-radius: 3px;
       transition: color 0.2s ease, background-color 0.2s ease;
     }
@@ -303,7 +319,7 @@
       background-color: rgba(255, 255, 255, 0.06);
     }
 
-    /* Thumb-Friendly Buttons (Minimum 48px Touch Height) */
+    /* Thumb-Friendly Buttons (48px Minimum Height) */
     .btn-forge-solid {
       background-color: var(--ink-primary);
       color: var(--bg-void);
@@ -321,7 +337,7 @@
       align-items: center;
       justify-content: center;
       gap: 0.55rem;
-      transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.2s var(--ease-snap);
+      transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.2s var(--ease-out-expo);
       cursor: pointer;
       touch-action: manipulation;
     }
@@ -329,14 +345,12 @@
     .btn-forge-solid:hover {
       background-color: var(--signal-amber);
       border-color: var(--signal-amber);
-      color: #080809;
+      color: #070709;
       transform: translateY(-2px);
     }
 
     .btn-forge-outline {
       background-color: rgba(255, 255, 255, 0.02);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
       color: var(--ink-primary);
       font-family: var(--font-mono);
       font-size: 0.78rem;
@@ -352,7 +366,7 @@
       align-items: center;
       justify-content: center;
       gap: 0.55rem;
-      transition: border-color 0.2s ease, background-color 0.2s ease, transform 0.2s var(--ease-snap);
+      transition: border-color 0.2s ease, background-color 0.2s ease, transform 0.2s var(--ease-out-expo);
       cursor: pointer;
       touch-action: manipulation;
     }
@@ -377,14 +391,14 @@
       touch-action: manipulation;
     }
 
-    /* Glassmorphism Mobile Sheet */
+    /* Mobile Navigation Sheet */
     .mobile-sheet {
       position: fixed;
       inset: 0;
       z-index: 1050;
-      background: rgba(8, 8, 10, 0.9);
-      backdrop-filter: blur(22px) saturate(140%);
-      -webkit-backdrop-filter: blur(22px) saturate(140%);
+      background: rgba(7, 7, 9, 0.94);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
       padding: 1.5rem;
       display: flex;
       flex-direction: column;
@@ -419,24 +433,32 @@
     }
 
     /* ==========================================================================
-       5. HERO SECTION — CLEAR BENEFIT-DRIVEN HEADLINE + THUMB-FRIENDLY CTAs
+       5. HERO SECTION — INTERACTIVE SPOTLIGHT & ARCHITECTURAL ASYMMETRY
        ========================================================================== */
     .hero-section {
       padding-top: 7.5rem;
       padding-bottom: 4.75rem;
       position: relative;
       background-image:
-        radial-gradient(circle at 82% 22%, rgba(255, 107, 44, 0.09), transparent 42%),
-        linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-      background-size: auto, 48px 48px, 48px 48px;
+        linear-gradient(to right, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+      background-size: 56px 56px;
     }
 
     @media (min-width: 992px) {
       .hero-section {
-        padding-top: 9.5rem;
-        padding-bottom: 6.5rem;
+        padding-top: 9.75rem;
+        padding-bottom: 6.75rem;
       }
+    }
+
+    /* Subtle interactive cursor-following ambient spotlight on desktop */
+    .hero-spotlight {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background: radial-gradient(600px circle at var(--spot-x, 75%) var(--spot-y, 25%), rgba(255, 107, 44, 0.08), transparent 45%);
+      z-index: 0;
     }
 
     .availability-pill {
@@ -445,8 +467,6 @@
       gap: 0.6rem;
       padding: 0.45rem 0.85rem;
       background: var(--glass-surface);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
       border: 1px solid var(--glass-border);
       border-radius: var(--radius-sharp);
       font-family: var(--font-mono);
@@ -454,7 +474,6 @@
       font-weight: 500;
       color: var(--ink-secondary);
       margin-bottom: 1.35rem;
-      box-shadow: inset 0 1px 0 var(--glass-highlight);
     }
 
     .status-dot-live {
@@ -467,10 +486,10 @@
     }
 
     .hero-display-headline {
-      font-size: clamp(2.15rem, 4.3vw, 3.75rem);
+      font-size: clamp(2.15rem, 4.3vw, 3.85rem);
       font-weight: 700;
-      line-height: 1.09;
-      letter-spacing: -0.03em;
+      line-height: 1.07;
+      letter-spacing: -0.035em;
       margin-bottom: 1.15rem;
     }
 
@@ -507,21 +526,18 @@
       gap: 0.75rem;
       min-height: 48px;
       padding: 0.72rem 0.85rem;
-      background: var(--glass-surface);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border: 1px solid var(--glass-border);
+      background: var(--bg-panel);
+      border: 1px solid var(--line-grid);
       border-radius: var(--radius-sharp);
       font-size: 0.92rem;
       font-weight: 500;
       color: var(--ink-primary);
-      box-shadow: inset 0 1px 0 var(--glass-highlight);
-      transition: border-color 0.2s ease, background-color 0.2s ease, transform 0.2s var(--ease-snap);
+      transition: border-color 0.2s ease, background-color 0.2s ease, transform 0.2s var(--ease-out-expo);
     }
 
     .capability-card-chip:hover {
       border-color: var(--signal-amber);
-      background-color: rgba(255, 107, 44, 0.06);
+      background-color: var(--bg-panel-elevated);
       transform: translateY(-2px);
     }
 
@@ -551,17 +567,14 @@
       }
     }
 
-    /* Glassmorphism Right Spec Window in Hero */
+    /* Rare Architectural Corner Crosshair Brackets on Spec Window */
     .spec-window {
-      background: linear-gradient(155deg, rgba(24, 24, 30, 0.76) 0%, rgba(14, 14, 18, 0.72) 100%);
-      backdrop-filter: blur(18px) saturate(135%);
-      -webkit-backdrop-filter: blur(18px) saturate(135%);
-      border: 1px solid var(--glass-border);
+      position: relative;
+      background: var(--bg-panel);
+      border: 1px solid var(--line-strong);
       border-radius: var(--radius-card);
       overflow: hidden;
-      box-shadow:
-        0 24px 60px rgba(0, 0, 0, 0.55),
-        inset 0 1px 0 var(--glass-highlight);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.6);
     }
 
     .spec-window-header {
@@ -589,7 +602,7 @@
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       border-bottom: 1px solid var(--line-grid);
-      background-color: rgba(8, 8, 9, 0.45);
+      background-color: rgba(7, 7, 9, 0.55);
     }
 
     .spec-tab-btn {
@@ -627,7 +640,7 @@
 
     .spec-pane.active {
       display: block;
-      animation: fadeSpec 0.28s var(--ease-snap);
+      animation: fadeSpec 0.28s var(--ease-out-expo);
     }
 
     @keyframes fadeSpec {
@@ -735,7 +748,7 @@
       width: 100%;
       display: flex;
       flex-direction: column;
-      transition: border-color 0.25s ease, transform 0.25s var(--ease-snap), box-shadow 0.25s ease;
+      transition: border-color 0.25s ease, transform 0.25s var(--ease-out-expo), box-shadow 0.25s ease;
     }
 
     .portfolio-card:hover {
@@ -746,7 +759,7 @@
 
     .portfolio-stage {
       padding: 1.15rem 1.15rem 0;
-      background-color: #0b0b0e;
+      background-color: #09090c;
       border-bottom: 1px solid var(--line-grid);
     }
 
@@ -764,8 +777,6 @@
       justify-content: space-between;
       padding: 0.6rem 0.85rem;
       background-color: rgba(255, 255, 255, 0.03);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
       border-bottom: 1px solid var(--line-grid);
       gap: 0.5rem;
     }
@@ -814,8 +825,6 @@
     .leaf-feature-tile {
       padding: 0.68rem 0.75rem;
       background-color: rgba(255, 255, 255, 0.045);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
       border: 1px solid rgba(52, 211, 153, 0.22);
       border-radius: 4px;
     }
@@ -823,8 +832,6 @@
     .paws-feature-tile {
       padding: 0.68rem 0.75rem;
       background-color: rgba(255, 255, 255, 0.045);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
       border: 1px solid rgba(251, 191, 36, 0.24);
       border-radius: 4px;
     }
@@ -868,7 +875,7 @@
     }
 
     /* ==========================================================================
-       7. SERVICES, PRICING & INTERACTIVE PROJECT COST ESTIMATOR
+       7. SERVICES & SINGLE-ACTION ESTIMATOR (NO DUPLICATE CTA BUTTONS)
        ========================================================================== */
     .service-matrix-card {
       background-color: var(--bg-panel);
@@ -879,12 +886,12 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      transition: border-color 0.2s ease, background-color 0.2s ease, transform 0.25s var(--ease-snap);
+      transition: border-color 0.2s ease, background-color 0.2s ease, transform 0.25s var(--ease-out-expo);
     }
 
     .service-matrix-card:hover {
       border-color: var(--line-strong);
-      background-color: var(--bg-panel-hover);
+      background-color: var(--bg-panel-elevated);
       transform: translateY(-3px);
     }
 
@@ -917,7 +924,7 @@
       margin-bottom: 0.85rem;
     }
 
-    /* Interactive Cost Estimator Box (Thumb-Friendly Tap Rows) */
+    /* Interactive Cost Estimator Box */
     .estimator-panel {
       background-color: var(--bg-panel);
       border: 1px solid var(--line-strong);
@@ -1001,19 +1008,17 @@
     .is-selected .est-indicator-circle {
       background-color: var(--signal-amber);
       border-color: var(--signal-amber);
-      color: #080809;
+      color: #070709;
     }
 
     .est-summary-card {
-      background: linear-gradient(155deg, rgba(22, 22, 28, 0.85) 0%, rgba(14, 14, 18, 0.85) 100%);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
+      background: var(--bg-panel);
       border: 1px solid var(--signal-amber);
       border-radius: var(--radius-card);
       padding: 1.65rem;
       position: sticky;
       top: 96px;
-      box-shadow: inset 0 1px 0 var(--glass-highlight);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
     }
 
     .est-total-range {
@@ -1080,21 +1085,18 @@
     }
 
     /* ==========================================================================
-       9. CLEANED UP 06 / CONTACT ACTION HUB (NO PERSONAL DATA FORM)
+       9. CLEANED UP 06 / CONTACT SECTION (NO DUPLICATE BUTTONS + OBFUSCATED DATA)
        ========================================================================== */
     .contact-hub-panel {
-      background: linear-gradient(155deg, rgba(22, 22, 28, 0.82) 0%, rgba(14, 14, 18, 0.82) 100%);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
+      background: var(--bg-panel);
       border: 1px solid var(--line-strong);
       border-radius: var(--radius-card);
       padding: 1.75rem;
-      box-shadow: inset 0 1px 0 var(--glass-highlight);
     }
 
     @media (min-width: 768px) {
       .contact-hub-panel {
-        padding: 2.5rem;
+        padding: 2.35rem;
       }
     }
 
@@ -1110,7 +1112,8 @@
       border-radius: var(--radius-sharp);
       text-decoration: none;
       color: var(--ink-primary);
-      transition: border-color 0.2s ease, background-color 0.2s ease, transform 0.2s var(--ease-snap);
+      cursor: pointer;
+      transition: border-color 0.2s ease, background-color 0.2s ease, transform 0.2s var(--ease-out-expo);
       touch-action: manipulation;
     }
 
@@ -1157,6 +1160,7 @@
       align-items: center;
       min-height: 36px;
       transition: color 0.2s ease;
+      cursor: pointer;
     }
 
     .footer-item-link:hover {
@@ -1177,12 +1181,15 @@
 </head>
 <body>
 
-  <!-- Desktop Precision Crosshair Cursor -->
+  <!-- Top Reading Progress Line -->
+  <div class="scroll-progress-bar" id="scrollProgressBar" aria-hidden="true"></div>
+
+  <!-- GPU-Accelerated Desktop Crosshair Cursor -->
   <div class="cursor-dot" id="cursorDot" aria-hidden="true"></div>
   <div class="cursor-crosshair" id="cursorCrosshair" aria-hidden="true"></div>
 
   <!-- ========================================================================
-       1. FLOATING GLASSMORPHISM HEADER
+       1. COMPACT FLOATING GLASSMORPHISM HEADER
        ======================================================================== -->
   <header class="atelier-header">
     <div class="nav-glass-dock">
@@ -1241,970 +1248,957 @@
     </div>
   </div>
 
-  <main id="top">
-    <!-- ======================================================================
-         2. HERO SECTION (CLEAR BENEFIT-DRIVEN HEADLINE + THUMB-FRIENDLY CTAs)
-         ====================================================================== -->
-    <section class="hero-section">
-      <div class="atelier-container">
-        <div class="row align-items-center g-4 g-lg-5">
-          <!-- Left Column -->
-          <div class="col-lg-7">
-            <div class="availability-pill reveal-hero">
-              <span class="status-dot-live" aria-hidden="true"></span>
-              <span>OPEN FOR FREELANCE PROJECTS</span>
-            </div>
-
-            <h1 class="hero-display-headline reveal-hero">
-              Fast, Modern Websites That <span class="highlight-stroke">Turn Visitors Into Customers.</span>
-            </h1>
-
-            <p class="hero-personal-note reveal-hero">
-              I’m a student at Manipal University Jaipur building real-world websites and web tools—combining AI-assisted speed with personal coding, testing, and direct 1-on-1 support.
-            </p>
-
-            <!-- 4 First-Person Capabilities -->
-            <div class="core-capabilities-grid reveal-hero" aria-label="Core Services">
-              <div class="capability-card-chip">
-                <span class="cap-icon-box"><i data-lucide="pen-tool" style="width: 16px; height: 16px;"></i></span>
-                <span>I design websites.</span>
-              </div>
-              <div class="capability-card-chip">
-                <span class="cap-icon-box"><i data-lucide="code-2" style="width: 16px; height: 16px;"></i></span>
-                <span>I develop websites.</span>
-              </div>
-              <div class="capability-card-chip">
-                <span class="cap-icon-box"><i data-lucide="refresh-cw" style="width: 16px; height: 16px;"></i></span>
-                <span>I redesign existing websites.</span>
-              </div>
-              <div class="capability-card-chip">
-                <span class="cap-icon-box"><i data-lucide="cpu" style="width: 16px; height: 16px;"></i></span>
-                <span>I build custom web applications.</span>
-              </div>
-            </div>
-
-            <div class="hero-cta-group reveal-hero">
-              <a href="#estimator" class="btn-forge-solid hover-target">
-                <span>Estimate Project Cost</span>
-                <i data-lucide="calculator" style="width: 16px; height: 16px;"></i>
-              </a>
-              <a href="#work" class="btn-forge-outline hover-target">
-                <span>See Live Work</span>
-              </a>
-            </div>
-          </div>
-
-          <!-- Right Column: Glassmorphism Spec Window -->
-          <div class="col-lg-5 reveal-hero">
-            <div class="spec-window">
-              <div class="spec-window-header">
-                <div class="spec-dots" aria-hidden="true">
-                  <span></span><span></span><span></span>
-                </div>
-                <span class="mono-label" style="font-size: 0.68rem;">NOAHSTUDIO // WORKFLOW</span>
+  <div class="atelier-frame">
+    <main id="top">
+      <!-- ====================================================================
+           2. HERO SECTION (SPOTLIGHT + MANIPAL UNIVERSITY JAIPUR STUDENT)
+           ==================================================================== -->
+      <section class="hero-section" id="heroSection">
+        <div class="hero-spotlight" aria-hidden="true"></div>
+        <div class="atelier-container position-relative" style="z-index: 1;">
+          <div class="row align-items-center g-4 g-lg-5">
+            <!-- Left Column -->
+            <div class="col-lg-7">
+              <div class="availability-pill reveal-hero">
+                <span class="status-dot-live" aria-hidden="true"></span>
+                <span>OPEN FOR FREELANCE PROJECTS</span>
               </div>
 
-              <div class="spec-tabs" role="tablist" aria-label="How Projects Are Built">
-                <button class="spec-tab-btn active hover-target" role="tab" aria-selected="true" data-tab="tab-approach">Approach</button>
-                <button class="spec-tab-btn hover-target" role="tab" aria-selected="false" data-tab="tab-quality">Testing</button>
-                <button class="spec-tab-btn hover-target" role="tab" aria-selected="false" data-tab="tab-ownership">Ownership</button>
-              </div>
+              <h1 class="hero-display-headline reveal-hero">
+                Fast, Modern Websites That <span class="highlight-stroke">Turn Visitors Into Customers.</span>
+              </h1>
 
-              <div class="spec-body">
-                <div class="spec-pane active" id="tab-approach">
-                  <div class="spec-row">
-                    <span style="color: var(--ink-secondary);">Workflow</span>
-                    <span class="mono-label" style="color: var(--ink-primary);">AI-Assisted + Hand-Coded</span>
-                  </div>
-                  <div class="spec-row">
-                    <span style="color: var(--ink-secondary);">Communication</span>
-                    <span class="mono-label" style="color: var(--ink-primary);">Direct 1-on-1 Builder</span>
-                  </div>
-                  <div class="spec-row">
-                    <span style="color: var(--ink-secondary);">Pricing</span>
-                    <span class="mono-label" style="color: var(--signal-amber);">Student-Friendly Rates</span>
-                  </div>
-                </div>
-
-                <div class="spec-pane" id="tab-quality">
-                  <div class="spec-row">
-                    <span style="color: var(--ink-secondary);">Responsive QA</span>
-                    <span class="mono-label" style="color: var(--ink-primary);">Mobile + Desktop Checked</span>
-                  </div>
-                  <div class="spec-row">
-                    <span style="color: var(--ink-secondary);">Performance</span>
-                    <span class="mono-label" style="color: var(--ink-primary);">Lightweight &amp; Fast</span>
-                  </div>
-                  <div class="spec-row">
-                    <span style="color: var(--ink-secondary);">Lead Setup</span>
-                    <span class="mono-label" style="color: var(--signal-mint);">WhatsApp + Email Ready</span>
-                  </div>
-                </div>
-
-                <div class="spec-pane" id="tab-ownership">
-                  <div class="spec-row">
-                    <span style="color: var(--ink-secondary);">Accountability</span>
-                    <span class="mono-label" style="color: var(--ink-primary);">Personal Implementation</span>
-                  </div>
-                  <div class="spec-row">
-                    <span style="color: var(--ink-secondary);">Source Code</span>
-                    <span class="mono-label" style="color: var(--ink-primary);">100% Client Owned</span>
-                  </div>
-                  <div class="spec-row">
-                    <span style="color: var(--ink-secondary);">Post-Launch</span>
-                    <span class="mono-label" style="color: var(--signal-mint);">Support &amp; Updates</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ======================================================================
-         3. PORTFOLIO SECTION (BENEFIT-DRIVEN HEADLINE + MOBILE SWIPE)
-         ====================================================================== -->
-    <section id="work" class="section-block" style="background-color: var(--bg-atelier);">
-      <div class="atelier-container">
-        <div class="row align-items-end justify-content-between section-top-bar reveal-up">
-          <div class="col-lg-7">
-            <span class="mono-label d-block mb-2">01 / Portfolio</span>
-            <h2 class="section-heading mb-0">Real Websites Built to Win Customers.</h2>
-          </div>
-          <div class="col-lg-4 mt-3 mt-lg-0">
-            <p class="mb-0" style="color: var(--ink-secondary);">
-              Live builds designed for fast mobile browsing, clear menus, and effortless user action.
-            </p>
-          </div>
-        </div>
-
-        <div class="portfolio-track" id="portfolioTrack">
-          <!-- PROJECT 1: LEAF CAFÉ -->
-          <div class="portfolio-slide reveal-up" data-slide-index="0">
-            <article class="portfolio-card">
-              <div class="portfolio-stage">
-                <div class="browser-mockup">
-                  <div class="browser-bar">
-                    <div class="spec-dots" aria-hidden="true">
-                      <span></span><span></span><span></span>
-                    </div>
-                    <div class="browser-address">imvicky2115.github.io/LeafCafe/</div>
-                    <a href="https://imvicky2115.github.io/LeafCafe/" target="_blank" rel="noopener noreferrer" style="color: var(--ink-secondary);" aria-label="Open Leaf Café">
-                      <i data-lucide="arrow-up-right" style="width: 14px; height: 14px;"></i>
-                    </a>
-                  </div>
-
-                  <div class="visual-leaf">
-                    <div>
-                      <div class="d-flex align-items-center justify-content-between gap-2 mb-3">
-                        <span class="badge-live">
-                          <i data-lucide="leaf" style="width: 12px; height: 12px;"></i>
-                          <span>Live Project</span>
-                        </span>
-                        <span style="font-family: var(--font-mono); font-size: 0.68rem; color: var(--ink-muted);">CAFÉ WEBSITE</span>
-                      </div>
-
-                      <h3 class="h4 mb-2" style="color: var(--ink-primary);">Leaf Café — Digital Menu &amp; Reservations</h3>
-                      <p class="small mb-0" style="color: var(--ink-secondary);">Interactive food categories, ambience gallery, café info, and table reservation links.</p>
-                    </div>
-
-                    <div class="mockup-feature-grid">
-                      <div class="leaf-feature-tile">
-                        <div style="font-family: var(--font-mono); font-size: 0.65rem; color: var(--signal-mint);">MENU</div>
-                        <div class="small fw-semibold mt-1">Food Categories</div>
-                      </div>
-                      <div class="leaf-feature-tile">
-                        <div style="font-family: var(--font-mono); font-size: 0.65rem; color: var(--signal-mint);">GALLERY</div>
-                        <div class="small fw-semibold mt-1">Space &amp; Ambience</div>
-                      </div>
-                      <div class="leaf-feature-tile">
-                        <div style="font-family: var(--font-mono); font-size: 0.65rem; color: var(--signal-mint);">BOOKING</div>
-                        <div class="small fw-semibold mt-1">Reservation Links</div>
-                      </div>
-                      <div class="leaf-feature-tile">
-                        <div style="font-family: var(--font-mono); font-size: 0.65rem; color: var(--signal-mint);">LAYOUT</div>
-                        <div class="small fw-semibold mt-1">Mobile &amp; Desktop</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="portfolio-content">
-                <div>
-                  <span class="mono-label d-block mb-2" style="font-size: 0.7rem;">Restaurant &amp; Café Website</span>
-                  <h3 class="h3 mb-2">Leaf Café</h3>
-                  <p class="small mb-4" style="color: var(--ink-secondary);">
-                    A modern café website featuring an interactive menu, food categories, gallery, café information and reservation links.
-                  </p>
-                </div>
-
-                <div class="pt-3 border-top d-flex align-items-center justify-content-between" style="border-color: var(--line-grid) !important;">
-                  <a href="https://imvicky2115.github.io/LeafCafe/" target="_blank" rel="noopener noreferrer" class="btn-forge-solid hover-target">
-                    <span>View Live Project</span>
-                    <i data-lucide="arrow-up-right" style="width: 15px; height: 15px;"></i>
-                  </a>
-                  <span style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--signal-mint);">LIVE</span>
-                </div>
-              </div>
-            </article>
-          </div>
-
-          <!-- PROJECT 2: HAPPYPAWS (ONGOING) -->
-          <div class="portfolio-slide reveal-up" data-slide-index="1">
-            <article class="portfolio-card">
-              <div class="portfolio-stage">
-                <div class="browser-mockup">
-                  <div class="browser-bar">
-                    <div class="spec-dots" aria-hidden="true">
-                      <span></span><span></span><span></span>
-                    </div>
-                    <div class="browser-address">imvicky2115.github.io/HappyPaws/</div>
-                    <a href="https://imvicky2115.github.io/HappyPaws/" target="_blank" rel="noopener noreferrer" style="color: var(--ink-secondary);" aria-label="Open HappyPaws">
-                      <i data-lucide="arrow-up-right" style="width: 14px; height: 14px;"></i>
-                    </a>
-                  </div>
-
-                  <div class="visual-paws">
-                    <div>
-                      <div class="d-flex align-items-center justify-content-between gap-2 mb-3">
-                        <span class="badge-ongoing">
-                          <i data-lucide="activity" style="width: 12px; height: 12px;"></i>
-                          <span>Ongoing Project</span>
-                        </span>
-                        <span style="font-family: var(--font-mono); font-size: 0.68rem; color: var(--ink-muted);">WEB EXPERIENCE</span>
-                      </div>
-
-                      <h3 class="h4 mb-2" style="color: var(--ink-primary);">HappyPaws — Pet Discovery &amp; Info Hub</h3>
-                      <p class="small mb-0" style="color: var(--ink-secondary);">Making animal-related information and discovery simpler to explore on mobile and desktop.</p>
-                    </div>
-
-                    <div class="mockup-feature-grid">
-                      <div class="paws-feature-tile">
-                        <div style="font-family: var(--font-mono); font-size: 0.65rem; color: var(--signal-gold);">DISCOVERY</div>
-                        <div class="small fw-semibold mt-1">Structured Pet Info</div>
-                      </div>
-                      <div class="paws-feature-tile">
-                        <div style="font-family: var(--font-mono); font-size: 0.65rem; color: var(--signal-gold);">USABILITY</div>
-                        <div class="small fw-semibold mt-1">Mobile-First Layout</div>
-                      </div>
-                      <div class="paws-feature-tile">
-                        <div style="font-family: var(--font-mono); font-size: 0.65rem; color: var(--signal-gold);">NAVIGATION</div>
-                        <div class="small fw-semibold mt-1">Clear Browsing</div>
-                      </div>
-                      <div class="paws-feature-tile">
-                        <div style="font-family: var(--font-mono); font-size: 0.65rem; color: var(--signal-gold);">BUILD STAGE</div>
-                        <div class="small fw-semibold mt-1">Ongoing Updates</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="portfolio-content">
-                <div>
-                  <span class="mono-label d-block mb-2" style="font-size: 0.7rem;">Ongoing Web Experience</span>
-                  <h3 class="h3 mb-2">HappyPaws</h3>
-                  <p class="small mb-4" style="color: var(--ink-secondary);">
-                    An ongoing pet-related web experience designed to make animal-related information and discovery more accessible.
-                  </p>
-                </div>
-
-                <div class="pt-3 border-top d-flex align-items-center justify-content-between" style="border-color: var(--line-grid) !important;">
-                  <a href="https://imvicky2115.github.io/HappyPaws/" target="_blank" rel="noopener noreferrer" class="btn-forge-solid hover-target">
-                    <span>View Live Project</span>
-                    <i data-lucide="arrow-up-right" style="width: 15px; height: 15px;"></i>
-                  </a>
-                  <span style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--signal-gold);">ONGOING</span>
-                </div>
-              </div>
-            </article>
-          </div>
-        </div>
-
-        <!-- Thumb-Friendly Mobile Swipe Controls -->
-        <div class="swipe-controls-mobile">
-          <div class="swipe-dots" aria-label="Portfolio Slide Indicators">
-            <button class="swipe-dot active" data-target-slide="0" aria-label="Show Leaf Café"></button>
-            <button class="swipe-dot" data-target-slide="1" aria-label="Show HappyPaws"></button>
-          </div>
-          <div class="d-flex align-items-center gap-2">
-            <span style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--ink-muted);">SWIPE</span>
-            <button class="mobile-menu-btn" id="prevProjectBtn" aria-label="Previous project">
-              <i data-lucide="chevron-left" style="width: 18px; height: 18px;"></i>
-            </button>
-            <button class="mobile-menu-btn" id="nextProjectBtn" aria-label="Next project">
-              <i data-lucide="chevron-right" style="width: 18px; height: 18px;"></i>
-            </button>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ======================================================================
-         4. SERVICES & PRICING MATRIX (BENEFIT-DRIVEN HEADLINE)
-         ====================================================================== -->
-    <section id="services" class="section-block">
-      <div class="atelier-container">
-        <div class="row align-items-end justify-content-between section-top-bar reveal-up">
-          <div class="col-lg-7">
-            <span class="mono-label d-block mb-2">02 / Services &amp; Suggested Pricing</span>
-            <h2 class="section-heading mb-0">Everything You Need to Launch &amp; Grow Online.</h2>
-          </div>
-          <div class="col-lg-4 mt-3 mt-lg-0">
-            <p class="mb-0" style="color: var(--ink-secondary);">
-              Honest student-builder starting rates in ₹. Final quote depends on exact pages and features.
-            </p>
-          </div>
-        </div>
-
-        <div class="row g-4">
-          <!-- 01. Single-page Website / Landing Page -->
-          <div class="col-md-6 col-lg-4 reveal-up">
-            <div class="service-matrix-card">
-              <div>
-                <div class="d-flex align-items-center justify-content-between">
-                  <span class="mono-label">01 / Single-Page Website</span>
-                  <i data-lucide="layout-template" style="width: 18px; height: 18px; color: var(--ink-secondary);"></i>
-                </div>
-                <div class="price-tag-inr">₹3,000–5,000</div>
-                <div class="delivery-chip">
-                  <i data-lucide="clock" style="width: 12px; height: 12px;"></i>
-                  <span>3–5 working days</span>
-                </div>
-                <p class="small mb-0" style="color: var(--ink-secondary);">Clean landing page for a product, service, or personal brand.</p>
-              </div>
-              <div class="mt-4 pt-3 border-top" style="border-color: var(--line-grid) !important;">
-                <a href="#contact" class="btn-forge-outline w-100 hover-target select-service-btn" data-service="Single-Page Website (₹3,000–5,000)">
-                  <span>Enquire Now</span>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <!-- 02. Digital Catalogue -->
-          <div class="col-md-6 col-lg-4 reveal-up">
-            <div class="service-matrix-card">
-              <div>
-                <div class="d-flex align-items-center justify-content-between">
-                  <span class="mono-label">02 / Digital Catalogue</span>
-                  <i data-lucide="book-open" style="width: 18px; height: 18px; color: var(--ink-secondary);"></i>
-                </div>
-                <div class="price-tag-inr">₹5,000–8,000</div>
-                <div class="delivery-chip">
-                  <i data-lucide="clock" style="width: 12px; height: 12px;"></i>
-                  <span>5–8 working days</span>
-                </div>
-                <p class="small mb-0" style="color: var(--ink-secondary);">Interactive café menu or product showcase with WhatsApp &amp; booking links.</p>
-              </div>
-              <div class="mt-4 pt-3 border-top" style="border-color: var(--line-grid) !important;">
-                <a href="#contact" class="btn-forge-outline w-100 hover-target select-service-btn" data-service="Digital Catalogue (₹5,000–8,000)">
-                  <span>Enquire Now</span>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <!-- 03. Website Redesign -->
-          <div class="col-md-6 col-lg-4 reveal-up">
-            <div class="service-matrix-card">
-              <div>
-                <div class="d-flex align-items-center justify-content-between">
-                  <span class="mono-label">03 / Website Redesign</span>
-                  <i data-lucide="refresh-cw" style="width: 18px; height: 18px; color: var(--ink-secondary);"></i>
-                </div>
-                <div class="price-tag-inr">₹5,000–9,000</div>
-                <div class="delivery-chip">
-                  <i data-lucide="clock" style="width: 12px; height: 12px;"></i>
-                  <span>5–10 working days</span>
-                </div>
-                <p class="small mb-0" style="color: var(--ink-secondary);">Refresh an outdated site with modern layout, speed, and mobile support.</p>
-              </div>
-              <div class="mt-4 pt-3 border-top" style="border-color: var(--line-grid) !important;">
-                <a href="#contact" class="btn-forge-outline w-100 hover-target select-service-btn" data-service="Website Redesign (₹5,000–9,000)">
-                  <span>Enquire Now</span>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <!-- 04. Small Business Website -->
-          <div class="col-md-6 col-lg-4 reveal-up">
-            <div class="service-matrix-card featured-tier">
-              <div>
-                <div class="d-flex align-items-center justify-content-between">
-                  <span class="mono-label">04 / Small Business Website</span>
-                  <span style="font-family: var(--font-mono); font-size: 0.65rem; background: var(--signal-amber); color: #080809; padding: 0.15rem 0.45rem; font-weight: 600;">POPULAR</span>
-                </div>
-                <div class="price-tag-inr">₹6,000–10,000</div>
-                <div class="delivery-chip">
-                  <i data-lucide="clock" style="width: 12px; height: 12px;"></i>
-                  <span>7–10 working days</span>
-                </div>
-                <p class="small mb-0" style="color: var(--ink-secondary);">Multi-section custom website built for local and growing businesses.</p>
-              </div>
-              <div class="mt-4 pt-3 border-top" style="border-color: var(--line-grid) !important;">
-                <a href="#contact" class="btn-forge-solid w-100 hover-target select-service-btn" data-service="Small Business Website (₹6,000–10,000)">
-                  <span>Enquire Now</span>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <!-- 05. Basic Custom Web App -->
-          <div class="col-md-6 col-lg-4 reveal-up">
-            <div class="service-matrix-card">
-              <div>
-                <div class="d-flex align-items-center justify-content-between">
-                  <span class="mono-label">05 / Basic Custom Web App</span>
-                  <i data-lucide="cpu" style="width: 18px; height: 18px; color: var(--ink-secondary);"></i>
-                </div>
-                <div class="price-tag-inr">₹12,000–20,000</div>
-                <div class="delivery-chip">
-                  <i data-lucide="clock" style="width: 12px; height: 12px;"></i>
-                  <span>2–4 weeks</span>
-                </div>
-                <p class="small mb-0" style="color: var(--ink-secondary);">Interactive web tools, custom intake forms, filters, and data workflows.</p>
-              </div>
-              <div class="mt-4 pt-3 border-top" style="border-color: var(--line-grid) !important;">
-                <a href="#contact" class="btn-forge-outline w-100 hover-target select-service-btn" data-service="Basic Custom Web App (₹12,000–20,000)">
-                  <span>Enquire Now</span>
-                </a>
-              </div>
-            </div>
-          </div>
-
-          <!-- 06. Website Maintenance -->
-          <div class="col-md-6 col-lg-4 reveal-up">
-            <div class="service-matrix-card">
-              <div>
-                <div class="d-flex align-items-center justify-content-between">
-                  <span class="mono-label">06 / Website Updates</span>
-                  <i data-lucide="wrench" style="width: 18px; height: 18px; color: var(--ink-secondary);"></i>
-                </div>
-                <div class="price-tag-inr">₹1,000–2,500 <span style="font-family: var(--font-mono); font-size: 0.75rem; font-weight: 400; color: var(--ink-muted);">/ mo</span></div>
-                <div class="delivery-chip">
-                  <i data-lucide="clock" style="width: 12px; height: 12px;"></i>
-                  <span>24–48 hr turnaround</span>
-                </div>
-                <p class="small mb-0" style="color: var(--ink-secondary);">Content edits, menu changes, image swaps, and ongoing fixes.</p>
-              </div>
-              <div class="mt-4 pt-3 border-top" style="border-color: var(--line-grid) !important;">
-                <a href="#contact" class="btn-forge-outline w-100 hover-target select-service-btn" data-service="Website Maintenance & Updates">
-                  <span>Enquire Now</span>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ======================================================================
-         5. INTERACTIVE PROJECT COST ESTIMATOR (BENEFIT-DRIVEN HEADLINE)
-         ====================================================================== -->
-    <section id="estimator" class="section-block" style="background-color: var(--bg-atelier);">
-      <div class="atelier-container">
-        <div class="row align-items-end justify-content-between section-top-bar reveal-up">
-          <div class="col-lg-7">
-            <span class="mono-label d-block mb-2">03 / Interactive Estimator</span>
-            <h2 class="section-heading mb-0">Plan Your Budget Before You Commit.</h2>
-          </div>
-          <div class="col-lg-4 mt-3 mt-lg-0">
-            <p class="mb-0" style="color: var(--ink-secondary);">
-              Tap your project options below to see an indicative ballpark range before requesting a quote.
-            </p>
-          </div>
-        </div>
-
-        <div class="row g-4 g-lg-5 align-items-start">
-          <!-- Left: 4 Configuration Steps -->
-          <div class="col-lg-7 reveal-up">
-            <div class="estimator-panel">
-              <!-- Step 1: Project Type -->
-              <div class="est-step-block">
-                <span class="mono-label d-block mb-1">1. Project Type</span>
-                <p class="small mb-3" style="color: var(--ink-secondary);">Choose the core build you need.</p>
-                <div class="est-option-grid cols-2" id="estTypeGroup">
-                  <label class="est-radio-label is-selected hover-target">
-                    <div>
-                      <div class="fw-semibold small">Single-Page / Landing</div>
-                      <div style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--ink-muted);">Base: ₹3,000 – ₹5,000</div>
-                    </div>
-                    <input type="radio" name="estProjectType" value="Single-Page / Landing" data-min="3000" data-max="5000" checked class="d-none" />
-                    <span class="est-indicator-circle"><i data-lucide="check" style="width: 11px; height: 11px;"></i></span>
-                  </label>
-
-                  <label class="est-radio-label hover-target">
-                    <div>
-                      <div class="fw-semibold small">Digital Catalogue</div>
-                      <div style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--ink-muted);">Base: ₹5,000 – ₹8,000</div>
-                    </div>
-                    <input type="radio" name="estProjectType" value="Digital Catalogue" data-min="5000" data-max="8000" class="d-none" />
-                    <span class="est-indicator-circle"><i data-lucide="check" style="width: 11px; height: 11px;"></i></span>
-                  </label>
-
-                  <label class="est-radio-label hover-target">
-                    <div>
-                      <div class="fw-semibold small">Website Redesign</div>
-                      <div style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--ink-muted);">Base: ₹5,000 – ₹9,000</div>
-                    </div>
-                    <input type="radio" name="estProjectType" value="Website Redesign" data-min="5000" data-max="9000" class="d-none" />
-                    <span class="est-indicator-circle"><i data-lucide="check" style="width: 11px; height: 11px;"></i></span>
-                  </label>
-
-                  <label class="est-radio-label hover-target">
-                    <div>
-                      <div class="fw-semibold small">Small Business Website</div>
-                      <div style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--ink-muted);">Base: ₹6,000 – ₹10,000</div>
-                    </div>
-                    <input type="radio" name="estProjectType" value="Small Business Website" data-min="6000" data-max="10000" class="d-none" />
-                    <span class="est-indicator-circle"><i data-lucide="check" style="width: 11px; height: 11px;"></i></span>
-                  </label>
-
-                  <label class="est-radio-label hover-target" style="grid-column: 1 / -1;">
-                    <div>
-                      <div class="fw-semibold small">Basic Custom Web App</div>
-                      <div style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--ink-muted);">Base: ₹12,000 – ₹20,000</div>
-                    </div>
-                    <input type="radio" name="estProjectType" value="Basic Custom Web App" data-min="12000" data-max="20000" class="d-none" />
-                    <span class="est-indicator-circle"><i data-lucide="check" style="width: 11px; height: 11px;"></i></span>
-                  </label>
-                </div>
-              </div>
-
-              <!-- Step 2: Page / Screen Count -->
-              <div class="est-step-block">
-                <span class="mono-label d-block mb-1">2. Number of Pages / Views</span>
-                <p class="small mb-3" style="color: var(--ink-secondary);">Estimated page count or app screens.</p>
-                <div class="est-option-grid cols-3" id="estPagesGroup">
-                  <label class="est-radio-label is-selected hover-target">
-                    <div>
-                      <div class="fw-semibold small">1–3 Pages</div>
-                      <div style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--ink-muted);">Included</div>
-                    </div>
-                    <input type="radio" name="estPages" value="1–3 Pages" data-add="0" checked class="d-none" />
-                    <span class="est-indicator-circle"><i data-lucide="check" style="width: 11px; height: 11px;"></i></span>
-                  </label>
-
-                  <label class="est-radio-label hover-target">
-                    <div>
-                      <div class="fw-semibold small">4–6 Pages</div>
-                      <div style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--ink-muted);">+₹1,500</div>
-                    </div>
-                    <input type="radio" name="estPages" value="4–6 Pages" data-add="1500" class="d-none" />
-                    <span class="est-indicator-circle"><i data-lucide="check" style="width: 11px; height: 11px;"></i></span>
-                  </label>
-
-                  <label class="est-radio-label hover-target">
-                    <div>
-                      <div class="fw-semibold small">7+ Pages</div>
-                      <div style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--ink-muted);">+₹3,000</div>
-                    </div>
-                    <input type="radio" name="estPages" value="7+ Pages" data-add="3000" class="d-none" />
-                    <span class="est-indicator-circle"><i data-lucide="check" style="width: 11px; height: 11px;"></i></span>
-                  </label>
-                </div>
-              </div>
-
-              <!-- Step 3: Design Preference -->
-              <div class="est-step-block">
-                <span class="mono-label d-block mb-1">3. Design Preference</span>
-                <p class="small mb-3" style="color: var(--ink-secondary);">Visual complexity and interaction depth.</p>
-                <div class="est-option-grid cols-3" id="estDesignGroup">
-                  <label class="est-radio-label is-selected hover-target">
-                    <div>
-                      <div class="fw-semibold small">Clean &amp; Minimal</div>
-                      <div style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--ink-muted);">Standard</div>
-                    </div>
-                    <input type="radio" name="estDesign" value="Clean & Minimal" data-add="0" checked class="d-none" />
-                    <span class="est-indicator-circle"><i data-lucide="check" style="width: 11px; height: 11px;"></i></span>
-                  </label>
-
-                  <label class="est-radio-label hover-target">
-                    <div>
-                      <div class="fw-semibold small">Custom Editorial</div>
-                      <div style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--ink-muted);">+₹1,500</div>
-                    </div>
-                    <input type="radio" name="estDesign" value="Custom Editorial" data-add="1500" class="d-none" />
-                    <span class="est-indicator-circle"><i data-lucide="check" style="width: 11px; height: 11px;"></i></span>
-                  </label>
-
-                  <label class="est-radio-label hover-target">
-                    <div>
-                      <div class="fw-semibold small">Motion &amp; Interactive</div>
-                      <div style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--ink-muted);">+₹2,500</div>
-                    </div>
-                    <input type="radio" name="estDesign" value="Motion & Interactive" data-add="2500" class="d-none" />
-                    <span class="est-indicator-circle"><i data-lucide="check" style="width: 11px; height: 11px;"></i></span>
-                  </label>
-                </div>
-              </div>
-
-              <!-- Step 4: Additional Features -->
-              <div class="est-step-block">
-                <span class="mono-label d-block mb-1">4. Additional Features</span>
-                <p class="small mb-3" style="color: var(--ink-secondary);">Select the functionality you need.</p>
-                <div class="est-option-grid cols-2" id="estFeaturesGroup">
-                  <label class="est-check-label hover-target">
-                    <span class="small fw-medium">Contact / enquiry form (+₹1,000)</span>
-                    <input type="checkbox" value="Contact / enquiry form" data-add="1000" class="d-none est-feature-cb" />
-                    <span class="est-indicator-circle"><i data-lucide="check" style="width: 11px; height: 11px;"></i></span>
-                  </label>
-
-                  <label class="est-check-label is-selected hover-target">
-                    <span class="small fw-medium">WhatsApp integration (+₹500)</span>
-                    <input type="checkbox" value="WhatsApp integration" data-add="500" checked class="d-none est-feature-cb" />
-                    <span class="est-indicator-circle"><i data-lucide="check" style="width: 11px; height: 11px;"></i></span>
-                  </label>
-
-                  <label class="est-check-label hover-target">
-                    <span class="small fw-medium">Photo gallery (+₹1,000)</span>
-                    <input type="checkbox" value="Photo gallery" data-add="1000" class="d-none est-feature-cb" />
-                    <span class="est-indicator-circle"><i data-lucide="check" style="width: 11px; height: 11px;"></i></span>
-                  </label>
-
-                  <label class="est-check-label hover-target">
-                    <span class="small fw-medium">Booking system (+₹2,500)</span>
-                    <input type="checkbox" value="Booking system" data-add="2500" class="d-none est-feature-cb" />
-                    <span class="est-indicator-circle"><i data-lucide="check" style="width: 11px; height: 11px;"></i></span>
-                  </label>
-
-                  <label class="est-check-label hover-target">
-                    <span class="small fw-medium">Content management system (+₹5,000)</span>
-                    <input type="checkbox" value="Content management system" data-add="5000" class="d-none est-feature-cb" />
-                    <span class="est-indicator-circle"><i data-lucide="check" style="width: 11px; height: 11px;"></i></span>
-                  </label>
-
-                  <label class="est-check-label hover-target">
-                    <span class="small fw-medium">User login / accounts (+₹4,000)</span>
-                    <input type="checkbox" value="User login / accounts" data-add="4000" class="d-none est-feature-cb" />
-                    <span class="est-indicator-circle"><i data-lucide="check" style="width: 11px; height: 11px;"></i></span>
-                  </label>
-
-                  <label class="est-check-label hover-target" style="grid-column: 1 / -1;">
-                    <span class="small fw-medium">Payment integration (+₹5,000)</span>
-                    <input type="checkbox" value="Payment integration" data-add="5000" class="d-none est-feature-cb" />
-                    <span class="est-indicator-circle"><i data-lucide="check" style="width: 11px; height: 11px;"></i></span>
-                  </label>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Right: Live Glassmorphism Estimate Summary -->
-          <div class="col-lg-5 reveal-up">
-            <div class="est-summary-card">
-              <span class="mono-label d-block">INDICATIVE BALLPARK ESTIMATE</span>
-              <div class="est-total-range" id="estRangeDisplay">₹3,500 – ₹5,500</div>
-              <p class="small mb-3" style="color: var(--ink-secondary);" id="estSelectionSummary">
-                Single-Page / Landing · 1–3 Pages · Clean &amp; Minimal + WhatsApp integration
+              <p class="hero-personal-note reveal-hero">
+                I’m a student at Manipal University Jaipur building real-world websites and web tools—combining AI-assisted speed with personal coding, testing, and direct 1-on-1 support.
               </p>
 
-              <div class="p-3 mb-4" style="background-color: var(--bg-void); border: 1px solid var(--line-strong); border-radius: var(--radius-sharp); font-size: 0.8rem; color: var(--ink-secondary);">
-                <div class="d-flex align-items-center gap-2 mb-1" style="color: var(--signal-amber); font-family: var(--font-mono); font-size: 0.7rem;">
-                  <i data-lucide="alert-circle" style="width: 14px; height: 14px;"></i>
-                  <span>SUBJECT TO REQUIREMENT REVIEW</span>
+              <!-- 4 First-Person Capabilities -->
+              <div class="core-capabilities-grid reveal-hero" aria-label="Core Services">
+                <div class="capability-card-chip">
+                  <span class="cap-icon-box"><i data-lucide="pen-tool" style="width: 16px; height: 16px;"></i></span>
+                  <span>I design websites.</span>
                 </div>
-                This figure is a rough indicative guide only—not a fixed price quote. Final pricing depends on exact feature complexity, third-party integrations, and content scope after reviewing your requirements.
+                <div class="capability-card-chip">
+                  <span class="cap-icon-box"><i data-lucide="code-2" style="width: 16px; height: 16px;"></i></span>
+                  <span>I develop websites.</span>
+                </div>
+                <div class="capability-card-chip">
+                  <span class="cap-icon-box"><i data-lucide="refresh-cw" style="width: 16px; height: 16px;"></i></span>
+                  <span>I redesign existing websites.</span>
+                </div>
+                <div class="capability-card-chip">
+                  <span class="cap-icon-box"><i data-lucide="cpu" style="width: 16px; height: 16px;"></i></span>
+                  <span>I build custom web applications.</span>
+                </div>
               </div>
 
-              <a href="#contact" class="btn-forge-solid w-100 hover-target" id="applyEstimateBtn">
-                <span>Send Scope via WhatsApp</span>
-                <i data-lucide="message-circle" style="width: 16px; height: 16px;"></i>
-              </a>
+              <div class="hero-cta-group reveal-hero">
+                <a href="#estimator" class="btn-forge-solid hover-target">
+                  <span>Estimate Project Cost</span>
+                  <i data-lucide="calculator" style="width: 16px; height: 16px;"></i>
+                </a>
+                <a href="#work" class="btn-forge-outline hover-target">
+                  <span>See Live Work</span>
+                </a>
+              </div>
+            </div>
+
+            <!-- Right Column: Interactive Spec Window -->
+            <div class="col-lg-5 reveal-hero">
+              <div class="spec-window">
+                <div class="spec-window-header">
+                  <div class="spec-dots" aria-hidden="true">
+                    <span></span><span></span><span></span>
+                  </div>
+                  <span class="mono-label" style="font-size: 0.68rem;">NOAHSTUDIO // WORKFLOW</span>
+                </div>
+
+                <div class="spec-tabs" role="tablist" aria-label="How Projects Are Built">
+                  <button class="spec-tab-btn active hover-target" role="tab" aria-selected="true" data-tab="tab-approach">Approach</button>
+                  <button class="spec-tab-btn hover-target" role="tab" aria-selected="false" data-tab="tab-quality">Testing</button>
+                  <button class="spec-tab-btn hover-target" role="tab" aria-selected="false" data-tab="tab-ownership">Ownership</button>
+                </div>
+
+                <div class="spec-body">
+                  <div class="spec-pane active" id="tab-approach">
+                    <div class="spec-row">
+                      <span style="color: var(--ink-secondary);">Workflow</span>
+                      <span class="mono-label" style="color: var(--ink-primary);">AI-Assisted + Hand-Coded</span>
+                    </div>
+                    <div class="spec-row">
+                      <span style="color: var(--ink-secondary);">Communication</span>
+                      <span class="mono-label" style="color: var(--ink-primary);">Direct 1-on-1 Builder</span>
+                    </div>
+                    <div class="spec-row">
+                      <span style="color: var(--ink-secondary);">Pricing</span>
+                      <span class="mono-label" style="color: var(--signal-amber);">Student-Friendly Rates</span>
+                    </div>
+                  </div>
+
+                  <div class="spec-pane" id="tab-quality">
+                    <div class="spec-row">
+                      <span style="color: var(--ink-secondary);">Responsive QA</span>
+                      <span class="mono-label" style="color: var(--ink-primary);">Mobile + Desktop Checked</span>
+                    </div>
+                    <div class="spec-row">
+                      <span style="color: var(--ink-secondary);">Performance</span>
+                      <span class="mono-label" style="color: var(--ink-primary);">Lightweight &amp; Fast</span>
+                    </div>
+                    <div class="spec-row">
+                      <span style="color: var(--ink-secondary);">Lead Setup</span>
+                      <span class="mono-label" style="color: var(--signal-mint);">WhatsApp + Email Ready</span>
+                    </div>
+                  </div>
+
+                  <div class="spec-pane" id="tab-ownership">
+                    <div class="spec-row">
+                      <span style="color: var(--ink-secondary);">Accountability</span>
+                      <span class="mono-label" style="color: var(--ink-primary);">Personal Implementation</span>
+                    </div>
+                    <div class="spec-row">
+                      <span style="color: var(--ink-secondary);">Source Code</span>
+                      <span class="mono-label" style="color: var(--ink-primary);">100% Client Owned</span>
+                    </div>
+                    <div class="spec-row">
+                      <span style="color: var(--ink-secondary);">Post-Launch</span>
+                      <span class="mono-label" style="color: var(--signal-mint);">Support &amp; Updates</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- ======================================================================
-         6. ALIGNED DELIVERY TIMELINE & WORKFLOW (BENEFIT-DRIVEN HEADLINE)
-         ====================================================================== -->
-    <section id="timeline" class="section-block">
-      <div class="atelier-container">
-        <div class="row align-items-end justify-content-between section-top-bar reveal-up">
-          <div class="col-lg-7">
-            <span class="mono-label d-block mb-2">04 / Timeline &amp; Process</span>
-            <h2 class="section-heading mb-0">Go Live in Days, Not Months.</h2>
-          </div>
-          <div class="col-lg-4 mt-3 mt-lg-0">
-            <p class="mb-0" style="color: var(--ink-secondary);">
-              Clear delivery estimates with personal testing and milestone updates at every step.
-            </p>
-          </div>
-        </div>
-
-        <div class="row g-4 g-lg-5 align-items-stretch">
-          <div class="col-lg-6 reveal-up d-flex flex-column">
-            <div class="d-flex align-items-center justify-content-between mb-3 px-1">
-              <span class="mono-label">PROJECT</span>
-              <span class="mono-label">ESTIMATED DELIVERY</span>
+      <!-- ====================================================================
+           3. PORTFOLIO SECTION (SWIPEABLE MOBILE + 2-COL DESKTOP)
+           ==================================================================== -->
+      <section id="work" class="section-block" style="background-color: var(--bg-atelier);">
+        <div class="atelier-container">
+          <div class="row align-items-end justify-content-between section-top-bar reveal-up">
+            <div class="col-lg-7">
+              <span class="mono-label d-block mb-2">01 / Portfolio</span>
+              <h2 class="section-heading mb-0">Real Websites Built to Win Customers.</h2>
             </div>
-
-            <div class="timeline-table-wrap flex-grow-1 d-flex flex-column justify-content-between">
-              <div class="timeline-row-item">
-                <span class="fw-semibold" style="color: var(--ink-primary);">Landing page</span>
-                <span class="timeline-duration-badge">3–5 working days</span>
-              </div>
-              <div class="timeline-row-item">
-                <span class="fw-semibold" style="color: var(--ink-primary);">Small business website</span>
-                <span class="timeline-duration-badge">7–10 working days</span>
-              </div>
-              <div class="timeline-row-item">
-                <span class="fw-semibold" style="color: var(--ink-primary);">Digital catalogue</span>
-                <span class="timeline-duration-badge">5–8 working days</span>
-              </div>
-              <div class="timeline-row-item">
-                <span class="fw-semibold" style="color: var(--ink-primary);">Website redesign</span>
-                <span class="timeline-duration-badge">5–10 working days</span>
-              </div>
-              <div class="timeline-row-item">
-                <span class="fw-semibold" style="color: var(--ink-primary);">Basic custom web app</span>
-                <span class="timeline-duration-badge" style="color: var(--signal-amber);">2–4 weeks</span>
-              </div>
+            <div class="col-lg-4 mt-3 mt-lg-0">
+              <p class="mb-0" style="color: var(--ink-secondary);">
+                Live builds designed for fast mobile browsing, clear menus, and effortless user action.
+              </p>
             </div>
           </div>
 
-          <div class="col-lg-6 reveal-up d-flex flex-column">
-            <span class="mono-label d-block mb-3 px-1">HOW I WORK WITH YOU</span>
-            <div class="row g-3 flex-grow-1">
-              <div class="col-sm-6">
-                <div class="brutalist-box">
-                  <span class="step-code">01 / DISCOVERY</span>
-                  <h3 class="h6 mb-2">Understand Goals</h3>
-                  <p class="small mb-0" style="color: var(--ink-secondary);">Clarify pages, features, and content before writing code.</p>
+          <div class="portfolio-track" id="portfolioTrack">
+            <!-- PROJECT 1: LEAF CAFÉ -->
+            <div class="portfolio-slide reveal-up" data-slide-index="0">
+              <article class="portfolio-card">
+                <div class="portfolio-stage">
+                  <div class="browser-mockup">
+                    <div class="browser-bar">
+                      <div class="spec-dots" aria-hidden="true">
+                        <span></span><span></span><span></span>
+                      </div>
+                      <div class="browser-address">imvicky2115.github.io/LeafCafe/</div>
+                      <a href="https://imvicky2115.github.io/LeafCafe/" target="_blank" rel="noopener noreferrer" style="color: var(--ink-secondary);" aria-label="Open Leaf Café">
+                        <i data-lucide="arrow-up-right" style="width: 14px; height: 14px;"></i>
+                      </a>
+                    </div>
+
+                    <div class="visual-leaf">
+                      <div>
+                        <div class="d-flex align-items-center justify-content-between gap-2 mb-3">
+                          <span class="badge-live">
+                            <i data-lucide="leaf" style="width: 12px; height: 12px;"></i>
+                            <span>Live Project</span>
+                          </span>
+                          <span style="font-family: var(--font-mono); font-size: 0.68rem; color: var(--ink-muted);">CAFÉ WEBSITE</span>
+                        </div>
+
+                        <h3 class="h4 mb-2" style="color: var(--ink-primary);">Leaf Café — Digital Menu &amp; Reservations</h3>
+                        <p class="small mb-0" style="color: var(--ink-secondary);">Interactive food categories, ambience gallery, café info, and table reservation links.</p>
+                      </div>
+
+                      <div class="mockup-feature-grid">
+                        <div class="leaf-feature-tile">
+                          <div style="font-family: var(--font-mono); font-size: 0.65rem; color: var(--signal-mint);">MENU</div>
+                          <div class="small fw-semibold mt-1">Food Categories</div>
+                        </div>
+                        <div class="leaf-feature-tile">
+                          <div style="font-family: var(--font-mono); font-size: 0.65rem; color: var(--signal-mint);">GALLERY</div>
+                          <div class="small fw-semibold mt-1">Space &amp; Ambience</div>
+                        </div>
+                        <div class="leaf-feature-tile">
+                          <div style="font-family: var(--font-mono); font-size: 0.65rem; color: var(--signal-mint);">BOOKING</div>
+                          <div class="small fw-semibold mt-1">Reservation Links</div>
+                        </div>
+                        <div class="leaf-feature-tile">
+                          <div style="font-family: var(--font-mono); font-size: 0.65rem; color: var(--signal-mint);">LAYOUT</div>
+                          <div class="small fw-semibold mt-1">Mobile &amp; Desktop</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="portfolio-content">
+                  <div>
+                    <span class="mono-label d-block mb-2" style="font-size: 0.7rem;">Restaurant &amp; Café Website</span>
+                    <h3 class="h3 mb-2">Leaf Café</h3>
+                    <p class="small mb-4" style="color: var(--ink-secondary);">
+                      A modern café website featuring an interactive menu, food categories, gallery, café information and reservation links.
+                    </p>
+                  </div>
+
+                  <div class="pt-3 border-top d-flex align-items-center justify-content-between" style="border-color: var(--line-grid) !important;">
+                    <a href="https://imvicky2115.github.io/LeafCafe/" target="_blank" rel="noopener noreferrer" class="btn-forge-solid hover-target">
+                      <span>View Live Project</span>
+                      <i data-lucide="arrow-up-right" style="width: 15px; height: 15px;"></i>
+                    </a>
+                    <span style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--signal-mint);">LIVE</span>
+                  </div>
+                </div>
+              </article>
+            </div>
+
+            <!-- PROJECT 2: HAPPYPAWS (ONGOING) -->
+            <div class="portfolio-slide reveal-up" data-slide-index="1">
+              <article class="portfolio-card">
+                <div class="portfolio-stage">
+                  <div class="browser-mockup">
+                    <div class="browser-bar">
+                      <div class="spec-dots" aria-hidden="true">
+                        <span></span><span></span><span></span>
+                      </div>
+                      <div class="browser-address">imvicky2115.github.io/HappyPaws/</div>
+                      <a href="https://imvicky2115.github.io/HappyPaws/" target="_blank" rel="noopener noreferrer" style="color: var(--ink-secondary);" aria-label="Open HappyPaws">
+                        <i data-lucide="arrow-up-right" style="width: 14px; height: 14px;"></i>
+                      </a>
+                    </div>
+
+                    <div class="visual-paws">
+                      <div>
+                        <div class="d-flex align-items-center justify-content-between gap-2 mb-3">
+                          <span class="badge-ongoing">
+                            <i data-lucide="activity" style="width: 12px; height: 12px;"></i>
+                            <span>Ongoing Project</span>
+                          </span>
+                          <span style="font-family: var(--font-mono); font-size: 0.68rem; color: var(--ink-muted);">WEB EXPERIENCE</span>
+                        </div>
+
+                        <h3 class="h4 mb-2" style="color: var(--ink-primary);">HappyPaws — Pet Discovery &amp; Info Hub</h3>
+                        <p class="small mb-0" style="color: var(--ink-secondary);">Making animal-related information and discovery simpler to explore on mobile and desktop.</p>
+                      </div>
+
+                      <div class="mockup-feature-grid">
+                        <div class="paws-feature-tile">
+                          <div style="font-family: var(--font-mono); font-size: 0.65rem; color: var(--signal-gold);">DISCOVERY</div>
+                          <div class="small fw-semibold mt-1">Structured Pet Info</div>
+                        </div>
+                        <div class="paws-feature-tile">
+                          <div style="font-family: var(--font-mono); font-size: 0.65rem; color: var(--signal-gold);">USABILITY</div>
+                          <div class="small fw-semibold mt-1">Mobile-First Layout</div>
+                        </div>
+                        <div class="paws-feature-tile">
+                          <div style="font-family: var(--font-mono); font-size: 0.65rem; color: var(--signal-gold);">NAVIGATION</div>
+                          <div class="small fw-semibold mt-1">Clear Browsing</div>
+                        </div>
+                        <div class="paws-feature-tile">
+                          <div style="font-family: var(--font-mono); font-size: 0.65rem; color: var(--signal-gold);">BUILD STAGE</div>
+                          <div class="small fw-semibold mt-1">Ongoing Updates</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="portfolio-content">
+                  <div>
+                    <span class="mono-label d-block mb-2" style="font-size: 0.7rem;">Ongoing Web Experience</span>
+                    <h3 class="h3 mb-2">HappyPaws</h3>
+                    <p class="small mb-4" style="color: var(--ink-secondary);">
+                      An ongoing pet-related web experience designed to make animal-related information and discovery more accessible.
+                    </p>
+                  </div>
+
+                  <div class="pt-3 border-top d-flex align-items-center justify-content-between" style="border-color: var(--line-grid) !important;">
+                    <a href="https://imvicky2115.github.io/HappyPaws/" target="_blank" rel="noopener noreferrer" class="btn-forge-solid hover-target">
+                      <span>View Live Project</span>
+                      <i data-lucide="arrow-up-right" style="width: 15px; height: 15px;"></i>
+                    </a>
+                    <span style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--signal-gold);">ONGOING</span>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <!-- Thumb-Friendly Mobile Swipe Controls -->
+          <div class="swipe-controls-mobile">
+            <div class="swipe-dots" aria-label="Portfolio Slide Indicators">
+              <button class="swipe-dot active" data-target-slide="0" aria-label="Show Leaf Café"></button>
+              <button class="swipe-dot" data-target-slide="1" aria-label="Show HappyPaws"></button>
+            </div>
+            <div class="d-flex align-items-center gap-2">
+              <span style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--ink-muted);">SWIPE</span>
+              <button class="mobile-menu-btn" id="prevProjectBtn" aria-label="Previous project">
+                <i data-lucide="chevron-left" style="width: 18px; height: 18px;"></i>
+              </button>
+              <button class="mobile-menu-btn" id="nextProjectBtn" aria-label="Next project">
+                <i data-lucide="chevron-right" style="width: 18px; height: 18px;"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ====================================================================
+           4. SERVICES & PRICING MATRIX
+           ==================================================================== -->
+      <section id="services" class="section-block">
+        <div class="atelier-container">
+          <div class="row align-items-end justify-content-between section-top-bar reveal-up">
+            <div class="col-lg-7">
+              <span class="mono-label d-block mb-2">02 / Services &amp; Suggested Pricing</span>
+              <h2 class="section-heading mb-0">Everything You Need to Launch &amp; Grow Online.</h2>
+            </div>
+            <div class="col-lg-4 mt-3 mt-lg-0">
+              <p class="mb-0" style="color: var(--ink-secondary);">
+                Honest student-builder starting rates in ₹. Final quote depends on exact pages and features.
+              </p>
+            </div>
+          </div>
+
+          <div class="row g-4">
+            <!-- 01. Single-page Website / Landing Page -->
+            <div class="col-md-6 col-lg-4 reveal-up">
+              <div class="service-matrix-card">
+                <div>
+                  <div class="d-flex align-items-center justify-content-between">
+                    <span class="mono-label">01 / Single-Page Website</span>
+                    <i data-lucide="layout-template" style="width: 18px; height: 18px; color: var(--ink-secondary);"></i>
+                  </div>
+                  <div class="price-tag-inr">₹3,000–5,000</div>
+                  <div class="delivery-chip">
+                    <i data-lucide="clock" style="width: 12px; height: 12px;"></i>
+                    <span>3–5 working days</span>
+                  </div>
+                  <p class="small mb-0" style="color: var(--ink-secondary);">Clean landing page for a product, service, or personal brand.</p>
+                </div>
+                <div class="mt-4 pt-3 border-top" style="border-color: var(--line-grid) !important;">
+                  <a href="#contact" class="btn-forge-outline w-100 hover-target select-service-btn" data-service="Single-Page Website (₹3,000–5,000)">
+                    <span>Enquire Now</span>
+                  </a>
                 </div>
               </div>
-              <div class="col-sm-6">
-                <div class="brutalist-box">
-                  <span class="step-code">02 / STRUCTURE</span>
-                  <h3 class="h6 mb-2">Plan &amp; Wireframe</h3>
-                  <p class="small mb-0" style="color: var(--ink-secondary);">Map out mobile-first layout and user navigation flow.</p>
+            </div>
+
+            <!-- 02. Digital Catalogue -->
+            <div class="col-md-6 col-lg-4 reveal-up">
+              <div class="service-matrix-card">
+                <div>
+                  <div class="d-flex align-items-center justify-content-between">
+                    <span class="mono-label">02 / Digital Catalogue</span>
+                    <i data-lucide="book-open" style="width: 18px; height: 18px; color: var(--ink-secondary);"></i>
+                  </div>
+                  <div class="price-tag-inr">₹5,000–8,000</div>
+                  <div class="delivery-chip">
+                    <i data-lucide="clock" style="width: 12px; height: 12px;"></i>
+                    <span>5–8 working days</span>
+                  </div>
+                  <p class="small mb-0" style="color: var(--ink-secondary);">Interactive café menu or product showcase with WhatsApp &amp; booking links.</p>
+                </div>
+                <div class="mt-4 pt-3 border-top" style="border-color: var(--line-grid) !important;">
+                  <a href="#contact" class="btn-forge-outline w-100 hover-target select-service-btn" data-service="Digital Catalogue (₹5,000–8,000)">
+                    <span>Enquire Now</span>
+                  </a>
                 </div>
               </div>
-              <div class="col-sm-6">
-                <div class="brutalist-box">
-                  <span class="step-code">03 / BUILD</span>
-                  <h3 class="h6 mb-2">AI-Assisted + Hand-Built</h3>
-                  <p class="small mb-0" style="color: var(--ink-secondary);">Fast iteration paired with personal code implementation.</p>
+            </div>
+
+            <!-- 03. Website Redesign -->
+            <div class="col-md-6 col-lg-4 reveal-up">
+              <div class="service-matrix-card">
+                <div>
+                  <div class="d-flex align-items-center justify-content-between">
+                    <span class="mono-label">03 / Website Redesign</span>
+                    <i data-lucide="refresh-cw" style="width: 18px; height: 18px; color: var(--ink-secondary);"></i>
+                  </div>
+                  <div class="price-tag-inr">₹5,000–9,000</div>
+                  <div class="delivery-chip">
+                    <i data-lucide="clock" style="width: 12px; height: 12px;"></i>
+                    <span>5–10 working days</span>
+                  </div>
+                  <p class="small mb-0" style="color: var(--ink-secondary);">Refresh an outdated site with modern layout, speed, and mobile support.</p>
+                </div>
+                <div class="mt-4 pt-3 border-top" style="border-color: var(--line-grid) !important;">
+                  <a href="#contact" class="btn-forge-outline w-100 hover-target select-service-btn" data-service="Website Redesign (₹5,000–9,000)">
+                    <span>Enquire Now</span>
+                  </a>
                 </div>
               </div>
-              <div class="col-sm-6">
-                <div class="brutalist-box">
-                  <span class="step-code">04 / TEST &amp; LAUNCH</span>
-                  <h3 class="h6 mb-2">QA &amp; Handover</h3>
-                  <p class="small mb-0" style="color: var(--ink-secondary);">Tested on real phones &amp; desktops, then deployed live.</p>
+            </div>
+
+            <!-- 04. Small Business Website -->
+            <div class="col-md-6 col-lg-4 reveal-up">
+              <div class="service-matrix-card featured-tier">
+                <div>
+                  <div class="d-flex align-items-center justify-content-between">
+                    <span class="mono-label">04 / Small Business Website</span>
+                    <span style="font-family: var(--font-mono); font-size: 0.65rem; background: var(--signal-amber); color: #070709; padding: 0.15rem 0.45rem; font-weight: 600;">POPULAR</span>
+                  </div>
+                  <div class="price-tag-inr">₹6,000–10,000</div>
+                  <div class="delivery-chip">
+                    <i data-lucide="clock" style="width: 12px; height: 12px;"></i>
+                    <span>7–10 working days</span>
+                  </div>
+                  <p class="small mb-0" style="color: var(--ink-secondary);">Multi-section custom website built for local and growing businesses.</p>
+                </div>
+                <div class="mt-4 pt-3 border-top" style="border-color: var(--line-grid) !important;">
+                  <a href="#contact" class="btn-forge-solid w-100 hover-target select-service-btn" data-service="Small Business Website (₹6,000–10,000)">
+                    <span>Enquire Now</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- 05. Basic Custom Web App -->
+            <div class="col-md-6 col-lg-4 reveal-up">
+              <div class="service-matrix-card">
+                <div>
+                  <div class="d-flex align-items-center justify-content-between">
+                    <span class="mono-label">05 / Basic Custom Web App</span>
+                    <i data-lucide="cpu" style="width: 18px; height: 18px; color: var(--ink-secondary);"></i>
+                  </div>
+                  <div class="price-tag-inr">₹12,000–20,000</div>
+                  <div class="delivery-chip">
+                    <i data-lucide="clock" style="width: 12px; height: 12px;"></i>
+                    <span>2–4 weeks</span>
+                  </div>
+                  <p class="small mb-0" style="color: var(--ink-secondary);">Interactive web tools, custom intake forms, filters, and data workflows.</p>
+                </div>
+                <div class="mt-4 pt-3 border-top" style="border-color: var(--line-grid) !important;">
+                  <a href="#contact" class="btn-forge-outline w-100 hover-target select-service-btn" data-service="Basic Custom Web App (₹12,000–20,000)">
+                    <span>Enquire Now</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- 06. Website Maintenance -->
+            <div class="col-md-6 col-lg-4 reveal-up">
+              <div class="service-matrix-card">
+                <div>
+                  <div class="d-flex align-items-center justify-content-between">
+                    <span class="mono-label">06 / Website Updates</span>
+                    <i data-lucide="wrench" style="width: 18px; height: 18px; color: var(--ink-secondary);"></i>
+                  </div>
+                  <div class="price-tag-inr">₹1,000–2,500 <span style="font-family: var(--font-mono); font-size: 0.75rem; font-weight: 400; color: var(--ink-muted);">/ mo</span></div>
+                  <div class="delivery-chip">
+                    <i data-lucide="clock" style="width: 12px; height: 12px;"></i>
+                    <span>24–48 hr turnaround</span>
+                  </div>
+                  <p class="small mb-0" style="color: var(--ink-secondary);">Content edits, menu changes, image swaps, and ongoing fixes.</p>
+                </div>
+                <div class="mt-4 pt-3 border-top" style="border-color: var(--line-grid) !important;">
+                  <a href="#contact" class="btn-forge-outline w-100 hover-target select-service-btn" data-service="Website Maintenance & Updates">
+                    <span>Enquire Now</span>
+                  </a>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- ======================================================================
-         7. ABOUT SECTION (STUDENT AT MANIPAL UNIVERSITY JAIPUR — NO REPRESENTATION CLAIM)
-         ====================================================================== -->
-    <section id="about" class="section-block" style="background-color: var(--bg-atelier);">
-      <div class="atelier-container">
-        <div class="row align-items-center g-4 g-lg-5">
-          <div class="col-lg-4 reveal-up">
-            <span class="mono-label d-block mb-2">05 / About NoahStudio</span>
-            <h2 class="section-heading mb-3">Direct 1-on-1 Execution With Zero Agency Markup.</h2>
-            <p class="small mb-0" style="color: var(--ink-muted); font-family: var(--font-mono);">
-              STUDENT AT MANIPAL UNIVERSITY JAIPUR
-            </p>
+      <!-- ====================================================================
+           5. INTERACTIVE PROJECT COST ESTIMATOR
+           ==================================================================== -->
+      <section id="estimator" class="section-block" style="background-color: var(--bg-atelier);">
+        <div class="atelier-container">
+          <div class="row align-items-end justify-content-between section-top-bar reveal-up">
+            <div class="col-lg-7">
+              <span class="mono-label d-block mb-2">03 / Interactive Estimator</span>
+              <h2 class="section-heading mb-0">Plan Your Budget Before You Commit.</h2>
+            </div>
+            <div class="col-lg-4 mt-3 mt-lg-0">
+              <p class="mb-0" style="color: var(--ink-secondary);">
+                Tap your project options below to see an indicative ballpark range before requesting a quote.
+              </p>
+            </div>
           </div>
-          <div class="col-lg-8 reveal-up">
-            <p class="fs-4 fw-medium mb-3" style="line-height: 1.5; color: var(--ink-primary);">
-              I’m a student at Manipal University Jaipur actively building my skills, portfolio, and real-world experience—taking on select freelance web projects with full personal ownership.
-            </p>
-            <p class="mb-0" style="color: var(--ink-secondary);">
-              Instead of pretending to be a large agency, I keep things honest and direct: I combine modern AI-assisted development workflows with hands-on coding, thorough mobile and desktop testing, and clear communication so small businesses and founders get reliable websites at fair rates.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- ======================================================================
-         8. CLEANED UP 06 / CONTACT SECTION (NO PERSONAL DATA FORM)
-         ====================================================================== -->
-    <section id="contact" class="section-block">
-      <div class="atelier-container">
-        <div class="row align-items-end justify-content-between section-top-bar reveal-up">
-          <div class="col-lg-7">
-            <span class="mono-label d-block mb-2">06 / Contact</span>
-            <h2 class="section-heading mb-0">Ready to Launch? Let’s Talk Directly.</h2>
-          </div>
-          <div class="col-lg-4 mt-3 mt-lg-0">
-            <p class="mb-0" style="color: var(--ink-secondary);">
-              No long forms or personal data collection—reach out directly on WhatsApp, call, or email to discuss your idea.
-            </p>
-          </div>
-        </div>
+          <div class="row g-4 g-lg-5 align-items-start">
+            <div class="col-lg-7 reveal-up">
+              <div class="estimator-panel">
+                <!-- Step 1: Project Type -->
+                <div class="est-step-block">
+                  <span class="mono-label d-block mb-1">1. Project Type</span>
+                  <p class="small mb-3" style="color: var(--ink-secondary);">Choose the core build you need.</p>
+                  <div class="est-option-grid cols-2" id="estTypeGroup">
+                    <label class="est-radio-label is-selected hover-target">
+                      <div>
+                        <div class="fw-semibold small">Single-Page / Landing</div>
+                        <div style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--ink-muted);">Base: ₹3,000 – ₹5,000</div>
+                      </div>
+                      <input type="radio" name="estProjectType" value="Single-Page / Landing" data-min="3000" data-max="5000" checked class="d-none" />
+                      <span class="est-indicator-circle"><i data-lucide="check" style="width: 11px; height: 11px;"></i></span>
+                    </label>
 
-        <div class="row g-4 align-items-stretch">
-          <!-- Left: Primary Direct Action Card -->
-          <div class="col-lg-7 reveal-up">
-            <div class="contact-hub-panel h-100 d-flex flex-column justify-content-between">
-              <div>
-                <span class="mono-label d-block mb-2">FASTEST RESPONSE</span>
-                <h3 class="h3 mb-2">Start a Quick Conversation</h3>
-                <p class="mb-4" style="color: var(--ink-secondary);">
-                  Share what kind of website or web app you need, and I’ll reply with a clear timeline and quote.
+                    <label class="est-radio-label hover-target">
+                      <div>
+                        <div class="fw-semibold small">Digital Catalogue</div>
+                        <div style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--ink-muted);">Base: ₹5,000 – ₹8,000</div>
+                      </div>
+                      <input type="radio" name="estProjectType" value="Digital Catalogue" data-min="5000" data-max="8000" class="d-none" />
+                      <span class="est-indicator-circle"><i data-lucide="check" style="width: 11px; height: 11px;"></i></span>
+                    </label>
+
+                    <label class="est-radio-label hover-target">
+                      <div>
+                        <div class="fw-semibold small">Website Redesign</div>
+                        <div style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--ink-muted);">Base: ₹5,000 – ₹9,000</div>
+                      </div>
+                      <input type="radio" name="estProjectType" value="Website Redesign" data-min="5000" data-max="9000" class="d-none" />
+                      <span class="est-indicator-circle"><i data-lucide="check" style="width: 11px; height: 11px;"></i></span>
+                    </label>
+
+                    <label class="est-radio-label hover-target">
+                      <div>
+                        <div class="fw-semibold small">Small Business Website</div>
+                        <div style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--ink-muted);">Base: ₹6,000 – ₹10,000</div>
+                      </div>
+                      <input type="radio" name="estProjectType" value="Small Business Website" data-min="6000" data-max="10000" class="d-none" />
+                      <span class="est-indicator-circle"><i data-lucide="check" style="width: 11px; height: 11px;"></i></span>
+                    </label>
+
+                    <label class="est-radio-label hover-target" style="grid-column: 1 / -1;">
+                      <div>
+                        <div class="fw-semibold small">Basic Custom Web App</div>
+                        <div style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--ink-muted);">Base: ₹12,000 – ₹20,000</div>
+                      </div>
+                      <input type="radio" name="estProjectType" value="Basic Custom Web App" data-min="12000" data-max="20000" class="d-none" />
+                      <span class="est-indicator-circle"><i data-lucide="check" style="width: 11px; height: 11px;"></i></span>
+                    </label>
+                  </div>
+                </div>
+
+                <!-- Step 2: Page / Screen Count -->
+                <div class="est-step-block">
+                  <span class="mono-label d-block mb-1">2. Number of Pages / Views</span>
+                  <p class="small mb-3" style="color: var(--ink-secondary);">Estimated page count or app screens.</p>
+                  <div class="est-option-grid cols-3" id="estPagesGroup">
+                    <label class="est-radio-label is-selected hover-target">
+                      <div>
+                        <div class="fw-semibold small">1–3 Pages</div>
+                        <div style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--ink-muted);">Included</div>
+                      </div>
+                      <input type="radio" name="estPages" value="1–3 Pages" data-add="0" checked class="d-none" />
+                      <span class="est-indicator-circle"><i data-lucide="check" style="width: 11px; height: 11px;"></i></span>
+                    </label>
+
+                    <label class="est-radio-label hover-target">
+                      <div>
+                        <div class="fw-semibold small">4–6 Pages</div>
+                        <div style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--ink-muted);">+₹1,500</div>
+                      </div>
+                      <input type="radio" name="estPages" value="4–6 Pages" data-add="1500" class="d-none" />
+                      <span class="est-indicator-circle"><i data-lucide="check" style="width: 11px; height: 11px;"></i></span>
+                    </label>
+
+                    <label class="est-radio-label hover-target">
+                      <div>
+                        <div class="fw-semibold small">7+ Pages</div>
+                        <div style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--ink-muted);">+₹3,000</div>
+                      </div>
+                      <input type="radio" name="estPages" value="7+ Pages" data-add="3000" class="d-none" />
+                      <span class="est-indicator-circle"><i data-lucide="check" style="width: 11px; height: 11px;"></i></span>
+                    </label>
+                  </div>
+                </div>
+
+                <!-- Step 3: Design Preference -->
+                <div class="est-step-block">
+                  <span class="mono-label d-block mb-1">3. Design Preference</span>
+                  <p class="small mb-3" style="color: var(--ink-secondary);">Visual complexity and interaction depth.</p>
+                  <div class="est-option-grid cols-3" id="estDesignGroup">
+                    <label class="est-radio-label is-selected hover-target">
+                      <div>
+                        <div class="fw-semibold small">Clean &amp; Minimal</div>
+                        <div style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--ink-muted);">Standard</div>
+                      </div>
+                      <input type="radio" name="estDesign" value="Clean & Minimal" data-add="0" checked class="d-none" />
+                      <span class="est-indicator-circle"><i data-lucide="check" style="width: 11px; height: 11px;"></i></span>
+                    </label>
+
+                    <label class="est-radio-label hover-target">
+                      <div>
+                        <div class="fw-semibold small">Custom Editorial</div>
+                        <div style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--ink-muted);">+₹1,500</div>
+                      </div>
+                      <input type="radio" name="estDesign" value="Custom Editorial" data-add="1500" class="d-none" />
+                      <span class="est-indicator-circle"><i data-lucide="check" style="width: 11px; height: 11px;"></i></span>
+                    </label>
+
+                    <label class="est-radio-label hover-target">
+                      <div>
+                        <div class="fw-semibold small">Motion &amp; Interactive</div>
+                        <div style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--ink-muted);">+₹2,500</div>
+                      </div>
+                      <input type="radio" name="estDesign" value="Motion & Interactive" data-add="2500" class="d-none" />
+                      <span class="est-indicator-circle"><i data-lucide="check" style="width: 11px; height: 11px;"></i></span>
+                    </label>
+                  </div>
+                </div>
+
+                <!-- Step 4: Additional Features -->
+                <div class="est-step-block">
+                  <span class="mono-label d-block mb-1">4. Additional Features</span>
+                  <p class="small mb-3" style="color: var(--ink-secondary);">Select the functionality you need.</p>
+                  <div class="est-option-grid cols-2" id="estFeaturesGroup">
+                    <label class="est-check-label hover-target">
+                      <span class="small fw-medium">Contact / enquiry form (+₹1,000)</span>
+                      <input type="checkbox" value="Contact / enquiry form" data-add="1000" class="d-none est-feature-cb" />
+                      <span class="est-indicator-circle"><i data-lucide="check" style="width: 11px; height: 11px;"></i></span>
+                    </label>
+
+                    <label class="est-check-label is-selected hover-target">
+                      <span class="small fw-medium">WhatsApp integration (+₹500)</span>
+                      <input type="checkbox" value="WhatsApp integration" data-add="500" checked class="d-none est-feature-cb" />
+                      <span class="est-indicator-circle"><i data-lucide="check" style="width: 11px; height: 11px;"></i></span>
+                    </label>
+
+                    <label class="est-check-label hover-target">
+                      <span class="small fw-medium">Photo gallery (+₹1,000)</span>
+                      <input type="checkbox" value="Photo gallery" data-add="1000" class="d-none est-feature-cb" />
+                      <span class="est-indicator-circle"><i data-lucide="check" style="width: 11px; height: 11px;"></i></span>
+                    </label>
+
+                    <label class="est-check-label hover-target">
+                      <span class="small fw-medium">Booking system (+₹2,500)</span>
+                      <input type="checkbox" value="Booking system" data-add="2500" class="d-none est-feature-cb" />
+                      <span class="est-indicator-circle"><i data-lucide="check" style="width: 11px; height: 11px;"></i></span>
+                    </label>
+
+                    <label class="est-check-label hover-target">
+                      <span class="small fw-medium">Content management system (+₹5,000)</span>
+                      <input type="checkbox" value="Content management system" data-add="5000" class="d-none est-feature-cb" />
+                      <span class="est-indicator-circle"><i data-lucide="check" style="width: 11px; height: 11px;"></i></span>
+                    </label>
+
+                    <label class="est-check-label hover-target">
+                      <span class="small fw-medium">User login / accounts (+₹4,000)</span>
+                      <input type="checkbox" value="User login / accounts" data-add="4000" class="d-none est-feature-cb" />
+                      <span class="est-indicator-circle"><i data-lucide="check" style="width: 11px; height: 11px;"></i></span>
+                    </label>
+
+                    <label class="est-check-label hover-target" style="grid-column: 1 / -1;">
+                      <span class="small fw-medium">Payment integration (+₹5,000)</span>
+                      <input type="checkbox" value="Payment integration" data-add="5000" class="d-none est-feature-cb" />
+                      <span class="est-indicator-circle"><i data-lucide="check" style="width: 11px; height: 11px;"></i></span>
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right: Live Estimate Summary -->
+            <div class="col-lg-5 reveal-up">
+              <div class="est-summary-card">
+                <span class="mono-label d-block">INDICATIVE BALLPARK ESTIMATE</span>
+                <div class="est-total-range" id="estRangeDisplay">₹3,500 – ₹5,500</div>
+                <p class="small mb-3" style="color: var(--ink-secondary);" id="estSelectionSummary">
+                  Single-Page / Landing · 1–3 Pages · Clean &amp; Minimal + WhatsApp integration
                 </p>
 
-                <!-- Selected Scope Preview Banner (Populated if user clicked from Estimator or Service card) -->
-                <div id="selectedScopeBanner" class="p-3 mb-4 d-none" style="background-color: rgba(255, 107, 44, 0.08); border: 1px solid rgba(255, 107, 44, 0.35); border-radius: var(--radius-sharp); font-size: 0.86rem;">
-                  <div class="d-flex align-items-center justify-content-between mb-1">
-                    <span class="mono-label" style="font-size: 0.68rem;">SELECTED SCOPE READY TO SEND</span>
-                    <button type="button" id="clearScopeBtn" class="btn btn-link p-0 text-decoration-none" style="font-family: var(--font-mono); font-size: 0.68rem; color: var(--ink-muted);">CLEAR</button>
+                <div class="p-3 mb-4" style="background-color: var(--bg-void); border: 1px solid var(--line-strong); border-radius: var(--radius-sharp); font-size: 0.8rem; color: var(--ink-secondary);">
+                  <div class="d-flex align-items-center gap-2 mb-1" style="color: var(--signal-amber); font-family: var(--font-mono); font-size: 0.7rem;">
+                    <i data-lucide="alert-circle" style="width: 14px; height: 14px;"></i>
+                    <span>SUBJECT TO REQUIREMENT REVIEW</span>
                   </div>
-                  <div id="selectedScopeText" style="color: var(--ink-primary); font-weight: 500;"></div>
+                  This figure is a rough indicative guide only—not a fixed price quote. Final pricing depends on exact feature complexity, third-party integrations, and content scope after reviewing your requirements.
                 </div>
-              </div>
 
-              <div class="d-flex flex-column gap-3">
-                <a id="whatsappDirectBtn" href="https://wa.me/918788337049?text=Hi%2C%20I%20visited%20NoahStudio%20and%20would%20like%20to%20discuss%20a%20website%20project." target="_blank" rel="noopener noreferrer" class="btn-forge-solid w-100 hover-target" style="background-color: var(--signal-mint); border-color: var(--signal-mint); color: #080809;">
-                  <i data-lucide="message-circle" style="width: 18px; height: 18px;"></i>
-                  <span>Chat on WhatsApp (+91 87883 37049)</span>
+                <a href="#contact" class="btn-forge-solid w-100 hover-target" id="applyEstimateBtn">
+                  <span>Lock Scope &amp; Go to Contact</span>
+                  <i data-lucide="arrow-down-right" style="width: 16px; height: 16px;"></i>
                 </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-                <div class="row g-2">
-                  <div class="col-sm-6">
-                    <a id="emailDirectBtn" href="mailto:rajkumarashish75@gmail.com?subject=Project%20Enquiry%20—%20NoahStudio" class="btn-forge-outline w-100 hover-target">
-                      <i data-lucide="mail" style="width: 16px; height: 16px;"></i>
-                      <span>Send an Email</span>
-                    </a>
+      <!-- ====================================================================
+           6. ALIGNED DELIVERY TIMELINE & WORKFLOW
+           ==================================================================== -->
+      <section id="timeline" class="section-block">
+        <div class="atelier-container">
+          <div class="row align-items-end justify-content-between section-top-bar reveal-up">
+            <div class="col-lg-7">
+              <span class="mono-label d-block mb-2">04 / Timeline &amp; Process</span>
+              <h2 class="section-heading mb-0">Go Live in Days, Not Months.</h2>
+            </div>
+            <div class="col-lg-4 mt-3 mt-lg-0">
+              <p class="mb-0" style="color: var(--ink-secondary);">
+                Clear delivery estimates with personal testing and milestone updates at every step.
+              </p>
+            </div>
+          </div>
+
+          <div class="row g-4 g-lg-5 align-items-stretch">
+            <div class="col-lg-6 reveal-up d-flex flex-column">
+              <div class="d-flex align-items-center justify-content-between mb-3 px-1">
+                <span class="mono-label">PROJECT</span>
+                <span class="mono-label">ESTIMATED DELIVERY</span>
+              </div>
+
+              <div class="timeline-table-wrap flex-grow-1 d-flex flex-column justify-content-between">
+                <div class="timeline-row-item">
+                  <span class="fw-semibold" style="color: var(--ink-primary);">Landing page</span>
+                  <span class="timeline-duration-badge">3–5 working days</span>
+                </div>
+                <div class="timeline-row-item">
+                  <span class="fw-semibold" style="color: var(--ink-primary);">Small business website</span>
+                  <span class="timeline-duration-badge">7–10 working days</span>
+                </div>
+                <div class="timeline-row-item">
+                  <span class="fw-semibold" style="color: var(--ink-primary);">Digital catalogue</span>
+                  <span class="timeline-duration-badge">5–8 working days</span>
+                </div>
+                <div class="timeline-row-item">
+                  <span class="fw-semibold" style="color: var(--ink-primary);">Website redesign</span>
+                  <span class="timeline-duration-badge">5–10 working days</span>
+                </div>
+                <div class="timeline-row-item">
+                  <span class="fw-semibold" style="color: var(--ink-primary);">Basic custom web app</span>
+                  <span class="timeline-duration-badge" style="color: var(--signal-amber);">2–4 weeks</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-6 reveal-up d-flex flex-column">
+              <span class="mono-label d-block mb-3 px-1">HOW I WORK WITH YOU</span>
+              <div class="row g-3 flex-grow-1">
+                <div class="col-sm-6">
+                  <div class="brutalist-box">
+                    <span class="step-code">01 / DISCOVERY</span>
+                    <h3 class="h6 mb-2">Understand Goals</h3>
+                    <p class="small mb-0" style="color: var(--ink-secondary);">Clarify pages, features, and content before writing code.</p>
                   </div>
-                  <div class="col-sm-6">
-                    <a href="tel:+918788337049" class="btn-forge-outline w-100 hover-target">
-                      <i data-lucide="phone" style="width: 16px; height: 16px;"></i>
-                      <span>Call Directly</span>
-                    </a>
+                </div>
+                <div class="col-sm-6">
+                  <div class="brutalist-box">
+                    <span class="step-code">02 / STRUCTURE</span>
+                    <h3 class="h6 mb-2">Plan &amp; Wireframe</h3>
+                    <p class="small mb-0" style="color: var(--ink-secondary);">Map out mobile-first layout and user navigation flow.</p>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="brutalist-box">
+                    <span class="step-code">03 / BUILD</span>
+                    <h3 class="h6 mb-2">AI-Assisted + Hand-Built</h3>
+                    <p class="small mb-0" style="color: var(--ink-secondary);">Fast iteration paired with personal code implementation.</p>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="brutalist-box">
+                    <span class="step-code">04 / TEST &amp; LAUNCH</span>
+                    <h3 class="h6 mb-2">QA &amp; Handover</h3>
+                    <p class="small mb-0" style="color: var(--ink-secondary);">Tested on real phones &amp; desktops, then deployed live.</p>
                   </div>
                 </div>
               </div>
             </div>
           </div>
+        </div>
+      </section>
 
-          <!-- Right: Clean Contact Details Stack -->
-          <div class="col-lg-5 reveal-up">
-            <div class="d-flex flex-column gap-3 h-100 justify-content-between">
-              <a href="tel:+918788337049" class="contact-action-tile hover-target">
-                <div class="d-flex align-items-center gap-3">
-                  <span class="contact-tile-icon"><i data-lucide="phone" style="width: 18px; height: 18px;"></i></span>
-                  <div>
-                    <div style="font-family: var(--font-mono); font-size: 0.68rem; color: var(--ink-muted);">PHONE / WHATSAPP</div>
-                    <div class="fw-semibold">+91 87883 37049</div>
-                  </div>
-                </div>
-                <i data-lucide="arrow-up-right" style="width: 16px; height: 16px; color: var(--ink-secondary);"></i>
-              </a>
-
-              <a href="mailto:rajkumarashish75@gmail.com" class="contact-action-tile hover-target">
-                <div class="d-flex align-items-center gap-3" style="min-width: 0;">
-                  <span class="contact-tile-icon"><i data-lucide="mail" style="width: 18px; height: 18px;"></i></span>
-                  <div style="min-width: 0;">
-                    <div style="font-family: var(--font-mono); font-size: 0.68rem; color: var(--ink-muted);">EMAIL ADDRESS</div>
-                    <div class="fw-semibold text-truncate">rajkumarashish75@gmail.com</div>
-                  </div>
-                </div>
-                <i data-lucide="arrow-up-right" style="width: 16px; height: 16px; color: var(--ink-secondary); flex-shrink: 0;"></i>
-              </a>
-
-              <a href="https://github.com/imvicky2115" target="_blank" rel="noopener noreferrer" class="contact-action-tile hover-target">
-                <div class="d-flex align-items-center gap-3">
-                  <span class="contact-tile-icon mint"><i data-lucide="github" style="width: 18px; height: 18px;"></i></span>
-                  <div>
-                    <div style="font-family: var(--font-mono); font-size: 0.68rem; color: var(--ink-muted);">LIVE CODE &amp; PROJECTS</div>
-                    <div class="fw-semibold">github.com/imvicky2115</div>
-                  </div>
-                </div>
-                <i data-lucide="arrow-up-right" style="width: 16px; height: 16px; color: var(--ink-secondary);"></i>
-              </a>
+      <!-- ====================================================================
+           7. ABOUT SECTION
+           ==================================================================== -->
+      <section id="about" class="section-block" style="background-color: var(--bg-atelier);">
+        <div class="atelier-container">
+          <div class="row align-items-center g-4 g-lg-5">
+            <div class="col-lg-4 reveal-up">
+              <span class="mono-label d-block mb-2">05 / About NoahStudio</span>
+              <h2 class="section-heading mb-3">Direct 1-on-1 Execution With Zero Agency Markup.</h2>
+              <p class="small mb-0" style="color: var(--ink-muted); font-family: var(--font-mono);">
+                STUDENT AT MANIPAL UNIVERSITY JAIPUR
+              </p>
+            </div>
+            <div class="col-lg-8 reveal-up">
+              <p class="fs-4 fw-medium mb-3" style="line-height: 1.5; color: var(--ink-primary);">
+                I’m a student at Manipal University Jaipur actively building my skills, portfolio, and real-world experience—taking on select freelance web projects with full personal ownership.
+              </p>
+              <p class="mb-0" style="color: var(--ink-secondary);">
+                Instead of pretending to be a large agency, I keep things honest and direct: I combine modern AI-assisted development workflows with hands-on coding, thorough mobile and desktop testing, and clear communication so small businesses and founders get reliable websites at fair rates.
+              </p>
             </div>
           </div>
         </div>
-      </div>
-    </section>
-  </main>
+      </section>
 
-  <!-- ========================================================================
-       9. FOOTER (NOAHSTUDIO + MANIPAL UNIVERSITY JAIPUR)
-       ======================================================================== -->
-  <footer class="atelier-footer">
-    <div class="atelier-container">
-      <div class="row g-4 pb-4">
-        <div class="col-lg-4">
-          <a href="#top" class="brand-wordmark mb-3">
-            <span class="brand-stamp">NS</span>
-            <span>Noah<span style="color: var(--signal-amber);">Studio</span></span>
-          </a>
-          <p class="small mb-2" style="color: var(--ink-secondary); max-width: 320px;">
-            Independent web design &amp; development portfolio by a student at Manipal University Jaipur.
-          </p>
-          <p class="mono-label mb-0" style="font-size: 0.68rem; color: var(--ink-muted);">
-            PUNE · JAIPUR · INDIA
-          </p>
-        </div>
+      <!-- ====================================================================
+           8. CLEANED UP 06 / CONTACT SECTION (NO DUPLICATE BUTTONS + OBFUSCATED CONTACT)
+           ==================================================================== -->
+      <section id="contact" class="section-block">
+        <div class="atelier-container">
+          <div class="row align-items-end justify-content-between section-top-bar reveal-up">
+            <div class="col-lg-7">
+              <span class="mono-label d-block mb-2">06 / Contact</span>
+              <h2 class="section-heading mb-0">Ready to Launch? Let’s Talk Directly.</h2>
+            </div>
+            <div class="col-lg-4 mt-3 mt-lg-0">
+              <p class="mb-0" style="color: var(--ink-secondary);">
+                No forms or data collection—pick your preferred channel below to start a conversation.
+              </p>
+            </div>
+          </div>
 
-        <div class="col-6 col-md-4 col-lg-2">
-          <h4 class="mono-label mb-3" style="font-size: 0.72rem; color: var(--ink-primary);">Index</h4>
-          <ul class="list-unstyled mb-0">
-            <li><a href="#work" class="footer-item-link">Work</a></li>
-            <li><a href="#services" class="footer-item-link">Services</a></li>
-            <li><a href="#estimator" class="footer-item-link">Cost Estimator</a></li>
-            <li><a href="#timeline" class="footer-item-link">Delivery</a></li>
-            <li><a href="#about" class="footer-item-link">About</a></li>
-            <li><a href="#contact" class="footer-item-link">Contact</a></li>
-          </ul>
-        </div>
+          <div class="row g-4 align-items-stretch">
+            <!-- Left: Primary WhatsApp Action -->
+            <div class="col-lg-6 reveal-up">
+              <div class="contact-hub-panel h-100 d-flex flex-column justify-content-between">
+                <div>
+                  <span class="mono-label d-block mb-2">FASTEST RESPONSE</span>
+                  <h3 class="h3 mb-2">Message on WhatsApp</h3>
+                  <p class="mb-4" style="color: var(--ink-secondary);">
+                    Share what kind of website or web app you need, and I’ll reply with a clear timeline and quote.
+                  </p>
 
-        <div class="col-6 col-md-4 col-lg-3">
-          <h4 class="mono-label mb-3" style="font-size: 0.72rem; color: var(--ink-primary);">Starting Rates</h4>
-          <ul class="list-unstyled mb-0">
-            <li><a href="#services" class="footer-item-link">Single-Page (₹3,000–5,000)</a></li>
-            <li><a href="#services" class="footer-item-link">Digital Catalogue (₹5,000–8,000)</a></li>
-            <li><a href="#services" class="footer-item-link">Redesign (₹5,000–9,000)</a></li>
-            <li><a href="#services" class="footer-item-link">Small Business (₹6,000–10,000)</a></li>
-            <li><a href="#services" class="footer-item-link">Basic Web App (₹12,000–20,000)</a></li>
-          </ul>
-        </div>
+                  <!-- Selected Scope Preview Banner (Populated when user selects a service or estimator scope) -->
+                  <div id="selectedScopeBanner" class="p-3 mb-4 d-none" style="background-color: rgba(255, 107, 44, 0.08); border: 1px solid rgba(255, 107, 44, 0.35); border-radius: var(--radius-sharp); font-size: 0.86rem;">
+                    <div class="d-flex align-items-center justify-content-between mb-1">
+                      <span class="mono-label" style="font-size: 0.68rem;">SELECTED SCOPE ATTACHED</span>
+                      <button type="button" id="clearScopeBtn" class="btn btn-link p-0 text-decoration-none" style="font-family: var(--font-mono); font-size: 0.68rem; color: var(--ink-muted);">CLEAR</button>
+                    </div>
+                    <div id="selectedScopeText" style="color: var(--ink-primary); font-weight: 500;"></div>
+                  </div>
+                </div>
 
-        <div class="col-md-4 col-lg-3">
-          <h4 class="mono-label mb-3" style="font-size: 0.72rem; color: var(--ink-primary);">Direct Contact</h4>
-          <ul class="list-unstyled mb-3">
-            <li><a href="mailto:rajkumarashish75@gmail.com" class="footer-item-link" style="word-break: break-all;">rajkumarashish75@gmail.com</a></li>
-            <li><a href="tel:+918788337049" class="footer-item-link">+91 87883 37049</a></li>
-          </ul>
-          <div class="d-flex gap-2">
-            <a href="https://github.com/imvicky2115" target="_blank" rel="noopener noreferrer" class="mobile-menu-btn hover-target" aria-label="GitHub">
-              <i data-lucide="github" style="width: 16px; height: 16px;"></i>
-            </a>
-            <a href="https://wa.me/918788337049" target="_blank" rel="noopener noreferrer" class="mobile-menu-btn hover-target" aria-label="WhatsApp">
-              <i data-lucide="message-circle" style="width: 16px; height: 16px;"></i>
-            </a>
-            <a href="mailto:rajkumarashish75@gmail.com" class="mobile-menu-btn hover-target" aria-label="Email">
-              <i data-lucide="mail" style="width: 16px; height: 16px;"></i>
-            </a>
+                <div>
+                  <button type="button" id="whatsappDirectBtn" class="btn-forge-solid w-100 hover-target" style="background-color: var(--signal-mint); border-color: var(--signal-mint); color: #070709;">
+                    <i data-lucide="message-circle" style="width: 18px; height: 18px;"></i>
+                    <span>Chat on WhatsApp</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right: Clean Direct Channels (Obfuscated from scraper bots) -->
+            <div class="col-lg-6 reveal-up">
+              <div class="d-flex flex-column gap-3 h-100 justify-content-between">
+                <button type="button" id="callActionTile" class="contact-action-tile w-100 text-start hover-target">
+                  <div class="d-flex align-items-center gap-3">
+                    <span class="contact-tile-icon"><i data-lucide="phone" style="width: 18px; height: 18px;"></i></span>
+                    <div>
+                      <div style="font-family: var(--font-mono); font-size: 0.68rem; color: var(--ink-muted);">DIRECT PHONE</div>
+                      <div class="fw-semibold" id="obfuscatedPhoneLabel">Tap to Reveal &amp; Call</div>
+                    </div>
+                  </div>
+                  <i data-lucide="arrow-up-right" style="width: 16px; height: 16px; color: var(--ink-secondary);"></i>
+                </button>
+
+                <button type="button" id="emailActionTile" class="contact-action-tile w-100 text-start hover-target">
+                  <div class="d-flex align-items-center gap-3" style="min-width: 0;">
+                    <span class="contact-tile-icon"><i data-lucide="mail" style="width: 18px; height: 18px;"></i></span>
+                    <div style="min-width: 0;">
+                      <div style="font-family: var(--font-mono); font-size: 0.68rem; color: var(--ink-muted);">DIRECT EMAIL</div>
+                      <div class="fw-semibold text-truncate" id="obfuscatedEmailLabel">Tap to Reveal &amp; Email</div>
+                    </div>
+                  </div>
+                  <i data-lucide="arrow-up-right" style="width: 16px; height: 16px; color: var(--ink-secondary); flex-shrink: 0;"></i>
+                </button>
+
+                <a href="https://github.com/imvicky2115" target="_blank" rel="noopener noreferrer" class="contact-action-tile hover-target">
+                  <div class="d-flex align-items-center gap-3">
+                    <span class="contact-tile-icon mint"><i data-lucide="github" style="width: 18px; height: 18px;"></i></span>
+                    <div>
+                      <div style="font-family: var(--font-mono); font-size: 0.68rem; color: var(--ink-muted);">LIVE CODE &amp; REPOSITORIES</div>
+                      <div class="fw-semibold">github.com/imvicky2115</div>
+                    </div>
+                  </div>
+                  <i data-lucide="arrow-up-right" style="width: 16px; height: 16px; color: var(--ink-secondary);"></i>
+                </a>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
+      </section>
+    </main>
 
-      <div class="pt-4 border-top d-flex flex-column flex-sm-row align-items-center justify-content-between gap-2 small" style="border-color: var(--line-grid) !important; color: var(--ink-muted);">
-        <div>&copy; <span id="yearNow"></span> NoahStudio. All rights reserved.</div>
-        <div style="font-family: var(--font-mono); font-size: 0.72rem;">BUILT BY A STUDENT AT MANIPAL UNIVERSITY JAIPUR</div>
+    <!-- ====================================================================
+         9. FOOTER (MANIPAL UNIVERSITY JAIPUR + OBFUSCATED CONTACT)
+         ==================================================================== -->
+    <footer class="atelier-footer">
+      <div class="atelier-container">
+        <div class="row g-4 pb-4">
+          <div class="col-lg-4">
+            <a href="#top" class="brand-wordmark mb-3">
+              <span class="brand-stamp">NS</span>
+              <span>Noah<span style="color: var(--signal-amber);">Studio</span></span>
+            </a>
+            <p class="small mb-2" style="color: var(--ink-secondary); max-width: 320px;">
+              Independent web design &amp; development portfolio by a student at Manipal University Jaipur.
+            </p>
+            <p class="mono-label mb-0" style="font-size: 0.68rem; color: var(--ink-muted);">
+              PUNE · JAIPUR · INDIA
+            </p>
+          </div>
+
+          <div class="col-6 col-md-4 col-lg-2">
+            <h4 class="mono-label mb-3" style="font-size: 0.72rem; color: var(--ink-primary);">Index</h4>
+            <ul class="list-unstyled mb-0">
+              <li><a href="#work" class="footer-item-link">Work</a></li>
+              <li><a href="#services" class="footer-item-link">Services</a></li>
+              <li><a href="#estimator" class="footer-item-link">Cost Estimator</a></li>
+              <li><a href="#timeline" class="footer-item-link">Delivery</a></li>
+              <li><a href="#about" class="footer-item-link">About</a></li>
+              <li><a href="#contact" class="footer-item-link">Contact</a></li>
+            </ul>
+          </div>
+
+          <div class="col-6 col-md-4 col-lg-3">
+            <h4 class="mono-label mb-3" style="font-size: 0.72rem; color: var(--ink-primary);">Starting Rates</h4>
+            <ul class="list-unstyled mb-0">
+              <li><a href="#services" class="footer-item-link">Single-Page (₹3,000–5,000)</a></li>
+              <li><a href="#services" class="footer-item-link">Digital Catalogue (₹5,000–8,000)</a></li>
+              <li><a href="#services" class="footer-item-link">Redesign (₹5,000–9,000)</a></li>
+              <li><a href="#services" class="footer-item-link">Small Business (₹6,000–10,000)</a></li>
+              <li><a href="#services" class="footer-item-link">Basic Web App (₹12,000–20,000)</a></li>
+            </ul>
+          </div>
+
+          <div class="col-md-4 col-lg-3">
+            <h4 class="mono-label mb-3" style="font-size: 0.72rem; color: var(--ink-primary);">Connect</h4>
+            <ul class="list-unstyled mb-3">
+              <li><a href="#contact" class="footer-item-link">Reveal Email &amp; Phone</a></li>
+              <li><a href="https://github.com/imvicky2115" target="_blank" rel="noopener noreferrer" class="footer-item-link">GitHub Portfolio</a></li>
+            </ul>
+            <div class="d-flex gap-2">
+              <a href="https://github.com/imvicky2115" target="_blank" rel="noopener noreferrer" class="mobile-menu-btn hover-target" aria-label="GitHub">
+                <i data-lucide="github" style="width: 16px; height: 16px;"></i>
+              </a>
+              <button type="button" id="footerWaBtn" class="mobile-menu-btn hover-target" aria-label="WhatsApp">
+                <i data-lucide="message-circle" style="width: 16px; height: 16px;"></i>
+              </button>
+              <button type="button" id="footerEmailBtn" class="mobile-menu-btn hover-target" aria-label="Email">
+                <i data-lucide="mail" style="width: 16px; height: 16px;"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="pt-4 border-top d-flex flex-column flex-sm-row align-items-center justify-content-between gap-2 small" style="border-color: var(--line-grid) !important; color: var(--ink-muted);">
+          <div>&copy; <span id="yearNow"></span> NoahStudio. All rights reserved.</div>
+          <div style="font-family: var(--font-mono); font-size: 0.72rem;">BUILT BY A STUDENT AT MANIPAL UNIVERSITY JAIPUR</div>
+        </div>
       </div>
-    </div>
-  </footer>
+    </footer>
+  </div>
 
   <!-- ========================================================================
-       JAVASCRIPT: ESTIMATOR LOGIC, MOBILE SWIPE, DIRECT SCOPE LINKS & MOTION
+       JAVASCRIPT: ULTRA-SMOOTH GPU MOTION, CONTACT OBFUSCATION & ESTIMATOR
        ======================================================================== -->
   <script>
     document.addEventListener("DOMContentLoaded", () => {
@@ -2216,7 +2210,96 @@
       const yearEl = document.getElementById("yearNow");
       if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-      // Mobile Navigation Sheet
+      // ======================================================================
+      // 1. CONTACT INFORMATION OBFUSCATION (ANTI-SCRAPER PROTECTION)
+      //    Contact details are never stored as plain-text strings in HTML
+      // ======================================================================
+      const _p = [57, 49, 56, 55, 56, 56, 51, 51, 55, 48, 52, 57]; // +918788337049
+      const _u = [114, 97, 106, 107, 117, 109, 97, 114, 97, 115, 104, 105, 115, 104, 55, 53];
+      const _d = [103, 109, 97, 105, 108, 46, 99, 111, 109];
+
+      const getPhone = () => String.fromCharCode(..._p);
+      const getFormattedPhone = () => {
+        const raw = getPhone();
+        return `+${raw.slice(0, 2)} ${raw.slice(2, 7)} ${raw.slice(7)}`;
+      };
+      const getEmail = () => `${String.fromCharCode(..._u)}@${String.fromCharCode(..._d)}`;
+
+      let activeScopeSummary = "";
+
+      const openWhatsApp = () => {
+        const msg = activeScopeSummary
+          ? `Hi, I visited NoahStudio and I'm interested in:\n${activeScopeSummary}\n\nLet's discuss the requirements.`
+          : "Hi, I visited NoahStudio and would like to discuss a website project.";
+        window.open(`https://wa.me/${getPhone()}?text=${encodeURIComponent(msg)}`, "_blank", "noopener,noreferrer");
+      };
+
+      const openEmailClient = () => {
+        const subject = "Project Enquiry — NoahStudio";
+        const body = activeScopeSummary
+          ? `Hi,\n\nI visited NoahStudio and I'm interested in:\n${activeScopeSummary}\n\nLet's discuss the exact requirements and timeline.`
+          : "Hi,\n\nI visited NoahStudio and would like to discuss a website project.";
+        window.location.href = `mailto:${getEmail()}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      };
+
+      const callTile = document.getElementById("callActionTile");
+      const phoneLabel = document.getElementById("obfuscatedPhoneLabel");
+      if (callTile && phoneLabel) {
+        callTile.addEventListener("click", () => {
+          phoneLabel.textContent = getFormattedPhone();
+          window.location.href = `tel:+${getPhone()}`;
+        });
+      }
+
+      const emailTile = document.getElementById("emailActionTile");
+      const emailLabel = document.getElementById("obfuscatedEmailLabel");
+      if (emailTile && emailLabel) {
+        emailTile.addEventListener("click", () => {
+          emailLabel.textContent = getEmail();
+          openEmailClient();
+        });
+      }
+
+      const whatsappBtn = document.getElementById("whatsappDirectBtn");
+      const footerWaBtn = document.getElementById("footerWaBtn");
+      const footerEmailBtn = document.getElementById("footerEmailBtn");
+
+      if (whatsappBtn) whatsappBtn.addEventListener("click", openWhatsApp);
+      if (footerWaBtn) footerWaBtn.addEventListener("click", openWhatsApp);
+      if (footerEmailBtn) footerEmailBtn.addEventListener("click", openEmailClient);
+
+      // Scope Banner Attachment
+      const scopeBanner = document.getElementById("selectedScopeBanner");
+      const scopeTextEl = document.getElementById("selectedScopeText");
+      const clearScopeBtn = document.getElementById("clearScopeBtn");
+
+      const setContactScope = (scopeSummary) => {
+        activeScopeSummary = scopeSummary || "";
+        if (!scopeBanner || !scopeTextEl) return;
+        if (!activeScopeSummary) {
+          scopeBanner.classList.add("d-none");
+          scopeTextEl.textContent = "";
+        } else {
+          scopeTextEl.textContent = activeScopeSummary;
+          scopeBanner.classList.remove("d-none");
+        }
+      };
+
+      if (clearScopeBtn) {
+        clearScopeBtn.addEventListener("click", () => setContactScope(""));
+      }
+
+      document.querySelectorAll(".select-service-btn").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          if (btn.dataset.service) {
+            setContactScope(`Service: ${btn.dataset.service}`);
+          }
+        });
+      });
+
+      // ======================================================================
+      // 2. MOBILE NAVIGATION SHEET
+      // ======================================================================
       const openBtn = document.getElementById("openMobileMenu");
       const closeBtn = document.getElementById("closeMobileMenu");
       const sheet = document.getElementById("mobileSheet");
@@ -2237,7 +2320,9 @@
         if (e.key === "Escape" && sheet.classList.contains("open")) setSheet(false);
       });
 
-      // Hero Spec Sheet Tabs
+      // ======================================================================
+      // 3. HERO SPEC TABS & INTERACTIVE DESKTOP SPOTLIGHT
+      // ======================================================================
       const tabBtns = document.querySelectorAll(".spec-tab-btn");
       const tabPanes = document.querySelectorAll(".spec-pane");
 
@@ -2257,7 +2342,20 @@
         });
       });
 
-      // Full-Card Mobile Swipeable Portfolio Carousel
+      const heroSection = document.getElementById("heroSection");
+      if (heroSection && window.matchMedia("(hover: hover)").matches) {
+        heroSection.addEventListener("pointermove", (e) => {
+          const rect = heroSection.getBoundingClientRect();
+          const x = ((e.clientX - rect.left) / rect.width) * 100;
+          const y = ((e.clientY - rect.top) / rect.height) * 100;
+          heroSection.style.setProperty("--spot-x", `${x}%`);
+          heroSection.style.setProperty("--spot-y", `${y}%`);
+        }, { passive: true });
+      }
+
+      // ======================================================================
+      // 4. MOBILE SWIPEABLE PORTFOLIO CAROUSEL
+      // ======================================================================
       const track = document.getElementById("portfolioTrack");
       const slides = document.querySelectorAll(".portfolio-slide");
       const dots = document.querySelectorAll(".swipe-dot");
@@ -2274,8 +2372,7 @@
 
       dots.forEach((dot) => {
         dot.addEventListener("click", () => {
-          const idx = Number(dot.dataset.targetSlide);
-          scrollToSlide(idx);
+          scrollToSlide(Number(dot.dataset.targetSlide));
         });
       });
 
@@ -2283,65 +2380,28 @@
         prevBtn.addEventListener("click", () => scrollToSlide(0));
         nextBtn.addEventListener("click", () => scrollToSlide(1));
 
+        let scrollTicking = false;
         track.addEventListener("scroll", () => {
-          const midpoint = track.scrollLeft + track.clientWidth / 2;
-          slides.forEach((slide, idx) => {
-            const start = slide.offsetLeft - track.offsetLeft;
-            const end = start + slide.offsetWidth;
-            if (midpoint >= start && midpoint < end) {
-              dots.forEach((d, dIdx) => d.classList.toggle("active", dIdx === idx));
-            }
-          });
+          if (!scrollTicking) {
+            requestAnimationFrame(() => {
+              const midpoint = track.scrollLeft + track.clientWidth / 2;
+              slides.forEach((slide, idx) => {
+                const start = slide.offsetLeft - track.offsetLeft;
+                const end = start + slide.offsetWidth;
+                if (midpoint >= start && midpoint < end) {
+                  dots.forEach((d, dIdx) => d.classList.toggle("active", dIdx === idx));
+                }
+              });
+              scrollTicking = false;
+            });
+            scrollTicking = true;
+          }
         }, { passive: true });
       }
 
-      // Direct Contact Link Updater (Updates WhatsApp & Email links without collecting personal form data)
-      const scopeBanner = document.getElementById("selectedScopeBanner");
-      const scopeTextEl = document.getElementById("selectedScopeText");
-      const clearScopeBtn = document.getElementById("clearScopeBtn");
-      const whatsappDirectBtn = document.getElementById("whatsappDirectBtn");
-      const emailDirectBtn = document.getElementById("emailDirectBtn");
-
-      const defaultWaMsg = "Hi, I visited NoahStudio and would like to discuss a website project.";
-      const defaultMailSubject = "Project Enquiry — NoahStudio";
-      const defaultMailBody = "Hi,\n\nI visited NoahStudio and would like to discuss a website project.";
-
-      const setContactScope = (scopeSummary) => {
-        if (!whatsappDirectBtn || !emailDirectBtn) return;
-
-        if (!scopeSummary) {
-          if (scopeBanner) scopeBanner.classList.add("d-none");
-          whatsappDirectBtn.href = `https://wa.me/918788337049?text=${encodeURIComponent(defaultWaMsg)}`;
-          emailDirectBtn.href = `mailto:rajkumarashish75@gmail.com?subject=${encodeURIComponent(defaultMailSubject)}&body=${encodeURIComponent(defaultMailBody)}`;
-          return;
-        }
-
-        if (scopeBanner && scopeTextEl) {
-          scopeTextEl.textContent = scopeSummary;
-          scopeBanner.classList.remove("d-none");
-        }
-
-        const waMessage = `Hi, I visited NoahStudio and I'm interested in:\n${scopeSummary}\n\nLet's discuss the requirements.`;
-        const mailBody = `Hi,\n\nI visited NoahStudio and I'm interested in:\n${scopeSummary}\n\nLet's discuss the exact requirements and timeline.`;
-
-        whatsappDirectBtn.href = `https://wa.me/918788337049?text=${encodeURIComponent(waMessage)}`;
-        emailDirectBtn.href = `mailto:rajkumarashish75@gmail.com?subject=${encodeURIComponent("Project Enquiry — NoahStudio")}&body=${encodeURIComponent(mailBody)}`;
-      };
-
-      if (clearScopeBtn) {
-        clearScopeBtn.addEventListener("click", () => setContactScope(""));
-      }
-
-      // Service Cards -> Attach selected service to Contact section links
-      document.querySelectorAll(".select-service-btn").forEach((btn) => {
-        btn.addEventListener("click", () => {
-          if (btn.dataset.service) {
-            setContactScope(`Service: ${btn.dataset.service}`);
-          }
-        });
-      });
-
-      // Interactive Project Cost Estimator
+      // ======================================================================
+      // 5. INTERACTIVE PROJECT COST ESTIMATOR
+      // ======================================================================
       const rangeDisplay = document.getElementById("estRangeDisplay");
       const summaryDisplay = document.getElementById("estSelectionSummary");
       const applyEstimateBtn = document.getElementById("applyEstimateBtn");
@@ -2407,26 +2467,47 @@
         });
       }
 
-      // Desktop Crosshair Cursor
+      // ======================================================================
+      // 6. ULTRA-SMOOTH GPU-ONLY SCROLL PROGRESS, CURSOR & GSAP MOTION
+      // ======================================================================
       const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      const progressBar = document.getElementById("scrollProgressBar");
+
+      if (progressBar) {
+        let ticking = false;
+        const updateProgress = () => {
+          const scrollTop = window.scrollY || document.documentElement.scrollTop;
+          const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+          const ratio = docHeight > 0 ? Math.min(Math.max(scrollTop / docHeight, 0), 1) : 0;
+          progressBar.style.transform = `scaleX(${ratio})`;
+          ticking = false;
+        };
+        window.addEventListener("scroll", () => {
+          if (!ticking) {
+            requestAnimationFrame(updateProgress);
+            ticking = true;
+          }
+        }, { passive: true });
+        updateProgress();
+      }
+
+      // GPU translate3d Cursor (Zero left/top reflows)
       const dot = document.getElementById("cursorDot");
       const crosshair = document.getElementById("cursorCrosshair");
 
       if (!reducedMotion && dot && crosshair && window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
-        let mx = 0, my = 0, cx = 0, cy = 0;
+        let mx = -100, my = -100, cx = -100, cy = -100;
 
         window.addEventListener("mousemove", (e) => {
           mx = e.clientX;
           my = e.clientY;
-          dot.style.left = `${mx}px`;
-          dot.style.top = `${my}px`;
+          dot.style.transform = `translate3d(${mx}px, ${my}px, 0)`;
         }, { passive: true });
 
         const tick = () => {
-          cx += (mx - cx) * 0.2;
-          cy += (my - cy) * 0.2;
-          crosshair.style.left = `${cx}px`;
-          crosshair.style.top = `${cy}px`;
+          cx += (mx - cx) * 0.22;
+          cy += (my - cy) * 0.22;
+          crosshair.style.transform = `translate3d(${cx}px, ${cy}px, 0)`;
           requestAnimationFrame(tick);
         };
         requestAnimationFrame(tick);
@@ -2437,29 +2518,31 @@
         });
       }
 
-      // Subtle GSAP Entrance & Scroll Animations
+      // Smooth GPU-Composited GSAP Animations (clearProps prevents sticky transform lag)
       if (!reducedMotion && window.gsap) {
         gsap.registerPlugin(ScrollTrigger);
 
         gsap.from(".reveal-hero", {
-          y: 18,
+          y: 16,
           opacity: 0,
-          duration: 0.7,
-          stagger: 0.08,
-          ease: "power3.out"
+          duration: 0.65,
+          stagger: 0.07,
+          ease: "power3.out",
+          clearProps: "transform"
         });
 
         gsap.utils.toArray(".reveal-up").forEach((el) => {
           gsap.from(el, {
             scrollTrigger: {
               trigger: el,
-              start: "top 88%",
+              start: "top 90%",
               once: true
             },
-            y: 20,
+            y: 18,
             opacity: 0,
-            duration: 0.6,
-            ease: "power2.out"
+            duration: 0.55,
+            ease: "power2.out",
+            clearProps: "transform"
           });
         });
       }
