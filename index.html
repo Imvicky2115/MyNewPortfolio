@@ -26,6 +26,21 @@
   <meta name="twitter:title" content="NoahStudio — Web Design & Development" />
   <meta name="twitter:description" content="Fast, modern websites and custom web apps that bring you more customers." />
 
+  <!-- Structured Data (JSON-LD) for Search Engines -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "NoahStudio",
+    "description": "Independent web design and development portfolio by a student at Manipal University Jaipur.",
+    "areaServed": "India",
+    "telephone": "+91-8788337049",
+    "email": "rajkumarashish75@gmail.com",
+    "priceRange": "₹3,000 - ₹20,000",
+    "knowsAbout": ["Web Design", "Web Development", "Website Redesign", "Digital Catalogues", "Custom Web Applications"]
+  }
+  </script>
+
   <!-- Architectural Typography: Space Grotesk + JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -66,6 +81,7 @@
       --signal-amber-dim: rgba(255, 107, 44, 0.12);
       --signal-mint: #34d399;
       --signal-gold: #fbbf24;
+      --signal-sky: #38bdf8;
 
       --font-sans: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
       --font-mono: 'JetBrains Mono', monospace;
@@ -105,7 +121,7 @@
     }
 
     /* ==========================================================================
-       2. RARE ARCHITECTURAL RAILS & CONTAINER SYSTEM (DESKTOP ELEVATION)
+       2. RARE ARCHITECTURAL RAILS & CONTAINER SYSTEM
        ========================================================================== */
     .atelier-frame {
       position: relative;
@@ -136,7 +152,6 @@
       }
     }
 
-    /* Top Reading Progress Hairline */
     .scroll-progress-bar {
       position: fixed;
       top: 0;
@@ -201,7 +216,7 @@
     }
 
     /* ==========================================================================
-       3. GPU-ACCELERATED DESKTOP CROSSHAIR CURSOR (ZERO LAYOUT THRASH)
+       3. GPU-ACCELERATED DESKTOP CROSSHAIR CURSOR
        ========================================================================== */
     .cursor-dot,
     .cursor-crosshair {
@@ -319,7 +334,6 @@
       background-color: rgba(255, 255, 255, 0.06);
     }
 
-    /* Thumb-Friendly Buttons (48px Minimum Height) */
     .btn-forge-solid {
       background-color: var(--ink-primary);
       color: var(--bg-void);
@@ -433,7 +447,7 @@
     }
 
     /* ==========================================================================
-       5. HERO SECTION — INTERACTIVE SPOTLIGHT & ARCHITECTURAL ASYMMETRY
+       5. HERO SECTION
        ========================================================================== */
     .hero-section {
       padding-top: 7.5rem;
@@ -452,7 +466,6 @@
       }
     }
 
-    /* Subtle interactive cursor-following ambient spotlight on desktop */
     .hero-spotlight {
       position: absolute;
       inset: 0;
@@ -567,7 +580,6 @@
       }
     }
 
-    /* Rare Architectural Corner Crosshair Brackets on Spec Window */
     .spec-window {
       position: relative;
       background: var(--bg-panel);
@@ -664,7 +676,7 @@
     }
 
     /* ==========================================================================
-       6. PORTFOLIO SECTION — ALIGNED CARDS & FULL-WIDTH MOBILE SWIPE
+       6. PORTFOLIO SECTION — 3-PROJECT SWIPEABLE MOBILE + 3-COL DESKTOP GRID
        ========================================================================== */
     .portfolio-track {
       display: flex;
@@ -693,7 +705,7 @@
       .portfolio-track {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
-        gap: 1.75rem;
+        gap: 1.5rem;
         overflow-x: visible;
         scroll-snap-type: none;
         padding-bottom: 0;
@@ -703,6 +715,13 @@
       .portfolio-slide {
         flex: unset;
         width: 100%;
+      }
+    }
+
+    @media (min-width: 1100px) {
+      .portfolio-track {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
       }
     }
 
@@ -722,11 +741,11 @@
     .swipe-dots {
       display: flex;
       align-items: center;
-      gap: 0.55rem;
+      gap: 0.5rem;
     }
 
     .swipe-dot {
-      width: 28px;
+      width: 24px;
       height: 6px;
       background-color: var(--line-strong);
       border: none;
@@ -736,7 +755,7 @@
     }
 
     .swipe-dot.active {
-      width: 44px;
+      width: 40px;
       background-color: var(--signal-amber);
     }
 
@@ -758,7 +777,7 @@
     }
 
     .portfolio-stage {
-      padding: 1.15rem 1.15rem 0;
+      padding: 1.05rem 1.05rem 0;
       background-color: #09090c;
       border-bottom: 1px solid var(--line-grid);
     }
@@ -775,30 +794,31 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0.6rem 0.85rem;
+      padding: 0.55rem 0.8rem;
       background-color: rgba(255, 255, 255, 0.03);
       border-bottom: 1px solid var(--line-grid);
-      gap: 0.5rem;
+      gap: 0.45rem;
     }
 
     .browser-address {
       font-family: var(--font-mono);
-      font-size: 0.67rem;
+      font-size: 0.65rem;
       color: var(--ink-secondary);
       background-color: var(--bg-void);
-      padding: 0.2rem 0.55rem;
+      padding: 0.18rem 0.5rem;
       border: 1px solid var(--line-grid);
       border-radius: 3px;
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
-      max-width: 215px;
+      max-width: 190px;
     }
 
     .visual-leaf,
-    .visual-paws {
-      padding: 1.35rem 1.25rem;
-      height: 295px;
+    .visual-paws,
+    .visual-vedganga {
+      padding: 1.25rem 1.15rem;
+      height: 285px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -810,6 +830,12 @@
         linear-gradient(165deg, #101b15 0%, #0b0f0d 100%);
     }
 
+    .visual-vedganga {
+      background:
+        radial-gradient(circle at 90% 10%, rgba(56, 189, 248, 0.2), transparent 55%),
+        linear-gradient(165deg, #0f1821 0%, #0a0e13 100%);
+    }
+
     .visual-paws {
       background:
         radial-gradient(circle at 90% 10%, rgba(251, 191, 36, 0.18), transparent 55%),
@@ -819,18 +845,25 @@
     .mockup-feature-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 0.55rem;
+      gap: 0.5rem;
     }
 
     .leaf-feature-tile {
-      padding: 0.68rem 0.75rem;
+      padding: 0.6rem 0.68rem;
       background-color: rgba(255, 255, 255, 0.045);
       border: 1px solid rgba(52, 211, 153, 0.22);
       border-radius: 4px;
     }
 
+    .vedganga-feature-tile {
+      padding: 0.6rem 0.68rem;
+      background-color: rgba(255, 255, 255, 0.045);
+      border: 1px solid rgba(56, 189, 248, 0.24);
+      border-radius: 4px;
+    }
+
     .paws-feature-tile {
-      padding: 0.68rem 0.75rem;
+      padding: 0.6rem 0.68rem;
       background-color: rgba(255, 255, 255, 0.045);
       border: 1px solid rgba(251, 191, 36, 0.24);
       border-radius: 4px;
@@ -838,36 +871,51 @@
 
     .badge-live {
       font-family: var(--font-mono);
-      font-size: 0.65rem;
+      font-size: 0.64rem;
       text-transform: uppercase;
       letter-spacing: 0.08em;
-      padding: 0.2rem 0.55rem;
+      padding: 0.2rem 0.52rem;
       background-color: rgba(52, 211, 153, 0.14);
       border: 1px solid rgba(52, 211, 153, 0.35);
       color: var(--signal-mint);
       border-radius: 2px;
       display: inline-flex;
       align-items: center;
-      gap: 0.35rem;
+      gap: 0.32rem;
+    }
+
+    .badge-b2b {
+      font-family: var(--font-mono);
+      font-size: 0.64rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 0.2rem 0.52rem;
+      background-color: rgba(56, 189, 248, 0.14);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      color: var(--signal-sky);
+      border-radius: 2px;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.32rem;
     }
 
     .badge-ongoing {
       font-family: var(--font-mono);
-      font-size: 0.65rem;
+      font-size: 0.64rem;
       text-transform: uppercase;
       letter-spacing: 0.08em;
-      padding: 0.2rem 0.55rem;
+      padding: 0.2rem 0.52rem;
       background-color: rgba(251, 191, 36, 0.14);
       border: 1px solid rgba(251, 191, 36, 0.35);
       color: var(--signal-gold);
       border-radius: 2px;
       display: inline-flex;
       align-items: center;
-      gap: 0.35rem;
+      gap: 0.32rem;
     }
 
     .portfolio-content {
-      padding: 1.5rem;
+      padding: 1.4rem;
       flex-grow: 1;
       display: flex;
       flex-direction: column;
@@ -875,7 +923,7 @@
     }
 
     /* ==========================================================================
-       7. SERVICES & SINGLE-ACTION ESTIMATOR (NO DUPLICATE CTA BUTTONS)
+       7. SERVICES & SINGLE-ACTION ESTIMATOR
        ========================================================================== */
     .service-matrix-card {
       background-color: var(--bg-panel);
@@ -924,7 +972,6 @@
       margin-bottom: 0.85rem;
     }
 
-    /* Interactive Cost Estimator Box */
     .estimator-panel {
       background-color: var(--bg-panel);
       border: 1px solid var(--line-strong);
@@ -1085,7 +1132,7 @@
     }
 
     /* ==========================================================================
-       9. CLEANED UP 06 / CONTACT SECTION (NO DUPLICATE BUTTONS + OBFUSCATED DATA)
+       9. CLEANED UP 06 / CONTACT SECTION
        ========================================================================== */
     .contact-hub-panel {
       background: var(--bg-panel);
@@ -1251,7 +1298,7 @@
   <div class="atelier-frame">
     <main id="top">
       <!-- ====================================================================
-           2. HERO SECTION (SPOTLIGHT + MANIPAL UNIVERSITY JAIPUR STUDENT)
+           2. HERO SECTION
            ==================================================================== -->
       <section class="hero-section" id="heroSection">
         <div class="hero-spotlight" aria-hidden="true"></div>
@@ -1372,7 +1419,7 @@
       </section>
 
       <!-- ====================================================================
-           3. PORTFOLIO SECTION (SWIPEABLE MOBILE + 2-COL DESKTOP)
+           3. PORTFOLIO SECTION (3 LIVE PROJECTS: LEAF CAFÉ, VEDGANGA, HAPPYPAWS)
            ==================================================================== -->
       <section id="work" class="section-block" style="background-color: var(--bg-atelier);">
         <div class="atelier-container">
@@ -1383,7 +1430,7 @@
             </div>
             <div class="col-lg-4 mt-3 mt-lg-0">
               <p class="mb-0" style="color: var(--ink-secondary);">
-                Live builds designed for fast mobile browsing, clear menus, and effortless user action.
+                Live builds designed for fast mobile browsing, clear catalogues, and effortless user action.
               </p>
             </div>
           </div>
@@ -1411,28 +1458,28 @@
                             <i data-lucide="leaf" style="width: 12px; height: 12px;"></i>
                             <span>Live Project</span>
                           </span>
-                          <span style="font-family: var(--font-mono); font-size: 0.68rem; color: var(--ink-muted);">CAFÉ WEBSITE</span>
+                          <span style="font-family: var(--font-mono); font-size: 0.66rem; color: var(--ink-muted);">CAFÉ</span>
                         </div>
 
-                        <h3 class="h4 mb-2" style="color: var(--ink-primary);">Leaf Café — Digital Menu &amp; Reservations</h3>
+                        <h3 class="h5 mb-2" style="color: var(--ink-primary);">Leaf Café — Digital Menu &amp; Reservations</h3>
                         <p class="small mb-0" style="color: var(--ink-secondary);">Interactive food categories, ambience gallery, café info, and table reservation links.</p>
                       </div>
 
                       <div class="mockup-feature-grid">
                         <div class="leaf-feature-tile">
-                          <div style="font-family: var(--font-mono); font-size: 0.65rem; color: var(--signal-mint);">MENU</div>
+                          <div style="font-family: var(--font-mono); font-size: 0.62rem; color: var(--signal-mint);">MENU</div>
                           <div class="small fw-semibold mt-1">Food Categories</div>
                         </div>
                         <div class="leaf-feature-tile">
-                          <div style="font-family: var(--font-mono); font-size: 0.65rem; color: var(--signal-mint);">GALLERY</div>
+                          <div style="font-family: var(--font-mono); font-size: 0.62rem; color: var(--signal-mint);">GALLERY</div>
                           <div class="small fw-semibold mt-1">Space &amp; Ambience</div>
                         </div>
                         <div class="leaf-feature-tile">
-                          <div style="font-family: var(--font-mono); font-size: 0.65rem; color: var(--signal-mint);">BOOKING</div>
+                          <div style="font-family: var(--font-mono); font-size: 0.62rem; color: var(--signal-mint);">BOOKING</div>
                           <div class="small fw-semibold mt-1">Reservation Links</div>
                         </div>
                         <div class="leaf-feature-tile">
-                          <div style="font-family: var(--font-mono); font-size: 0.65rem; color: var(--signal-mint);">LAYOUT</div>
+                          <div style="font-family: var(--font-mono); font-size: 0.62rem; color: var(--signal-mint);">LAYOUT</div>
                           <div class="small fw-semibold mt-1">Mobile &amp; Desktop</div>
                         </div>
                       </div>
@@ -1442,8 +1489,8 @@
 
                 <div class="portfolio-content">
                   <div>
-                    <span class="mono-label d-block mb-2" style="font-size: 0.7rem;">Restaurant &amp; Café Website</span>
-                    <h3 class="h3 mb-2">Leaf Café</h3>
+                    <span class="mono-label d-block mb-2" style="font-size: 0.68rem;">Restaurant &amp; Café Website</span>
+                    <h3 class="h4 mb-2">Leaf Café</h3>
                     <p class="small mb-4" style="color: var(--ink-secondary);">
                       A modern café website featuring an interactive menu, food categories, gallery, café information and reservation links.
                     </p>
@@ -1454,14 +1501,85 @@
                       <span>View Live Project</span>
                       <i data-lucide="arrow-up-right" style="width: 15px; height: 15px;"></i>
                     </a>
-                    <span style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--signal-mint);">LIVE</span>
+                    <span style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--signal-mint);">LIVE</span>
                   </div>
                 </div>
               </article>
             </div>
 
-            <!-- PROJECT 2: HAPPYPAWS (ONGOING) -->
+            <!-- PROJECT 2: VEDGANGA DAIRY -->
             <div class="portfolio-slide reveal-up" data-slide-index="1">
+              <article class="portfolio-card">
+                <div class="portfolio-stage">
+                  <div class="browser-mockup">
+                    <div class="browser-bar">
+                      <div class="spec-dots" aria-hidden="true">
+                        <span></span><span></span><span></span>
+                      </div>
+                      <div class="browser-address">imvicky2115.github.io/VedGanga/</div>
+                      <a href="https://imvicky2115.github.io/VedGanga/" target="_blank" rel="noopener noreferrer" style="color: var(--ink-secondary);" aria-label="Open VedGanga">
+                        <i data-lucide="arrow-up-right" style="width: 14px; height: 14px;"></i>
+                      </a>
+                    </div>
+
+                    <div class="visual-vedganga">
+                      <div>
+                        <div class="d-flex align-items-center justify-content-between gap-2 mb-3">
+                          <span class="badge-b2b">
+                            <i data-lucide="milk" style="width: 12px; height: 12px;"></i>
+                            <span>Live Project</span>
+                          </span>
+                          <span style="font-family: var(--font-mono); font-size: 0.66rem; color: var(--ink-muted);">B2B &amp; LOCAL</span>
+                        </div>
+
+                        <h3 class="h5 mb-2" style="color: var(--ink-primary);">VedGanga — Dairy Product Showcase</h3>
+                        <p class="small mb-0" style="color: var(--ink-secondary);">Bilingual English &amp; Marathi product catalogue with search, interactive cards, and business enquiry flow.</p>
+                      </div>
+
+                      <div class="mockup-feature-grid">
+                        <div class="vedganga-feature-tile">
+                          <div style="font-family: var(--font-mono); font-size: 0.62rem; color: var(--signal-sky);">CATALOGUE</div>
+                          <div class="small fw-semibold mt-1">Dairy Product Grid</div>
+                        </div>
+                        <div class="vedganga-feature-tile">
+                          <div style="font-family: var(--font-mono); font-size: 0.62rem; color: var(--signal-sky);">BILINGUAL</div>
+                          <div class="small fw-semibold mt-1">English &amp; Marathi</div>
+                        </div>
+                        <div class="vedganga-feature-tile">
+                          <div style="font-family: var(--font-mono); font-size: 0.62rem; color: var(--signal-sky);">DISCOVERY</div>
+                          <div class="small fw-semibold mt-1">Instant Search Bar</div>
+                        </div>
+                        <div class="vedganga-feature-tile">
+                          <div style="font-family: var(--font-mono); font-size: 0.62rem; color: var(--signal-sky);">TRUST</div>
+                          <div class="small fw-semibold mt-1">Reviews &amp; FSSAI Info</div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="portfolio-content">
+                  <div>
+                    <span class="mono-label d-block mb-2" style="font-size: 0.68rem;">Business Website &amp; Digital Catalogue</span>
+                    <h3 class="h4 mb-2">VedGanga</h3>
+                    <p class="small mb-4" style="color: var(--ink-secondary);">
+                      A responsive dairy business website and digital product catalogue featuring bilingual English &amp; Marathi support, product search, customer reviews, and direct enquiry options.
+                    </p>
+                  </div>
+
+                  <div class="pt-3 border-top d-flex align-items-center justify-content-between" style="border-color: var(--line-grid) !important;">
+                    <a href="https://imvicky2115.github.io/VedGanga/" target="_blank" rel="noopener noreferrer" class="btn-forge-solid hover-target">
+                      <span>View Live Project</span>
+                      <i data-lucide="arrow-up-right" style="width: 15px; height: 15px;"></i>
+                    </a>
+                    <span style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--signal-sky);">LIVE</span>
+                  </div>
+                </div>
+              </article>
+            </div>
+
+            <!-- PROJECT 3: HAPPYPAWS (ONGOING) -->
+            <div class="portfolio-slide reveal-up" data-slide-index="2">
               <article class="portfolio-card">
                 <div class="portfolio-stage">
                   <div class="browser-mockup">
@@ -1482,28 +1600,28 @@
                             <i data-lucide="activity" style="width: 12px; height: 12px;"></i>
                             <span>Ongoing Project</span>
                           </span>
-                          <span style="font-family: var(--font-mono); font-size: 0.68rem; color: var(--ink-muted);">WEB EXPERIENCE</span>
+                          <span style="font-family: var(--font-mono); font-size: 0.66rem; color: var(--ink-muted);">WEB APP</span>
                         </div>
 
-                        <h3 class="h4 mb-2" style="color: var(--ink-primary);">HappyPaws — Pet Discovery &amp; Info Hub</h3>
+                        <h3 class="h5 mb-2" style="color: var(--ink-primary);">HappyPaws — Pet Discovery &amp; Info Hub</h3>
                         <p class="small mb-0" style="color: var(--ink-secondary);">Making animal-related information and discovery simpler to explore on mobile and desktop.</p>
                       </div>
 
                       <div class="mockup-feature-grid">
                         <div class="paws-feature-tile">
-                          <div style="font-family: var(--font-mono); font-size: 0.65rem; color: var(--signal-gold);">DISCOVERY</div>
+                          <div style="font-family: var(--font-mono); font-size: 0.62rem; color: var(--signal-gold);">DISCOVERY</div>
                           <div class="small fw-semibold mt-1">Structured Pet Info</div>
                         </div>
                         <div class="paws-feature-tile">
-                          <div style="font-family: var(--font-mono); font-size: 0.65rem; color: var(--signal-gold);">USABILITY</div>
+                          <div style="font-family: var(--font-mono); font-size: 0.62rem; color: var(--signal-gold);">USABILITY</div>
                           <div class="small fw-semibold mt-1">Mobile-First Layout</div>
                         </div>
                         <div class="paws-feature-tile">
-                          <div style="font-family: var(--font-mono); font-size: 0.65rem; color: var(--signal-gold);">NAVIGATION</div>
+                          <div style="font-family: var(--font-mono); font-size: 0.62rem; color: var(--signal-gold);">NAVIGATION</div>
                           <div class="small fw-semibold mt-1">Clear Browsing</div>
                         </div>
                         <div class="paws-feature-tile">
-                          <div style="font-family: var(--font-mono); font-size: 0.65rem; color: var(--signal-gold);">BUILD STAGE</div>
+                          <div style="font-family: var(--font-mono); font-size: 0.62rem; color: var(--signal-gold);">BUILD STAGE</div>
                           <div class="small fw-semibold mt-1">Ongoing Updates</div>
                         </div>
                       </div>
@@ -1513,8 +1631,8 @@
 
                 <div class="portfolio-content">
                   <div>
-                    <span class="mono-label d-block mb-2" style="font-size: 0.7rem;">Ongoing Web Experience</span>
-                    <h3 class="h3 mb-2">HappyPaws</h3>
+                    <span class="mono-label d-block mb-2" style="font-size: 0.68rem;">Ongoing Web Experience</span>
+                    <h3 class="h4 mb-2">HappyPaws</h3>
                     <p class="small mb-4" style="color: var(--ink-secondary);">
                       An ongoing pet-related web experience designed to make animal-related information and discovery more accessible.
                     </p>
@@ -1525,21 +1643,22 @@
                       <span>View Live Project</span>
                       <i data-lucide="arrow-up-right" style="width: 15px; height: 15px;"></i>
                     </a>
-                    <span style="font-family: var(--font-mono); font-size: 0.72rem; color: var(--signal-gold);">ONGOING</span>
+                    <span style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--signal-gold);">ONGOING</span>
                   </div>
                 </div>
               </article>
             </div>
           </div>
 
-          <!-- Thumb-Friendly Mobile Swipe Controls -->
+          <!-- Thumb-Friendly Mobile Swipe Controls (3 Slides) -->
           <div class="swipe-controls-mobile">
             <div class="swipe-dots" aria-label="Portfolio Slide Indicators">
               <button class="swipe-dot active" data-target-slide="0" aria-label="Show Leaf Café"></button>
-              <button class="swipe-dot" data-target-slide="1" aria-label="Show HappyPaws"></button>
+              <button class="swipe-dot" data-target-slide="1" aria-label="Show VedGanga"></button>
+              <button class="swipe-dot" data-target-slide="2" aria-label="Show HappyPaws"></button>
             </div>
             <div class="d-flex align-items-center gap-2">
-              <span style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--ink-muted);">SWIPE</span>
+              <span style="font-family: var(--font-mono); font-size: 0.7rem; color: var(--ink-muted);" id="mobileSlideCounter">1 / 3</span>
               <button class="mobile-menu-btn" id="prevProjectBtn" aria-label="Previous project">
                 <i data-lucide="chevron-left" style="width: 18px; height: 18px;"></i>
               </button>
@@ -2039,7 +2158,7 @@
       </section>
 
       <!-- ====================================================================
-           8. CLEANED UP 06 / CONTACT SECTION (NO DUPLICATE BUTTONS + OBFUSCATED CONTACT)
+           8. CLEANED UP 06 / CONTACT SECTION
            ==================================================================== -->
       <section id="contact" class="section-block">
         <div class="atelier-container">
@@ -2066,7 +2185,7 @@
                     Share what kind of website or web app you need, and I’ll reply with a clear timeline and quote.
                   </p>
 
-                  <!-- Selected Scope Preview Banner (Populated when user selects a service or estimator scope) -->
+                  <!-- Selected Scope Preview Banner -->
                   <div id="selectedScopeBanner" class="p-3 mb-4 d-none" style="background-color: rgba(255, 107, 44, 0.08); border: 1px solid rgba(255, 107, 44, 0.35); border-radius: var(--radius-sharp); font-size: 0.86rem;">
                     <div class="d-flex align-items-center justify-content-between mb-1">
                       <span class="mono-label" style="font-size: 0.68rem;">SELECTED SCOPE ATTACHED</span>
@@ -2128,7 +2247,7 @@
     </main>
 
     <!-- ====================================================================
-         9. FOOTER (MANIPAL UNIVERSITY JAIPUR + OBFUSCATED CONTACT)
+         9. FOOTER
          ==================================================================== -->
     <footer class="atelier-footer">
       <div class="atelier-container">
@@ -2198,7 +2317,7 @@
   </div>
 
   <!-- ========================================================================
-       JAVASCRIPT: ULTRA-SMOOTH GPU MOTION, CONTACT OBFUSCATION & ESTIMATOR
+       JAVASCRIPT: 3-CARD SWIPE CAROUSEL, CONTACT OBFUSCATION & GPU MOTION
        ======================================================================== -->
   <script>
     document.addEventListener("DOMContentLoaded", () => {
@@ -2212,9 +2331,8 @@
 
       // ======================================================================
       // 1. CONTACT INFORMATION OBFUSCATION (ANTI-SCRAPER PROTECTION)
-      //    Contact details are never stored as plain-text strings in HTML
       // ======================================================================
-      const _p = [57, 49, 56, 55, 56, 56, 51, 51, 55, 48, 52, 57]; // +918788337049
+      const _p = [57, 49, 56, 55, 56, 56, 51, 51, 55, 48, 52, 57];
       const _u = [114, 97, 106, 107, 117, 109, 97, 114, 97, 115, 104, 105, 115, 104, 55, 53];
       const _d = [103, 109, 97, 105, 108, 46, 99, 111, 109];
 
@@ -2268,7 +2386,6 @@
       if (footerWaBtn) footerWaBtn.addEventListener("click", openWhatsApp);
       if (footerEmailBtn) footerEmailBtn.addEventListener("click", openEmailClient);
 
-      // Scope Banner Attachment
       const scopeBanner = document.getElementById("selectedScopeBanner");
       const scopeTextEl = document.getElementById("selectedScopeText");
       const clearScopeBtn = document.getElementById("clearScopeBtn");
@@ -2354,20 +2471,32 @@
       }
 
       // ======================================================================
-      // 4. MOBILE SWIPEABLE PORTFOLIO CAROUSEL
+      // 4. MOBILE SWIPEABLE PORTFOLIO CAROUSEL (DYNAMIC FOR 3 PROJECTS)
       // ======================================================================
       const track = document.getElementById("portfolioTrack");
       const slides = document.querySelectorAll(".portfolio-slide");
       const dots = document.querySelectorAll(".swipe-dot");
       const prevBtn = document.getElementById("prevProjectBtn");
       const nextBtn = document.getElementById("nextProjectBtn");
+      const slideCounter = document.getElementById("mobileSlideCounter");
+      let currentSlideIdx = 0;
+
+      const updateSlideIndicators = (idx) => {
+        currentSlideIdx = idx;
+        dots.forEach((d, dIdx) => d.classList.toggle("active", dIdx === idx));
+        if (slideCounter) {
+          slideCounter.textContent = `${idx + 1} / ${slides.length}`;
+        }
+      };
 
       const scrollToSlide = (index) => {
-        if (!track || !slides[index]) return;
+        if (!track || !slides.length) return;
+        const clamped = (index + slides.length) % slides.length;
         track.scrollTo({
-          left: slides[index].offsetLeft - track.offsetLeft,
+          left: slides[clamped].offsetLeft - track.offsetLeft,
           behavior: "smooth"
         });
+        updateSlideIndicators(clamped);
       };
 
       dots.forEach((dot) => {
@@ -2377,8 +2506,8 @@
       });
 
       if (prevBtn && nextBtn && track) {
-        prevBtn.addEventListener("click", () => scrollToSlide(0));
-        nextBtn.addEventListener("click", () => scrollToSlide(1));
+        prevBtn.addEventListener("click", () => scrollToSlide(currentSlideIdx - 1));
+        nextBtn.addEventListener("click", () => scrollToSlide(currentSlideIdx + 1));
 
         let scrollTicking = false;
         track.addEventListener("scroll", () => {
@@ -2389,7 +2518,7 @@
                 const start = slide.offsetLeft - track.offsetLeft;
                 const end = start + slide.offsetWidth;
                 if (midpoint >= start && midpoint < end) {
-                  dots.forEach((d, dIdx) => d.classList.toggle("active", dIdx === idx));
+                  updateSlideIndicators(idx);
                 }
               });
               scrollTicking = false;
@@ -2491,7 +2620,6 @@
         updateProgress();
       }
 
-      // GPU translate3d Cursor (Zero left/top reflows)
       const dot = document.getElementById("cursorDot");
       const crosshair = document.getElementById("cursorCrosshair");
 
@@ -2518,7 +2646,6 @@
         });
       }
 
-      // Smooth GPU-Composited GSAP Animations (clearProps prevents sticky transform lag)
       if (!reducedMotion && window.gsap) {
         gsap.registerPlugin(ScrollTrigger);
 
