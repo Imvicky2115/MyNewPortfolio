@@ -3,22 +3,28 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <!-- Security Headers via Meta (GitHub Pages Compatible) -->
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://unpkg.com https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdn.jsdelivr.net; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self'; base-uri 'self'; form-action 'self';" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=()" />
+
   <title>NoahStudio — Web Design &amp; Development | Student at Manipal University Jaipur</title>
 
   <!-- Comprehensive SEO Meta Tags -->
   <meta name="description" content="NoahStudio — Independent web design and development portfolio by a student at Manipal University Jaipur. Custom business websites, redesigns, digital catalogues, and web applications." />
-  <meta name="keywords" content="NoahStudio, freelance web developer India, web design Pune, Manipal University Jaipur student developer, business website India, digital catalogue, website redesign, custom web applications" />
+  <meta name="keywords" content="NoahStudio, freelance web developer India, web design Pune, Manipal University Jaipur student developer, business website India, digital catalogue, website redesign, custom web applications, Leaf Cafe, VedGanga, HappyPaws" />
   <meta name="author" content="NoahStudio" />
-  <meta name="robots" content="index, follow" />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
   <meta name="theme-color" content="#070709" />
-  <link rel="canonical" href="https://imvicky2115.github.io/" />
+  <link rel="canonical" href="https://imvicky2115.github.io/MyNewPortfolio/" />
 
   <!-- Open Graph / Social SEO Metadata -->
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="NoahStudio" />
   <meta property="og:title" content="NoahStudio — Web Design & Development" />
   <meta property="og:description" content="I design websites, develop websites, redesign existing websites, and build custom web applications. Built by a student at Manipal University Jaipur." />
-  <meta property="og:url" content="https://imvicky2115.github.io/" />
+  <meta property="og:url" content="https://imvicky2115.github.io/MyNewPortfolio/" />
   <meta property="og:locale" content="en_IN" />
 
   <!-- Twitter Card Metadata -->
@@ -26,18 +32,66 @@
   <meta name="twitter:title" content="NoahStudio — Web Design & Development" />
   <meta name="twitter:description" content="Fast, modern websites and custom web apps that bring you more customers." />
 
-  <!-- Structured Data (JSON-LD) for Search Engines -->
+  <!-- Connected JSON-LD Structured Data (Privacy-Safe: No Plain-Text Email/Phone Scraping) -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "ProfessionalService",
-    "name": "NoahStudio",
-    "description": "Independent web design and development portfolio by a student at Manipal University Jaipur.",
-    "areaServed": "India",
-    "telephone": "+91-8788337049",
-    "email": "rajkumarashish75@gmail.com",
-    "priceRange": "₹3,000 - ₹20,000",
-    "knowsAbout": ["Web Design", "Web Development", "Website Redesign", "Digital Catalogues", "Custom Web Applications"]
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://imvicky2115.github.io/MyNewPortfolio/#website",
+        "url": "https://imvicky2115.github.io/MyNewPortfolio/",
+        "name": "NoahStudio",
+        "description": "Independent web design and development portfolio by a student at Manipal University Jaipur.",
+        "inLanguage": "en-IN"
+      },
+      {
+        "@type": "ProfessionalService",
+        "@id": "https://imvicky2115.github.io/MyNewPortfolio/#service",
+        "name": "NoahStudio",
+        "url": "https://imvicky2115.github.io/MyNewPortfolio/",
+        "description": "Custom websites, website redesigns, digital catalogues, and web applications built with AI-assisted workflows and hands-on coding.",
+        "areaServed": {
+          "@type": "Country",
+          "name": "India"
+        },
+        "priceRange": "₹3,000 - ₹20,000",
+        "sameAs": [
+          "https://github.com/imvicky2115"
+        ],
+        "knowsAbout": [
+          "Web Design",
+          "Web Development",
+          "Website Redesign",
+          "Digital Catalogues",
+          "Custom Web Applications"
+        ]
+      },
+      {
+        "@type": "ItemList",
+        "name": "NoahStudio Portfolio Projects",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Leaf Café — Digital Menu & Reservations",
+            "url": "https://imvicky2115.github.io/LeafCafe/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "VedGanga — Dairy Product Showcase",
+            "url": "https://imvicky2115.github.io/VedGanga/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "name": "HappyPaws — Pet Discovery & Info Hub",
+            "url": "https://imvicky2115.github.io/HappyPaws/"
+          }
+        ]
+      }
+    ]
   }
   </script>
 
@@ -46,15 +100,15 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
-  <!-- Bootstrap 5 Grid -->
+  <!-- Bootstrap 5 Grid (SRI Pinned) -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
 
-  <!-- Lucide Icons -->
-  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- Lucide Icons (Version Pinned + Crossorigin) -->
+  <script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js" crossorigin="anonymous"></script>
 
-  <!-- GSAP & ScrollTrigger -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <!-- GSAP & ScrollTrigger (Version Pinned + SRI Hashes) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
   <style>
     /* ==========================================================================
@@ -405,7 +459,6 @@
       touch-action: manipulation;
     }
 
-    /* Mobile Navigation Sheet */
     .mobile-sheet {
       position: fixed;
       inset: 0;
@@ -1319,7 +1372,6 @@
                 I’m a student at Manipal University Jaipur building real-world websites and web tools—combining AI-assisted speed with personal coding, testing, and direct 1-on-1 support.
               </p>
 
-              <!-- 4 First-Person Capabilities -->
               <div class="core-capabilities-grid reveal-hero" aria-label="Core Services">
                 <div class="capability-card-chip">
                   <span class="cap-icon-box"><i data-lucide="pen-tool" style="width: 16px; height: 16px;"></i></span>
@@ -1419,7 +1471,7 @@
       </section>
 
       <!-- ====================================================================
-           3. PORTFOLIO SECTION (3 LIVE PROJECTS: LEAF CAFÉ, VEDGANGA, HAPPYPAWS)
+           3. PORTFOLIO SECTION (3 LIVE PROJECTS)
            ==================================================================== -->
       <section id="work" class="section-block" style="background-color: var(--bg-atelier);">
         <div class="atelier-container">
@@ -1446,7 +1498,7 @@
                         <span></span><span></span><span></span>
                       </div>
                       <div class="browser-address">imvicky2115.github.io/LeafCafe/</div>
-                      <a href="https://imvicky2115.github.io/LeafCafe/" target="_blank" rel="noopener noreferrer" style="color: var(--ink-secondary);" aria-label="Open Leaf Café">
+                      <a href="https://imvicky2115.github.io/LeafCafe/" target="_blank" rel="noopener noreferrer" referrerpolicy="strict-origin-when-cross-origin" style="color: var(--ink-secondary);" aria-label="Open Leaf Café">
                         <i data-lucide="arrow-up-right" style="width: 14px; height: 14px;"></i>
                       </a>
                     </div>
@@ -1497,7 +1549,7 @@
                   </div>
 
                   <div class="pt-3 border-top d-flex align-items-center justify-content-between" style="border-color: var(--line-grid) !important;">
-                    <a href="https://imvicky2115.github.io/LeafCafe/" target="_blank" rel="noopener noreferrer" class="btn-forge-solid hover-target">
+                    <a href="https://imvicky2115.github.io/LeafCafe/" target="_blank" rel="noopener noreferrer" referrerpolicy="strict-origin-when-cross-origin" class="btn-forge-solid hover-target">
                       <span>View Live Project</span>
                       <i data-lucide="arrow-up-right" style="width: 15px; height: 15px;"></i>
                     </a>
@@ -1517,7 +1569,7 @@
                         <span></span><span></span><span></span>
                       </div>
                       <div class="browser-address">imvicky2115.github.io/VedGanga/</div>
-                      <a href="https://imvicky2115.github.io/VedGanga/" target="_blank" rel="noopener noreferrer" style="color: var(--ink-secondary);" aria-label="Open VedGanga">
+                      <a href="https://imvicky2115.github.io/VedGanga/" target="_blank" rel="noopener noreferrer" referrerpolicy="strict-origin-when-cross-origin" style="color: var(--ink-secondary);" aria-label="Open VedGanga">
                         <i data-lucide="arrow-up-right" style="width: 14px; height: 14px;"></i>
                       </a>
                     </div>
@@ -1568,7 +1620,7 @@
                   </div>
 
                   <div class="pt-3 border-top d-flex align-items-center justify-content-between" style="border-color: var(--line-grid) !important;">
-                    <a href="https://imvicky2115.github.io/VedGanga/" target="_blank" rel="noopener noreferrer" class="btn-forge-solid hover-target">
+                    <a href="https://imvicky2115.github.io/VedGanga/" target="_blank" rel="noopener noreferrer" referrerpolicy="strict-origin-when-cross-origin" class="btn-forge-solid hover-target">
                       <span>View Live Project</span>
                       <i data-lucide="arrow-up-right" style="width: 15px; height: 15px;"></i>
                     </a>
@@ -1588,7 +1640,7 @@
                         <span></span><span></span><span></span>
                       </div>
                       <div class="browser-address">imvicky2115.github.io/HappyPaws/</div>
-                      <a href="https://imvicky2115.github.io/HappyPaws/" target="_blank" rel="noopener noreferrer" style="color: var(--ink-secondary);" aria-label="Open HappyPaws">
+                      <a href="https://imvicky2115.github.io/HappyPaws/" target="_blank" rel="noopener noreferrer" referrerpolicy="strict-origin-when-cross-origin" style="color: var(--ink-secondary);" aria-label="Open HappyPaws">
                         <i data-lucide="arrow-up-right" style="width: 14px; height: 14px;"></i>
                       </a>
                     </div>
@@ -1639,7 +1691,7 @@
                   </div>
 
                   <div class="pt-3 border-top d-flex align-items-center justify-content-between" style="border-color: var(--line-grid) !important;">
-                    <a href="https://imvicky2115.github.io/HappyPaws/" target="_blank" rel="noopener noreferrer" class="btn-forge-solid hover-target">
+                    <a href="https://imvicky2115.github.io/HappyPaws/" target="_blank" rel="noopener noreferrer" referrerpolicy="strict-origin-when-cross-origin" class="btn-forge-solid hover-target">
                       <span>View Live Project</span>
                       <i data-lucide="arrow-up-right" style="width: 15px; height: 15px;"></i>
                     </a>
@@ -1650,7 +1702,7 @@
             </div>
           </div>
 
-          <!-- Thumb-Friendly Mobile Swipe Controls (3 Slides) -->
+          <!-- Thumb-Friendly Mobile Swipe Controls -->
           <div class="swipe-controls-mobile">
             <div class="swipe-dots" aria-label="Portfolio Slide Indicators">
               <button class="swipe-dot active" data-target-slide="0" aria-label="Show Leaf Café"></button>
@@ -1688,7 +1740,6 @@
           </div>
 
           <div class="row g-4">
-            <!-- 01. Single-page Website / Landing Page -->
             <div class="col-md-6 col-lg-4 reveal-up">
               <div class="service-matrix-card">
                 <div>
@@ -1711,7 +1762,6 @@
               </div>
             </div>
 
-            <!-- 02. Digital Catalogue -->
             <div class="col-md-6 col-lg-4 reveal-up">
               <div class="service-matrix-card">
                 <div>
@@ -1734,7 +1784,6 @@
               </div>
             </div>
 
-            <!-- 03. Website Redesign -->
             <div class="col-md-6 col-lg-4 reveal-up">
               <div class="service-matrix-card">
                 <div>
@@ -1757,7 +1806,6 @@
               </div>
             </div>
 
-            <!-- 04. Small Business Website -->
             <div class="col-md-6 col-lg-4 reveal-up">
               <div class="service-matrix-card featured-tier">
                 <div>
@@ -1780,7 +1828,6 @@
               </div>
             </div>
 
-            <!-- 05. Basic Custom Web App -->
             <div class="col-md-6 col-lg-4 reveal-up">
               <div class="service-matrix-card">
                 <div>
@@ -1803,7 +1850,6 @@
               </div>
             </div>
 
-            <!-- 06. Website Maintenance -->
             <div class="col-md-6 col-lg-4 reveal-up">
               <div class="service-matrix-card">
                 <div>
@@ -1849,7 +1895,6 @@
           <div class="row g-4 g-lg-5 align-items-start">
             <div class="col-lg-7 reveal-up">
               <div class="estimator-panel">
-                <!-- Step 1: Project Type -->
                 <div class="est-step-block">
                   <span class="mono-label d-block mb-1">1. Project Type</span>
                   <p class="small mb-3" style="color: var(--ink-secondary);">Choose the core build you need.</p>
@@ -1901,7 +1946,6 @@
                   </div>
                 </div>
 
-                <!-- Step 2: Page / Screen Count -->
                 <div class="est-step-block">
                   <span class="mono-label d-block mb-1">2. Number of Pages / Views</span>
                   <p class="small mb-3" style="color: var(--ink-secondary);">Estimated page count or app screens.</p>
@@ -1935,7 +1979,6 @@
                   </div>
                 </div>
 
-                <!-- Step 3: Design Preference -->
                 <div class="est-step-block">
                   <span class="mono-label d-block mb-1">3. Design Preference</span>
                   <p class="small mb-3" style="color: var(--ink-secondary);">Visual complexity and interaction depth.</p>
@@ -1969,7 +2012,6 @@
                   </div>
                 </div>
 
-                <!-- Step 4: Additional Features -->
                 <div class="est-step-block">
                   <span class="mono-label d-block mb-1">4. Additional Features</span>
                   <p class="small mb-3" style="color: var(--ink-secondary);">Select the functionality you need.</p>
@@ -2020,7 +2062,6 @@
               </div>
             </div>
 
-            <!-- Right: Live Estimate Summary -->
             <div class="col-lg-5 reveal-up">
               <div class="est-summary-card">
                 <span class="mono-label d-block">INDICATIVE BALLPARK ESTIMATE</span>
@@ -2175,7 +2216,6 @@
           </div>
 
           <div class="row g-4 align-items-stretch">
-            <!-- Left: Primary WhatsApp Action -->
             <div class="col-lg-6 reveal-up">
               <div class="contact-hub-panel h-100 d-flex flex-column justify-content-between">
                 <div>
@@ -2185,7 +2225,6 @@
                     Share what kind of website or web app you need, and I’ll reply with a clear timeline and quote.
                   </p>
 
-                  <!-- Selected Scope Preview Banner -->
                   <div id="selectedScopeBanner" class="p-3 mb-4 d-none" style="background-color: rgba(255, 107, 44, 0.08); border: 1px solid rgba(255, 107, 44, 0.35); border-radius: var(--radius-sharp); font-size: 0.86rem;">
                     <div class="d-flex align-items-center justify-content-between mb-1">
                       <span class="mono-label" style="font-size: 0.68rem;">SELECTED SCOPE ATTACHED</span>
@@ -2204,7 +2243,6 @@
               </div>
             </div>
 
-            <!-- Right: Clean Direct Channels (Obfuscated from scraper bots) -->
             <div class="col-lg-6 reveal-up">
               <div class="d-flex flex-column gap-3 h-100 justify-content-between">
                 <button type="button" id="callActionTile" class="contact-action-tile w-100 text-start hover-target">
@@ -2229,7 +2267,7 @@
                   <i data-lucide="arrow-up-right" style="width: 16px; height: 16px; color: var(--ink-secondary); flex-shrink: 0;"></i>
                 </button>
 
-                <a href="https://github.com/imvicky2115" target="_blank" rel="noopener noreferrer" class="contact-action-tile hover-target">
+                <a href="https://github.com/imvicky2115" target="_blank" rel="noopener noreferrer" referrerpolicy="strict-origin-when-cross-origin" class="contact-action-tile hover-target">
                   <div class="d-flex align-items-center gap-3">
                     <span class="contact-tile-icon mint"><i data-lucide="github" style="width: 18px; height: 18px;"></i></span>
                     <div>
@@ -2292,10 +2330,10 @@
             <h4 class="mono-label mb-3" style="font-size: 0.72rem; color: var(--ink-primary);">Connect</h4>
             <ul class="list-unstyled mb-3">
               <li><a href="#contact" class="footer-item-link">Reveal Email &amp; Phone</a></li>
-              <li><a href="https://github.com/imvicky2115" target="_blank" rel="noopener noreferrer" class="footer-item-link">GitHub Portfolio</a></li>
+              <li><a href="https://github.com/imvicky2115" target="_blank" rel="noopener noreferrer" referrerpolicy="strict-origin-when-cross-origin" class="footer-item-link">GitHub Portfolio</a></li>
             </ul>
             <div class="d-flex gap-2">
-              <a href="https://github.com/imvicky2115" target="_blank" rel="noopener noreferrer" class="mobile-menu-btn hover-target" aria-label="GitHub">
+              <a href="https://github.com/imvicky2115" target="_blank" rel="noopener noreferrer" referrerpolicy="strict-origin-when-cross-origin" class="mobile-menu-btn hover-target" aria-label="GitHub">
                 <i data-lucide="github" style="width: 16px; height: 16px;"></i>
               </a>
               <button type="button" id="footerWaBtn" class="mobile-menu-btn hover-target" aria-label="WhatsApp">
@@ -2317,15 +2355,19 @@
   </div>
 
   <!-- ========================================================================
-       JAVASCRIPT: 3-CARD SWIPE CAROUSEL, CONTACT OBFUSCATION & GPU MOTION
+       JAVASCRIPT: FRAME-GUARD, OBFUSCATION, CAROUSEL & GPU MOTION
        ======================================================================== -->
   <script>
+    // Frame-busting protection against clickjacking iframes on static hosts
+    if (window.top !== window.self) {
+      window.top.location = window.self.location;
+    }
+
     document.addEventListener("DOMContentLoaded", () => {
       if (window.lucide) {
         lucide.createIcons();
       }
 
-      // Dynamic Year
       const yearEl = document.getElementById("yearNow");
       if (yearEl) yearEl.textContent = new Date().getFullYear();
 
@@ -2471,7 +2513,7 @@
       }
 
       // ======================================================================
-      // 4. MOBILE SWIPEABLE PORTFOLIO CAROUSEL (DYNAMIC FOR 3 PROJECTS)
+      // 4. MOBILE SWIPEABLE PORTFOLIO CAROUSEL
       // ======================================================================
       const track = document.getElementById("portfolioTrack");
       const slides = document.querySelectorAll(".portfolio-slide");
