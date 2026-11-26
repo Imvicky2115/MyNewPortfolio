@@ -11,8 +11,8 @@
 
   <title>NoahStudio — Freelance Web Designer &amp; Developer in Hadapsar, Pune</title>
 
-  <!-- Local Hadapsar & Pune SEO Meta Tags -->
-  <meta name="description" content="NoahStudio — Freelance web designer & developer in Hadapsar, Pune. Affordable business websites, café menus, digital catalogues, website redesigns, and custom web apps for local businesses in Hadapsar, Magarpatta, Kharadi & Pune." />
+  <!-- Local Hadapsar, Pune & Remote India SEO Meta Tags -->
+  <meta name="description" content="NoahStudio — Freelance web designer & developer in Hadapsar, Pune. Affordable business websites, café menus, digital catalogues, website redesigns, and custom web apps for businesses in Hadapsar, Magarpatta, Kharadi, Pune & across India." />
   <meta name="keywords" content="web designer in Hadapsar, freelance web developer Pune, website maker near Hadapsar Pune, web development Magarpatta Kharadi, affordable business website Pune, digital catalogue Pune, NoahStudio" />
   <meta name="author" content="NoahStudio" />
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
@@ -25,14 +25,14 @@
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="NoahStudio" />
   <meta property="og:title" content="NoahStudio — Web Design & Development in Hadapsar, Pune" />
-  <meta property="og:description" content="Custom websites, website redesigns, digital catalogues, and web apps for businesses in Hadapsar & Pune. Built by a student at Manipal University Jaipur." />
+  <meta property="og:description" content="Custom websites, website redesigns, digital catalogues, and web apps for businesses in Hadapsar, Pune & across India. Built by a student at Manipal University Jaipur." />
   <meta property="og:url" content="https://imvicky2115.github.io/MyNewPortfolio/" />
   <meta property="og:locale" content="en_IN" />
 
   <!-- Twitter Card Metadata -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="NoahStudio — Web Design & Development in Hadapsar, Pune" />
-  <meta name="twitter:description" content="Fast, modern websites and custom web apps for businesses in Hadapsar & Pune." />
+  <meta name="twitter:description" content="Fast, modern websites and custom web apps for businesses in Hadapsar, Pune & remotely across India." />
 
   <!-- LocalBusiness + Portfolio JSON-LD Structured Data (Privacy-Safe) -->
   <script type="application/ld+json">
@@ -52,7 +52,7 @@
         "@id": "https://imvicky2115.github.io/MyNewPortfolio/#localbusiness",
         "name": "NoahStudio — Web Design & Development Pune",
         "url": "https://imvicky2115.github.io/MyNewPortfolio/",
-        "description": "Independent freelance web designer and developer based in Hadapsar, Pune building business websites, digital catalogues, website redesigns, and custom web applications.",
+        "description": "Independent freelance web designer and developer based in Hadapsar, Pune building business websites, digital catalogues, website redesigns, and custom web applications locally and remotely across India.",
         "address": {
           "@type": "PostalAddress",
           "addressLocality": "Hadapsar",
@@ -64,7 +64,8 @@
           { "@type": "Place", "name": "Hadapsar, Pune" },
           { "@type": "Place", "name": "Magarpatta, Pune" },
           { "@type": "Place", "name": "Kharadi, Pune" },
-          { "@type": "City", "name": "Pune" }
+          { "@type": "City", "name": "Pune" },
+          { "@type": "Country", "name": "India" }
         ],
         "priceRange": "₹3,000 - ₹20,000",
         "sameAs": [
@@ -106,20 +107,22 @@
   }
   </script>
 
-  <!-- Architectural Typography: Space Grotesk + JetBrains Mono -->
+  <!-- Non-Render-Blocking Google Fonts (Mobile FCP/LCP Optimization) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+  <noscript>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  </noscript>
 
   <!-- Bootstrap 5 Grid (SRI Pinned) -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous" />
 
-  <!-- Lucide Icons (Version Pinned + Crossorigin) -->
-  <script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js" crossorigin="anonymous"></script>
-
-  <!-- GSAP & ScrollTrigger (Version Pinned + SRI Hashes) -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <!-- Deferred Scripts (Eliminates Render-Blocking JS on Mobile) -->
+  <script defer src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js" crossorigin="anonymous"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
   <style>
     /* ==========================================================================
@@ -470,6 +473,7 @@
       touch-action: manipulation;
     }
 
+    /* Mobile Navigation Sheet */
     .mobile-sheet {
       position: fixed;
       inset: 0;
@@ -1745,7 +1749,7 @@
             </div>
             <div class="col-lg-4 mt-3 mt-lg-0">
               <p class="mb-0" style="color: var(--ink-secondary);">
-                Honest starting rates in ₹ for local shops, cafés, clinics, and startups across Hadapsar &amp; Pune.
+                Honest starting rates in ₹ for local shops, cafés, clinics, and startups across Hadapsar, Pune &amp; India.
               </p>
             </div>
           </div>
@@ -2185,7 +2189,7 @@
       </section>
 
       <!-- ====================================================================
-           7. ABOUT SECTION (HADAPSAR, PUNE + MANIPAL UNIVERSITY JAIPUR)
+           7. ABOUT SECTION (HADAPSAR, PUNE + REMOTE INDIA + MUJ)
            ==================================================================== -->
       <section id="about" class="section-block" style="background-color: var(--bg-atelier);">
         <div class="atelier-container">
@@ -2202,7 +2206,7 @@
                 Based in Hadapsar, Pune and pursuing my degree at Manipal University Jaipur, I’m actively building my skills, portfolio, and real-world experience—taking on select freelance web projects with full personal ownership.
               </p>
               <p class="mb-0" style="color: var(--ink-secondary);">
-                Instead of pretending to be a large agency, I keep things honest and direct: whether we meet locally in Pune or collaborate online, I combine modern AI-assisted workflows with hands-on coding and mobile testing so local businesses get reliable websites at fair rates.
+                Available for local projects across Pune and remote web development projects anywhere in India. Instead of pretending to be a large agency, I keep things honest and direct—combining modern AI-assisted workflows with hands-on coding and mobile testing so businesses get reliable websites at fair rates.
               </p>
             </div>
           </div>
@@ -2217,11 +2221,11 @@
           <div class="row align-items-end justify-content-between section-top-bar reveal-up">
             <div class="col-lg-7">
               <span class="mono-label d-block mb-2">06 / Contact</span>
-              <h2 class="section-heading mb-0">Ready to Launch in Pune? Let’s Talk Directly.</h2>
+              <h2 class="section-heading mb-0">Ready to Launch? Let’s Talk Directly.</h2>
             </div>
             <div class="col-lg-4 mt-3 mt-lg-0">
               <p class="mb-0" style="color: var(--ink-secondary);">
-                Available for local discussions around Hadapsar, Magarpatta, and Kharadi—or quick WhatsApp &amp; call consultations.
+                Available for local discussions around Hadapsar, Magarpatta, and Kharadi—or remote consultations anywhere in India.
               </p>
             </div>
           </div>
@@ -2307,10 +2311,10 @@
               <span>Noah<span style="color: var(--signal-amber);">Studio</span></span>
             </a>
             <p class="small mb-2" style="color: var(--ink-secondary); max-width: 320px;">
-              Freelance web design &amp; development in Hadapsar, Pune. Built by a student at Manipal University Jaipur.
+              Freelance web design &amp; development in Hadapsar, Pune &amp; across India. Built by a student at Manipal University Jaipur.
             </p>
             <p class="mono-label mb-0" style="font-size: 0.68rem; color: var(--ink-muted);">
-              HADAPSAR · PUNE · MAHARASHTRA
+              HADAPSAR · PUNE · REMOTE INDIA
             </p>
           </div>
 
